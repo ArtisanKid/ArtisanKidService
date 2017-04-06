@@ -2,12 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.artisankid</groupId>
-  <artifactId>ArtisanKidService</artifactId>
+  <artifactId>ElementWarService</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>ArtisanKidService Maven Webapp</name>
+  <name>ElementWarService Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+
     <!--日志包-->
     <dependency>
       <groupId>junit</groupId>
@@ -15,12 +16,6 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.21</version>
-    </dependency>
-
     <!--j2ee相关包 servlet、jsp、jstl-->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -56,6 +51,33 @@
       <artifactId>spring-webmvc</artifactId>
       <version>4.3.1.RELEASE</version>
     </dependency>
+    <!--MyBatis 包-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.4.2</version>
+    </dependency>
+
+    <!-- logback+slf4j -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.6.0</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>0.9.28</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>0.9.28</version>
+      <type>jar</type>
+    </dependency>
 
     <!--其他需要的包-->
     <dependency>
@@ -68,9 +90,11 @@
       <artifactId>commons-fileupload</artifactId>
       <version>1.3.1</version>
     </dependency>
+
   </dependencies>
+
   <build>
-    <finalName>ArtisanKidService</finalName>
+    <finalName>ElementWarService</finalName>
     <resources>
       <!--表示把java目录下的有关xml文件,properties文件编译/打包的时候放在resource目录下-->
       <resource>
