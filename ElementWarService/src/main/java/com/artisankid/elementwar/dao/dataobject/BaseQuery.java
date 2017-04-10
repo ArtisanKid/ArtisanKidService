@@ -1,4 +1,4 @@
-package com.artisankid.elementwar.common.dao.dataobject;
+package com.artisankid.elementwar.dao.dataobject;
 
 import java.io.Serializable;
 
