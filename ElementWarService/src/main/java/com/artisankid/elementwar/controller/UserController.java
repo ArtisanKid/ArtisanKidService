@@ -1,15 +1,12 @@
 package com.artisankid.elementwar.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.artisankid.elementwar.business.UserService;
 import com.artisankid.elementwar.dao.dataobject.UserDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by shaohua.wangshaohu on 2017/4/10.
@@ -23,12 +20,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value="/getUserById",method = RequestMethod.GET)
+    @RequestMapping(value = "/getUserById/{id}", method = RequestMethod.GET, produces = "text/json;charset=UTF-8")
     @ResponseBody
-    public String getUserById(){
+    public String getUserById(@PathVariable("id") Long id){
         logger.error("getUser start");
-        UserDO userDO = userService.getUserById(1L);
+        UserDO userDO = userService.getUserById(id);
         logger.error("getUser end");
-        return JSON.toJSONString(userDO);
+        return userDO.toString();
     }
 }

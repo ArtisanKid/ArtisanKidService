@@ -12,32 +12,65 @@ import java.util.List;
  */
 @Repository("userDAO")
 public class UserDAOImpl extends BaseDAO<UserDO> implements IUserDAO {
-
+    /**
+     * ≤Â»Î
+     * @param var1
+     * @return
+     */
     public int insert(UserDO var1) {
 
-        return this.executeInsert("user.insertUser",var1);
+        return this.executeInsert("users.insertUser",var1);
     }
 
+    /**
+     * update
+     *
+     * @param var1
+     * @return
+     */
     public int update(UserDO var1) {
 
-        return this.executeUpdate("user.updateUser",var1);
+        return this.executeUpdate("users.updateUser", var1);
     }
 
+    /**
+     * query one
+     *
+     * @param var1
+     * @return
+     */
     public UserDO select(Long var1) {
 
-        return this.executeQueryForObject("",var1);
+        return this.executeQueryForObject("users.selectUser",var1);
     }
 
+    /**
+     * query by page
+     *
+     * @param var1
+     * @return
+     */
     public List<UserDO> queryPage(UserQuery var1) {
 
         return this.executeQueryForList("",var1);
     }
 
+    /**
+     * query count
+     *
+     * @param var1
+     * @return
+     */
     public int queryPageCount(UserQuery var1) {
 
         return this.executeQuerySize("",var1);
     }
 
+    /**
+     * query List
+     * @param var1
+     * @return
+     */
     public List<UserDO> selectList(UserQuery var1) {
 
         return this.executeQueryForList("",var1);
