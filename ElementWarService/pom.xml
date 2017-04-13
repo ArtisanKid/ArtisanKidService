@@ -14,7 +14,6 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
-      <scope>test</scope>
     </dependency>
     <!--j2ee相关包 servlet、jsp、jstl-->
     <dependency>
@@ -116,10 +115,25 @@
       <artifactId>fastjson</artifactId>
       <version>1.2.4</version>
     </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+    </dependency>
 
   </dependencies>
 
   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>
     <finalName>ElementWarService</finalName>
     <resources>
       <!--表示把java目录下的有关xml文件,properties文件编译/打包的时候放在resource目录下-->
