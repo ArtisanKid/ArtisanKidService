@@ -1,4 +1,4 @@
-package com.artisankid.elementwar.controller;
+package com.artisankid.elementwar.controller.pojo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ public class TestController {
 
     private static Logger logger = LoggerFactory.getLogger(TestController.class);
 
-    @RequestMapping(value="/test",method = RequestMethod.GET)
+    @RequestMapping(value="/test.json",method = RequestMethod.GET)
     @ResponseBody
     public String testMethod(){
         logger.error("com.artisankid.elementwar.controller.TestController.testMethod");
