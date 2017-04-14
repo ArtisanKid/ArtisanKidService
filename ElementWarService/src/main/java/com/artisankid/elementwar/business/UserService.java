@@ -1,7 +1,7 @@
 package com.artisankid.elementwar.business;
 
-import com.artisankid.elementwar.dao.IUserDAO;
-import com.artisankid.elementwar.dao.dataobject.UserDO;
+import com.artisankid.elementwar.common.dbdao.IUserDAO;
+import com.artisankid.elementwar.common.dbdao.dataobject.UserDO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -1,7 +1,7 @@
 package com.artisankid.elementwar.controller;
 
 import com.artisankid.elementwar.business.UserService;
-import com.artisankid.elementwar.dao.dataobject.UserDO;
+import com.artisankid.elementwar.common.dbdao.dataobject.UserDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
