@@ -36,7 +36,7 @@ public class ScrollReactionsServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		List<Reaction> reactions = new ReactionDao().selectAll();
 		
-		ResponseClass<List<Reaction>> commonResponse = new ResponseClass<List<Reaction>>();
+		ResponseClass<List<Reaction>> commonResponse = new ResponseClass<>();
 		commonResponse.setData(reactions);
     	String json = new Gson().toJson(commonResponse);
     	response.getWriter().append(json);
