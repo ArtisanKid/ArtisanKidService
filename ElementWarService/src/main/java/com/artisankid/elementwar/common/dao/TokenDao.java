@@ -1,8 +1,11 @@
 package com.artisankid.elementwar.common.dao;
 
-import com.artisankid.elementwar.common.ewmodel.Reaction;
 import com.artisankid.elementwar.common.ewmodel.Token;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +16,7 @@ public class TokenDao {
 	 * @return
 	 */
 	public List<Token> selectAll() {
-		String sql = "SELECT * FROM User_Token";
+		String sql = "SELECT * FROM Magician_Token";
 		
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
@@ -25,30 +28,9 @@ public class TokenDao {
 			Token object = new Token();
 			object.setAccessToken((String) map.get("access_token"));
 			object.setRefreshToken((String) map.get("refresh_token"));
-			object.setExpiredTime((Double) map.get("access_token_expired_time"));
-			objects.add(object);
-		}
-		return objects;
-	}
-	
-	/**
-	 * 根据方程式ID查询反应类型对象
-	 * @return
-	 */
-	public List<Reaction> selectByFormulaID(String formulaID) {
-		String sql = "SELECT Reaction.reactionID, name FROM Formula_Reaction LEFT JOIN Reaction ON Formula_Reaction.reactionID = Reaction.reactionID WHERE formulaID = '"
-				+ formulaID + "';";
-		
-		DatabaseManager manager = new DatabaseManager();
-		manager.connection();
-		List<Map<String, Object>> result = manager.select(sql);
-		manager.close();
 
-		ArrayList<Reaction> objects = new ArrayList<Reaction>();
-		for (Map<String, Object> map : result) {
-			Reaction object = new Reaction();
-			object.setReactionID((String) map.get("reactionID"));
-			object.setName((String) map.get("name"));
+			Date access_token_expired_time = (Date)map.get("access_token_expired_time");
+			object.setExpiredTime(access_token_expired_time.getTime() / 1000.);
 			objects.add(object);
 		}
 		return objects;
@@ -60,7 +42,7 @@ public class TokenDao {
 	 * @return
 	 */
 	public Token selectByAccessToken(String accessToken) {
-		String sql = "SELECT * FROM User_Token WHERE access_token = '" + accessToken + "';";
+		String sql = "SELECT * FROM Magician_Token WHERE access_token = '" + accessToken + "';";
 		
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
@@ -74,7 +56,9 @@ public class TokenDao {
 		Token object = new Token();
 		object.setAccessToken((String) result.get("access_token"));
 		object.setRefreshToken((String) result.get("refresh_token"));
-		object.setExpiredTime((Double) result.get("access_token_expired_time"));
+
+		Date access_token_expired_time = (Date)result.get("access_token_expired_time");
+		object.setExpiredTime(access_token_expired_time.getTime() / 1000.);
 		return object;
 	}
 	
@@ -84,7 +68,7 @@ public class TokenDao {
 	 * @return
 	 */
 	public Token selectByRefreshToken(String refreshToken) {
-		String sql = "SELECT * FROM User_Token WHERE refresh_token = '" + refreshToken + "';";
+		String sql = "SELECT * FROM Magician_Token WHERE refresh_token = '" + refreshToken + "';";
 		
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
@@ -98,7 +82,9 @@ public class TokenDao {
 		Token object = new Token();
 		object.setAccessToken((String) result.get("access_token"));
 		object.setRefreshToken((String) result.get("refresh_token"));
-		object.setExpiredTime((Double) result.get("access_token_expired_time"));
+
+		Date access_token_expired_time = (Date)result.get("access_token_expired_time");
+		object.setExpiredTime(access_token_expired_time.getTime() / 1000.);
 		return object;
 	}
 	
@@ -108,12 +94,32 @@ public class TokenDao {
 	 * @return
 	 */
 	public boolean insert(String openID, Token object) {
-		double accessTokenExpiredTime = object.getExpiredTime();
-		double refreshTokenExpiredTime = accessTokenExpiredTime + 30 * 24 * 60 * 60;//refreshToken过期时间 天*小时*分钟*秒
-		String sql = "INSERT INTO User_Token (openID, access_token, access_token_expired_time, refresh_token, refresh_token_expired_time) VALUES ('" + openID + "', '" + object.getAccessToken() + "', '" + accessTokenExpiredTime +"', '" + object.getRefreshToken() +"', '" + refreshTokenExpiredTime +"');";
+		String sql = "INSERT INTO Magician_Token (openID, access_token, access_token_expired_time, refresh_token, refresh_token_expired_time) VALUES ('"
+				+ openID + "', '"
+				+ object.getAccessToken() + "', "
+				+ "?, '"
+				+ object.getRefreshToken() + "', "
+				+ "?);";
+
+		Long accessTokenExpiredTime = new Double((object.getExpiredTime() * 1000)).longValue();
+		final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
+
+		Long refreshTokenExpiredTime = accessTokenExpiredTime + 30 * 24 * 60 * 60 * 1000;//refreshToken过期时间 天*小时*分钟*秒
+		final Timestamp refreshTokenExpiredTimestamp = new Timestamp(refreshTokenExpiredTime);
+
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
-		boolean result = manager.insert(sql);
+		boolean result = manager.update(sql, new StatementHandler() {
+			@Override
+			public void supplyToStatement(PreparedStatement statement) {
+				try {
+					statement.setTimestamp(1, accessTokenExpiredTimestamp);
+					statement.setTimestamp(2, refreshTokenExpiredTimestamp);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		manager.close();
 		return result;
 	}
@@ -124,19 +130,39 @@ public class TokenDao {
 	 * @return
 	 */
 	public boolean update(String accessToken, Token object) {
-		double accessTokenExpiredTime = object.getExpiredTime();
-		double refreshTokenExpiredTime = accessTokenExpiredTime + 30 * 24 * 60 * 60;//refreshToken过期时间 天*小时*分钟*秒
-		String sql = "UPDATE User_Token SET access_token = '" + object.getAccessToken() + "', access_token_expired_time = '" + accessTokenExpiredTime + "', refresh_token = '"+ object.getRefreshToken() + "', refresh_token_expired_time = '" + refreshTokenExpiredTime + "' WHERE access_token = '" + accessToken + "';";
+		String sql = "UPDATE User_Token SET "
+				+ "access_token = '" + object.getAccessToken() + "', "
+				+ "access_token_expired_time = ?, "
+				+ "refresh_token = '" + object.getRefreshToken() + "', "
+				+ "refresh_token_expired_time = ? "
+				+ "WHERE access_token = '" + accessToken + "';";
+
+		Long accessTokenExpiredTime = new Double((object.getExpiredTime() * 1000)).longValue();
+		final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
+
+		Long refreshTokenExpiredTime = accessTokenExpiredTime + 30 * 24 * 60 * 60 * 1000;//refreshToken过期时间 天*小时*分钟*秒
+		final Timestamp refreshTokenExpiredTimestamp = new Timestamp(refreshTokenExpiredTime);
+
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
-		boolean result = manager.update(sql);
+		boolean result = manager.update(sql, new StatementHandler() {
+			@Override
+			public void supplyToStatement(PreparedStatement statement) {
+				try {
+					statement.setTimestamp(1, accessTokenExpiredTimestamp);
+					statement.setTimestamp(2, refreshTokenExpiredTimestamp);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		manager.close();
 		return result;
 	}
 	
 	/**
 	 * 删除指定accessToken的Token对象
-	 * @param object
+	 * @param accessToken
 	 * @return
 	 */
 	public boolean delete(String accessToken) {

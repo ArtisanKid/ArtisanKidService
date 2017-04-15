@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.common.ewmodel.Magician;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.UserDao;
 import com.artisankid.elementwar.common.ewmodel.User;
@@ -35,10 +36,10 @@ public class UserInformationServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String openID = request.getParameter("openID");
 		
-		User user = new UserDao().selectByOpenID(openID);
+		Magician magician = new UserDao().selectByOpenID(openID);
 		
-		ResponseClass<User> commonResponse = new ResponseClass<User>();
-		commonResponse.setData(user);
+		ResponseClass<Magician> commonResponse = new ResponseClass<>();
+		commonResponse.setData(magician);
     	String json = new Gson().toJson(commonResponse);
     	response.getWriter().append(json);
 	}

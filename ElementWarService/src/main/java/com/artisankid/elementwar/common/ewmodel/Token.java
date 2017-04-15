@@ -2,7 +2,7 @@ package com.artisankid.elementwar.common.ewmodel;
 
 public class Token {
 	private String accessToken;
-    private double expiredTime;
+    private Double  expiredTime;
     private String refreshToken;
     
     public String getAccessToken() {
@@ -13,11 +13,11 @@ public class Token {
         this.accessToken = accessToken;
     }
     
-    public double getExpiredTime() {
+    public Double getExpiredTime() {
         return expiredTime;
     }
 
-    public void setExpiredTime(double expiredTime) {
+    public void setExpiredTime(Double expiredTime) {
         this.expiredTime = expiredTime;
     }
     

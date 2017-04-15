@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.common.ewmodel.Magician;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.UserDao;
 import com.artisankid.elementwar.common.ewmodel.User;
@@ -37,9 +38,9 @@ public class ModifyNicknameServlet extends HttpServlet {
 		String nickname = request.getParameter("newNickname");
 		
 		UserDao dao = new UserDao();
-		User user = dao.selectByOpenID(openID);
-		user.setNickname(nickname);
-		dao.update(user);
+		Magician magician = dao.selectByOpenID(openID);
+		magician.setNickname(nickname);
+		dao.update(magician);
 		
 		ResponseClass<Object> commonResponse = new ResponseClass<>();
     	String json = new Gson().toJson(commonResponse);

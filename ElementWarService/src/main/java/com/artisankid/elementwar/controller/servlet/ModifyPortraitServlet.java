@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.common.ewmodel.Magician;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.UserDao;
-import com.artisankid.elementwar.common.ewmodel.User;
 import com.google.gson.Gson;
 
 /**
@@ -38,9 +38,9 @@ public class ModifyPortraitServlet extends HttpServlet {
 		String portrait = request.getParameter("portrait");
 		
 		UserDao dao = new UserDao();
-		User user = dao.selectByOpenID(openID);
-		user.setPortrait(portrait);
-		dao.update(user);
+		Magician magician = dao.selectByOpenID(openID);
+		magician.setPortrait(portrait);
+		dao.update(magician);
 		
 		HashMap<String, String> portraits = new HashMap<>();
 		//这里需要设置大中小三个头像url

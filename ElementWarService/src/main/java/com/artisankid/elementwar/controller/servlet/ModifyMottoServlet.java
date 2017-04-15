@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.common.ewmodel.Magician;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.UserDao;
 import com.artisankid.elementwar.common.ewmodel.User;
@@ -36,9 +37,9 @@ public class ModifyMottoServlet extends HttpServlet {
 		String motto = request.getParameter("newMotto");
 		
 		UserDao dao = new UserDao();
-		User user = dao.selectByOpenID(openID);
-		user.setMotto(motto);
-		dao.update(user);
+		Magician magician = dao.selectByOpenID(openID);
+		magician.setMotto(motto);
+		dao.update(magician);
 		
 		ResponseClass<Object> commonResponse = new ResponseClass<>();
     	String json = new Gson().toJson(commonResponse);

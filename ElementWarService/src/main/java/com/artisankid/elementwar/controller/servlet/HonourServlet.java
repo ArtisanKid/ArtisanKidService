@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.UserDao;
-import com.artisankid.elementwar.common.ewmodel.BaseUser;
+import com.artisankid.elementwar.common.ewmodel.BaseMagician;
+import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.google.gson.Gson;
 
 /**
@@ -40,9 +40,9 @@ public class HonourServlet extends HttpServlet {
 			pageSize = 20;
 		}
 		
-		List<BaseUser> users = new UserDao().selectByRank(offset, pageSize);
+		List<BaseMagician> users = new UserDao().selectByRank(offset, pageSize);
 		
-		ResponseClass<List<BaseUser>> commonResponse = new ResponseClass<List<BaseUser>>();
+		ResponseClass<List<BaseMagician>> commonResponse = new ResponseClass<>();
 		commonResponse.setData(users);
     	String json = new Gson().toJson(commonResponse);
     	response.getWriter().append(json);

@@ -1,18 +1,20 @@
 package com.artisankid.elementwar.controller.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.artisankid.elementwar.common.dao.TokenDao;
+import com.artisankid.elementwar.common.dao.UserDao;
+import com.artisankid.elementwar.common.ewmodel.Magician;
+import com.artisankid.elementwar.common.ewmodel.User;
+import com.artisankid.elementwar.common.ewmodel.User.LoginType;
+import com.artisankid.elementwar.common.ewmodel.Token;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
-import com.artisankid.elementwar.common.dao.FormulaDao;
-import com.artisankid.elementwar.common.dao.ScrollDao;
-import com.artisankid.elementwar.common.ewmodel.Formula;
-import com.artisankid.elementwar.common.ewmodel.Scroll;
 import com.google.gson.Gson;
 /**
  * Servlet implementation class LoginServlet
@@ -28,51 +30,46 @@ public class LoginServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
-//    @Override
-//    protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
-//    	// TODO Auto-generated method stub
-//    	super.service(arg0, arg1);
-//    	System.out.println(arg0.getParameter("name"));
-//    	System.out.println(arg0.getParameter("pwd"));
-//    	
-//    }
     
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		User user = new User();
+		user.setLoginType(LoginType.enumOf(Integer.parseInt(request.getParameter("platform"))));
+		user.setUnionID(request.getParameter("unionID"));
+		user.setOpenID(request.getParameter("openID"));
+		user.setNickname(request.getParameter("nickname"));
+		user.setPortrait(request.getParameter("portrait"));
+		user.setLargePortrait(request.getParameter("largePortrait"));
+		user.setSmallPortrait(request.getParameter("smallPortrait"));
+		user.setMobile(request.getParameter("mobile"));
+		user.setMotto(request.getParameter("motto"));
+
+		Token userToken = new Token();
+		userToken.setAccessToken(request.getParameter("accessToken"));
+		userToken.setRefreshToken(request.getParameter("refreshToken"));
+		userToken.setExpiredTime(Double.parseDouble(request.getParameter("expiredTime")));
+		user.setToken(userToken);
+
+		UserDao userDao = new UserDao();
+		String openID = userDao.insert(user);
+		Magician magician = userDao.selectByOpenID(openID);
+
+		Token magicianToken = new Token();
+		magicianToken.setAccessToken("123456");
+		magicianToken.setRefreshToken("654321");
+		magicianToken.setExpiredTime(System.currentTimeMillis() / 1000.);
+
+		TokenDao tokenDao = new TokenDao();
+		tokenDao.insert(openID, magicianToken);
+
+		magician.setToken(magicianToken);
 		
-		FormulaDao dao = new FormulaDao();
-		ArrayList<String> reactantIDs = new ArrayList<String>();
-		reactantIDs.add("2");
-		reactantIDs.add("11");
-		ArrayList<String> conditionIDs = new ArrayList<String>();
-		conditionIDs.add("2");
-		
-		Formula formula = dao.select(reactantIDs, conditionIDs);
-		
-		ScrollDao scrollDao = new ScrollDao();
-		Scroll scroll = scrollDao.selectByScrollID("1");
-		
-		//ArrayList<BaseUser> users = (ArrayList<BaseUser>)dao.selectByState(ConnectState.Online, 0, 10);
-//		System.out.println(users); 
-		
-		// TODO Auto-generated method stub		
-//		JSONObject object = new JSONObject();
-//		object.put("username", request.getParameter("name"));
-//		object.put("password", request.getParameter("pwd"));
-		
-    	ResponseClass<Scroll> response_1 = new ResponseClass<Scroll>();
-//    	response_1.setResponseTime(123123131);
-//    	response_1.setMessage("request successful");
-//    	response_1.setCode(1);
-//    	Level level = new Level();
-//    	level.setName("firstLevel");
-//    	level.setLevelID("1");
-    	response_1.setData(scroll);
-    	String json = new Gson().toJson(response_1);
-    	response.getWriter().append(json.toString());
+    	ResponseClass<Magician> commonResponse = new ResponseClass<>();
+		commonResponse.setData(magician);
+    	String json = new Gson().toJson(commonResponse);
+		response.getWriter().append(json);
 	}
 
 	/**

@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.common.ewmodel.BaseMagician;
+import com.artisankid.elementwar.common.ewmodel.BaseMagician.UserRelation;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.UserDao;
-import com.artisankid.elementwar.common.ewmodel.BaseUser;
-import com.artisankid.elementwar.common.ewmodel.BaseUser.UserRelation;
 import com.google.gson.Gson;
 
 /**
@@ -35,15 +35,16 @@ public class FriendsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String openID = request.getParameter("openID");
 		int offset = Integer.parseInt(request.getParameter("offset"));
 		int pageSize = Integer.parseInt(request.getParameter("pageSize"));
 		if(pageSize == 0) {
 			pageSize = 20;
 		}
 		
-		List<BaseUser> users = new UserDao().selectByRelation(UserRelation.Friend, offset, pageSize);
+		List<BaseMagician> users = new UserDao().selectByRelation(openID, UserRelation.Friend, offset, pageSize);
 		
-		ResponseClass<List<BaseUser>> commonResponse = new ResponseClass<List<BaseUser>>();
+		ResponseClass<List<BaseMagician>> commonResponse = new ResponseClass<>();
 		commonResponse.setData(users);
     	String json = new Gson().toJson(commonResponse);
     	response.getWriter().append(json);

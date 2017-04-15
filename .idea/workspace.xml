@@ -2,16 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18658e4b-460f-4140-b32e-fee23389661d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_21.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ElementWarService_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ElementWarService_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ElementWarService_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ElementWarService_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/StatementHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/BaseMagician.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/Magician.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/BaseUser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/BaseUser$ConnectState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/BaseUser$UserRelation.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/BaseUser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/TestController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/UserController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/index.jsp" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/BalanceDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/BalanceDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/CardDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/CardDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ConditionDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ConditionDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/DatabaseManager.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/DatabaseManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/EffectDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/EffectDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ElementDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ElementDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/EpicDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/EpicDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/FormulaDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/FormulaDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/LevelDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/LevelDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ReactionDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ReactionDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ScrollDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ScrollDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/TokenDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/TokenDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/UserDao$1.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/UserDao$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/UserDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/UserDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/VersionDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/VersionDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Token.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Token.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/User$LoginType.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/User$LoginType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/User.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/FriendsServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/FriendsServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/HonourServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/HonourServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/LoginServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/LoginServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/ModifyMottoServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/ModifyMottoServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/ModifyNicknameServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/ModifyNicknameServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/ModifyPortraitServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/ModifyPortraitServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/OpponentsServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/OpponentsServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/UserInformationServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/servlet/UserInformationServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/ElementWarService.iml" afterPath="$PROJECT_DIR$/ElementWarService/ElementWarService.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ScrollReactionsServlet.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ScrollReactionsServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/DatabaseManager.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/DatabaseManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/TokenDao.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/TokenDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/UserDao.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/UserDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/Token.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/Token.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/User.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/FriendsServlet.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/FriendsServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/HonourServlet.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/HonourServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/LoginServlet.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/LoginServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyMottoServlet.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyMottoServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyNicknameServlet.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyNicknameServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyPortraitServlet.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyPortraitServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/OpponentsServlet.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/OpponentsServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/UserInformationServlet.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/UserInformationServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/web.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/ElementWarService/target/" />
@@ -37,13 +78,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScrollReactionsServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ScrollReactionsServlet.java">
+      <file leaf-file-name="UserDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/UserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+            <state relative-caret-position="323">
+              <caret line="259" column="0" lean-forward="false" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#6637#6890#0" expanded="true" />
+                <element signature="e#6889#6890#0" expanded="true" />
+                <element signature="e#8912#9174#0" expanded="true" />
+                <element signature="e#9173#9174#0" expanded="true" />
+                <marker date="1492260282000" expanded="true" signature="5794:6377" ph="INSERT INTO missingValue... " />
               </folding>
             </state>
           </provider>
@@ -52,9 +98,27 @@
       <file leaf-file-name="LoginServlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/LoginServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1008">
-              <caret line="55" column="56" lean-forward="true" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
-              <folding />
+            <state relative-caret-position="477">
+              <caret line="66" column="41" lean-forward="false" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TokenDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/TokenDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="140" column="92" lean-forward="true" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="92" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3421#3727#0" expanded="true" />
+                <element signature="e#3726#3727#0" expanded="true" />
+                <element signature="e#4672#4978#0" expanded="true" />
+                <element signature="e#4977#4978#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,6 +148,23 @@
         <option value="$PROJECT_DIR$/ElementWarService/src/main/webapp/WEB-INF/spring.xml" />
         <option value="$PROJECT_DIR$/ElementWarService/pom.xml" />
         <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ScrollReactionsServlet.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/BaseUser.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/BaseMagician.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyNicknameServlet.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/HonourServlet.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/OpponentsServlet.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/FriendsServlet.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/UserInformationServlet.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyMottoServlet.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyPortraitServlet.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/User.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/Magician.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/Token.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/DatabaseManager.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/StatementHandler.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/TokenDao.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/LoginServlet.java" />
       </list>
     </option>
   </component>
@@ -203,8 +284,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -304,6 +383,40 @@
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArtisanKidService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElementWarService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elementwar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -335,9 +448,45 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArtisanKidService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElementWarService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elementwar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -347,6 +496,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.artisankid.elementwar.common.dao" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -984,12 +1138,14 @@
       <workItem from="1491109094514" duration="174000" />
       <workItem from="1492178249455" duration="5007000" />
       <workItem from="1492184281600" duration="1330000" />
-      <workItem from="1492218814147" duration="2442000" />
+      <workItem from="1492218814147" duration="2999000" />
+      <workItem from="1492232446422" duration="13415000" />
+      <workItem from="1492248063363" duration="10778000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21177000" />
+    <option name="totallyTimeSpent" value="45927000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1006,36 +1162,36 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31769437" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18669528" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18669528" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3994638" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23726542" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25608012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31769437" sideWeight="0.49713877" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5978552" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19027181" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31769437" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1045,7 +1201,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1058,17 +1216,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ScrollReactionsServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1122,13 +1270,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/webapp/WEB-INF/spring.xml" />
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/webapp/index.jsp" />
     <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/element/DemoController.java" />
     <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller.java" />
     <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/webapp/WEB-INF/spring.xml" />
@@ -1157,18 +1299,919 @@
     <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ScrollReactionsServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
-          <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+          <caret line="40" column="56" lean-forward="false" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/BaseUser.java" />
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/BalanceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/BindFriendsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/OpponentsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="44" column="74" lean-forward="false" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyNicknameServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="36" column="55" lean-forward="true" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/FriendsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="44" column="74" lean-forward="false" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/UserInformationServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyMottoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/HonourServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="36" column="68" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/ModifyPortraitServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="50" column="16" lean-forward="false" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/Effect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="29" column="9" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="29" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/BaseMagician.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#BaseMagician#0" expanded="false" />
+            <element signature="class#ConnectState#0;class#BaseMagician#0" expanded="false" />
+            <element signature="method#ConnectState#0;class#ConnectState#0;class#BaseMagician#0" expanded="false" />
+            <element signature="method#UserRelation#0;class#UserRelation#0;class#BaseMagician#0" expanded="false" />
+            <element signature="method#getUnionID#0;class#BaseMagician#0" expanded="false" />
+            <element signature="method#getOpenID#0;class#BaseMagician#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar!/javax/servlet/ServletRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/lang/Double.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="536" column="25" lean-forward="false" selection-start-line="536" selection-start-column="25" selection-end-line="536" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1514">
+          <caret line="211" column="6" lean-forward="false" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="180" column="16" lean-forward="false" selection-start-line="180" selection-start-column="11" selection-end-line="180" selection-end-column="16" />
+          <folding>
+            <element signature="docComment;class#User#0" expanded="false" />
+            <element signature="class#Gender#0;class#User#0" expanded="false" />
+            <element signature="method#Gender#0;class#Gender#0;class#User#0" expanded="false" />
+            <element signature="method#LoginType#0;class#LoginType#0;class#User#0" expanded="false" />
+            <element signature="e#3647#3648#0" expanded="false" />
+            <element signature="e#3675#3676#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/Magician.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1020">
+          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <element signature="docComment;class#Magician#0" expanded="false" />
+            <element signature="method#setAutoSynthesisPercent#0;class#Magician#0" expanded="false" />
+            <element signature="e#1922#1923#0" expanded="false" />
+            <element signature="e#1954#1955#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/util/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="879">
+          <caret line="1027" column="18" lean-forward="false" selection-start-line="1027" selection-start-column="18" selection-end-line="1027" selection-end-column="18" />
+          <folding>
+            <element signature="docComment;class#Date#0" expanded="false" />
+            <element signature="docComment;method#Date#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#Date#1;class#Date#0" expanded="false" />
+            <element signature="docComment;method#Date#2;class#Date#0" expanded="false" />
+            <element signature="docComment;method#Date#3;class#Date#0" expanded="false" />
+            <element signature="docComment;method#Date#4;class#Date#0" expanded="false" />
+            <element signature="method#Date#4;class#Date#0" expanded="false" />
+            <element signature="docComment;method#Date#5;class#Date#0" expanded="false" />
+            <element signature="docComment;method#clone#0;class#Date#0" expanded="false" />
+            <element signature="method#clone#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#UTC#0;class#Date#0" expanded="false" />
+            <element signature="method#UTC#0;class#Date#0" expanded="false" />
+            <element signature="e#13194#13255#0" expanded="false" />
+            <element signature="docComment;method#parse#0;class#Date#0" expanded="false" />
+            <element signature="method#parse#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#getYear#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#setYear#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#getMonth#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#setMonth#0;class#Date#0" expanded="false" />
+            <element signature="method#setMonth#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#getDate#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#setDate#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#getDay#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#getHours#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#setHours#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#getMinutes#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#setMinutes#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#getSeconds#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#setSeconds#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#getTime#0;class#Date#0" expanded="false" />
+            <element signature="method#getTimeImpl#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#setTime#0;class#Date#0" expanded="false" />
+            <element signature="method#setTime#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#before#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#after#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#equals#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#getMillisOf#0;class#Date#0" expanded="false" />
+            <element signature="method#getMillisOf#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#compareTo#0;class#Date#0" expanded="false" />
+            <element signature="method#compareTo#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#hashCode#0;class#Date#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Date#0" expanded="false" />
+            <element signature="method#toString#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#convertToAbbr#0;class#Date#0" expanded="false" />
+            <element signature="method#convertToAbbr#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#toLocaleString#0;class#Date#0" expanded="false" />
+            <element signature="method#toLocaleString#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#toGMTString#0;class#Date#0" expanded="false" />
+            <element signature="method#toGMTString#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#getTimezoneOffset#0;class#Date#0" expanded="false" />
+            <element signature="method#getTimezoneOffset#0;class#Date#0" expanded="false" />
+            <element signature="method#getCalendarDate#0;class#Date#0" expanded="false" />
+            <element signature="method#normalize#0;class#Date#0" expanded="false" />
+            <element signature="e#50735#50795#0" expanded="false" />
+            <element signature="e#50939#50999#0" expanded="false" />
+            <element signature="method#normalize#1;class#Date#0" expanded="false" />
+            <element signature="e#51741#51801#0" expanded="false" />
+            <element signature="e#53141#53199#0" expanded="false" />
+            <element signature="docComment;method#getCalendarSystem#0;class#Date#0" expanded="false" />
+            <element signature="method#getCalendarSystem#0;class#Date#0" expanded="false" />
+            <element signature="method#getCalendarSystem#1;class#Date#0" expanded="false" />
+            <element signature="e#54090#54152#0" expanded="false" />
+            <element signature="method#getCalendarSystem#2;class#Date#0" expanded="false" />
+            <element signature="method#getJulianCalendar#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#writeObject#0;class#Date#0" expanded="false" />
+            <element signature="method#writeObject#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#readObject#0;class#Date#0" expanded="false" />
+            <element signature="method#readObject#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#from#0;class#Date#0" expanded="false" />
+            <element signature="method#from#0;class#Date#0" expanded="false" />
+            <element signature="docComment;method#toInstant#0;class#Date#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/lang/AutoCloseable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-601">
+          <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/sql/Wrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-304">
+          <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/sql/Statement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="42" column="39" lean-forward="false" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+          <folding>
+            <element signature="docComment;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeUpdate#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#close#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getMaxFieldSize#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#setMaxFieldSize#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getMaxRows#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#setMaxRows#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#setEscapeProcessing#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getQueryTimeout#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#setQueryTimeout#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#cancel#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getWarnings#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#clearWarnings#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#setCursorName#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#execute#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getResultSet#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getUpdateCount#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getMoreResults#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#setFetchDirection#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getFetchDirection#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#setFetchSize#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getFetchSize#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getResultSetConcurrency#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getResultSetType#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#addBatch#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#clearBatch#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeBatch#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;field#CLOSE_CURRENT_RESULT#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;field#KEEP_CURRENT_RESULT#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;field#CLOSE_ALL_RESULTS#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;field#SUCCESS_NO_INFO#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;field#EXECUTE_FAILED#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;field#RETURN_GENERATED_KEYS#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;field#NO_GENERATED_KEYS#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getMoreResults#1;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getGeneratedKeys#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeUpdate#1;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeUpdate#2;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeUpdate#3;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#execute#1;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#execute#2;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#execute#3;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getResultSetHoldability#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#isClosed#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#setPoolable#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#isPoolable#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#closeOnCompletion#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#isCloseOnCompletion#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getLargeUpdateCount#0;class#Statement#0" expanded="false" />
+            <element signature="method#getLargeUpdateCount#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#setLargeMaxRows#0;class#Statement#0" expanded="false" />
+            <element signature="method#setLargeMaxRows#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#getLargeMaxRows#0;class#Statement#0" expanded="false" />
+            <element signature="method#getLargeMaxRows#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeLargeBatch#0;class#Statement#0" expanded="false" />
+            <element signature="method#executeLargeBatch#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeLargeUpdate#0;class#Statement#0" expanded="false" />
+            <element signature="method#executeLargeUpdate#0;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeLargeUpdate#1;class#Statement#0" expanded="false" />
+            <element signature="method#executeLargeUpdate#1;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeLargeUpdate#2;class#Statement#0" expanded="false" />
+            <element signature="method#executeLargeUpdate#2;class#Statement#0" expanded="false" />
+            <element signature="docComment;method#executeLargeUpdate#3;class#Statement#0" expanded="false" />
+            <element signature="method#executeLargeUpdate#3;class#Statement#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/sql/Array.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="105" column="2" lean-forward="false" selection-start-line="105" selection-start-column="2" selection-end-line="105" selection-end-column="2" />
+          <folding>
+            <element signature="docComment;class#Array#0" expanded="false" />
+            <element signature="docComment;method#getBaseTypeName#0;class#Array#0" expanded="false" />
+            <element signature="docComment;method#getBaseType#0;class#Array#0" expanded="false" />
+            <element signature="docComment;method#getArray#0;class#Array#0" expanded="false" />
+            <element signature="docComment;method#getArray#1;class#Array#0" expanded="false" />
+            <element signature="docComment;method#getArray#2;class#Array#0" expanded="false" />
+            <element signature="docComment;method#getArray#3;class#Array#0" expanded="false" />
+            <element signature="docComment;method#getResultSet#0;class#Array#0" expanded="false" />
+            <element signature="docComment;method#getResultSet#1;class#Array#0" expanded="false" />
+            <element signature="docComment;method#getResultSet#2;class#Array#0" expanded="false" />
+            <element signature="docComment;method#getResultSet#3;class#Array#0" expanded="false" />
+            <element signature="docComment;method#free#0;class#Array#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-177">
+          <caret line="70" column="13" lean-forward="false" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;class#Arrays#0" expanded="false" />
+            <element signature="docComment;field#MIN_ARRAY_SORT_GRAN#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;class#NaturalOrder#0;class#Arrays#0" expanded="false" />
+            <element signature="class#NaturalOrder#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#rangeCheck#0;class#Arrays#0" expanded="false" />
+            <element signature="method#rangeCheck#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#1;class#Arrays#0" expanded="false" />
+            <element signature="method#sort#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#3;class#Arrays#0" expanded="false" />
+            <element signature="method#sort#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#5;class#Arrays#0" expanded="false" />
+            <element signature="method#sort#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#7;class#Arrays#0" expanded="false" />
+            <element signature="method#sort#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#8;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#9;class#Arrays#0" expanded="false" />
+            <element signature="method#sort#9;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#10;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#11;class#Arrays#0" expanded="false" />
+            <element signature="method#sort#11;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#12;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#13;class#Arrays#0" expanded="false" />
+            <element signature="method#sort#13;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#0;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#1;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#2;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#3;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#4;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#5;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#6;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#7;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#8;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#8;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#9;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#9;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#10;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#10;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#11;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#11;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#12;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#12;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#13;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#13;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#14;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#14;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#15;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#15;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#16;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#16;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSort#17;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSort#17;class#Arrays#0" expanded="false" />
+            <element signature="docComment;class#LegacyMergeSort#0;class#Arrays#0" expanded="false" />
+            <element signature="class#LegacyMergeSort#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#14;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#legacyMergeSort#0;class#Arrays#0" expanded="false" />
+            <element signature="method#legacyMergeSort#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#15;class#Arrays#0" expanded="false" />
+            <element signature="method#sort#15;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#legacyMergeSort#1;class#Arrays#0" expanded="false" />
+            <element signature="method#legacyMergeSort#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;field#INSERTIONSORT_THRESHOLD#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#mergeSort#0;class#Arrays#0" expanded="false" />
+            <element signature="method#mergeSort#0;class#Arrays#0" expanded="false" />
+            <element signature="e#65631#65700#0" expanded="false" />
+            <element signature="docComment;method#swap#0;class#Arrays#0" expanded="false" />
+            <element signature="method#swap#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#16;class#Arrays#0" expanded="false" />
+            <element signature="method#sort#16;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#legacyMergeSort#2;class#Arrays#0" expanded="false" />
+            <element signature="method#legacyMergeSort#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#sort#17;class#Arrays#0" expanded="false" />
+            <element signature="method#sort#17;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#legacyMergeSort#3;class#Arrays#0" expanded="false" />
+            <element signature="method#legacyMergeSort#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#mergeSort#1;class#Arrays#0" expanded="false" />
+            <element signature="method#mergeSort#1;class#Arrays#0" expanded="false" />
+            <element signature="e#74646#74715#0" expanded="false" />
+            <element signature="docComment;method#parallelPrefix#0;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelPrefix#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelPrefix#1;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelPrefix#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelPrefix#2;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelPrefix#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelPrefix#3;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelPrefix#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelPrefix#4;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelPrefix#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelPrefix#5;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelPrefix#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelPrefix#6;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelPrefix#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelPrefix#7;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelPrefix#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#1;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch#1;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch0#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#3;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch#3;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch0#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#5;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch#5;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch0#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#7;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch#7;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch0#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#8;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#9;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch#9;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch0#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#10;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#11;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch#11;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch0#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#12;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#13;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch#13;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch0#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#14;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#15;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch#15;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch0#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#16;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch#16;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#binarySearch#17;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch#17;class#Arrays#0" expanded="false" />
+            <element signature="method#binarySearch0#8;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#equals#0;class#Arrays#0" expanded="false" />
+            <element signature="method#equals#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#equals#1;class#Arrays#0" expanded="false" />
+            <element signature="method#equals#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#equals#2;class#Arrays#0" expanded="false" />
+            <element signature="method#equals#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#equals#3;class#Arrays#0" expanded="false" />
+            <element signature="method#equals#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#equals#4;class#Arrays#0" expanded="false" />
+            <element signature="method#equals#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#equals#5;class#Arrays#0" expanded="false" />
+            <element signature="method#equals#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#equals#6;class#Arrays#0" expanded="false" />
+            <element signature="method#equals#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#equals#7;class#Arrays#0" expanded="false" />
+            <element signature="method#equals#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#equals#8;class#Arrays#0" expanded="false" />
+            <element signature="method#equals#8;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#0;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#1;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#2;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#3;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#4;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#5;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#6;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#7;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#8;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#8;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#9;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#9;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#10;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#10;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#11;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#11;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#12;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#12;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#13;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#13;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#14;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#14;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#15;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#15;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#16;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#16;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#fill#17;class#Arrays#0" expanded="false" />
+            <element signature="method#fill#17;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOf#0;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOf#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOf#1;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOf#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOf#2;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOf#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOf#3;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOf#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOf#4;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOf#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOf#5;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOf#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOf#6;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOf#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOf#7;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOf#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOf#8;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOf#8;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOf#9;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOf#9;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOfRange#0;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOfRange#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOfRange#1;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOfRange#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOfRange#2;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOfRange#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOfRange#3;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOfRange#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOfRange#4;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOfRange#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOfRange#5;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOfRange#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOfRange#6;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOfRange#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOfRange#7;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOfRange#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOfRange#8;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOfRange#8;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#copyOfRange#9;class#Arrays#0" expanded="false" />
+            <element signature="method#copyOfRange#9;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#asList#0;class#Arrays#0" expanded="false" />
+            <element signature="e#176922#176934#0" expanded="false" />
+            <element signature="docComment;class#ArrayList#0;class#Arrays#0" expanded="false" />
+            <element signature="class#ArrayList#0;class#Arrays#0" expanded="false" />
+            <element signature="e#177602#177611#0" expanded="false" />
+            <element signature="method#toArray#1;class#ArrayList#0;class#Arrays#0" expanded="false" />
+            <element signature="method#set#0;class#ArrayList#0;class#Arrays#0" expanded="false" />
+            <element signature="method#indexOf#0;class#ArrayList#0;class#Arrays#0" expanded="false" />
+            <element signature="method#forEach#0;class#ArrayList#0;class#Arrays#0" expanded="false" />
+            <element signature="method#replaceAll#0;class#ArrayList#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#hashCode#0;class#Arrays#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#hashCode#1;class#Arrays#0" expanded="false" />
+            <element signature="method#hashCode#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#hashCode#2;class#Arrays#0" expanded="false" />
+            <element signature="method#hashCode#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#hashCode#3;class#Arrays#0" expanded="false" />
+            <element signature="method#hashCode#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#hashCode#4;class#Arrays#0" expanded="false" />
+            <element signature="method#hashCode#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#hashCode#5;class#Arrays#0" expanded="false" />
+            <element signature="method#hashCode#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#hashCode#6;class#Arrays#0" expanded="false" />
+            <element signature="method#hashCode#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#hashCode#7;class#Arrays#0" expanded="false" />
+            <element signature="method#hashCode#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#hashCode#8;class#Arrays#0" expanded="false" />
+            <element signature="method#hashCode#8;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#deepHashCode#0;class#Arrays#0" expanded="false" />
+            <element signature="method#deepHashCode#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#deepEquals#0;class#Arrays#0" expanded="false" />
+            <element signature="method#deepEquals#0;class#Arrays#0" expanded="false" />
+            <element signature="method#deepEquals0#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#toString#0;class#Arrays#0" expanded="false" />
+            <element signature="method#toString#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#toString#1;class#Arrays#0" expanded="false" />
+            <element signature="method#toString#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#toString#2;class#Arrays#0" expanded="false" />
+            <element signature="method#toString#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#toString#3;class#Arrays#0" expanded="false" />
+            <element signature="method#toString#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#toString#4;class#Arrays#0" expanded="false" />
+            <element signature="method#toString#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#toString#5;class#Arrays#0" expanded="false" />
+            <element signature="method#toString#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#toString#6;class#Arrays#0" expanded="false" />
+            <element signature="method#toString#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#toString#7;class#Arrays#0" expanded="false" />
+            <element signature="method#toString#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#toString#8;class#Arrays#0" expanded="false" />
+            <element signature="method#toString#8;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#deepToString#0;class#Arrays#0" expanded="false" />
+            <element signature="method#deepToString#0;class#Arrays#0" expanded="false" />
+            <element signature="method#deepToString#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#setAll#0;class#Arrays#0" expanded="false" />
+            <element signature="method#setAll#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSetAll#0;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSetAll#0;class#Arrays#0" expanded="false" />
+            <element signature="e#211095#211134#0" expanded="false" />
+            <element signature="docComment;method#setAll#1;class#Arrays#0" expanded="false" />
+            <element signature="method#setAll#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSetAll#1;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSetAll#1;class#Arrays#0" expanded="false" />
+            <element signature="e#212652#212696#0" expanded="false" />
+            <element signature="docComment;method#setAll#2;class#Arrays#0" expanded="false" />
+            <element signature="method#setAll#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSetAll#2;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSetAll#2;class#Arrays#0" expanded="false" />
+            <element signature="e#214226#214271#0" expanded="false" />
+            <element signature="docComment;method#setAll#3;class#Arrays#0" expanded="false" />
+            <element signature="method#setAll#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#parallelSetAll#3;class#Arrays#0" expanded="false" />
+            <element signature="method#parallelSetAll#3;class#Arrays#0" expanded="false" />
+            <element signature="e#215811#215858#0" expanded="false" />
+            <element signature="docComment;method#spliterator#0;class#Arrays#0" expanded="false" />
+            <element signature="method#spliterator#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#spliterator#1;class#Arrays#0" expanded="false" />
+            <element signature="method#spliterator#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#spliterator#2;class#Arrays#0" expanded="false" />
+            <element signature="method#spliterator#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#spliterator#3;class#Arrays#0" expanded="false" />
+            <element signature="method#spliterator#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#spliterator#4;class#Arrays#0" expanded="false" />
+            <element signature="method#spliterator#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#spliterator#5;class#Arrays#0" expanded="false" />
+            <element signature="method#spliterator#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#spliterator#6;class#Arrays#0" expanded="false" />
+            <element signature="method#spliterator#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#spliterator#7;class#Arrays#0" expanded="false" />
+            <element signature="method#spliterator#7;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#stream#0;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#stream#1;class#Arrays#0" expanded="false" />
+            <element signature="method#stream#1;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#stream#2;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#stream#3;class#Arrays#0" expanded="false" />
+            <element signature="method#stream#3;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#stream#4;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#stream#5;class#Arrays#0" expanded="false" />
+            <element signature="method#stream#5;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#stream#6;class#Arrays#0" expanded="false" />
+            <element signature="docComment;method#stream#7;class#Arrays#0" expanded="false" />
+            <element signature="method#stream#7;class#Arrays#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/Token.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/sql/PreparedStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="60" column="45" lean-forward="true" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
+          <folding>
+            <element signature="docComment;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#executeUpdate#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setNull#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setBoolean#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setByte#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setShort#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setInt#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setLong#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setFloat#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setDouble#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setBigDecimal#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setString#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setBytes#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setDate#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setTime#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setAsciiStream#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setUnicodeStream#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setBinaryStream#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#clearParameters#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="e#17661#17733#0" expanded="false" />
+            <element signature="docComment;method#setObject#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setObject#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#execute#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#addBatch#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setCharacterStream#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setRef#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setBlob#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setClob#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setArray#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#getMetaData#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setDate#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setTime#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setTimestamp#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setNull#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setURL#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#getParameterMetaData#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setRowId#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setNString#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setNCharacterStream#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setNClob#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setClob#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setBlob#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setNClob#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setSQLXML#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setObject#2;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setAsciiStream#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setBinaryStream#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setCharacterStream#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setAsciiStream#2;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setBinaryStream#2;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setCharacterStream#2;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setNCharacterStream#1;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setClob#2;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setBlob#2;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setNClob#2;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setObject#3;class#PreparedStatement#0" expanded="false" />
+            <element signature="method#setObject#3;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#setObject#4;class#PreparedStatement#0" expanded="false" />
+            <element signature="method#setObject#4;class#PreparedStatement#0" expanded="false" />
+            <element signature="docComment;method#executeLargeUpdate#0;class#PreparedStatement#0" expanded="false" />
+            <element signature="method#executeLargeUpdate#0;class#PreparedStatement#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/sql/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="137" column="38" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="38" />
+          <folding>
+            <element signature="docComment;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#prepareCall#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#nativeSQL#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setAutoCommit#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#getAutoCommit#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#commit#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#rollback#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#close#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#isClosed#0;class#Connection#0" expanded="false" />
+            <element signature="e#13191#13263#0" expanded="false" />
+            <element signature="docComment;method#getMetaData#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setReadOnly#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#isReadOnly#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setCatalog#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#getCatalog#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;field#TRANSACTION_NONE#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;field#TRANSACTION_READ_UNCOMMITTED#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;field#TRANSACTION_READ_COMMITTED#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;field#TRANSACTION_REPEATABLE_READ#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;field#TRANSACTION_SERIALIZABLE#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setTransactionIsolation#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#getTransactionIsolation#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#getWarnings#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#clearWarnings#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#createStatement#1;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#prepareStatement#1;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#prepareCall#1;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#getTypeMap#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setTypeMap#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setHoldability#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#getHoldability#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setSavepoint#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setSavepoint#1;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#rollback#1;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#releaseSavepoint#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#createStatement#2;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#prepareStatement#2;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#prepareCall#2;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#prepareStatement#3;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#prepareStatement#4;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#prepareStatement#5;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#createClob#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#createBlob#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#createNClob#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#createSQLXML#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#isValid#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setClientInfo#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setClientInfo#1;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#getClientInfo#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#getClientInfo#1;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#createArrayOf#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#createStruct#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setSchema#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#getSchema#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#abort#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#setNetworkTimeout#0;class#Connection#0" expanded="false" />
+            <element signature="docComment;method#getNetworkTimeout#0;class#Connection#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="75" column="50" lean-forward="true" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/sql/Timestamp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/StatementHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/TokenDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="140" column="92" lean-forward="true" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="92" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3421#3727#0" expanded="true" />
+            <element signature="e#3726#3727#0" expanded="true" />
+            <element signature="e#4672#4978#0" expanded="true" />
+            <element signature="e#4977#4978#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="259" column="0" lean-forward="false" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6637#6890#0" expanded="true" />
+            <element signature="e#6889#6890#0" expanded="true" />
+            <element signature="e#8912#9174#0" expanded="true" />
+            <element signature="e#9173#9174#0" expanded="true" />
+            <marker date="1492260282000" expanded="true" signature="5794:6377" ph="INSERT INTO missingValue... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="55" column="56" lean-forward="true" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
-          <folding />
+        <state relative-caret-position="477">
+          <caret line="66" column="41" lean-forward="false" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

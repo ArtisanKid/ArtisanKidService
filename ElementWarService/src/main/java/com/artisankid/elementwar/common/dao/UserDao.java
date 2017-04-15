@@ -1,11 +1,17 @@
 package com.artisankid.elementwar.common.dao;
 
-import com.artisankid.elementwar.common.ewmodel.BaseUser;
-import com.artisankid.elementwar.common.ewmodel.BaseUser.ConnectState;
-import com.artisankid.elementwar.common.ewmodel.BaseUser.UserRelation;
 import com.artisankid.elementwar.common.ewmodel.User;
+import com.artisankid.elementwar.common.ewmodel.Magician;
+import com.artisankid.elementwar.common.ewmodel.BaseMagician;
+import com.artisankid.elementwar.common.ewmodel.BaseMagician.ConnectState;
+import com.artisankid.elementwar.common.ewmodel.BaseMagician.UserRelation;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,24 +24,26 @@ public class UserDao {
 	 * @param pageSize
 	 * @return
 	 */
-	public List<BaseUser> selectByState(ConnectState state, int offset, int pageSize) {
-		String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM User WHERE connect_state = '" + state.getValue()
+	public List<BaseMagician> selectByState(ConnectState state, int offset, int pageSize) {
+		String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM User LEFT JOIN Magician ON User.userID = Magician.userID WHERE connect_state = '" + state.getValue()
 		+ "' LIMIT " + offset + "," + pageSize + ";";
-		return this.selectUsersBySQL(sql);
+		return this.selectMagiciansBySQL
+
+				(sql);
 	}
 	
 	/**
 	 * 根据连接状态查询用户
 	 * 
-	 * @param state
+	 * @param openID
+	 * @param relation
 	 * @param offset
 	 * @param pageSize
 	 * @return
 	 */
-	public List<BaseUser> selectByRelation(UserRelation relation, int offset, int pageSize) {
-		String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM User WHERE connect_state = '" + relation.getValue()
-		+ "' LIMIT " + offset + "," + pageSize + ";";
-		return this.selectUsersBySQL(sql);
+	public List<BaseMagician> selectByRelation(String openID, UserRelation relation, int offset, int pageSize) {
+		String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM User LEFT JOIN Magician ON User.userID = Magician.userID WHERE openID IN (SELECT openID FROM Magician_Magician WHERE openID = '" + openID + "' AND relation = '" + relation.getValue() + "' ORDER BY create_time LIMIT " + offset + "," + pageSize + ") ORDER BY create_time;";
+		return this.selectMagiciansBySQL(sql);
 	}
 
 	/**
@@ -43,24 +51,22 @@ public class UserDao {
 	 * 
 	 * @param offset
 	 * @param pageSize
-	 * @param state
 	 * @return
 	 */
-	public List<BaseUser> selectByRank(int offset, int pageSize) {
-		String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM User ORDER BY rank DESC LIMIT "
-				+ offset + "," + pageSize + ";";
-		return this.selectUsersBySQL(sql);
+	public List<BaseMagician> selectByRank(int offset, int pageSize) {
+		String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM User LEFT JOIN Magician ON User.userID = Magician.userID ORDER BY rank DESC LIMIT " + offset + "," + pageSize + ";";
+		return this.selectMagiciansBySQL(sql);
 	}
 
-	public List<BaseUser> selectUsersBySQL(String sql) {
+	public List<BaseMagician> selectMagiciansBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		List<Map<String, Object>> result = manager.select(sql);
 		manager.close();
 
-		ArrayList<BaseUser> objects = new ArrayList<BaseUser>();
+		List<BaseMagician> objects = new ArrayList<>();
 		for (Map<String, Object> map : result) {
-			BaseUser object = new BaseUser();
+			BaseMagician object = new BaseMagician();
 			object.setOpenID((String) map.get("openID"));
 			object.setNickname((String) map.get("nickname"));
 			object.setSmallPortrait((String) map.get("small_portrait"));
@@ -71,31 +77,29 @@ public class UserDao {
 		return objects;
 	}
 
-	/**
+	/*
 	 * 根据openID和登录平台查询用户
 	 * 
 	 * @param openID
-	 * @param type
 	 * @return
 	 */
-	public User selectByOpenID(String openID) {
-		String sql = "SELECT * FROM User WHERE openID = '" + openID + "';";
-		return this.selectUserBySQL(sql);
+	public Magician selectByOpenID(String openID) {
+		String sql = "SELECT * FROM User LEFT JOIN Magician ON User.userID = Magician.userID WHERE openID = '" + openID + "';";
+		return this.selectMagicianBySQL(sql);
 	}
 
 	/**
 	 * 根据昵称查询用户
 	 * 
-	 * @param openID
-	 * @param type
+	 * @param nickname
 	 * @return
 	 */
-	public User selectByNickname(String nickname) {
-		String sql = "SELECT * FROM User WHERE nickname = " + nickname + ";";
-		return this.selectUserBySQL(sql);
+	public Magician selectByNickname(String nickname) {
+		String sql = "SELECT * FROM User LEFT JOIN Magician ON User.userID = Magician.userID WHERE nickname = '" + nickname + "';";
+		return this.selectMagicianBySQL(sql);
 	}
 
-	public User selectUserBySQL(String sql) {
+	public Magician selectMagicianBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		Map<String, Object> result = manager.selectOne(sql);
@@ -105,7 +109,7 @@ public class UserDao {
 			return null;
 		}
 
-		User object = new User();
+		Magician object = new Magician();
 		object.setOpenID((String) result.get("openID"));
 		object.setNickname((String) result.get("nickname"));
 		object.setSmallPortrait((String) result.get("small_portrait"));
@@ -115,23 +119,37 @@ public class UserDao {
 		object.setPortrait((String) result.get("portrait"));
 		object.setLargePortrait((String) result.get("large_portrait"));
 		object.setMobile((String) result.get("mobile"));
-		object.setBirthday((Double) result.get("birthday"));
+
+		Date birthday = (Date)result.get("birthday");
+		object.setBirthday(birthday.getTime() / 1000.);
 		object.setMotto((String) result.get("motto"));
-		object.setWinPercent((Double) result.get("win_percent"));
-		object.setManSynthesisPercent((Double) result.get("man_synthesis_percent"));
-		object.setAutoSynthesisPercent((Double) result.get("auto_synthesis_percent"));
-		object.setRank((Integer) result.get("rank"));
+
+		int win_count = (Integer)result.get("win_count");
+		int lose_count = (Integer)result.get("lose_count");
+		int total_play_count = win_count + lose_count;
+		if(total_play_count > 0) {
+			object.setWinPercent(win_count / total_play_count);
+		}
+
+		long man_synthesis_count = (Long)result.get("man_synthesis_count");
+		long auto_synthesis_count = (Long)result.get("auto_synthesis_count");
+		long total_synthesis_count = auto_synthesis_count + auto_synthesis_count;
+		if(total_synthesis_count > 0) {
+			object.setManSynthesisPercent(man_synthesis_count / total_synthesis_count);
+			object.setAutoSynthesisPercent(auto_synthesis_count / total_synthesis_count);
+		}
+		object.setRank((Long) result.get("rank"));
 
 		return object;
 	}
 
 	/**
-	 * 添加新用户
+	 * 添加联合登录用户
 	 * 
 	 * @param user
-	 * @return
+	 * @return 返回联合登录用户对应的openID
 	 */
-	public boolean insert(User user) {
+	public String insert(User user) {
 		//添加的联合登录用户
 		String thirdPartyUserTable = null;
 		switch (user.getLoginType()) {
@@ -148,63 +166,153 @@ public class UserDao {
 		default:
 			break;
 		}
-		String insertThirdPartyUserSQL = "INSERT INTO " +  thirdPartyUserTable + " (openID, nickname, portrait, small_portrait, large_portrait, mobile, motto, access_token, access_token_expired_time, refresh_token) VALUES ('"
-				+ user.getOpenID() + "','" + user.getNickname() + "','" + user.getPortrait() + "','"
-				+ user.getSmallPortrait() + "','" + user.getLargePortrait() + "','" + user.getMobile() + "','"
-				+ user.getMotto() + "', '" + user.getToken().getAccessToken() + "', '" + user.getToken().getExpiredTime() + "', '" + user.getToken().getRefreshToken()
-				+ "');";
 
-		String openID = User.createUniqueOpenID();
-
-		String insertUserSQL = "INSERT INTO User (openID, nickname, portrait, small_portrait, large_portrait, mobile, motto) VALUES ('"
-				+ openID + "','" + user.getNickname() + "','" + user.getPortrait() + "','"
-				+ user.getSmallPortrait() + "','" + user.getLargePortrait() + "','" + user.getMobile() + "','"
-				+ "', '" + user.getMotto()
-				+ "');";
-
-		String insertUserUnionSQL = "INSERT INTO User_Union (openID, third_party_openID, login_type) VALUES ('"
-				+ openID + "','" + user.getOpenID() + "','" + user.getLoginType().getValue()
-				+ "');";
+		//将要返回的openID
+		String openID;
 
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
-		boolean insertThirdPartyUserResult = manager.insert(insertThirdPartyUserSQL);
-		boolean insertUserResult = manager.insert(insertUserSQL);
-		boolean insertUserUnionResult = manager.insert(insertUserUnionSQL);
+
+		String selectUserSQL = "SELECT userID FROM User_Union WHERE unionID = '" + user.getUnionID()+ "' AND platform = '" + user.getLoginType().getValue() + "';";
+		List<Map<String, Object>> userResult = manager.select(selectUserSQL);
+		if(userResult.size() == 0) {
+			//表示此三方账号没有登陆过平台
+			//插入联合登录用户
+			//创建userID
+			//创建openID
+			String insertUnionUserSQL = "INSERT INTO " +  thirdPartyUserTable + " (unionID, openID, nickname, portrait, small_portrait, large_portrait, mobile, motto, access_token, access_token_expired_time, refresh_token) VALUES ('"
+					+ user.getUnionID() + "', '"
+					+ user.getOpenID() + "', '"
+					+ user.getNickname() + "', '"
+					+ user.getPortrait() + "', '"
+					+ user.getSmallPortrait() + "', '"
+					+ user.getLargePortrait() + "', '"
+					+ user.getMobile() + "', '"
+					+ user.getMotto() + "', '"
+					+ user.getToken().getAccessToken() + "', "
+					+ "?, '"
+					+ user.getToken().getRefreshToken() + "');";
+			Long accessTokenExpiredTime = new Double(user.getToken().getExpiredTime() * 1000).longValue();
+			final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
+			boolean insertUnionUserResult = manager.update(insertUnionUserSQL, new StatementHandler() {
+				@Override
+				public void supplyToStatement(PreparedStatement statement) {
+					try {
+						statement.setTimestamp(1, accessTokenExpiredTimestamp);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			});
+
+			String userID = "这里需要一个新的userID";
+			String insertUserSQL = "INSERT INTO User (userID, nickname, portrait, small_portrait, large_portrait, mobile, motto) VALUES ('"
+					+ userID + "', '"
+					+ user.getNickname() + "', '"
+					+ user.getPortrait() + "', '"
+					+ user.getSmallPortrait() + "', '"
+					+ user.getLargePortrait() + "', '"
+					+ user.getMobile() + "', '"
+					+ user.getMotto() + "');";
+			boolean insertUserResult = manager.insert(insertUserSQL);
+
+			openID = "这里需要一个新的openID";
+			String insertMagicianSQL = "INSERT INTO Magician (userID, openID) VALUES ('" + userID + "', '" + openID + "');";
+			boolean insertMagicianResult = manager.insert(insertMagicianSQL);
+
+			if(insertUnionUserResult && insertUserResult && insertMagicianResult) {
+
+			}
+		} else {
+			//表示此三方账号登陆过平台
+			String userID = (String)userResult.get(0).get("userID");
+			String selectMagicianSQL = "SELECT openID FROM Magician WHERE userID = '" + userID + "';";
+			List<Map<String, Object>> magicianResult = manager.select(selectMagicianSQL);
+			if(magicianResult.size() == 0) {
+				//表示此三方账号没有登陆过应用
+				//更新联合登录用户
+				//创建openID
+				String updateUnionUserSQL = "UPDATE " +  thirdPartyUserTable + " SET "
+						+ "openID = '" + user.getOpenID() + "', "
+						+ "nickname = '" + user.getNickname() + "', "
+						+ "portrait = '" + user.getPortrait() + "', "
+						+ "getSmallPortrait = '" + user.getSmallPortrait() + "', "
+						+ "large_portrait = '" + user.getLargePortrait() + "', "
+						+ "mobile = '" + user.getMobile() + "', "
+						+ "access_token = '" + user.getToken().getAccessToken() + "', "
+						+ "access_token_expired_time = ?, "
+						+ "refresh_token = '" + user.getToken().getRefreshToken() + "' "
+						+ "WHERE unionID = '" + user.getUnionID() + "';";
+
+				Long accessTokenExpiredTime = new Double(user.getToken().getExpiredTime() * 1000).longValue();
+				final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
+				boolean updateUnionUserResult = manager.update(updateUnionUserSQL, new StatementHandler() {
+					@Override
+					public void supplyToStatement(PreparedStatement statement) {
+						try {
+							statement.setTimestamp(1, accessTokenExpiredTimestamp);
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
+				});
+
+				openID = "这里需要一个新的openID";
+				String insertMagicianSQL = "INSERT INTO Magician (userID, openID) VALUES ('" + userID + "', '" + openID + "');";
+				boolean insertMagicianResult = manager.insert(insertMagicianSQL);
+
+				if(updateUnionUserResult && insertMagicianResult) {
+
+				}
+			} else {
+				//表示此三方账号登陆过应用
+				openID = (String)magicianResult.get(0).get("openID");
+			}
+		}
 		manager.close();
-		return insertThirdPartyUserResult && insertUserResult && insertUserUnionResult;
+		return openID;
 	}
 
 	/**
 	 * 更新用户信息
 	 * 
-	 * @param user
+	 * @param magician
 	 * @return
 	 */
-	public boolean update(User user) {
-		String sql = "UPDATE User SET nickname = '" + user.getNickname() + "', portrait = '" + user.getPortrait()
-		+ "', small_portrait = '" + user.getSmallPortrait() + "', large_portrait = '" + user.getLargePortrait()
-		+ "', mobile = '" + user.getMobile() + "', strength = '"
-		+ user.getStrength() + "', honor = '" + user.getHonor() + "', motto = '" + user.getMotto()
-		+ "' WHERE openID = '" + user.getOpenID() + "';";
+	public boolean update(Magician magician) {
+		String updateUserSQL = "UPDATE User SET "
+				+ "nickname = '" + magician.getNickname() + "', "
+				+ "portrait = '" + magician.getPortrait() + "', "
+				+ "small_portrait = '" + magician.getSmallPortrait() + "', "
+				+ "large_portrait = '" + magician.getLargePortrait() + "', "
+				+ "mobile = '" + magician.getMobile() + "' "
+				+ "WHERE userID = (SELECT userID FROM Magician WHERE openID = '" + magician.getOpenID() + "');";
+
+		String updateMagicianSQL = "UPDATE Magician SET "
+				+ "strength = '" + magician.getStrength() + "', "
+				+ "honor = '" + magician.getHonor() + "' "
+				+ "WHERE openID = '" + magician.getOpenID() + "';";
 
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
-		boolean result = manager.insert(sql);
+		boolean updateUserResult = manager.update(updateUserSQL);
+		boolean updateMagicianResult = manager.update(updateMagicianSQL);
 		manager.close();
-		return result;
+		return updateUserResult && updateMagicianResult;
 	}
 
 	/**
 	 * 插入用户关系
 	 * 
-	 * @param userID
-	 * @param targetUserID
+	 * @param openID
+	 * @param targetOpenID
 	 * @param relation
 	 * @return
 	 */
 	public boolean insertRelation(String openID, String targetOpenID, UserRelation relation) {
-		String sql = "INSERT INTO User (openID, ref_openID, type) VALUES ('" + openID + "','" + targetOpenID + "','"
+		String sql = "INSERT INTO Magician_Relation (openID, ref_openID, type) VALUES ('"
+				+ openID + "', '"
+				+ targetOpenID + "', '"
 				+ relation.getValue() + "');";
 
 		DatabaseManager manager = new DatabaseManager();
@@ -217,14 +325,15 @@ public class UserDao {
 	/**
 	 * 更新用户关系
 	 * 
-	 * @param userID
-	 * @param targetUserID
+	 * @param openID
+	 * @param targetOpenID
 	 * @param relation
 	 * @return
 	 */
-	public boolean updateRelation(String openID, String targetOpenID, User.UserRelation relation) {
-		String sql = "UPDATE User SET type = '" + relation + "' WHERE openID = '" + openID + "' AND ref_openID = '"
-				+ targetOpenID + "';";
+	public boolean updateRelation(String openID, String targetOpenID, UserRelation relation) {
+		String sql = "UPDATE Magician_Relation SET "
+				+ "type = '" + relation.getValue() + "' "
+				+ "WHERE openID = '" + openID + "' AND ref_openID = '" + targetOpenID + "';";
 
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();

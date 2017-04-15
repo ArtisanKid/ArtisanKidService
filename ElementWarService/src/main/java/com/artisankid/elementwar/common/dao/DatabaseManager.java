@@ -2,17 +2,19 @@ package com.artisankid.elementwar.common.dao;
 
 import com.mysql.jdbc.ResultSetMetaData;
 
+import java.io.InputStream;
+import java.io.Reader;
+import java.math.BigDecimal;
+import java.net.URL;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.Date;
+import java.util.*;
 
 public class DatabaseManager {
 	Connection connection = null;
 	Statement statement = null;
 	
-    public void connection() {
+    public Connection connection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             
@@ -25,6 +27,7 @@ public class DatabaseManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return connection;
     }
     
     public List<Map<String, Object>> select(String sql) {
@@ -58,17 +61,19 @@ public class DatabaseManager {
 		if(size == 0) {
 			return null;
 		}
-		
+
 		Map<String, Object> map = result.get(size - 1);
     	return map;
 	}
-    
-    public boolean insert(String sql) {
+
+    public boolean update(String sql, StatementHandler handler) {
     	System.out.println(sql);
-    	
+
     	boolean result = false;
     	try {
-			int count = statement.executeUpdate(sql);
+    		PreparedStatement statement = connection.prepareStatement(sql);
+			handler.supplyToStatement(statement);
+			int count = statement.executeUpdate();
 			System.out.println("插入" + count + "条数据");
 			if(count > 0) {
 				result = true;
@@ -78,10 +83,26 @@ public class DatabaseManager {
 		}
     	return result;
 	}
-    
+
+	public boolean insert(String sql) {
+		System.out.println(sql);
+
+		boolean result = false;
+		try {
+			int count = statement.executeUpdate(sql);
+			System.out.println("插入" + count + "条数据");
+			if(count > 0) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
     public boolean update(String sql) {
     	System.out.println(sql);
-    	
+
     	boolean result = false;
     	try {
 			int count = statement.executeUpdate(sql);
