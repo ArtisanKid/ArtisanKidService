@@ -30,7 +30,7 @@ public class TokenDao {
 			object.setRefreshToken((String) map.get("refresh_token"));
 
 			Date access_token_expired_time = (Date)map.get("access_token_expired_time");
-			object.setExpiredTime(access_token_expired_time.getTime() / 1000.);
+			object.setExpiredTime(access_token_expired_time.getTime());
 			objects.add(object);
 		}
 		return objects;
@@ -58,7 +58,7 @@ public class TokenDao {
 		object.setRefreshToken((String) result.get("refresh_token"));
 
 		Date access_token_expired_time = (Date)result.get("access_token_expired_time");
-		object.setExpiredTime(access_token_expired_time.getTime() / 1000.);
+		object.setExpiredTime(access_token_expired_time.getTime());
 		return object;
 	}
 	
@@ -84,7 +84,7 @@ public class TokenDao {
 		object.setRefreshToken((String) result.get("refresh_token"));
 
 		Date access_token_expired_time = (Date)result.get("access_token_expired_time");
-		object.setExpiredTime(access_token_expired_time.getTime() / 1000.);
+		object.setExpiredTime(access_token_expired_time.getTime());
 		return object;
 	}
 	
@@ -101,7 +101,7 @@ public class TokenDao {
 				+ object.getRefreshToken() + "', "
 				+ "?);";
 
-		Long accessTokenExpiredTime = new Double((object.getExpiredTime() * 1000)).longValue();
+		Long accessTokenExpiredTime = object.getExpiredTime();
 		final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
 
 		Long refreshTokenExpiredTime = accessTokenExpiredTime + 30 * 24 * 60 * 60 * 1000;//refreshToken过期时间 天*小时*分钟*秒
@@ -129,15 +129,15 @@ public class TokenDao {
 	 * @param object
 	 * @return
 	 */
-	public boolean update(String accessToken, Token object) {
+	public boolean update(Token object) {
 		String sql = "UPDATE User_Token SET "
 				+ "access_token = '" + object.getAccessToken() + "', "
 				+ "access_token_expired_time = ?, "
 				+ "refresh_token = '" + object.getRefreshToken() + "', "
 				+ "refresh_token_expired_time = ? "
-				+ "WHERE access_token = '" + accessToken + "';";
+				+ "WHERE refresh_token = '" + object.getRefreshToken() + "';";
 
-		Long accessTokenExpiredTime = new Double((object.getExpiredTime() * 1000)).longValue();
+		Long accessTokenExpiredTime = object.getExpiredTime();
 		final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
 
 		Long refreshTokenExpiredTime = accessTokenExpiredTime + 30 * 24 * 60 * 60 * 1000;//refreshToken过期时间 天*小时*分钟*秒

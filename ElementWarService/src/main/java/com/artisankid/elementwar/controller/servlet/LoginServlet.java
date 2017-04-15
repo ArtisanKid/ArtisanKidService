@@ -49,7 +49,8 @@ public class LoginServlet extends HttpServlet {
 		Token userToken = new Token();
 		userToken.setAccessToken(request.getParameter("accessToken"));
 		userToken.setRefreshToken(request.getParameter("refreshToken"));
-		userToken.setExpiredTime(Double.parseDouble(request.getParameter("expiredTime")));
+		Double userTokenExpiredTime = Double.parseDouble(request.getParameter("expiredTime")) * 1000;
+		userToken.setExpiredTime(userTokenExpiredTime.longValue());
 		user.setToken(userToken);
 
 		UserDao userDao = new UserDao();
@@ -59,7 +60,8 @@ public class LoginServlet extends HttpServlet {
 		Token magicianToken = new Token();
 		magicianToken.setAccessToken("123456");
 		magicianToken.setRefreshToken("654321");
-		magicianToken.setExpiredTime(System.currentTimeMillis() / 1000.);
+		Long magicianTokenExpiredTime = System.currentTimeMillis() + 24 * 60 * 60 * 1000;
+		magicianToken.setExpiredTime(magicianTokenExpiredTime);
 
 		TokenDao tokenDao = new TokenDao();
 		tokenDao.insert(openID, magicianToken);
@@ -79,5 +81,4 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

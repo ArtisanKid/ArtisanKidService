@@ -7,7 +7,7 @@ public class Magician extends BaseMagician {
     private String portrait;
     private String largePortrait;
     private String mobile;
-    private double birthday;
+    private Long birthday;
     private String motto;
     private double winPercent;
     private double manSynthesisPercent;
@@ -40,11 +40,11 @@ public class Magician extends BaseMagician {
         this.mobile = mobile;
     }
 
-    public double getBirthday() {
+    public Long getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(double birthday) {
+    public void setBirthday(Long birthday) {
         this.birthday = birthday;
     }
 

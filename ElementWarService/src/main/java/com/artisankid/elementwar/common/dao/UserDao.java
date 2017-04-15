@@ -121,7 +121,7 @@ public class UserDao {
 		object.setMobile((String) result.get("mobile"));
 
 		Date birthday = (Date)result.get("birthday");
-		object.setBirthday(birthday.getTime() / 1000.);
+		object.setBirthday(birthday.getTime());
 		object.setMotto((String) result.get("motto"));
 
 		int win_count = (Integer)result.get("win_count");
@@ -162,7 +162,6 @@ public class UserDao {
 		case Weibo:
 			thirdPartyUserTable = "WeiboUser";
 			break;
-
 		default:
 			break;
 		}
@@ -192,8 +191,8 @@ public class UserDao {
 					+ user.getToken().getAccessToken() + "', "
 					+ "?, '"
 					+ user.getToken().getRefreshToken() + "');";
-			Long accessTokenExpiredTime = new Double(user.getToken().getExpiredTime() * 1000).longValue();
-			final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
+
+			final Timestamp accessTokenExpiredTimestamp = new Timestamp(user.getToken().getExpiredTime());
 			boolean insertUnionUserResult = manager.update(insertUnionUserSQL, new StatementHandler() {
 				@Override
 				public void supplyToStatement(PreparedStatement statement) {
@@ -216,15 +215,42 @@ public class UserDao {
 					+ user.getMotto() + "');";
 			boolean insertUserResult = manager.insert(insertUserSQL);
 
+			String insertUserUnionSQL = "INSERT INTO User_Union (userID, unionID, platform) VALUES ('" + userID + "', '" + user.getUnionID() + "', '" + user.getLoginType().getValue() + "');";
+			boolean insertUserUnionResult = manager.insert(insertUserUnionSQL);
+
 			openID = "这里需要一个新的openID";
 			String insertMagicianSQL = "INSERT INTO Magician (userID, openID) VALUES ('" + userID + "', '" + openID + "');";
 			boolean insertMagicianResult = manager.insert(insertMagicianSQL);
 
-			if(insertUnionUserResult && insertUserResult && insertMagicianResult) {
+			if(insertUnionUserResult && insertUserResult && insertUserUnionResult && insertMagicianResult) {
 
 			}
 		} else {
 			//表示此三方账号登陆过平台
+			String updateUnionUserSQL = "UPDATE " +  thirdPartyUserTable + " SET "
+					+ "openID = '" + user.getOpenID() + "', "
+					+ "nickname = '" + user.getNickname() + "', "
+					+ "portrait = '" + user.getPortrait() + "', "
+					+ "getSmallPortrait = '" + user.getSmallPortrait() + "', "
+					+ "large_portrait = '" + user.getLargePortrait() + "', "
+					+ "mobile = '" + user.getMobile() + "', "
+					+ "access_token = '" + user.getToken().getAccessToken() + "', "
+					+ "access_token_expired_time = ?, "
+					+ "refresh_token = '" + user.getToken().getRefreshToken() + "' "
+					+ "WHERE unionID = '" + user.getUnionID() + "';";
+
+			final Timestamp accessTokenExpiredTimestamp = new Timestamp(user.getToken().getExpiredTime());
+			boolean updateUnionUserResult = manager.update(updateUnionUserSQL, new StatementHandler() {
+				@Override
+				public void supplyToStatement(PreparedStatement statement) {
+					try {
+						statement.setTimestamp(1, accessTokenExpiredTimestamp);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			});
+
 			String userID = (String)userResult.get(0).get("userID");
 			String selectMagicianSQL = "SELECT openID FROM Magician WHERE userID = '" + userID + "';";
 			List<Map<String, Object>> magicianResult = manager.select(selectMagicianSQL);
@@ -232,31 +258,6 @@ public class UserDao {
 				//表示此三方账号没有登陆过应用
 				//更新联合登录用户
 				//创建openID
-				String updateUnionUserSQL = "UPDATE " +  thirdPartyUserTable + " SET "
-						+ "openID = '" + user.getOpenID() + "', "
-						+ "nickname = '" + user.getNickname() + "', "
-						+ "portrait = '" + user.getPortrait() + "', "
-						+ "getSmallPortrait = '" + user.getSmallPortrait() + "', "
-						+ "large_portrait = '" + user.getLargePortrait() + "', "
-						+ "mobile = '" + user.getMobile() + "', "
-						+ "access_token = '" + user.getToken().getAccessToken() + "', "
-						+ "access_token_expired_time = ?, "
-						+ "refresh_token = '" + user.getToken().getRefreshToken() + "' "
-						+ "WHERE unionID = '" + user.getUnionID() + "';";
-
-				Long accessTokenExpiredTime = new Double(user.getToken().getExpiredTime() * 1000).longValue();
-				final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
-				boolean updateUnionUserResult = manager.update(updateUnionUserSQL, new StatementHandler() {
-					@Override
-					public void supplyToStatement(PreparedStatement statement) {
-						try {
-							statement.setTimestamp(1, accessTokenExpiredTimestamp);
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}
-					}
-				});
-
 				openID = "这里需要一个新的openID";
 				String insertMagicianSQL = "INSERT INTO Magician (userID, openID) VALUES ('" + userID + "', '" + openID + "');";
 				boolean insertMagicianResult = manager.insert(insertMagicianSQL);
