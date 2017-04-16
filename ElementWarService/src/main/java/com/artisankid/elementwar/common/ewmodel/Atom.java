@@ -5,14 +5,14 @@ package com.artisankid.elementwar.common.ewmodel;
  */
 
 public class Atom extends Element{
-    private int radius;
+    private Integer radius;
     private String color;
 
-    public int getRadius() {
+    public Integer getRadius() {
         return radius;
     }
 
-    public void setRadius(int radius) {
+    public void setRadius(Integer radius) {
         this.radius = radius;
     }
 

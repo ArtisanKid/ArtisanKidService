@@ -34,10 +34,10 @@ public class ScrollReactionsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<Reaction> reactions = new ReactionDao().selectAll();
+		List<Reaction> objects = new ReactionDao().selectAll();
 		
 		ResponseClass<List<Reaction>> commonResponse = new ResponseClass<>();
-		commonResponse.setData(reactions);
+		commonResponse.setData(objects);
     	String json = new Gson().toJson(commonResponse);
     	response.getWriter().append(json);
 	}

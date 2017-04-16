@@ -52,7 +52,7 @@ public class Element {
     private String ename;
     private String dim2;
     private String dim3;
-    private int weight;
+    private Integer weight;
     private String detail;
 
     public String getElementID() {
@@ -111,11 +111,11 @@ public class Element {
         this.dim3 = dim3;
     }
 
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

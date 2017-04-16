@@ -1,5 +1,10 @@
 package com.artisankid.elementwar.controller.servlet;
 
+import com.artisankid.elementwar.common.dao.TokenDao;
+import com.artisankid.elementwar.common.ewmodel.Token;
+import com.artisankid.elementwar.ewmodel.ResponseClass;
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +32,14 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String accessToken = request.getParameter("accessToken");
+
+		TokenDao tokenDao = new TokenDao();
+		tokenDao.delete(accessToken);
+
+		ResponseClass<Object> commonResponse = new ResponseClass<>();
+		String json = new Gson().toJson(commonResponse);
+		response.getWriter().append(json);
 	}
 
 	/**
@@ -37,5 +49,4 @@ public class LogoutServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

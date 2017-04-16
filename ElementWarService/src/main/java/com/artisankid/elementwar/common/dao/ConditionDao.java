@@ -14,20 +14,7 @@ public class ConditionDao {
 	 */
 	public List<Condition> selectAll() {
 		String sql = "SELECT * FROM ElementWar.Condition";
-
-		DatabaseManager manager = new DatabaseManager();
-		manager.connection();
-		List<Map<String, Object>> result = manager.select(sql);
-		manager.close();
-
-		ArrayList<Condition> objects = new ArrayList<Condition>();
-		for (Map<String, Object> map : result) {
-			Condition object = new Condition();
-			object.setConditionID((String) map.get("conditionD"));
-			object.setName((String) map.get("name"));
-			objects.add(object);
-		}
-		return objects;
+		return selectSQL(sql);
 	}
 	
 	/**
@@ -36,22 +23,26 @@ public class ConditionDao {
 	 * @return
 	 */
 	public List<Condition> selectByFormulaID(String formulaID) {
-		String sql = "SELECT Condition.conditionID, name FROM Formula_Condition LEFT JOIN ElementWar.Condition ON Formula_Condition.conditionID = Condition.conditionID WHERE formulaID = '"
-				+ formulaID + "';";
+		String sql = "SELECT * FROM ElementWar.Condition WHERE conditionID IN (SELECT conditionID FROM Formula_Condition WHERE formulaID = '"
+				+ formulaID + "');";
+		return selectSQL(sql);
+	}
 
+	private List<Condition> selectSQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
-		List<Map<String, Object>> result = manager.select(sql);
+		List<Map<String, Object>> resultList = manager.select(sql);
 		manager.close();
 
-		ArrayList<Condition> objects = new ArrayList<Condition>();
-		for (Map<String, Object> map : result) {
+		ArrayList<Condition> objectList = new ArrayList<>();
+		for (Map<String, Object> result : resultList) {
 			Condition object = new Condition();
-			object.setConditionID((String) map.get("conditionD"));
-			object.setName((String) map.get("name"));
-			objects.add(object);
+			object.setConditionID(result.get("conditionID").toString());
+			object.setCname(result.get("cname").toString());
+			object.setEname(result.get("ename").toString());
+			objectList.add(object);
 		}
-		return objects;
+		return objectList;
 	}
 
 	/**
@@ -73,8 +64,9 @@ public class ConditionDao {
 		}
 
 		Condition object = new Condition();
-		object.setConditionID((String) result.get("conditionID"));
-		object.setName((String) result.get("name"));
+		object.setConditionID(result.get("conditionD").toString());
+		object.setCname(result.get("cname").toString());
+		object.setEname(result.get("ename").toString());
 		return object;
 	}
 	
@@ -84,8 +76,10 @@ public class ConditionDao {
 	 * @return
 	 */
 	public boolean insert(Condition object) {
-		String sql = "INSERT INTO ElementWar.Condition (conditionID, name) VALUES ('" + object.getConditionID() + "', '"
-				+ object.getName() + "');";
+		String sql = "INSERT INTO ElementWar.Condition (conditionID, cname, ename) VALUES ('"
+				+ object.getConditionID() + "', '"
+				+ object.getEname() + "', '"
+				+ object.getEname() + "');";
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.insert(sql);
@@ -99,7 +93,10 @@ public class ConditionDao {
 	 * @return
 	 */
 	public boolean update(Condition object) {
-		String sql = "UPDATE ElementWar.Condition SET name = '" + object.getName() + "' WHERE conditionID = '" + object.getConditionID() + "';";
+		String sql = "UPDATE ElementWar.Condition SET "
+				+ "cname = '" + object.getCname() + "' "
+				+ "ename = '" + object.getEname() + "' "
+				+ "WHERE conditionID = '" + object.getConditionID() + "';";
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.update(sql);
@@ -109,7 +106,7 @@ public class ConditionDao {
 	
 	/**
 	 * 删除Condition对象
-	 * @param object
+	 * @param conditionID
 	 * @return
 	 */
 	public boolean delete(String conditionID) {

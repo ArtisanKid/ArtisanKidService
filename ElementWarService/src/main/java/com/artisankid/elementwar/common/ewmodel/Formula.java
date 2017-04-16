@@ -49,7 +49,7 @@ public class Formula {
     }
 
     public void setResultants(List<Balance> resultants) {
-        this.reactants = resultants;
+        this.resultants = resultants;
     }
     
     public String getPhenomenon() {

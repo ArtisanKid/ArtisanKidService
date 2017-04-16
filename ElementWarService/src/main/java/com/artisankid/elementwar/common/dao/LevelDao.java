@@ -16,14 +16,15 @@ public class LevelDao {
 
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
-		List<Map<String, Object>> result = manager.select(sql);
+		List<Map<String, Object>> resultList = manager.select(sql);
 		manager.close();
 
 		ArrayList<Level> objects = new ArrayList<Level>();
-		for (Map<String, Object> map : result) {
+		for (Map<String, Object> result : resultList) {
 			Level object = new Level();
-			object.setLevelID((String) map.get("levelID"));
-			object.setName((String) map.get("name"));
+			object.setLevelID(result.get("levelID").toString());
+			object.setCname(result.get("cname").toString());
+			object.setEname(result.get("ename").toString());
 			objects.add(object);
 		}
 		return objects;
@@ -47,8 +48,9 @@ public class LevelDao {
 		}
 		
 		Level object = new Level();
-		object.setLevelID((String) result.get("levelID"));
-		object.setName((String) result.get("name"));
+		object.setLevelID(result.get("levelID").toString());
+		object.setCname(result.get("cname").toString());
+		object.setEname(result.get("ename").toString());
 		return object;
 	}
 	
@@ -58,7 +60,11 @@ public class LevelDao {
 	 * @return
 	 */
 	public boolean insert(Level object) {
-		String sql = "INSERT INTO Level (levelID, name) VALUES ('" + object.getLevelID() + "', '" + object.getName() + "');";
+		String sql = "INSERT INTO Level (levelID, cname, ename) VALUES ('"
+				+ object.getLevelID() + "', '"
+				+ object.getCname() + "', '"
+				+ object.getEname() + "');";
+
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.insert(sql);
@@ -72,7 +78,11 @@ public class LevelDao {
 	 * @return
 	 */
 	public boolean update(Level object) {
-		String sql = "UPDATE Level SET name = '" + object.getName() + "' WHERE levelID = '" + object.getLevelID() + "';";
+		String sql = "UPDATE Level SET "
+				+ "cname = '" + object.getCname() + "' "
+				+ "ename = '" + object.getEname() + "' "
+				+ "WHERE levelID = '" + object.getLevelID() + "';";
+
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.update(sql);
@@ -82,7 +92,7 @@ public class LevelDao {
 	
 	/**
 	 * 删除Level对象
-	 * @param object
+	 * @param levelID
 	 * @return
 	 */
 	public boolean delete(String levelID) {

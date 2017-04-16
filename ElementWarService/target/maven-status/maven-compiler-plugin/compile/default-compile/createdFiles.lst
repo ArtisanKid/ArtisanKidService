@@ -1,0 +1,9 @@
+com/artisankid/elementwar/controller/servlet/ConditionsServlet.class
+com/artisankid/elementwar/common/ewmodel/Effect.class
+com/artisankid/elementwar/common/dao/RoomDao.class
+com/artisankid/elementwar/common/dao/EffectDao.class
+com/artisankid/elementwar/controller/Test/InsertEffectServlet.class
+com/artisankid/elementwar/controller/servlet/ScrollsServlet.class
+com/artisankid/elementwar/common/ewmodel/Effect$EffectType.class
+com/artisankid/elementwar/common/dao/ScrollDao.class
+com/artisankid/elementwar/common/ewmodel/Scroll.class

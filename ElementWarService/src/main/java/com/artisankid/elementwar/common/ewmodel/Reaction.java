@@ -6,7 +6,8 @@ package com.artisankid.elementwar.common.ewmodel;
 
 public class Reaction {
     private String reactionID;
-    private String name;
+    private String cname;
+    private String ename;
 
     public String getReactionID() {
         return reactionID;
@@ -16,11 +17,19 @@ public class Reaction {
         this.reactionID = reactionID;
     }
 
-    public String getName() {
-        return name;
+    public String getCname() {
+        return cname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCname(String name) {
+        this.cname = name;
+    }
+
+    public String getEname() {
+        return ename;
+    }
+
+    public void setEname(String name) {
+        this.ename = name;
     }
 }

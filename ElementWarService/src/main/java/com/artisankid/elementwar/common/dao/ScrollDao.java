@@ -9,8 +9,6 @@ import java.util.Map;
 public class ScrollDao {
 	/**
 	 * 根据分段查询卷轴
-	 * @param levelID
-	 * @param reactionID
 	 * @param offset
 	 * @param pageSize
 	 * @return
@@ -29,7 +27,7 @@ public class ScrollDao {
 	public List<BaseScroll> select(String levelID, String reactionID) {
 		if(levelID.length() == 0
 				|| reactionID.length() == 0) {
-			return new ArrayList<BaseScroll>();
+			return new ArrayList<>();
 		}
 
 		String sql = "SELECT scrollID, name, witticism FROM Scroll LEFT JOIN Formula_Reaction ON Scroll.formulaID = Formula_Reaction.formulaID WHERE levelID = '" + levelID + "' AND reactionID = '" + reactionID + "';";
@@ -38,14 +36,19 @@ public class ScrollDao {
 
 	/**
 	 * 根据关键字查询卷轴
-	 * @param effectID
+	 *
+	 * @param levelID
+	 * @param reactionID
+	 * @param keyword
+	 * @param offset
+	 * @param pageSize
 	 * @return
 	 */
 	public List<BaseScroll> selectByKeyword(String levelID, String reactionID, String keyword, int offset, int pageSize) {
 		if(levelID.length() == 0
 				&& reactionID.length() == 0
 				&& keyword.length() == 0 ) {
-			return new ArrayList<BaseScroll>();
+			return new ArrayList<>();
 		}
 
 		String sql = "SELECT scrollID, name, witticism FROM Scroll";
@@ -87,7 +90,8 @@ public class ScrollDao {
 
 	/**
 	 * 根据卷轴ID查询卷轴
-	 * @param effectID
+	 *
+	 * @param scrollID
 	 * @return
 	 */
 	public Scroll selectByScrollID(String scrollID) {
@@ -132,20 +136,30 @@ public class ScrollDao {
 	 * @return
 	 */
 	public boolean insert(Scroll object) {
-		ArrayList<String> sqls = new ArrayList<String>();
+		ArrayList<String> sqlList = new ArrayList<>();
 
-		String insertScrollSQL = "INSERT INTO Scroll (scrollID, name, levelID, witticism, detail, formulaID) VALUES ('" + object.getScrollID() + "', '" + object.getName() + "', '" + object.getLevel().getLevelID() + "', '" + object.getWitticism() + "', '" + object.getDetail() + "', '" + object.getFormula().getFormulaID() + "');";
-		sqls.add(insertScrollSQL);
+		String insertScrollSQL = "INSERT INTO Scroll (scrollID, name, levelID, witticism, detail, formulaID) VALUES ('"
+				+ object.getScrollID() + "', '"
+				+ object.getName() + "', '"
+				+ object.getLevel().getLevelID() + "', '"
+				+ object.getWitticism() + "', '"
+				+ object.getDetail() + "', '"
+				+ object.getFormula().getFormulaID() + "');";
+		sqlList.add(insertScrollSQL);
 
-		for(Effect effect : object.getEffects()) {
-			String insertScrollEffectSQL = "INSERT INTO Scroll_Effect (scrollID, effectID) VALUES ('" + object.getScrollID() + "', '" + effect.getEffectID() + "');";
-			sqls.add(insertScrollEffectSQL);
+		if(object.getEffects() != null) {
+			for (Effect effect : object.getEffects()) {
+				String insertScrollEffectSQL = "INSERT INTO Scroll_Effect (scrollID, effectID) VALUES ('"
+						+ object.getScrollID() + "', '"
+						+ effect.getEffectID() + "');";
+				sqlList.add(insertScrollEffectSQL);
+			}
 		}
 
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = true;
-		for(String sql : sqls) {
+		for(String sql : sqlList) {
 			result = result && manager.insert(sql);
 		}
 		manager.close();
