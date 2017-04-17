@@ -34,7 +34,7 @@ public class InsertReactionServlet extends HttpServlet {
         // TODO Auto-generated method stub
         Reaction object = new Reaction();
         object.setReactionID(request.getParameter("reactionID"));
-        object.setName(request.getParameter("name"));
+        object.setCname(request.getParameter("name"));
 
         new ReactionDao().insert(object);
 

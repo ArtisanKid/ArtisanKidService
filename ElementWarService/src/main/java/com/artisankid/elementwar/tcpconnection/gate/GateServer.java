@@ -1,16 +1,22 @@
 package com.artisankid.elementwar.tcpconnection.gate;
 
+import com.alibaba.fastjson.JSON;
 import com.artisankid.elementwar.tcpconnection.gate.handler.GateServerHandler;
+import com.artisankid.elementwar.tcpconnection.protobuf.code.PacketDecoder;
+import com.artisankid.elementwar.tcpconnection.protobuf.code.PacketEncoder;
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.ByteToMessageDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
+import java.util.List;
 
 /**
  * 网关消费
@@ -24,10 +30,14 @@ public class GateServer {
 
     private final static int CONNECTION_PORT = 5168;
 
+    public static void main(String[] args){
+        init();
+    }
+
     /**
      * 初始化方法
      */
-    public void init() {
+    public static void init() {
         startGateServer(CONNECTION_PORT);
     }
 
@@ -36,7 +46,7 @@ public class GateServer {
      *
      * @param port
      */
-    public void startGateServer(int port) {
+    public static void startGateServer(int port) {
 
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workGroup = new NioEventLoopGroup();
@@ -48,6 +58,7 @@ public class GateServer {
                     @Override
                     protected void initChannel(SocketChannel channel)
                             throws Exception {
+
                         ChannelPipeline pipeline = channel.pipeline();
                         pipeline.addLast(new GateServerHandler());
                     }

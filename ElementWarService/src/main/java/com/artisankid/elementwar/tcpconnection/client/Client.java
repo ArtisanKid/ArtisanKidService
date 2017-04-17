@@ -9,8 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by Dell on 2016/2/15.
- * Simple client for module test
  */
 public class Client {
     private static final Logger logger = LoggerFactory.getLogger(Client.class);
@@ -28,15 +26,27 @@ public class Client {
                         p.addLast(new ClientHandler());
                     }
                 });
-        b.connect("127.0.0.1", 5168)
+
+        // Start the client.
+            startConnection(b, 0);
+    }
+
+    /**
+     *
+     * @param b
+     * @param index
+     */
+    private static void startConnection(Bootstrap b, final int index) {
+        b.connect("localhost", 5168)
                 .addListener(new ChannelFutureListener() {
                     @Override
                     public void operationComplete(ChannelFuture future)
                             throws Exception {
                         if (future.isSuccess()) {
-                            logger.info("Client[{}] connected Gate Successed...");
+                            //init registry
+                            logger.info("Client[{}] connected Gate Successed...", index);
                         } else {
-                            logger.error("Client[{}] connected Gate Failed");
+                            logger.error("Client[{}] connected Gate Failed", index);
                         }
                     }
                 });
