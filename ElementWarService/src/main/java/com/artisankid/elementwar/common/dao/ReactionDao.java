@@ -16,14 +16,15 @@ public class ReactionDao {
 		
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
-		List<Map<String, Object>> result = manager.select(sql);
+		List<Map<String, Object>> resultList = manager.select(sql);
 		manager.close();
 
-		ArrayList<Reaction> objects = new ArrayList<Reaction>();
-		for (Map<String, Object> map : result) {
+		ArrayList<Reaction> objects = new ArrayList<>();
+		for (Map<String, Object> result : resultList) {
 			Reaction object = new Reaction();
-			object.setReactionID((String) map.get("reactionID"));
-			object.setName((String) map.get("name"));
+			object.setReactionID(result.get("reactionID").toString());
+			object.setCname(result.get("cname").toString());
+			object.setEname(result.get("ename").toString());
 			objects.add(object);
 		}
 		return objects;
@@ -34,19 +35,19 @@ public class ReactionDao {
 	 * @return
 	 */
 	public List<Reaction> selectByFormulaID(String formulaID) {
-		String sql = "SELECT Reaction.reactionID, name FROM Formula_Reaction LEFT JOIN Reaction ON Formula_Reaction.reactionID = Reaction.reactionID WHERE formulaID = '"
-				+ formulaID + "';";
+		String sql = "SELECT * FROM Reaction WHERE reactionID IN (SELECT reactionID FROM Formula_Reaction WHERE formulaID = '" + formulaID + "');";
 		
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
-		List<Map<String, Object>> result = manager.select(sql);
+		List<Map<String, Object>> resultList = manager.select(sql);
 		manager.close();
 
-		ArrayList<Reaction> objects = new ArrayList<Reaction>();
-		for (Map<String, Object> map : result) {
+		ArrayList<Reaction> objects = new ArrayList<>();
+		for (Map<String, Object> result : resultList) {
 			Reaction object = new Reaction();
-			object.setReactionID((String) map.get("reactionID"));
-			object.setName((String) map.get("name"));
+			object.setReactionID(result.get("reactionID").toString());
+			object.setCname(result.get("cname").toString());
+			object.setEname(result.get("ename").toString());
 			objects.add(object);
 		}
 		return objects;
@@ -70,8 +71,9 @@ public class ReactionDao {
 		}
 		
 		Reaction object = new Reaction();
-		object.setReactionID((String) result.get("reactionID"));
-		object.setName((String) result.get("name"));
+		object.setReactionID(result.get("reactionID").toString());
+		object.setCname(result.get("cname").toString());
+		object.setEname(result.get("ename").toString());
 		return object;
 	}
 	
@@ -81,7 +83,10 @@ public class ReactionDao {
 	 * @return
 	 */
 	public boolean insert(Reaction object) {
-		String sql = "INSERT INTO Reaction (reactionID, name) VALUES ('" + object.getReactionID() + "', '" + object.getName() + "');";
+		String sql = "INSERT INTO Reaction (reactionID, cname, ename) VALUES ('"
+				+ object.getReactionID() + "', '"
+				+ object.getCname() + "', '"
+				+ object.getEname() + "');";
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.insert(sql);
@@ -95,7 +100,10 @@ public class ReactionDao {
 	 * @return
 	 */
 	public boolean update(Reaction object) {
-		String sql = "UPDATE Reaction SET name = '" + object.getName() + "' WHERE reactionID = '" + object.getReactionID() + "';";
+		String sql = "UPDATE Reaction SET "
+				+ "cname = '" + object.getCname() + "' "
+				+ "ename = '" + object.getEname() + "' "
+				+ "WHERE reactionID = '" + object.getReactionID() + "';";
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.update(sql);
@@ -105,7 +113,7 @@ public class ReactionDao {
 	
 	/**
 	 * 删除Reaction对象
-	 * @param object
+	 * @param reactionID
 	 * @return
 	 */
 	public boolean delete(String reactionID) {

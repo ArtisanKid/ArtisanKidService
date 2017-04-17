@@ -1,7 +1,7 @@
 package com.artisankid.elementwar.common.ewmodel;
 
 public class Balance {
-	public enum BalenceType {
+	public enum BalanceType {
 		Reactant("1", 1),//反应物
 		Resultant("2", 2),//生成物
 		Catalyst("3", 3);//催化剂
@@ -25,7 +25,7 @@ public class Balance {
 			this.value = value;
 		}
 
-		private BalenceType(String k, int v){
+		private BalanceType(String k, int v){
 			this.key = k;
 			this.value = v;
 		}

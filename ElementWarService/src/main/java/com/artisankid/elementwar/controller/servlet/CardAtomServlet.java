@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 /**
  * Servlet implementation class CardAtomServlet
  */
-@WebServlet("/magic/card/atom")
+@WebServlet("/magic/cards/atom")
 public class CardAtomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

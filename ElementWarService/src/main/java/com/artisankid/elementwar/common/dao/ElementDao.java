@@ -43,7 +43,7 @@ public class ElementDao {
 		object.setDim2((String) result.get("dim2"));
 		object.setDim3((String) result.get("dim3"));
 		object.setWeight((Integer) result.get("weight"));
-		object.setDetail((String) result.get("detail"));
+		object.setDetail((String) result.get("describe"));
 		
 		return object;
 	}
@@ -54,7 +54,18 @@ public class ElementDao {
 	 * @return
 	 */
 	public boolean insert(Atom object) {
-		String sql = "INSERT INTO Element (elementID, type, name, cname, ename, dim2, dim3, weight, detail, radius, color) VALUES ('" + object.getElementID() + "', '" + object.getType().getValue() + "', '" + object.getName() + "', '" + object.getCname() + "', '" + object.getEname() + "', '" + object.getDim2() + "', '" + object.getDim3() + "', '" + object.getWeight() + "', '" + object.getDetail() + "', '" + object.getRadius() + "', '" + object.getColor() + "');";
+		String sql = "INSERT INTO Element (elementID, type, name, cname, ename, dim2, dim3, weight, describe, radius, color) VALUES ('"
+				+ object.getElementID() + "', '"
+				+ object.getType().getValue() + "', '"
+				+ object.getName() + "', '"
+				+ object.getCname() + "', '"
+				+ object.getEname() + "', '"
+				+ object.getDim2() + "', '"
+				+ object.getDim3() + "', '"
+				+ object.getWeight() + "', '"
+				+ object.getDetail() + "', '"
+				+ object.getRadius() + "', '"
+				+ object.getColor() + "');";
 		
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
@@ -69,7 +80,16 @@ public class ElementDao {
 	 * @return
 	 */
 	public boolean insert(Molecule object) {
-		String sql = "INSERT INTO Element (elementID, type, name, cname, ename, dim2, dim3, weight, detail) VALUES ('" + object.getElementID() + "', '" + object.getType().getValue() + "', '" + object.getName() + "', '" + object.getCname() + "', '" + object.getEname() + "', '" + object.getDim2() + "', '" + object.getDim3() + "', '" + object.getWeight() + "', '" + object.getDetail() + "');";
+		String sql = "INSERT INTO Element (elementID, type, name, cname, ename, dim2, dim3, weight, describe) VALUES ('"
+				+ object.getElementID() + "', '"
+				+ object.getType().getValue() + "', '"
+				+ object.getName() + "', '"
+				+ object.getCname() + "', '"
+				+ object.getEname() + "', '"
+				+ object.getDim2() + "', '"
+				+ object.getDim3() + "', '"
+				+ object.getWeight() + "', '"
+				+ object.getDetail() + "');";
 		
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
@@ -84,7 +104,18 @@ public class ElementDao {
 	 * @return
 	 */
 	public boolean update(Atom object) {
-		String sql = "UPDATE Element SET type = '" + object.getType().getValue() + "', name = '" + object.getName() + "', cname = '" + object.getCname() + "', ename = '" + object.getEname() + "', dim2 = '" + object.getDim2() + "', dim3 = '" + object.getDim3() + "', weight = '" + object.getWeight() + "', detail = '" + object.getDetail() + "', radius = '" + object.getRadius() + "', color = '" + object.getColor() + "' WHERE elementID = '" + object.getElementID() + "';";
+		String sql = "UPDATE Element SET "
+				+ "type = '" + object.getType().getValue() + "', "
+				+ "name = '" + object.getName() + "', "
+				+ "cname = '" + object.getCname() + "', "
+				+ "ename = '" + object.getEname() + "', "
+				+ "dim2 = '" + object.getDim2() + "', "
+				+ "dim3 = '" + object.getDim3() + "', "
+				+ "weight = '" + object.getWeight() + "', "
+				+ "detail = '" + object.getDetail() + "', "
+				+ "radius = '" + object.getRadius() + "', "
+				+ "color = '" + object.getColor() + "' "
+				+ "WHERE elementID = '" + object.getElementID() + "';";
 		
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
@@ -99,8 +130,17 @@ public class ElementDao {
 	 * @return
 	 */
 	public boolean update(Molecule object) {
-		String sql = "UPDATE Element SET type = '" + object.getType().getValue() + "', name = '" + object.getName() + "', cname = '" + object.getCname() + "', ename = '" + object.getEname() + "', dim2 = '" + object.getDim2() + "', dim3 = '" + object.getDim3() + "', weight = '" + object.getWeight() + "', detail = '" + object.getDetail() + "' WHERE elementID = '" + object.getElementID() + "';";
-		
+		String sql = "UPDATE Element SET "
+				+ "type = '" + object.getType().getValue() + "', "
+				+ "name = '" + object.getName() + "', "
+				+ "cname = '" + object.getCname() + "', "
+				+ "ename = '" + object.getEname() + "', "
+				+ "dim2 = '" + object.getDim2() + "', "
+				+ "dim3 = '" + object.getDim3() + "', "
+				+ "weight = '" + object.getWeight() + "', "
+				+ "detail = '" + object.getDetail() + "' "
+				+ "WHERE elementID = '" + object.getElementID() + "';";
+
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.update(sql);

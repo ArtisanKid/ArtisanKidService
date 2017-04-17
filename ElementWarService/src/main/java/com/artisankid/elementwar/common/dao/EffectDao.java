@@ -24,7 +24,7 @@ public class EffectDao {
 	 * @return
 	 */
 	public List<Effect> selectByCardID(String cardID) {
-		String sql = "SELECT * FROM Card_Effect LEFT JOIN Effect ON Card_Effect.effectID = Effect.effectID WHERE cardID = '" + cardID + "';";
+		String sql = "SELECT * FROM Effect WHERE effectID IN (SELECT effectID FROM Card_Effect WHERE cardID = '" + cardID + "');";
 		return this.selectBySQL(sql);
 	}
 	
@@ -34,24 +34,25 @@ public class EffectDao {
 	 * @return
 	 */
 	public List<Effect> selectByScrollID(String scrollID) {
-		String sql = "SELECT * FROM Scroll_Effect LEFT JOIN Effect ON Scroll_Effect.effectID = Effect.effectID WHERE scrollID = '" + scrollID + "';";
+		String sql = "SELECT * FROM Effect WHERE effectID IN (SELECT effectID FROM Scroll_Effect WHERE scrollID = '" + scrollID + "');";
 		return this.selectBySQL(sql);
 	}
 	
 	private List<Effect> selectBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
-		List<Map<String, Object>> result = manager.select(sql);
+		List<Map<String, Object>> resultList = manager.select(sql);
 		manager.close();
 
-		ArrayList<Effect> objects = new ArrayList<Effect>();
-		for (Map<String, Object> map : result) {
+		ArrayList<Effect> objects = new ArrayList<>();
+		for (Map<String, Object> result : resultList) {
 			Effect object = new Effect();
-			object.setEffectID((String) map.get("effectID"));
-			object.setType(EffectType.enumOf((Integer)map.get("type")));
-			object.setValue((Integer) map.get("value"));
-			object.setWitticism((String) map.get("witticism"));
-			object.setDetail((String) map.get("detail"));
+			object.setEffectID(result.get("effectID").toString());
+			object.setCname(result.get("cname").toString());
+			object.setEname(result.get("ename").toString());
+			object.setType(EffectType.enumOf(Integer.parseInt(result.get("type").toString())));
+			object.setValue(Integer.parseInt(result.get("value").toString()));
+			object.setWitticism(result.get("witticism").toString());
 			objects.add(object);
 		}
 		return objects;
@@ -76,11 +77,12 @@ public class EffectDao {
 		}
 		
 		Effect object = new Effect();
-		object.setEffectID((String) result.get("effectID"));
-		object.setType(EffectType.enumOf((Integer)result.get("type")));
-		object.setValue((Integer) result.get("value"));
-		object.setWitticism((String) result.get("witticism"));
-		object.setDetail((String) result.get("detail"));
+		object.setEffectID(result.get("effectID").toString());
+		object.setCname(result.get("cname").toString());
+		object.setEname(result.get("ename").toString());
+		object.setType(EffectType.enumOf(Integer.parseInt(result.get("type").toString())));
+		object.setValue(Integer.parseInt(result.get("value").toString()));
+		object.setWitticism(result.get("witticism").toString());
 		return object;
 	}
 	
@@ -90,8 +92,13 @@ public class EffectDao {
 	 * @return
 	 */
 	public boolean insert(Effect object) {
-		String sql = "INSERT INTO Effect (effectID, type, value, witticism) VALUES ('" + object.getEffectID() + "', '"
-				+ object.getType().getValue() + "', '" + object.getValue() + "', '" + object.getWitticism() + "');";
+		String sql = "INSERT INTO Effect (effectID, cname, ename, type, value, witticism) VALUES ('"
+				+ object.getEffectID() + "', '"
+				+ object.getCname() + "', '"
+				+ object.getEname() + "', '"
+				+ object.getType().getValue() + "', '"
+				+ object.getValue() + "', '"
+				+ object.getWitticism() + "');";
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.insert(sql);
@@ -105,7 +112,14 @@ public class EffectDao {
 	 * @return
 	 */
 	public boolean update(Effect object) {
-		String sql = "UPDATE Effect SET type = '" + object.getType().getValue() + "', value = '" + object.getValue() + "', witticism = '" + object.getWitticism() + "' WHERE effectID = '" + object.getEffectID() + "';";
+		String sql = "UPDATE Effect SET "
+				+ "cname = '" + object.getCname() + "', "
+				+ "ename = '" + object.getEname() + "', "
+				+ "type = '" + object.getType().getValue() + "', "
+				+ "value = '" + object.getValue() + "', "
+				+ "witticism = '" + object.getWitticism() + "' "
+				+ "WHERE effectID = '" + object.getEffectID() + "';";
+
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.update(sql);
@@ -115,7 +129,7 @@ public class EffectDao {
 	
 	/**
 	 * 删除Effect对象
-	 * @param object
+	 * @param effectID
 	 * @return
 	 */
 	public boolean delete(String effectID) {

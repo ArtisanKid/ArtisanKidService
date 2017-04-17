@@ -8,6 +8,7 @@ import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,8 @@ import java.util.Date;
 /**
  * Created by LiXiangYu on 2017/4/15.
  */
-public class RefreshTokenServlet {
+@WebServlet("/token/refresh")
+public class RefreshTokenServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -48,6 +50,9 @@ public class RefreshTokenServlet {
         }
 
         if(!token.getRefreshToken().equals(refreshToken)) {
+            //如果refreshToken无效，那么删除这个token
+            tokenDao.delete(accessToken);
+
             ResponseClass<Token> commonResponse = new ResponseClass<>();
             commonResponse.setCode(100903);
             commonResponse.setMessage("refresh token无效");
@@ -57,6 +62,9 @@ public class RefreshTokenServlet {
         }
 
         if(token.getRefreshTokenExpiredTime() <= new Date().getTime()) {
+            //如果refreshToken过期，那么删除这个token
+            tokenDao.delete(accessToken);
+
             ResponseClass<Token> commonResponse = new ResponseClass<>();
             commonResponse.setCode(100902);
             commonResponse.setMessage("refresh token过期");
@@ -66,7 +74,7 @@ public class RefreshTokenServlet {
         }
 
         token.setAccessToken("这里是一个新的token");
-        Long tokenExpiredTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+        Long tokenExpiredTime = System.currentTimeMillis() + 24 * 60 * 60 * 1000;
         token.setExpiredTime(tokenExpiredTime);
         tokenDao.update(token);
 

@@ -52,10 +52,11 @@ public class Effect {
 	}
 	
     private String effectID;
+	private String cname;
+	private String ename;
     private EffectType type;
     private int value;
     private String witticism;
-    private String detail;
 
     public String getEffectID() {
         return effectID;
@@ -64,6 +65,22 @@ public class Effect {
     public void setEffectID(String effectID) {
         this.effectID = effectID;
     }
+
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String name) {
+		this.cname = name;
+	}
+
+	public String getEname() {
+		return ename;
+	}
+
+	public void setEname(String name) {
+		this.ename = name;
+	}
 
     public EffectType getType() {
         return type;
@@ -87,13 +104,5 @@ public class Effect {
 
     public void setWitticism(String witticism) {
         this.witticism = witticism;
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail;
     }
 }
