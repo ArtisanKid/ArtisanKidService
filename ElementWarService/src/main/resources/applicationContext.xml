@@ -22,6 +22,9 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     <mvc:annotation-driven/>
+    <context:component-scan base-package="com.artisankid.elementwar.tcpconnection" />
 
     <import resource="dao/spring-myBatis.xml"/>
+    <!--服务启动-->
+    <import resource="connection_config/conn_start.xml"/>
 </beans>

@@ -11,7 +11,7 @@ public class SocketClient {
     public static void main(String[] args) throws Exception{
         //客户端
         //1、创建客户端Socket，指定服务器地址和端口
-        Socket socket = new Socket("127.0.0.1", 5160);
+        Socket socket = new Socket("127.0.0.1", 5168);
         //2、获取输出流，向服务器端发送信息
         OutputStream os = socket.getOutputStream();//字节输出流
         os.write(("sssdddddddddddddddddddddddddddddddddddddddddddddd" ).getBytes());

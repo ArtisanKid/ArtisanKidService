@@ -1,11 +1,6 @@
 package com.artisankid.elementwar.tcpconnection.gate;
-/**
- * Created by Qzy on 2016/1/28.
- */
 
 import com.artisankid.elementwar.tcpconnection.gate.handler.GateServerHandler;
-import com.artisankid.elementwar.tcpconnection.protobuf.code.PacketDecoder;
-import com.artisankid.elementwar.tcpconnection.protobuf.code.PacketEncoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -13,13 +8,36 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
 import java.net.InetSocketAddress;
 
-
+/**
+ * 网关消费
+ *
+ * @author shaohua.wang
+ * @since 20170416
+ */
+@Component("gateServer")
 public class GateServer {
     private static final Logger logger = LoggerFactory.getLogger(GateServer.class);
 
-    public static void startGateServer(int port) {
+    private final static int CONNECTION_PORT = 5168;
+
+    /**
+     * 初始化方法
+     */
+    public void init() {
+        startGateServer(CONNECTION_PORT);
+    }
+
+    /**
+     * 启动网关服务
+     *
+     * @param port
+     */
+    public void startGateServer(int port) {
+
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workGroup = new NioEventLoopGroup();
 
@@ -31,7 +49,8 @@ public class GateServer {
                     protected void initChannel(SocketChannel channel)
                             throws Exception {
                         ChannelPipeline pipeline = channel.pipeline();
-                        pipeline.addLast(new GateServerHandler());                    }
+                        pipeline.addLast(new GateServerHandler());
+                    }
                 });
 
         bindConnectionOptions(bootstrap);
@@ -41,7 +60,6 @@ public class GateServer {
             public void operationComplete(ChannelFuture future)
                     throws Exception {
                 if (future.isSuccess()) {
-                    //init Registry
                     logger.info("[GateServer] Started Successed, registry is complete, waiting for client connect...");
                 } else {
                     logger.error("[GateServer] Started Failed, registry is incomplete");
