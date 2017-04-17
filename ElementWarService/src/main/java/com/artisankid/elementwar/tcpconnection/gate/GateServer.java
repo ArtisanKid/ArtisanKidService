@@ -28,7 +28,7 @@ import java.util.List;
 public class GateServer {
     private static final Logger logger = LoggerFactory.getLogger(GateServer.class);
 
-    private final static int CONNECTION_PORT = 5168;
+    private final static int CONNECTION_PORT = 51681;
 
     public static void main(String[] args){
         init();

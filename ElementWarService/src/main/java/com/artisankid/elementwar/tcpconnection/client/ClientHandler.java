@@ -7,6 +7,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.util.CharsetUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +25,8 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object>  {
 
         ByteBuf byteBuf = Unpooled.buffer(1024);
         byteBuf.writeInt(112);
+
+        byteBuf =Unpooled.copiedBuffer("hello  fuck !!!!!!!", CharsetUtil.US_ASCII);
 
         System.out.println("Client send start" );
         ctx.writeAndFlush(byteBuf);
