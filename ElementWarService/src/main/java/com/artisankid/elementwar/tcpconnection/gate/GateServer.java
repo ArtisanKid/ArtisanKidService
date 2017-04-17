@@ -1,6 +1,7 @@
 package com.artisankid.elementwar.tcpconnection.gate;
 
 import com.alibaba.fastjson.JSON;
+import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.gate.handler.GateServerHandler;
 import com.artisankid.elementwar.tcpconnection.protobuf.code.PacketDecoder;
 import com.artisankid.elementwar.tcpconnection.protobuf.code.PacketEncoder;
@@ -11,6 +12,8 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.ByteToMessageDecoder;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -60,6 +63,8 @@ public class GateServer {
                             throws Exception {
 
                         ChannelPipeline pipeline = channel.pipeline();
+                        pipeline.addLast(new ProtobufDecoder(DealNoticeOuterClass.DealNotice.getDefaultInstance()));
+                        pipeline.addLast(new ProtobufEncoder());
                         pipeline.addLast(new GateServerHandler());
                     }
                 });

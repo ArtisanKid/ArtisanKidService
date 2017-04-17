@@ -1,15 +1,15 @@
 package com.artisankid.elementwar.tcpconnection.client;
 
-import com.artisankid.elementwar.ewmodel.UseCardMessageOuterClass;
-import com.artisankid.elementwar.tcpconnection.protobuf.Utils;
-import com.artisankid.elementwar.tcpconnection.protobuf.generate.cli2srv.login.Auth;
+import com.alibaba.fastjson.JSON;
+import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.util.CharsetUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Calendar;
 
 
 /**
@@ -23,19 +23,26 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object>  {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 
-        ByteBuf byteBuf = Unpooled.buffer(1024);
-        byteBuf.writeInt(112);
+        DealNoticeOuterClass.DealNotice.Builder dealNotice= DealNoticeOuterClass.DealNotice.newBuilder();
+        dealNotice.setMessageId("0000_000001");
 
-        byteBuf =Unpooled.copiedBuffer("hello  fuck !!!!!!!", CharsetUtil.US_ASCII);
+        Calendar nowDate=Calendar.getInstance();
+        double sendTime = nowDate.getTimeInMillis() / 1000;
+        dealNotice.setSendTime(sendTime);
 
-        System.out.println("Client send start" );
-        ctx.writeAndFlush(byteBuf);
-        System.out.println("Client send end ");    }
+        nowDate.add(Calendar.SECOND,3000);
+        dealNotice.setExpiredTime(nowDate.getTimeInMillis()/1000);
+        dealNotice.setNeedResponse(Boolean.TRUE);
+        dealNotice.setCalibrationTime(nowDate.getTimeInMillis()/1000);
+
+        ctx.writeAndFlush(dealNotice);
+    }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("channelRead0  end ");
-        logger.error("channelRead0  end");
+        DealNoticeOuterClass.DealNotice dealNotice = (DealNoticeOuterClass.DealNotice) msg;
+        String messageId = dealNotice.getMessageId();
+        logger.error("receive msg:" + messageId);
     }
 
     @Override

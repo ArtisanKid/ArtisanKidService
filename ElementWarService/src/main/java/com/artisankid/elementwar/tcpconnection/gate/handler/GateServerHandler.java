@@ -1,8 +1,7 @@
 package com.artisankid.elementwar.tcpconnection.gate.handler;
 
-import com.alibaba.fastjson.JSON;
+import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.gate.utils.ClientConnectionMap;
-import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -10,9 +9,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.CharBuffer;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
+import java.util.Calendar;
+
 
 /**
  * Created by shaohua.wang on 2017/04/16.
@@ -23,12 +21,22 @@ public class GateServerHandler extends SimpleChannelInboundHandler {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf = (ByteBuf) (msg);
-        byte[] req = new byte[buf.readableBytes()];
-        buf.readBytes(req);
-        String body = new String(req,"UTF-8");
-        logger.error("receive msg:" + body);
-        ctx.write("hello ,i'm server");
+        DealNoticeOuterClass.DealNotice dealNotice = (DealNoticeOuterClass.DealNotice) msg;
+        String messageId = dealNotice.getMessageId();
+        logger.error("receive msg:" + messageId);
+
+        DealNoticeOuterClass.DealNotice.Builder returnDealNotice= DealNoticeOuterClass.DealNotice.newBuilder();
+        returnDealNotice.setMessageId("0000_000002");
+
+        Calendar nowDate=Calendar.getInstance();
+        double sendTime = nowDate.getTimeInMillis() / 1000;
+        returnDealNotice.setSendTime(sendTime);
+
+        nowDate.add(Calendar.SECOND,3000);
+        returnDealNotice.setExpiredTime(nowDate.getTimeInMillis()/1000);
+        returnDealNotice.setNeedResponse(Boolean.TRUE);
+        returnDealNotice.setCalibrationTime(nowDate.getTimeInMillis()/1000);
+        ctx.write(returnDealNotice);
     }
 
     @Override

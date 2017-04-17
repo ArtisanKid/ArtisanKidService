@@ -1,10 +1,13 @@
 package com.artisankid.elementwar.tcpconnection.client;
 
+import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +26,9 @@ public class Client {
                     @Override
                     public void initChannel(SocketChannel ch) throws Exception {
                         ChannelPipeline p = ch.pipeline();
+
+                        p.addLast(new ProtobufDecoder(DealNoticeOuterClass.DealNotice.getDefaultInstance()));
+                        p.addLast(new ProtobufEncoder());
                         p.addLast(new ClientHandler());
                     }
                 });
