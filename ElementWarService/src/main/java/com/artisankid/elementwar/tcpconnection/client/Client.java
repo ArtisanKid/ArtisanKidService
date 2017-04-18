@@ -1,5 +1,6 @@
 package com.artisankid.elementwar.tcpconnection.client;
 
+import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
@@ -27,7 +28,7 @@ public class Client {
                     public void initChannel(SocketChannel ch) throws Exception {
                         ChannelPipeline p = ch.pipeline();
 
-                        p.addLast(new ProtobufDecoder(DealNoticeOuterClass.DealNotice.getDefaultInstance()));
+                        p.addLast(new ProtobufDecoder(ContainerOuterClass.Container.getDefaultInstance()));
                         p.addLast(new ProtobufEncoder());
                         p.addLast(new ClientHandler());
                     }

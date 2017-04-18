@@ -1,5 +1,6 @@
 package com.artisankid.elementwar.tcpconnection.client;
 
+import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
@@ -22,7 +23,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object>  {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 
-        DealNoticeOuterClass.DealNotice.Builder dealNotice= DealNoticeOuterClass.DealNotice.newBuilder();
+        DealNoticeOuterClass.DealNotice.Builder dealNotice=  DealNoticeOuterClass.DealNotice.newBuilder();
         dealNotice.setMessageId("0000_000001");
 
         Calendar nowDate=Calendar.getInstance();
@@ -34,14 +35,20 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object>  {
         dealNotice.setNeedResponse(Boolean.TRUE);
         dealNotice.setCalibrationTime(nowDate.getTimeInMillis()/1000);
 
-        ctx.writeAndFlush(dealNotice);
+
+        ContainerOuterClass.Container.Builder containerBuilder = ContainerOuterClass.Container.newBuilder();
+        containerBuilder.setDealNotice(dealNotice);
+        ctx.writeAndFlush(containerBuilder);
     }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        DealNoticeOuterClass.DealNotice dealNotice = (DealNoticeOuterClass.DealNotice) msg;
+        ContainerOuterClass.Container container = (ContainerOuterClass.Container) msg;
+        DealNoticeOuterClass.DealNotice dealNotice = container.getDealNotice();
+
         String messageId = dealNotice.getMessageId();
         logger.error("receive msg:" + messageId);
+
     }
 
     @Override

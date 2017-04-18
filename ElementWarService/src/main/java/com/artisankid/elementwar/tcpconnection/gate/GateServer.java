@@ -1,6 +1,6 @@
 package com.artisankid.elementwar.tcpconnection.gate;
 
-import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
+import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.tcpconnection.gate.handler.GateServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -57,7 +57,7 @@ public class GateServer {
                             throws Exception {
 
                         ChannelPipeline pipeline = channel.pipeline();
-                        pipeline.addLast(new ProtobufDecoder(DealNoticeOuterClass.DealNotice.getDefaultInstance()));
+                        pipeline.addLast(new ProtobufDecoder(ContainerOuterClass.Container.getDefaultInstance()));
                         pipeline.addLast(new ProtobufEncoder());
                         pipeline.addLast(new GateServerHandler());
                     }

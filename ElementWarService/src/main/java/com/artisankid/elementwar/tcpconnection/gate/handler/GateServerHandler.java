@@ -1,9 +1,8 @@
 package com.artisankid.elementwar.tcpconnection.gate.handler;
 
+import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.gate.utils.ClientConnectionMap;
-import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import org.slf4j.Logger;
@@ -21,10 +20,14 @@ public class GateServerHandler extends SimpleChannelInboundHandler {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        DealNoticeOuterClass.DealNotice dealNotice = (DealNoticeOuterClass.DealNotice) msg;
+        ContainerOuterClass.Container container = (ContainerOuterClass.Container) msg;
+        DealNoticeOuterClass.DealNotice dealNotice = container.getDealNotice();
+
         String messageId = dealNotice.getMessageId();
         logger.error("receive msg:" + messageId);
 
+
+        ContainerOuterClass.Container.Builder returnContainer = ContainerOuterClass.Container.newBuilder();
         DealNoticeOuterClass.DealNotice.Builder returnDealNotice= DealNoticeOuterClass.DealNotice.newBuilder();
         returnDealNotice.setMessageId("0000_000002");
 
@@ -36,7 +39,7 @@ public class GateServerHandler extends SimpleChannelInboundHandler {
         returnDealNotice.setExpiredTime(nowDate.getTimeInMillis()/1000);
         returnDealNotice.setNeedResponse(Boolean.TRUE);
         returnDealNotice.setCalibrationTime(nowDate.getTimeInMillis()/1000);
-        ctx.writeAndFlush(returnDealNotice);
+        ctx.writeAndFlush(returnContainer.setDealNotice(returnDealNotice));
     }
 
     @Override
@@ -46,7 +49,7 @@ public class GateServerHandler extends SimpleChannelInboundHandler {
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) {
-        ClientConnectionMap.removeClientConnection(ctx);
+//        ClientConnectionMap.removeClientConnection(ctx);
     }
 
     @Override
