@@ -1,0 +1,15 @@
+syntax = "proto3";
+option java_package = "com.artisankid.elementwar.ewmessagemodel";
+
+//发牌通知
+message DealNotice {
+  string message_id = 1;//消息ID
+  double send_time = 2;//发送时间戳，因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
+  double expired_time = 3;//过期时间戳，因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
+  bool needResponse = 4;//是否需要响应
+  double calibration_time = 5;//校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
+
+  string receiver_id = 20;//接收者ID
+
+  repeated string card_ids = 30;//卡牌ID
+}

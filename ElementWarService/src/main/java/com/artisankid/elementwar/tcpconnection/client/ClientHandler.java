@@ -1,9 +1,8 @@
 package com.artisankid.elementwar.tcpconnection.client;
 
-import com.alibaba.fastjson.JSON;
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
-import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import org.slf4j.Logger;
@@ -31,7 +30,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object>  {
         dealNotice.setSendTime(sendTime);
 
         nowDate.add(Calendar.SECOND,3000);
-        dealNotice.setExpiredTime(nowDate.getTimeInMillis()/1000);
+        dealNotice.setExpiredTime(nowDate.getTimeInMillis() / 1000);
         dealNotice.setNeedResponse(Boolean.TRUE);
         dealNotice.setCalibrationTime(nowDate.getTimeInMillis()/1000);
 
@@ -47,7 +46,11 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object>  {
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("channelReadComplete send end ");
-        logger.error("channelReadComplete send end");
+        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        logger.error("exceptionCaught-------------------,cause"+cause.getMessage());
     }
 }

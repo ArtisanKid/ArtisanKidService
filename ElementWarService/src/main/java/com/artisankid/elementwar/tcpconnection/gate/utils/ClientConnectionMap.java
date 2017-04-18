@@ -14,6 +14,7 @@ public class ClientConnectionMap {
 
     //保存一个gateway上所有的客户端连接
     public static ConcurrentHashMap<Long, ClientConnection> allClientMap = new ConcurrentHashMap<>();
+
     private static ConcurrentHashMap<String, Long> userid2netidMap = new ConcurrentHashMap<>();
 
     public static ClientConnection getClientConnection(ChannelHandlerContext ctx) {
@@ -38,54 +39,57 @@ public class ClientConnectionMap {
         return null;
     }
 
+    /**
+     * 客户端连接加入map
+     * 
+     * @param c
+     */
     public static void addClientConnection(ChannelHandlerContext c) {
-        //fixme 之后重复登录需要踢掉原来的连接
         ClientConnection conn = new ClientConnection(c);
-
-        if(ClientConnectionMap.allClientMap.putIfAbsent(conn.getNetId(), conn) != null) {
-            logger.error("Duplicated netid");
+        if (ClientConnectionMap.allClientMap.putIfAbsent(conn.getNetId(), conn) != null) {
+            logger.error("ClientConnection has existed,not need putIfAbsent!");
         }
     }
 
     public static void removeClientConnection(ChannelHandlerContext c) {
         ClientConnection conn = getClientConnection(c);
         long netid = conn.getNetId();
-        String userid = conn.getUserId();
+        String userId = conn.getUserId();
         if(ClientConnectionMap.allClientMap.remove(netid) != null) {
-            unRegisterUserid(userid);
+            unRegisterUserid(userId);
         } else {
             logger.error("NetId: {} is not exist in allClientMap", netid);
         }
 
-        logger.info("Client disconnected, netid: {}, userid: {}", netid, userid);
+        logger.info("Client disconnected, netid: {}, userId: {}", netid, userId);
     }
 
-    public static void registerUserid(String userid, long netId) {
-        if(userid2netidMap.putIfAbsent(userid, netId) == null) {
+    public static void registerUserId(String userId, long netId) {
+        if(userid2netidMap.putIfAbsent(userId, netId) == null) {
             ClientConnection conn = ClientConnectionMap.getClientConnection(netId);
             if(conn != null) {
-                conn.setUserId(userid);
+                conn.setUserId(userId);
             } else {
                 logger.error("ClientConnection is null");
                 return;
             }
         } else {
-            logger.error("userid: {} has registered in userid2netidMap", userid);
+            logger.error("userId: {} has registered in userid2netidMap", userId);
         }
     }
 
-    protected static void unRegisterUserid(String userid) {
-        if(ClientConnectionMap.userid2netidMap.remove(userid) == null) {
-            logger.error("UserId: {} is not exist in userid2netidMap", userid);
+    protected static void unRegisterUserid(String userId) {
+        if(ClientConnectionMap.userid2netidMap.remove(userId) == null) {
+            logger.error("UserId: {} is not exist in userid2netidMap", userId);
         }
     }
 
-    public static Long userid2netid(String userid) {
-        Long netid = userid2netidMap.get(userid);
+    public static Long userid2netid(String userId) {
+        Long netid = userid2netidMap.get(userId);
         if(netid != null)
             return netid;
         else {
-            logger.error("User not login, userid: {}",userid);
+            logger.error("User not login, userId: {}",userId);
         }
         return null;
     }

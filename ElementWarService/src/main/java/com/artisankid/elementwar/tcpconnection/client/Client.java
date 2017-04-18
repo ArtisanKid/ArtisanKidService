@@ -33,7 +33,6 @@ public class Client {
                     }
                 });
 
-        // Start the client.
             startConnection(b, 0);
     }
 

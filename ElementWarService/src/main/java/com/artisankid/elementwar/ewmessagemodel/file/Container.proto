@@ -1,0 +1,60 @@
+syntax = "proto3";
+option java_package = "com.artisankid.elementwar.ewmessagemodel";
+
+import "MatchMessage.proto";
+import "InviteMessage.proto";
+import "InviteReplyMessage.proto";
+import "UseCardMessage.proto";
+import "UseScrollMessage.proto";
+
+import "MatchNotice.proto";
+import "InviteNotice.proto";
+import "InviteReplyNotice.proto";
+import "InRoomNotice.proto";
+import "DealNotice.proto";
+import "UseCardNotice.proto";
+import "UseScrollNotice.proto";
+import "PlaySwitchNotice.proto";
+import "FinishNotice.proto";
+
+//基础消息
+message Container {
+  //被包裹的消息
+  oneof message {
+    MatchMessage match_message= 100;
+    InviteMessage invite_message = 101;
+    InviteReplyMessage invite_reply_message = 102;
+    UseCardMessage use_card_message= 103;
+    UseScrollMessage use_scroll_message = 104;
+
+    MatchNotice match_notice = 200;
+    InviteNotice invite_notice = 201;
+    InviteReplyNotice invite_reply_notice = 202;
+    InRoomNotice in_room_notice= 203;
+    DealNotice deal_notice = 204;
+    UseCardNotice use_card_notice = 205;
+    UseScrollNotice use_scroll_notice = 206;
+    PlaySwitchNotice play_switch_notice = 207;
+    FinishNotice finish_notice = 208;
+  }
+  MessageType messageType = 2;//消息类型
+
+  enum MessageType {
+    None = 0;
+    MatchMessage = 100;
+		InviteMessage = 101;
+		InviteReplyMessage = 102;
+		UseCardMessage = 103;
+		UseScrollMessage = 104;
+
+		MatchNotice = 200;
+		InviteNotice = 201;
+		InviteReplyNotice = 202;
+		InRoomNotice = 203;
+		DealNotice = 204;
+		UseCardNotice = 205;
+		UseScrollNotice = 206;
+		PlaySwitchNotice = 207;
+	  FinishNotice = 208;
+	}
+}

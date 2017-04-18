@@ -1,17 +1,12 @@
 package com.artisankid.elementwar.tcpconnection.gate;
 
-import com.alibaba.fastjson.JSON;
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.gate.handler.GateServerHandler;
-import com.artisankid.elementwar.tcpconnection.protobuf.code.PacketDecoder;
-import com.artisankid.elementwar.tcpconnection.protobuf.code.PacketEncoder;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import org.slf4j.Logger;
@@ -19,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
-import java.util.List;
 
 /**
  * 网关消费
@@ -76,6 +70,7 @@ public class GateServer {
             public void operationComplete(ChannelFuture future)
                     throws Exception {
                 if (future.isSuccess()) {
+
                     logger.info("[GateServer] Started Successed, registry is complete, waiting for client connect...");
                 } else {
                     logger.error("[GateServer] Started Failed, registry is incomplete");

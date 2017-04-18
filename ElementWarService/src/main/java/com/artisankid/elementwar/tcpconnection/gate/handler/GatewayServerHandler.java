@@ -1,26 +1,24 @@
 package com.artisankid.elementwar.tcpconnection.gate.handler;
 
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
-import com.artisankid.elementwar.tcpconnection.gate.utils.ClientConnectionMap;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Calendar;
 
-
 /**
- * Created by shaohua.wang on 2017/04/16.
+ * Created by shaohua.wangshaohu on 2017/4/18.
  */
-public class GateServerHandler extends SimpleChannelInboundHandler {
-    private static final Logger logger = LoggerFactory.getLogger(GateServerHandler.class);
+public class GatewayServerHandler extends ChannelInboundHandlerAdapter{
 
+    private static final Logger logger = LoggerFactory.getLogger(GatewayServerHandler.class);
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         DealNoticeOuterClass.DealNotice dealNotice = (DealNoticeOuterClass.DealNotice) msg;
         String messageId = dealNotice.getMessageId();
         logger.error("receive msg:" + messageId);
@@ -37,16 +35,6 @@ public class GateServerHandler extends SimpleChannelInboundHandler {
         returnDealNotice.setNeedResponse(Boolean.TRUE);
         returnDealNotice.setCalibrationTime(nowDate.getTimeInMillis()/1000);
         ctx.writeAndFlush(returnDealNotice);
-    }
-
-    @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ClientConnectionMap.addClientConnection(ctx);
-    }
-
-    @Override
-    public void channelInactive(ChannelHandlerContext ctx) {
-        ClientConnectionMap.removeClientConnection(ctx);
     }
 
     @Override
