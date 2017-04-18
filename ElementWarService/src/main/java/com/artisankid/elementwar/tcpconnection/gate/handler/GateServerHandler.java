@@ -3,6 +3,9 @@ package com.artisankid.elementwar.tcpconnection.gate.handler;
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.gate.utils.ClientConnectionMap;
+import com.artisankid.elementwar.tcpconnection.workhandler.HandlerManager;
+import com.artisankid.elementwar.tcpconnection.workhandler.IMHandler;
+import com.artisankid.elementwar.tcpconnection.workhandler.Worker;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import org.slf4j.Logger;
@@ -21,6 +24,17 @@ public class GateServerHandler extends SimpleChannelInboundHandler {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         ContainerOuterClass.Container container = (ContainerOuterClass.Container) msg;
+
+
+//        IMHandler handler;
+//
+//        String  userId = null;
+//        handler = HandlerManager.getHandler(msg, ctx);
+//
+//        Worker.dispatch(userId, handler);
+
+
+
         DealNoticeOuterClass.DealNotice dealNotice = container.getDealNotice();
 
         String messageId = dealNotice.getMessageId();
