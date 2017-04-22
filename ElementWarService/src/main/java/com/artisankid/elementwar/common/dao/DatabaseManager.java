@@ -20,6 +20,7 @@ public class DatabaseManager {
 
             connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ElementWar", "root", "123456");
             statement = connection.createStatement(); //创建Statement对象
+			statement.executeUpdate("SET NAMES UTF8MB4");
             System.out.println("成功连接数据库！");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

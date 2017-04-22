@@ -59,8 +59,12 @@ public class CardDao {
 		
 		Card object = new Card();
 		object.setCardID(result.get("cardID").toString());
-		object.setWitticism(result.get("witticism").toString());
-		object.setDetail(result.get("detail").toString());
+		if(result.get("witticism") != null) {
+			object.setWitticism(result.get("witticism").toString());
+		}
+		if(result.get("detail") != null) {
+			object.setDetail(result.get("detail").toString());
+		}
 		
 		ElementDao elementDao = new ElementDao();
 		Element element = elementDao.selectByElementID(result.get("elementID").toString());

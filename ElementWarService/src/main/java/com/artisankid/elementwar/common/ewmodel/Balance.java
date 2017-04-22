@@ -30,18 +30,9 @@ public class Balance {
 			this.value = v;
 		}
 	}
-	
-	private String balanceID;
+
 	private String elementID;
     private int count;
-
-    public String getBalanceID() {
-        return balanceID;
-    }
-
-    public void setBalanceID(String balanceID) {
-        this.balanceID = balanceID;
-    }
     
     public String getElementID() {
         return elementID;

@@ -36,17 +36,6 @@ public class InsertFormulaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
 
-        /*
-        * private String formulaID;//方程式ID
-    private List<Reaction> reactions;//反应类型
-    private List<Balance> reactants;//反应物
-    private List<Condition> conditions;//条件
-    private List<Balance> resultants;//生成物
-    private String phenomenon;//现象
-    private String principle;//原理
-    private String detail;//描述
-        * */
-
         String formulaID = request.getParameter("formulaID");
 
         Formula object = new Formula();
@@ -55,25 +44,31 @@ public class InsertFormulaServlet extends HttpServlet {
         object.setPrinciple(request.getParameter("principle"));
         object.setDetail(request.getParameter("detail"));
 
+        //接受的参数
+        //reactionID;reactionID;reactionID
         String reactionIDs = request.getParameter("reactionIDs");
         if(reactionIDs != null) {
-            List<String> objectIDList = Arrays.asList(reactionIDs.split(","));
+            List<String> reactionIDList = Arrays.asList(reactionIDs.split(";"));
             List<Reaction> objectList = new ArrayList<>();
-            for (String objectID : objectIDList) {
+            for (String reactionID : reactionIDList) {
                 Reaction _object = new Reaction();
-                _object.setReactionID(objectID);
+                _object.setReactionID(reactionID);
                 objectList.add(_object);
             }
             object.setReactions(objectList);
         }
 
+        //接受的参数
+        //elementID:count;elementID:count;elementID:count
         String reactantIDs = request.getParameter("reactantIDs");
         if(reactantIDs != null) {
-            List<String> objectIDList = Arrays.asList(reactantIDs.split(","));
+            List<String> balanceValueList = Arrays.asList(reactantIDs.split(";"));
             List<Balance> objectList = new ArrayList<>();
-            for (String objectID : objectIDList) {
+            for (String balanceValue : balanceValueList) {
+                List<String> valueList = Arrays.asList(balanceValue.split(":"));
                 Balance _object = new Balance();
-                _object.setBalanceID(objectID);
+                _object.setElementID(valueList.get(0));
+                _object.setCount(Integer.parseInt(valueList.get(1)));
                 objectList.add(_object);
             }
             object.setReactants(objectList);
@@ -93,11 +88,13 @@ public class InsertFormulaServlet extends HttpServlet {
 
         String resultantIDs = request.getParameter("resultantIDs");
         if(resultantIDs != null) {
-            List<String> objectIDList = Arrays.asList(resultantIDs.split(","));
+            List<String> balanceValueList = Arrays.asList(resultantIDs.split(";"));
             List<Balance> objectList = new ArrayList<>();
-            for (String objectID : objectIDList) {
+            for (String balanceValue : balanceValueList) {
+                List<String> valueList = Arrays.asList(balanceValue.split(":"));
                 Balance _object = new Balance();
-                _object.setBalanceID(objectID);
+                _object.setElementID(valueList.get(0));
+                _object.setCount(Integer.parseInt(valueList.get(1)));
                 objectList.add(_object);
             }
             object.setResultants(objectList);

@@ -9,37 +9,12 @@ import java.util.Map;
 
 public class BalanceDao {
 	/**
-	 * 根据平衡ID查询平衡对象
-	 *
-	 * @param balanceID
-	 * @return
-	 */
-	public Balance selectByBalanceID(String balanceID) {
-		String sql = "SELECT * FROM Balance WHERE balanceID = '" + balanceID + "';";
-
-		DatabaseManager manager = new DatabaseManager();
-		manager.connection();
-		Map<String, Object> result = manager.selectOne(sql);
-		manager.close();
-
-		if(result == null) {
-			return null;
-		}
-
-		Balance object = new Balance();
-		object.setBalanceID(result.get("balanceID").toString());
-		object.setElementID(result.get("elementID").toString());
-		object.setCount(Integer.parseInt(result.get("count").toString()));
-		return object;
-	}
-
-	/**
 	 * 根据方程式ID查询平衡对象
 	 * 
 	 * @return
 	 */
 	public List<Balance> selectByFormulaID(String formulaID, BalanceType type) {
-		String sql = "SELECT * FROM Balance WHERE balanceID IN (SELECT balanceID FROM Formula_Balance WHERE formulaID = '" + formulaID + "' AND type = '" + type.getValue() + "');";
+		String sql = "SELECT * FROM Formula_Element WHERE formulaID = '" + formulaID + "' AND type = '" + type.getValue() + "';";
 
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
@@ -49,7 +24,6 @@ public class BalanceDao {
 		ArrayList<Balance> objects = new ArrayList<>();
 		for (Map<String, Object> result : resultList) {
 			Balance object = new Balance();
-			object.setBalanceID(result.get("balanceID").toString());
 			object.setElementID(result.get("elementID").toString());
 			object.setCount(Integer.parseInt(result.get("count").toString()));
 			objects.add(object);
@@ -57,70 +31,29 @@ public class BalanceDao {
 		return objects;
 	}
 
-	/**
-	 * 根据元素ID和数量查询平衡对象
-	 *
-	 * @param elementID
-	 * @param count
-	 * @return
-	 */
-	public Balance selectByElementID(String elementID, int count) {
-		String sql = "SELECT * FROM Balance WHERE elementID = '"
-				+ elementID + "' AND count = '" + count + "';";
-
-		DatabaseManager manager = new DatabaseManager();
-		manager.connection();
-		Map<String, Object> result = manager.selectOne(sql);
-		manager.close();
-
-		if(result == null) {
-			return null;
-		}
-
-		Balance object = new Balance();
-		object.setBalanceID(result.get("balanceID").toString());
-		object.setElementID(result.get("elementID").toString());
-		object.setCount(Integer.parseInt(result.get("count").toString()));
-		return object;
-	}
-	
-	/**
-	 * 插入Balance对象
-	 *
-	 * @param object
-	 * @return
-	 */
-	public boolean insert(Balance object) {
-		String sql = "INSERT INTO Balance (balanceID, elementID, count) VALUES ('" + object.getBalanceID() + "', '"
-				+ object.getElementID() + "', '" + object.getCount() + "');";
-		DatabaseManager manager = new DatabaseManager();
-		manager.connection();
-		boolean result = manager.insert(sql);
-		manager.close();
-		return result;
-	}
-	
-	/**
-	 * 更新Balance对象
-	 * @param object
-	 * @return
-	 */
-	public boolean update(Balance object) {
-		String sql = "UPDATE Balance SET elementID = '" + object.getElementID() + "', count = '" + object.getCount() + "' WHERE balanceID = '" + object.getBalanceID() + "';";
+    /**
+     * 更新公式平衡项
+     * @param formulaID String
+     * @param object Balance
+     * @return boolean
+     */
+	public boolean update(String formulaID, Balance object) {
+		String sql = "UPDATE Formula_Element SET count = '" + object.getCount() + "' WHERE formulaID = '" + formulaID + "' AND elementID = '" + object.getElementID() + "';";
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.update(sql);
 		manager.close();
 		return result;
 	}
-	
-	/**
-	 * 删除Balance对象
-	 * @param balanceID
-	 * @return
-	 */
-	public boolean delete(String balanceID) {
-		String sql = "DELETE FROM Balance WHERE balanceID = '" + balanceID + "';";
+
+    /**
+     * 删除公式平衡项
+     * @param formulaID String
+     * @param object Balance
+     * @return boolean
+     */
+	public boolean delete(String formulaID, Balance object) {
+		String sql = "DELETE FROM Formula_Element WHERE formulaID = '" + formulaID + "' AND elementID = '" + object.getElementID() + "';";
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean result = manager.delete(sql);

@@ -23,11 +23,11 @@ public class TokenDao {
 		List<Map<String, Object>> result = manager.select(sql);
 		manager.close();
 
-		ArrayList<Token> objects = new ArrayList<Token>();
+		ArrayList<Token> objects = new ArrayList<>();
 		for (Map<String, Object> map : result) {
 			Token object = new Token();
-			object.setAccessToken((String) map.get("access_token"));
-			object.setRefreshToken((String) map.get("refresh_token"));
+			object.setAccessToken(map.get("access_token").toString());
+			object.setRefreshToken(map.get("refresh_token").toString());
 
 			Date access_token_expired_time = (Date)map.get("access_token_expired_time");
 			object.setExpiredTime(access_token_expired_time.getTime());
@@ -54,8 +54,8 @@ public class TokenDao {
 		}
 		
 		Token object = new Token();
-		object.setAccessToken((String) result.get("access_token"));
-		object.setRefreshToken((String) result.get("refresh_token"));
+		object.setAccessToken(result.get("access_token").toString());
+		object.setRefreshToken(result.get("refresh_token").toString());
 
 		Date access_token_expired_time = (Date)result.get("access_token_expired_time");
 		object.setExpiredTime(access_token_expired_time.getTime());
@@ -80,8 +80,8 @@ public class TokenDao {
 		}
 		
 		Token object = new Token();
-		object.setAccessToken((String) result.get("access_token"));
-		object.setRefreshToken((String) result.get("refresh_token"));
+		object.setAccessToken(result.get("access_token").toString());
+		object.setRefreshToken(result.get("refresh_token").toString());
 
 		Date access_token_expired_time = (Date)result.get("access_token_expired_time");
 		object.setExpiredTime(access_token_expired_time.getTime());

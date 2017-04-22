@@ -19,7 +19,7 @@ public class LevelDao {
 		List<Map<String, Object>> resultList = manager.select(sql);
 		manager.close();
 
-		ArrayList<Level> objects = new ArrayList<Level>();
+		ArrayList<Level> objects = new ArrayList<>();
 		for (Map<String, Object> result : resultList) {
 			Level object = new Level();
 			object.setLevelID(result.get("levelID").toString());

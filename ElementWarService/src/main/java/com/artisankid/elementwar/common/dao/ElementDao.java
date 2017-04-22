@@ -14,7 +14,7 @@ public class ElementDao {
 	 * @return
 	 */
 	public Element selectByElementID(String elementID) {
-		String sql = "SELECT * FROM Element WHERE elementID = " + elementID + ";";
+		String sql = "SELECT * FROM Element WHERE elementID = '" + elementID + "';";
 		
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
@@ -25,25 +25,41 @@ public class ElementDao {
 			return null;
 		}
 		
-		Element object = null;
+		Element object;
 		if(ElementType.enumOf((Integer)result.get("type")) == ElementType.Atom) {
 			Atom atom = new Atom();
-			atom.setRadius((Integer) result.get("radius"));
-			atom.setColor((String) result.get("color"));
+			if(result.get("radius") != null) {
+				atom.setRadius(Integer.parseInt(result.get("radius").toString()));
+			}
+			if(result.get("color") != null) {
+				atom.setColor(result.get("color").toString());
+			}
 			object = atom;
 		} else {
 			object = new Molecule();
 		}
 		
-		object.setElementID((String) result.get("elementID"));
-		object.setType(ElementType.enumOf((Integer)result.get("type")));
+		object.setElementID(result.get("elementID").toString());
+		object.setType(ElementType.enumOf(Integer.parseInt(result.get("type").toString())));
 		object.setName((String) result.get("name"));
-		object.setCname((String) result.get("cname"));
-		object.setEname((String) result.get("ename"));
-		object.setDim2((String) result.get("dim2"));
-		object.setDim3((String) result.get("dim3"));
-		object.setWeight((Integer) result.get("weight"));
-		object.setDetail((String) result.get("describe"));
+		if(result.get("cname") != null) {
+			object.setCname(result.get("cname").toString());
+		}
+		if(result.get("ename") != null) {
+			object.setEname(result.get("ename").toString());
+		}
+		if(result.get("dim2") != null) {
+			object.setDim2(result.get("dim2").toString());
+		}
+		if(result.get("dim3") != null) {
+			object.setDim3(result.get("dim3").toString());
+		}
+		if(result.get("weight") != null) {
+			object.setWeight(Integer.parseInt(result.get("weight").toString()));
+		}
+		if(result.get("detail") != null) {
+			object.setDetail(result.get("detail").toString());
+		}
 		
 		return object;
 	}

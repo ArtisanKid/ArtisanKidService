@@ -24,22 +24,18 @@ public class FormulaDao {
 	/**
 	 * 验证反应是否合法
 	 * 
-	 * @param reactantIDs
-	 * @param conditionIDs
-	 * @return
+	 * @param reactants List<Balance>
+	 * @param conditionIDs List<String>
+	 * @return Formula
 	 */
-	public Formula select(List<String> reactantIDs, List<String> conditionIDs) {
-		String notInReactantSQL = "SELECT DISTINCT formulaID FROM Formula_Balance WHERE type = '" + BalanceType.Reactant.getValue() + "' AND balanceID NOT IN (";
-		for (int i = 0; i < reactantIDs.size(); i++) {
-			if(i == 0) {
-				notInReactantSQL = notInReactantSQL + "'" + reactantIDs.get(i) + "'";
-			} else {
-				notInReactantSQL = notInReactantSQL + ", '" + reactantIDs.get(i) + "'";
-			}
+	public Formula select(List<Balance> reactants, List<String> conditionIDs) {
+		String reactantSQL = "SELECT formulaID FROM Formula_Element WHERE type = '" + BalanceType.Reactant.getValue() + "' GROUP BY formulaID HAVING COUNT(*) = '" + reactants.size();
+		for (Balance balance : reactants) {
+			String hasReactantSQL = "SELECT DISTINCT formulaID FROM Formula_Element WHERE type = '" + BalanceType.Reactant.getValue() + "' AND elementID = '" + balance.getElementID()  + " AND count = '" + balance.getCount() + "'";
+			reactantSQL = reactantSQL + " AND formulaID IN ('" + hasReactantSQL + "')";
 		}
-		notInReactantSQL = notInReactantSQL + ")";
-		String reactantSQL = "SELECT formulaID FROM Formula_Balance WHERE type = '" + BalanceType.Reactant.getValue() + "' GROUP BY formulaID HAVING COUNT(*) = '" + reactantIDs.size() +"' AND formulaID NOT IN (" + notInReactantSQL + ")";
-		
+		reactantSQL = reactantSQL + ";";
+
 		String notInConditionSQL = "SELECT DISTINCT formulaID FROM Formula_Condition WHERE conditionID NOT IN (";
 		for (int i = 0; i < conditionIDs.size(); i++) {
 			if(i == 0) {
@@ -58,23 +54,19 @@ public class FormulaDao {
 	/**
 	 * 验证反应是否合法
 	 * 
-	 * @param reactantIDs
-	 * @param conditionIDs
-	 * @param resultantIDs
-	 * @return
+	 * @param reactants List<Balance>
+	 * @param conditionIDs List<String>
+	 * @param resultants List<Balance>
+	 * @return Formula
 	 */
-	public Formula select(List<String> reactantIDs, List<String> conditionIDs, List<String> resultantIDs) {
-		String notInReactantSQL = "SELECT DISTINCT formulaID FROM Formula_Balance WHERE type = '" + BalanceType.Reactant.getValue() + "' AND balanceID NOT IN (";
-		for (int i = 0; i < reactantIDs.size(); i++) {
-			if(i == 0) {
-				notInReactantSQL = notInReactantSQL + "'" + reactantIDs.get(i) + "'";
-			} else {
-				notInReactantSQL = notInReactantSQL + ", '" + reactantIDs.get(i) + "'";
-			}
+	public Formula select(List<Balance> reactants, List<String> conditionIDs, List<Balance> resultants) {
+		String reactantSQL = "SELECT formulaID FROM Formula_Element WHERE type = '" + BalanceType.Reactant.getValue() + "' GROUP BY formulaID HAVING COUNT(*) = '" + reactants.size();
+		for (Balance balance : reactants) {
+			String hasReactantSQL = "SELECT DISTINCT formulaID FROM Formula_Element WHERE type = '" + BalanceType.Reactant.getValue() + "' AND elementID = '" + balance.getElementID()  + " AND count = '" + balance.getCount() + "'";
+			reactantSQL = reactantSQL + " AND formulaID IN ('" + hasReactantSQL + "')";
 		}
-		notInReactantSQL = notInReactantSQL + ")";
-		String reactantSQL = "SELECT formulaID FROM Formula_Balance WHERE type = '" + BalanceType.Reactant.getValue() + "' GROUP BY formulaID HAVING COUNT(*) = '" + reactantIDs.size() +"' AND formulaID NOT IN (" + notInReactantSQL + ")";
-		
+		reactantSQL = reactantSQL + ";";
+
 		String notInConditionSQL = "SELECT DISTINCT formulaID FROM Formula_Condition WHERE conditionID NOT IN (";
 		for (int i = 0; i < conditionIDs.size(); i++) {
 			if(i == 0) {
@@ -86,16 +78,12 @@ public class FormulaDao {
 		notInConditionSQL = notInConditionSQL + ")";
 		String conditionSQL = "SELECT formulaID FROM Formula_Condition GROUP BY formulaID HAVING COUNT(*) = '" + conditionIDs.size() +"' AND formulaID NOT IN (" + notInConditionSQL + ")";
 
-		String notInResultantSQL = "SELECT DISTINCT formulaID FROM Formula_Balance WHERE type = '" + BalanceType.Resultant.getValue() + "' AND balanceID NOT IN (";
-		for (int i = 0; i < resultantIDs.size(); i++) {
-			if(i == 0) {
-				notInResultantSQL = notInResultantSQL + "'" + resultantIDs.get(i) + "'";
-			} else {
-				notInResultantSQL = notInResultantSQL + ", '" + resultantIDs.get(i) + "'";
-			}
+		String resultantSQL = "SELECT formulaID FROM Formula_Element WHERE type = '" + BalanceType.Resultant.getValue() + "' GROUP BY formulaID HAVING COUNT(*) = '" + resultants.size();
+		for (Balance balance : resultants) {
+			String hasResultantSQL = "SELECT DISTINCT formulaID FROM Formula_Element WHERE type = '" + BalanceType.Resultant.getValue() + "' AND elementID = '" + balance.getElementID()  + " AND count = '" + balance.getCount() + "'";
+			resultantSQL = resultantSQL + " AND formulaID IN ('" + hasResultantSQL + "')";
 		}
-		notInResultantSQL = notInResultantSQL + ")";
-		String resultantSQL = "SELECT formulaID FROM Formula_Balance WHERE type = '" + BalanceType.Resultant.getValue() + "' GROUP BY formulaID HAVING COUNT(*) = '" + reactantIDs.size() +"' AND formulaID NOT IN (" + notInResultantSQL + ")";
+		resultantSQL = resultantSQL + ";";
 		
 		String sql = "SELECT * FROM Formula WHERE formulaID IN (" + reactantSQL + ") AND formulaID IN (" + conditionSQL + ") AND formulaID IN (" + resultantSQL + ");";
 		return this.selectBySQL(sql);
@@ -136,11 +124,11 @@ public class FormulaDao {
 	
 	/**
 	 * 插入Formula对象
-	 * @param object
-	 * @return
+	 * @param object Formula
+	 * @return boolean
 	 */
 	public boolean insert(Formula object) {
-		ArrayList<String> sqls = new ArrayList<String>();
+		ArrayList<String> sqls = new ArrayList<>();
 		
 		String insertFormulaSQL = "INSERT INTO Formula (formulaID, phenomenon, principle, detail) VALUES ('" + object.getFormulaID() + "', '" + object.getPhenomenon() + "', '" + object.getPrinciple() + "', '" + object.getDetail() + "');";
 		sqls.add(insertFormulaSQL);
@@ -156,12 +144,12 @@ public class FormulaDao {
 		}
 		
 		for(Balance balance : object.getReactants()) {
-			String insertFormulaBalanceSQL = "INSERT INTO Formula_Balance (formulaID, balanceID, type) VALUES ('" + object.getFormulaID() + "', '" + balance.getBalanceID() + "', '" + BalanceType.Reactant.getValue() + "');";
+			String insertFormulaBalanceSQL = "INSERT INTO Formula_Element (formulaID, elementID, count, type) VALUES ('" + object.getFormulaID() + "', '" + balance.getElementID() + "', '" + balance.getCount() + "', '" + BalanceType.Reactant.getValue() + "');";
 			sqls.add(insertFormulaBalanceSQL);
 		}
 		
 		for(Balance balance : object.getResultants()) {
-			String insertFormulaBalanceSQL = "INSERT INTO Formula_Balance (formulaID, balanceID, type) VALUES ('" + object.getFormulaID() + "', '" + balance.getBalanceID() + "', '" + BalanceType.Resultant.getValue() + "');";
+			String insertFormulaBalanceSQL = "INSERT INTO Formula_Element (formulaID, elementID, count, type) VALUES ('" + object.getFormulaID() + "', '" + balance.getElementID() + "', '" + balance.getCount() + "', '" + BalanceType.Resultant.getValue() + "');";
 			sqls.add(insertFormulaBalanceSQL);
 		}
 		
@@ -192,7 +180,7 @@ public class FormulaDao {
 	 * @return
 	 */
 	public boolean delete(String formulaID) {
-		ArrayList<String> sqls = new ArrayList<String>();
+		ArrayList<String> sqls = new ArrayList<>();
 		
 		String deleteFormulaSQL = "DELETE FROM Formula WHERE formulaID = '" + formulaID + "';";
 		sqls.add(deleteFormulaSQL);
