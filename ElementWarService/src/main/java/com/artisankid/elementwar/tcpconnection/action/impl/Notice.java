@@ -18,15 +18,13 @@ import java.util.Calendar;
 public class Notice {
 
     private Logger logger = LoggerFactory.getLogger(Notice.class);
-
     /**
      * 处理消息逻辑
      *
      * @param o
      * @return
      */
-    @ActionRequestMap(actionKey = "dealNotice")
-
+    @ActionRequestMap(actionKey = ContainerOuterClass.Container.DEAL_NOTICE_FIELD_NUMBER)
     public void dealNotice(ChannelHandlerContext ctx, Object o) {
         ContainerOuterClass.Container container = (ContainerOuterClass.Container) o;
         DealNoticeOuterClass.DealNotice dealNotice = container.getDealNotice();

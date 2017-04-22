@@ -16,12 +16,12 @@ import org.slf4j.LoggerFactory;
  */
 public class GateServerHandler extends SimpleChannelInboundHandler {
     private static final Logger logger = LoggerFactory.getLogger(GateServerHandler.class);
-
-
+    
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         ContainerOuterClass.Container container = (ContainerOuterClass.Container) msg;
-        ActionMapUtil.invote("dealNotice", ctx, container);
+        int messageType = container.getMessageCase().getNumber();
+        ActionMapUtil.invote(messageType, ctx, container);
     }
 
     @Override

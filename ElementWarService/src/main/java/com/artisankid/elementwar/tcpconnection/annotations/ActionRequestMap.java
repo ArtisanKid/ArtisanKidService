@@ -6,5 +6,5 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Documented
 public @interface ActionRequestMap {
-    String actionKey();
+    int actionKey();
 }
