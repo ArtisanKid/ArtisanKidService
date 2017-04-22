@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Calendar;
 
 /**
+ * 网关处理器服务   行为转发
  * Created by shaohua.wangshaohu on 2017/4/18.
  */
 public class GatewayServerHandler extends ChannelInboundHandlerAdapter{
