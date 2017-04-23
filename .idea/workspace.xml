@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18658e4b-460f-4140-b32e-fee23389661d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/workhandler/HandlerManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/workhandler/IMHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/workhandler/Worker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/workhandler/HandlerManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/workhandler/IMHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/workhandler/Worker.class" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ElementWarService/.gitignore" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/ElementWarService/target/" />
@@ -1412,12 +1407,12 @@
       <workItem from="1492304519950" duration="5997000" />
       <workItem from="1492310823933" duration="19686000" />
       <workItem from="1492775550092" duration="1278000" />
-      <workItem from="1492777123928" duration="4689000" />
+      <workItem from="1492777123928" duration="4798000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84688000" />
+    <option name="totallyTimeSpent" value="84797000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
