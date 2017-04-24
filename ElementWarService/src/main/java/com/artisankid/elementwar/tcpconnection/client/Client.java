@@ -9,6 +9,8 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +30,9 @@ public class Client {
                     public void initChannel(SocketChannel ch) throws Exception {
                         ChannelPipeline p = ch.pipeline();
 
+                        p.addLast(new ProtobufVarint32FrameDecoder());
                         p.addLast(new ProtobufDecoder(ContainerOuterClass.Container.getDefaultInstance()));
+                        p.addLast(new ProtobufVarint32LengthFieldPrepender());
                         p.addLast(new ProtobufEncoder());
                         p.addLast(new ClientHandler());
                     }
