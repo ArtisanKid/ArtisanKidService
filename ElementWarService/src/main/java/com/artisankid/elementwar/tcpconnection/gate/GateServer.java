@@ -7,8 +7,12 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -25,7 +29,7 @@ import java.net.InetSocketAddress;
 public class GateServer {
     private static final Logger logger = LoggerFactory.getLogger(GateServer.class);
 
-    private final static int CONNECTION_PORT = 51681;
+    private final static int CONNECTION_PORT = 51682;
 
     public static void main(String[] args){
         init();
@@ -57,7 +61,10 @@ public class GateServer {
                             throws Exception {
 
                         ChannelPipeline pipeline = channel.pipeline();
+                        pipeline.addLast(new ProtobufVarint32FrameDecoder());
                         pipeline.addLast(new ProtobufDecoder(ContainerOuterClass.Container.getDefaultInstance()));
+                        pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
+
                         pipeline.addLast(new ProtobufEncoder());
                         pipeline.addLast(new GateServerHandler());
                     }
