@@ -2,279 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18658e4b-460f-4140-b32e-fee23389661d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/Test/InsertBalanceServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Balance$BalenceType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container$MessageCase.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container$MessageType$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container$MessageType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$ContainerOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass$DealNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass$DealNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass$DealNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass$DealNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass$FinishNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass$FinishNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass$FinishNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass$FinishNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass$InRoomNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass$InRoomNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass$InRoomNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass$InRoomNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass$InviteMessage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass$InviteMessage$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass$InviteMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass$InviteMessageOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass$InviteNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass$InviteNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass$InviteNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass$InviteNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass$InviteReplyMessage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass$InviteReplyMessage$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass$InviteReplyMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass$InviteReplyMessageOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass$InviteReplyNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass$InviteReplyNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass$InviteReplyNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass$InviteReplyNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass$MatchMessage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass$MatchMessage$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass$MatchMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass$MatchMessageOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass$MatchNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass$MatchNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass$MatchNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass$MatchNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass$PlaySwitchNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass$PlaySwitchNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass$PlaySwitchNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass$PlaySwitchNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass$UseCardMessage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass$UseCardMessage$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass$UseCardMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass$UseCardMessageOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass$UseCardNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass$UseCardNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass$UseCardNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass$UseCardNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass$UseScrollMessage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass$UseScrollMessage$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass$UseScrollMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass$UseScrollMessageOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$Resultant$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$Resultant$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$Resultant.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$ResultantOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/starter/GateStarter$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/starter/GateStarter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Balance$BalenceType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container$MessageCase.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container$MessageType$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container$MessageType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$Container.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass$ContainerOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/ContainerOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass$DealNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass$DealNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass$DealNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass$DealNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/DealNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass$FinishNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass$FinishNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass$FinishNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass$FinishNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/FinishNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass$InRoomNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass$InRoomNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass$InRoomNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass$InRoomNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InRoomNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass$InviteMessage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass$InviteMessage$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass$InviteMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass$InviteMessageOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteMessageOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass$InviteNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass$InviteNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass$InviteNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass$InviteNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass$InviteReplyMessage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass$InviteReplyMessage$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass$InviteReplyMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass$InviteReplyMessageOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyMessageOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass$InviteReplyNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass$InviteReplyNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass$InviteReplyNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass$InviteReplyNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/InviteReplyNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass$MatchMessage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass$MatchMessage$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass$MatchMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass$MatchMessageOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchMessageOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass$MatchNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass$MatchNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass$MatchNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass$MatchNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/MatchNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass$PlaySwitchNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass$PlaySwitchNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass$PlaySwitchNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass$PlaySwitchNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/PlaySwitchNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass$UseCardMessage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass$UseCardMessage$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass$UseCardMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass$UseCardMessageOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardMessageOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass$UseCardNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass$UseCardNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass$UseCardNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass$UseCardNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseCardNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass$UseScrollMessage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass$UseScrollMessage$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass$UseScrollMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass$UseScrollMessageOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollMessageOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$Resultant$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$Resultant$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$Resultant.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice$ResultantOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNotice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass$UseScrollNoticeOrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/ewmodel/UseScrollNoticeOuterClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/starter/GateStarter$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/starter/GateStarter.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/BalanceDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/BalanceDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/CardDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/CardDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ConditionDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ConditionDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/DatabaseManager.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/DatabaseManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/EffectDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/EffectDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ElementDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ElementDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/FormulaDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/FormulaDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/LevelDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/LevelDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ReactionDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/ReactionDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/TokenDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/dao/TokenDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Balance.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Balance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Condition.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Condition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Effect.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Effect.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Formula.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Formula.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Level.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Level.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Reaction.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/common/ewmodel/Reaction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertConditionServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertConditionServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertEffectServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertEffectServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertFormulaServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertFormulaServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertLevelServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertLevelServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertReactionServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertReactionServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertScrollServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/controller/Test/InsertScrollServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/client/SocketClient.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/client/SocketClient.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer$1.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer$2.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/handler/GateServerHandler.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/handler/GateServerHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/utils/ClientConnection.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/utils/ClientConnection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/utils/ClientConnectionMap.class" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/com/artisankid/elementwar/tcpconnection/gate/utils/ClientConnectionMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/BalanceDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/BalanceDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/CardDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/CardDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/ConditionDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/ConditionDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/DatabaseManager.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/DatabaseManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/EffectDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/EffectDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/ElementDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/ElementDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/FormulaDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/FormulaDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/LevelDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/LevelDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/ReactionDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/ReactionDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/TokenDao.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/dao/TokenDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Balance.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Balance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Condition.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Condition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Effect.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Effect.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Formula.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Formula.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Level.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Level.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Reaction.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/common/ewmodel/Reaction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/controller/Test/InsertConditionServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/controller/Test/InsertConditionServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/controller/Test/InsertEffectServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/controller/Test/InsertEffectServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/controller/Test/InsertFormulaServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/controller/Test/InsertFormulaServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/controller/Test/InsertLevelServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/controller/Test/InsertLevelServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/controller/Test/InsertReactionServlet.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/controller/Test/InsertReactionServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/client/SocketClient.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/client/SocketClient.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer$1.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer$2.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/GateServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/handler/GateServerHandler.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/handler/GateServerHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/utils/ClientConnection.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/utils/ClientConnection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/utils/ClientConnectionMap.class" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/com/artisankid/elementwar/tcpconnection/gate/utils/ClientConnectionMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/BalanceDao.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/BalanceDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/CardDao.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/CardDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/DatabaseManager.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/DatabaseManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/ElementDao.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/ElementDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/FormulaDao.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/FormulaDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/LevelDao.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/LevelDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/TokenDao.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/TokenDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/Balance.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/ewmodel/Balance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/Test/InsertFormulaServlet.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/Test/InsertFormulaServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/ElementWarService/target/ElementWarService/WEB-INF/classes/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/ElementWarService/target/classes/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/ElementWarService/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ElementWarService/.gitignore" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/ElementWarService/target/" />
@@ -320,11 +48,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatabaseManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/DatabaseManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
-              <caret line="51" column="34" lean-forward="true" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+              <caret line="51" column="34" lean-forward="false" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Notice.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Notice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Action.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/Action.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/client/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SocketClient.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/client/SocketClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -648,6 +416,108 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tcpconnection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thirdparty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArtisanKidService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElementWarService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elementwar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcpconnection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArtisanKidService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElementWarService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elementwar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcpconnection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArtisanKidService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElementWarService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elementwar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcpconnection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1537,12 +1407,12 @@
       <workItem from="1492304519950" duration="5997000" />
       <workItem from="1492310823933" duration="19686000" />
       <workItem from="1492775550092" duration="1278000" />
-      <workItem from="1492777123928" duration="3726000" />
+      <workItem from="1492777123928" duration="4798000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83725000" />
+    <option name="totallyTimeSpent" value="84797000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1555,7 +1425,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1569,7 +1438,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3987952" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3987952" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.49713877" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1577,10 +1446,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39759037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48554218" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1509299" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21959943" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1600,14 +1469,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/DatabaseManager.java</url>
-          <line>54</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
@@ -1617,34 +1478,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ElementWarService/ElementWarService.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/resources/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/resources/dao/spring-myBatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/LoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/controller/servlet/RefreshTokenServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1995,7 +1828,39 @@
     <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/common/dao/DatabaseManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="51" column="34" lean-forward="true" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+          <caret line="51" column="34" lean-forward="false" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Notice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/client/SocketClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
           <folding />
         </state>
       </provider>
