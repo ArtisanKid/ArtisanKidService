@@ -43,7 +43,7 @@ public class Client {
      * @param index
      */
     private static void startConnection(Bootstrap b, final int index) {
-        b.connect("localhost", 51681)
+        b.connect("localhost", 51682)
                 .addListener(new ChannelFutureListener() {
                     @Override
                     public void operationComplete(ChannelFuture future)
