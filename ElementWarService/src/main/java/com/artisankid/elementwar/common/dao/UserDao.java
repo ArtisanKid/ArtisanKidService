@@ -58,7 +58,7 @@ public class UserDao {
 		return this.selectMagiciansBySQL(sql);
 	}
 
-	public List<BaseMagician> selectMagiciansBySQL(String sql) {
+	private List<BaseMagician> selectMagiciansBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		List<Map<String, Object>> result = manager.select(sql);

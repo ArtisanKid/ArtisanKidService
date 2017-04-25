@@ -19,128 +19,146 @@ public final class ContainerOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.MatchMessage match_message = 100;</code>
+     * <code>.LoginMessage login_message = 100;</code>
+     */
+    com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage getLoginMessage();
+    /**
+     * <code>.LoginMessage login_message = 100;</code>
+     */
+    com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder getLoginMessageOrBuilder();
+
+    /**
+     * <code>.MatchMessage match_message = 120;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage getMatchMessage();
     /**
-     * <code>.MatchMessage match_message = 100;</code>
+     * <code>.MatchMessage match_message = 120;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessageOrBuilder getMatchMessageOrBuilder();
 
     /**
-     * <code>.InviteMessage invite_message = 101;</code>
+     * <code>.InviteMessage invite_message = 121;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage getInviteMessage();
     /**
-     * <code>.InviteMessage invite_message = 101;</code>
+     * <code>.InviteMessage invite_message = 121;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessageOrBuilder getInviteMessageOrBuilder();
 
     /**
-     * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+     * <code>.InviteReplyMessage invite_reply_message = 122;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage getInviteReplyMessage();
     /**
-     * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+     * <code>.InviteReplyMessage invite_reply_message = 122;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessageOrBuilder getInviteReplyMessageOrBuilder();
 
     /**
-     * <code>.UseCardMessage use_card_message = 103;</code>
+     * <code>.UseCardMessage use_card_message = 123;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage getUseCardMessage();
     /**
-     * <code>.UseCardMessage use_card_message = 103;</code>
+     * <code>.UseCardMessage use_card_message = 123;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessageOrBuilder getUseCardMessageOrBuilder();
 
     /**
-     * <code>.UseScrollMessage use_scroll_message = 104;</code>
+     * <code>.UseScrollMessage use_scroll_message = 124;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage getUseScrollMessage();
     /**
-     * <code>.UseScrollMessage use_scroll_message = 104;</code>
+     * <code>.UseScrollMessage use_scroll_message = 124;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessageOrBuilder getUseScrollMessageOrBuilder();
 
     /**
-     * <code>.MatchNotice match_notice = 200;</code>
+     * <code>.LoginNotice login_notice = 200;</code>
+     */
+    com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice getLoginNotice();
+    /**
+     * <code>.LoginNotice login_notice = 200;</code>
+     */
+    com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder getLoginNoticeOrBuilder();
+
+    /**
+     * <code>.MatchNotice match_notice = 220;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice getMatchNotice();
     /**
-     * <code>.MatchNotice match_notice = 200;</code>
+     * <code>.MatchNotice match_notice = 220;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNoticeOrBuilder getMatchNoticeOrBuilder();
 
     /**
-     * <code>.InviteNotice invite_notice = 201;</code>
+     * <code>.InviteNotice invite_notice = 221;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice getInviteNotice();
     /**
-     * <code>.InviteNotice invite_notice = 201;</code>
+     * <code>.InviteNotice invite_notice = 221;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNoticeOrBuilder getInviteNoticeOrBuilder();
 
     /**
-     * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+     * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice getInviteReplyNotice();
     /**
-     * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+     * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNoticeOrBuilder getInviteReplyNoticeOrBuilder();
 
     /**
-     * <code>.InRoomNotice in_room_notice = 203;</code>
+     * <code>.InRoomNotice in_room_notice = 223;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice getInRoomNotice();
     /**
-     * <code>.InRoomNotice in_room_notice = 203;</code>
+     * <code>.InRoomNotice in_room_notice = 223;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNoticeOrBuilder getInRoomNoticeOrBuilder();
 
     /**
-     * <code>.DealNotice deal_notice = 204;</code>
+     * <code>.DealNotice deal_notice = 224;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice getDealNotice();
     /**
-     * <code>.DealNotice deal_notice = 204;</code>
+     * <code>.DealNotice deal_notice = 224;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNoticeOrBuilder getDealNoticeOrBuilder();
 
     /**
-     * <code>.UseCardNotice use_card_notice = 205;</code>
+     * <code>.UseCardNotice use_card_notice = 225;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice getUseCardNotice();
     /**
-     * <code>.UseCardNotice use_card_notice = 205;</code>
+     * <code>.UseCardNotice use_card_notice = 225;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNoticeOrBuilder getUseCardNoticeOrBuilder();
 
     /**
-     * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+     * <code>.UseScrollNotice use_scroll_notice = 226;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice getUseScrollNotice();
     /**
-     * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+     * <code>.UseScrollNotice use_scroll_notice = 226;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNoticeOrBuilder getUseScrollNoticeOrBuilder();
 
     /**
-     * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+     * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice getPlaySwitchNotice();
     /**
-     * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+     * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNoticeOrBuilder getPlaySwitchNoticeOrBuilder();
 
     /**
-     * <code>.FinishNotice finish_notice = 208;</code>
+     * <code>.FinishNotice finish_notice = 228;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice getFinishNotice();
     /**
-     * <code>.FinishNotice finish_notice = 208;</code>
+     * <code>.FinishNotice finish_notice = 228;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNoticeOrBuilder getFinishNoticeOrBuilder();
 
@@ -159,9 +177,9 @@ public final class ContainerOuterClass {
      *
      * <code>.Container.MessageType messageType = 2;</code>
      */
-    Container.MessageType getMessageType();
+    com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType getMessageType();
 
-    public Container.MessageCase getMessageCase();
+    public com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageCase getMessageCase();
   }
   /**
    * <pre>
@@ -182,7 +200,7 @@ public final class ContainerOuterClass {
       messageType_ = 0;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -214,8 +232,22 @@ public final class ContainerOuterClass {
               break;
             }
             case 802: {
-              com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.Builder subBuilder = null;
+              com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder subBuilder = null;
               if (messageCase_ == 100) {
+                subBuilder = ((com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_).toBuilder();
+              }
+              message_ =
+                  input.readMessage(com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_);
+                message_ = subBuilder.buildPartial();
+              }
+              messageCase_ = 100;
+              break;
+            }
+            case 962: {
+              com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.Builder subBuilder = null;
+              if (messageCase_ == 120) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_).toBuilder();
               }
               message_ =
@@ -224,12 +256,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 100;
+              messageCase_ = 120;
               break;
             }
-            case 810: {
+            case 970: {
               com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.Builder subBuilder = null;
-              if (messageCase_ == 101) {
+              if (messageCase_ == 121) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_).toBuilder();
               }
               message_ =
@@ -238,12 +270,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 101;
+              messageCase_ = 121;
               break;
             }
-            case 818: {
+            case 978: {
               com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.Builder subBuilder = null;
-              if (messageCase_ == 102) {
+              if (messageCase_ == 122) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_).toBuilder();
               }
               message_ =
@@ -252,12 +284,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 102;
+              messageCase_ = 122;
               break;
             }
-            case 826: {
+            case 986: {
               com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.Builder subBuilder = null;
-              if (messageCase_ == 103) {
+              if (messageCase_ == 123) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_).toBuilder();
               }
               message_ =
@@ -266,12 +298,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 103;
+              messageCase_ = 123;
               break;
             }
-            case 834: {
+            case 994: {
               com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.Builder subBuilder = null;
-              if (messageCase_ == 104) {
+              if (messageCase_ == 124) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_).toBuilder();
               }
               message_ =
@@ -280,12 +312,26 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 104;
+              messageCase_ = 124;
               break;
             }
             case 1602: {
-              com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.Builder subBuilder = null;
+              com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder subBuilder = null;
               if (messageCase_ == 200) {
+                subBuilder = ((com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_).toBuilder();
+              }
+              message_ =
+                  input.readMessage(com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_);
+                message_ = subBuilder.buildPartial();
+              }
+              messageCase_ = 200;
+              break;
+            }
+            case 1762: {
+              com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.Builder subBuilder = null;
+              if (messageCase_ == 220) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_).toBuilder();
               }
               message_ =
@@ -294,12 +340,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 200;
+              messageCase_ = 220;
               break;
             }
-            case 1610: {
+            case 1770: {
               com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.Builder subBuilder = null;
-              if (messageCase_ == 201) {
+              if (messageCase_ == 221) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_).toBuilder();
               }
               message_ =
@@ -308,12 +354,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 201;
+              messageCase_ = 221;
               break;
             }
-            case 1618: {
+            case 1778: {
               com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.Builder subBuilder = null;
-              if (messageCase_ == 202) {
+              if (messageCase_ == 222) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_).toBuilder();
               }
               message_ =
@@ -322,12 +368,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 202;
+              messageCase_ = 222;
               break;
             }
-            case 1626: {
+            case 1786: {
               com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.Builder subBuilder = null;
-              if (messageCase_ == 203) {
+              if (messageCase_ == 223) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_).toBuilder();
               }
               message_ =
@@ -336,12 +382,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 203;
+              messageCase_ = 223;
               break;
             }
-            case 1634: {
+            case 1794: {
               com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.Builder subBuilder = null;
-              if (messageCase_ == 204) {
+              if (messageCase_ == 224) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_).toBuilder();
               }
               message_ =
@@ -350,12 +396,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 204;
+              messageCase_ = 224;
               break;
             }
-            case 1642: {
+            case 1802: {
               com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.Builder subBuilder = null;
-              if (messageCase_ == 205) {
+              if (messageCase_ == 225) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_).toBuilder();
               }
               message_ =
@@ -364,12 +410,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 205;
+              messageCase_ = 225;
               break;
             }
-            case 1650: {
+            case 1810: {
               com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.Builder subBuilder = null;
-              if (messageCase_ == 206) {
+              if (messageCase_ == 226) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_).toBuilder();
               }
               message_ =
@@ -378,12 +424,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 206;
+              messageCase_ = 226;
               break;
             }
-            case 1658: {
+            case 1818: {
               com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder subBuilder = null;
-              if (messageCase_ == 207) {
+              if (messageCase_ == 227) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_).toBuilder();
               }
               message_ =
@@ -392,12 +438,12 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 207;
+              messageCase_ = 227;
               break;
             }
-            case 1666: {
+            case 1826: {
               com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder subBuilder = null;
-              if (messageCase_ == 208) {
+              if (messageCase_ == 228) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_).toBuilder();
               }
               message_ =
@@ -406,7 +452,7 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 208;
+              messageCase_ = 228;
               break;
             }
           }
@@ -422,14 +468,14 @@ public final class ContainerOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ContainerOuterClass.internal_static_Container_descriptor;
+      return com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.internal_static_Container_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ContainerOuterClass.internal_static_Container_fieldAccessorTable
+      return com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.internal_static_Container_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Container.class, Builder.class);
+              com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.class, com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.Builder.class);
     }
 
     /**
@@ -442,61 +488,69 @@ public final class ContainerOuterClass {
        */
       None(0),
       /**
-       * <code>MatchMessage = 100;</code>
+       * <code>LoginMessage = 100;</code>
        */
-      MatchMessage(100),
+      LoginMessage(100),
       /**
-       * <code>InviteMessage = 101;</code>
+       * <code>MatchMessage = 120;</code>
        */
-      InviteMessage(101),
+      MatchMessage(120),
       /**
-       * <code>InviteReplyMessage = 102;</code>
+       * <code>InviteMessage = 121;</code>
        */
-      InviteReplyMessage(102),
+      InviteMessage(121),
       /**
-       * <code>UseCardMessage = 103;</code>
+       * <code>InviteReplyMessage = 122;</code>
        */
-      UseCardMessage(103),
+      InviteReplyMessage(122),
       /**
-       * <code>UseScrollMessage = 104;</code>
+       * <code>UseCardMessage = 123;</code>
        */
-      UseScrollMessage(104),
+      UseCardMessage(123),
       /**
-       * <code>MatchNotice = 200;</code>
+       * <code>UseScrollMessage = 124;</code>
        */
-      MatchNotice(200),
+      UseScrollMessage(124),
       /**
-       * <code>InviteNotice = 201;</code>
+       * <code>LoginNotice = 200;</code>
        */
-      InviteNotice(201),
+      LoginNotice(200),
       /**
-       * <code>InviteReplyNotice = 202;</code>
+       * <code>MatchNotice = 220;</code>
        */
-      InviteReplyNotice(202),
+      MatchNotice(220),
       /**
-       * <code>InRoomNotice = 203;</code>
+       * <code>InviteNotice = 221;</code>
        */
-      InRoomNotice(203),
+      InviteNotice(221),
       /**
-       * <code>DealNotice = 204;</code>
+       * <code>InviteReplyNotice = 222;</code>
        */
-      DealNotice(204),
+      InviteReplyNotice(222),
       /**
-       * <code>UseCardNotice = 205;</code>
+       * <code>InRoomNotice = 223;</code>
        */
-      UseCardNotice(205),
+      InRoomNotice(223),
       /**
-       * <code>UseScrollNotice = 206;</code>
+       * <code>DealNotice = 224;</code>
        */
-      UseScrollNotice(206),
+      DealNotice(224),
       /**
-       * <code>PlaySwitchNotice = 207;</code>
+       * <code>UseCardNotice = 225;</code>
        */
-      PlaySwitchNotice(207),
+      UseCardNotice(225),
       /**
-       * <code>FinishNotice = 208;</code>
+       * <code>UseScrollNotice = 226;</code>
        */
-      FinishNotice(208),
+      UseScrollNotice(226),
+      /**
+       * <code>PlaySwitchNotice = 227;</code>
+       */
+      PlaySwitchNotice(227),
+      /**
+       * <code>FinishNotice = 228;</code>
+       */
+      FinishNotice(228),
       UNRECOGNIZED(-1),
       ;
 
@@ -505,66 +559,74 @@ public final class ContainerOuterClass {
        */
       public static final int None_VALUE = 0;
       /**
-       * <code>MatchMessage = 100;</code>
+       * <code>LoginMessage = 100;</code>
        */
-      public static final int MatchMessage_VALUE = 100;
+      public static final int LoginMessage_VALUE = 100;
       /**
-       * <code>InviteMessage = 101;</code>
+       * <code>MatchMessage = 120;</code>
        */
-      public static final int InviteMessage_VALUE = 101;
+      public static final int MatchMessage_VALUE = 120;
       /**
-       * <code>InviteReplyMessage = 102;</code>
+       * <code>InviteMessage = 121;</code>
        */
-      public static final int InviteReplyMessage_VALUE = 102;
+      public static final int InviteMessage_VALUE = 121;
       /**
-       * <code>UseCardMessage = 103;</code>
+       * <code>InviteReplyMessage = 122;</code>
        */
-      public static final int UseCardMessage_VALUE = 103;
+      public static final int InviteReplyMessage_VALUE = 122;
       /**
-       * <code>UseScrollMessage = 104;</code>
+       * <code>UseCardMessage = 123;</code>
        */
-      public static final int UseScrollMessage_VALUE = 104;
+      public static final int UseCardMessage_VALUE = 123;
       /**
-       * <code>MatchNotice = 200;</code>
+       * <code>UseScrollMessage = 124;</code>
        */
-      public static final int MatchNotice_VALUE = 200;
+      public static final int UseScrollMessage_VALUE = 124;
       /**
-       * <code>InviteNotice = 201;</code>
+       * <code>LoginNotice = 200;</code>
        */
-      public static final int InviteNotice_VALUE = 201;
+      public static final int LoginNotice_VALUE = 200;
       /**
-       * <code>InviteReplyNotice = 202;</code>
+       * <code>MatchNotice = 220;</code>
        */
-      public static final int InviteReplyNotice_VALUE = 202;
+      public static final int MatchNotice_VALUE = 220;
       /**
-       * <code>InRoomNotice = 203;</code>
+       * <code>InviteNotice = 221;</code>
        */
-      public static final int InRoomNotice_VALUE = 203;
+      public static final int InviteNotice_VALUE = 221;
       /**
-       * <code>DealNotice = 204;</code>
+       * <code>InviteReplyNotice = 222;</code>
        */
-      public static final int DealNotice_VALUE = 204;
+      public static final int InviteReplyNotice_VALUE = 222;
       /**
-       * <code>UseCardNotice = 205;</code>
+       * <code>InRoomNotice = 223;</code>
        */
-      public static final int UseCardNotice_VALUE = 205;
+      public static final int InRoomNotice_VALUE = 223;
       /**
-       * <code>UseScrollNotice = 206;</code>
+       * <code>DealNotice = 224;</code>
        */
-      public static final int UseScrollNotice_VALUE = 206;
+      public static final int DealNotice_VALUE = 224;
       /**
-       * <code>PlaySwitchNotice = 207;</code>
+       * <code>UseCardNotice = 225;</code>
        */
-      public static final int PlaySwitchNotice_VALUE = 207;
+      public static final int UseCardNotice_VALUE = 225;
       /**
-       * <code>FinishNotice = 208;</code>
+       * <code>UseScrollNotice = 226;</code>
        */
-      public static final int FinishNotice_VALUE = 208;
+      public static final int UseScrollNotice_VALUE = 226;
+      /**
+       * <code>PlaySwitchNotice = 227;</code>
+       */
+      public static final int PlaySwitchNotice_VALUE = 227;
+      /**
+       * <code>FinishNotice = 228;</code>
+       */
+      public static final int FinishNotice_VALUE = 228;
 
 
       public final int getNumber() {
         if (this == UNRECOGNIZED) {
-          throw new IllegalArgumentException(
+          throw new java.lang.IllegalArgumentException(
               "Can't get the number of an unknown enum value.");
         }
         return value;
@@ -573,7 +635,7 @@ public final class ContainerOuterClass {
       /**
        * @deprecated Use {@link #forNumber(int)} instead.
        */
-      @Deprecated
+      @java.lang.Deprecated
       public static MessageType valueOf(int value) {
         return forNumber(value);
       }
@@ -581,20 +643,22 @@ public final class ContainerOuterClass {
       public static MessageType forNumber(int value) {
         switch (value) {
           case 0: return None;
-          case 100: return MatchMessage;
-          case 101: return InviteMessage;
-          case 102: return InviteReplyMessage;
-          case 103: return UseCardMessage;
-          case 104: return UseScrollMessage;
-          case 200: return MatchNotice;
-          case 201: return InviteNotice;
-          case 202: return InviteReplyNotice;
-          case 203: return InRoomNotice;
-          case 204: return DealNotice;
-          case 205: return UseCardNotice;
-          case 206: return UseScrollNotice;
-          case 207: return PlaySwitchNotice;
-          case 208: return FinishNotice;
+          case 100: return LoginMessage;
+          case 120: return MatchMessage;
+          case 121: return InviteMessage;
+          case 122: return InviteReplyMessage;
+          case 123: return UseCardMessage;
+          case 124: return UseScrollMessage;
+          case 200: return LoginNotice;
+          case 220: return MatchNotice;
+          case 221: return InviteNotice;
+          case 222: return InviteReplyNotice;
+          case 223: return InRoomNotice;
+          case 224: return DealNotice;
+          case 225: return UseCardNotice;
+          case 226: return UseScrollNotice;
+          case 227: return PlaySwitchNotice;
+          case 228: return FinishNotice;
           default: return null;
         }
       }
@@ -621,7 +685,7 @@ public final class ContainerOuterClass {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return Container.getDescriptor().getEnumTypes().get(0);
+        return com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final MessageType[] VALUES = values();
@@ -629,7 +693,7 @@ public final class ContainerOuterClass {
       public static MessageType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
-          throw new IllegalArgumentException(
+          throw new java.lang.IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
         }
         if (desc.getIndex() == -1) {
@@ -648,23 +712,25 @@ public final class ContainerOuterClass {
     }
 
     private int messageCase_ = 0;
-    private Object message_;
+    private java.lang.Object message_;
     public enum MessageCase
         implements com.google.protobuf.Internal.EnumLite {
-      MATCH_MESSAGE(100),
-      INVITE_MESSAGE(101),
-      INVITE_REPLY_MESSAGE(102),
-      USE_CARD_MESSAGE(103),
-      USE_SCROLL_MESSAGE(104),
-      MATCH_NOTICE(200),
-      INVITE_NOTICE(201),
-      INVITE_REPLY_NOTICE(202),
-      IN_ROOM_NOTICE(203),
-      DEAL_NOTICE(204),
-      USE_CARD_NOTICE(205),
-      USE_SCROLL_NOTICE(206),
-      PLAY_SWITCH_NOTICE(207),
-      FINISH_NOTICE(208),
+      LOGIN_MESSAGE(100),
+      MATCH_MESSAGE(120),
+      INVITE_MESSAGE(121),
+      INVITE_REPLY_MESSAGE(122),
+      USE_CARD_MESSAGE(123),
+      USE_SCROLL_MESSAGE(124),
+      LOGIN_NOTICE(200),
+      MATCH_NOTICE(220),
+      INVITE_NOTICE(221),
+      INVITE_REPLY_NOTICE(222),
+      IN_ROOM_NOTICE(223),
+      DEAL_NOTICE(224),
+      USE_CARD_NOTICE(225),
+      USE_SCROLL_NOTICE(226),
+      PLAY_SWITCH_NOTICE(227),
+      FINISH_NOTICE(228),
       MESSAGE_NOT_SET(0);
       private final int value;
       private MessageCase(int value) {
@@ -673,27 +739,29 @@ public final class ContainerOuterClass {
       /**
        * @deprecated Use {@link #forNumber(int)} instead.
        */
-      @Deprecated
+      @java.lang.Deprecated
       public static MessageCase valueOf(int value) {
         return forNumber(value);
       }
 
       public static MessageCase forNumber(int value) {
         switch (value) {
-          case 100: return MATCH_MESSAGE;
-          case 101: return INVITE_MESSAGE;
-          case 102: return INVITE_REPLY_MESSAGE;
-          case 103: return USE_CARD_MESSAGE;
-          case 104: return USE_SCROLL_MESSAGE;
-          case 200: return MATCH_NOTICE;
-          case 201: return INVITE_NOTICE;
-          case 202: return INVITE_REPLY_NOTICE;
-          case 203: return IN_ROOM_NOTICE;
-          case 204: return DEAL_NOTICE;
-          case 205: return USE_CARD_NOTICE;
-          case 206: return USE_SCROLL_NOTICE;
-          case 207: return PLAY_SWITCH_NOTICE;
-          case 208: return FINISH_NOTICE;
+          case 100: return LOGIN_MESSAGE;
+          case 120: return MATCH_MESSAGE;
+          case 121: return INVITE_MESSAGE;
+          case 122: return INVITE_REPLY_MESSAGE;
+          case 123: return USE_CARD_MESSAGE;
+          case 124: return USE_SCROLL_MESSAGE;
+          case 200: return LOGIN_NOTICE;
+          case 220: return MATCH_NOTICE;
+          case 221: return INVITE_NOTICE;
+          case 222: return INVITE_REPLY_NOTICE;
+          case 223: return IN_ROOM_NOTICE;
+          case 224: return DEAL_NOTICE;
+          case 225: return USE_CARD_NOTICE;
+          case 226: return USE_SCROLL_NOTICE;
+          case 227: return PLAY_SWITCH_NOTICE;
+          case 228: return FINISH_NOTICE;
           case 0: return MESSAGE_NOT_SET;
           default: return null;
         }
@@ -709,281 +777,321 @@ public final class ContainerOuterClass {
           messageCase_);
     }
 
-    public static final int MATCH_MESSAGE_FIELD_NUMBER = 100;
+    public static final int LOGIN_MESSAGE_FIELD_NUMBER = 100;
     /**
-     * <code>.MatchMessage match_message = 100;</code>
+     * <code>.LoginMessage login_message = 100;</code>
+     */
+    public com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage getLoginMessage() {
+      if (messageCase_ == 100) {
+         return (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_;
+      }
+      return com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
+    }
+    /**
+     * <code>.LoginMessage login_message = 100;</code>
+     */
+    public com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder getLoginMessageOrBuilder() {
+      if (messageCase_ == 100) {
+         return (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_;
+      }
+      return com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
+    }
+
+    public static final int MATCH_MESSAGE_FIELD_NUMBER = 120;
+    /**
+     * <code>.MatchMessage match_message = 120;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage getMatchMessage() {
-      if (messageCase_ == 100) {
+      if (messageCase_ == 120) {
          return (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.getDefaultInstance();
     }
     /**
-     * <code>.MatchMessage match_message = 100;</code>
+     * <code>.MatchMessage match_message = 120;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessageOrBuilder getMatchMessageOrBuilder() {
-      if (messageCase_ == 100) {
+      if (messageCase_ == 120) {
          return (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.getDefaultInstance();
     }
 
-    public static final int INVITE_MESSAGE_FIELD_NUMBER = 101;
+    public static final int INVITE_MESSAGE_FIELD_NUMBER = 121;
     /**
-     * <code>.InviteMessage invite_message = 101;</code>
+     * <code>.InviteMessage invite_message = 121;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage getInviteMessage() {
-      if (messageCase_ == 101) {
+      if (messageCase_ == 121) {
          return (com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.getDefaultInstance();
     }
     /**
-     * <code>.InviteMessage invite_message = 101;</code>
+     * <code>.InviteMessage invite_message = 121;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessageOrBuilder getInviteMessageOrBuilder() {
-      if (messageCase_ == 101) {
+      if (messageCase_ == 121) {
          return (com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.getDefaultInstance();
     }
 
-    public static final int INVITE_REPLY_MESSAGE_FIELD_NUMBER = 102;
+    public static final int INVITE_REPLY_MESSAGE_FIELD_NUMBER = 122;
     /**
-     * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+     * <code>.InviteReplyMessage invite_reply_message = 122;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage getInviteReplyMessage() {
-      if (messageCase_ == 102) {
+      if (messageCase_ == 122) {
          return (com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.getDefaultInstance();
     }
     /**
-     * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+     * <code>.InviteReplyMessage invite_reply_message = 122;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessageOrBuilder getInviteReplyMessageOrBuilder() {
-      if (messageCase_ == 102) {
+      if (messageCase_ == 122) {
          return (com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.getDefaultInstance();
     }
 
-    public static final int USE_CARD_MESSAGE_FIELD_NUMBER = 103;
+    public static final int USE_CARD_MESSAGE_FIELD_NUMBER = 123;
     /**
-     * <code>.UseCardMessage use_card_message = 103;</code>
+     * <code>.UseCardMessage use_card_message = 123;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage getUseCardMessage() {
-      if (messageCase_ == 103) {
+      if (messageCase_ == 123) {
          return (com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.getDefaultInstance();
     }
     /**
-     * <code>.UseCardMessage use_card_message = 103;</code>
+     * <code>.UseCardMessage use_card_message = 123;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessageOrBuilder getUseCardMessageOrBuilder() {
-      if (messageCase_ == 103) {
+      if (messageCase_ == 123) {
          return (com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.getDefaultInstance();
     }
 
-    public static final int USE_SCROLL_MESSAGE_FIELD_NUMBER = 104;
+    public static final int USE_SCROLL_MESSAGE_FIELD_NUMBER = 124;
     /**
-     * <code>.UseScrollMessage use_scroll_message = 104;</code>
+     * <code>.UseScrollMessage use_scroll_message = 124;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage getUseScrollMessage() {
-      if (messageCase_ == 104) {
+      if (messageCase_ == 124) {
          return (com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.getDefaultInstance();
     }
     /**
-     * <code>.UseScrollMessage use_scroll_message = 104;</code>
+     * <code>.UseScrollMessage use_scroll_message = 124;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessageOrBuilder getUseScrollMessageOrBuilder() {
-      if (messageCase_ == 104) {
+      if (messageCase_ == 124) {
          return (com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.getDefaultInstance();
     }
 
-    public static final int MATCH_NOTICE_FIELD_NUMBER = 200;
+    public static final int LOGIN_NOTICE_FIELD_NUMBER = 200;
     /**
-     * <code>.MatchNotice match_notice = 200;</code>
+     * <code>.LoginNotice login_notice = 200;</code>
+     */
+    public com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice getLoginNotice() {
+      if (messageCase_ == 200) {
+         return (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_;
+      }
+      return com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
+    }
+    /**
+     * <code>.LoginNotice login_notice = 200;</code>
+     */
+    public com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder getLoginNoticeOrBuilder() {
+      if (messageCase_ == 200) {
+         return (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_;
+      }
+      return com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
+    }
+
+    public static final int MATCH_NOTICE_FIELD_NUMBER = 220;
+    /**
+     * <code>.MatchNotice match_notice = 220;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice getMatchNotice() {
-      if (messageCase_ == 200) {
+      if (messageCase_ == 220) {
          return (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.getDefaultInstance();
     }
     /**
-     * <code>.MatchNotice match_notice = 200;</code>
+     * <code>.MatchNotice match_notice = 220;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNoticeOrBuilder getMatchNoticeOrBuilder() {
-      if (messageCase_ == 200) {
+      if (messageCase_ == 220) {
          return (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.getDefaultInstance();
     }
 
-    public static final int INVITE_NOTICE_FIELD_NUMBER = 201;
+    public static final int INVITE_NOTICE_FIELD_NUMBER = 221;
     /**
-     * <code>.InviteNotice invite_notice = 201;</code>
+     * <code>.InviteNotice invite_notice = 221;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice getInviteNotice() {
-      if (messageCase_ == 201) {
+      if (messageCase_ == 221) {
          return (com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.getDefaultInstance();
     }
     /**
-     * <code>.InviteNotice invite_notice = 201;</code>
+     * <code>.InviteNotice invite_notice = 221;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNoticeOrBuilder getInviteNoticeOrBuilder() {
-      if (messageCase_ == 201) {
+      if (messageCase_ == 221) {
          return (com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.getDefaultInstance();
     }
 
-    public static final int INVITE_REPLY_NOTICE_FIELD_NUMBER = 202;
+    public static final int INVITE_REPLY_NOTICE_FIELD_NUMBER = 222;
     /**
-     * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+     * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice getInviteReplyNotice() {
-      if (messageCase_ == 202) {
+      if (messageCase_ == 222) {
          return (com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.getDefaultInstance();
     }
     /**
-     * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+     * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNoticeOrBuilder getInviteReplyNoticeOrBuilder() {
-      if (messageCase_ == 202) {
+      if (messageCase_ == 222) {
          return (com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.getDefaultInstance();
     }
 
-    public static final int IN_ROOM_NOTICE_FIELD_NUMBER = 203;
+    public static final int IN_ROOM_NOTICE_FIELD_NUMBER = 223;
     /**
-     * <code>.InRoomNotice in_room_notice = 203;</code>
+     * <code>.InRoomNotice in_room_notice = 223;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice getInRoomNotice() {
-      if (messageCase_ == 203) {
+      if (messageCase_ == 223) {
          return (com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.getDefaultInstance();
     }
     /**
-     * <code>.InRoomNotice in_room_notice = 203;</code>
+     * <code>.InRoomNotice in_room_notice = 223;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNoticeOrBuilder getInRoomNoticeOrBuilder() {
-      if (messageCase_ == 203) {
+      if (messageCase_ == 223) {
          return (com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.getDefaultInstance();
     }
 
-    public static final int DEAL_NOTICE_FIELD_NUMBER = 204;
+    public static final int DEAL_NOTICE_FIELD_NUMBER = 224;
     /**
-     * <code>.DealNotice deal_notice = 204;</code>
+     * <code>.DealNotice deal_notice = 224;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice getDealNotice() {
-      if (messageCase_ == 204) {
+      if (messageCase_ == 224) {
          return (com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.getDefaultInstance();
     }
     /**
-     * <code>.DealNotice deal_notice = 204;</code>
+     * <code>.DealNotice deal_notice = 224;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNoticeOrBuilder getDealNoticeOrBuilder() {
-      if (messageCase_ == 204) {
+      if (messageCase_ == 224) {
          return (com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.getDefaultInstance();
     }
 
-    public static final int USE_CARD_NOTICE_FIELD_NUMBER = 205;
+    public static final int USE_CARD_NOTICE_FIELD_NUMBER = 225;
     /**
-     * <code>.UseCardNotice use_card_notice = 205;</code>
+     * <code>.UseCardNotice use_card_notice = 225;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice getUseCardNotice() {
-      if (messageCase_ == 205) {
+      if (messageCase_ == 225) {
          return (com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.getDefaultInstance();
     }
     /**
-     * <code>.UseCardNotice use_card_notice = 205;</code>
+     * <code>.UseCardNotice use_card_notice = 225;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNoticeOrBuilder getUseCardNoticeOrBuilder() {
-      if (messageCase_ == 205) {
+      if (messageCase_ == 225) {
          return (com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.getDefaultInstance();
     }
 
-    public static final int USE_SCROLL_NOTICE_FIELD_NUMBER = 206;
+    public static final int USE_SCROLL_NOTICE_FIELD_NUMBER = 226;
     /**
-     * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+     * <code>.UseScrollNotice use_scroll_notice = 226;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice getUseScrollNotice() {
-      if (messageCase_ == 206) {
+      if (messageCase_ == 226) {
          return (com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.getDefaultInstance();
     }
     /**
-     * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+     * <code>.UseScrollNotice use_scroll_notice = 226;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNoticeOrBuilder getUseScrollNoticeOrBuilder() {
-      if (messageCase_ == 206) {
+      if (messageCase_ == 226) {
          return (com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.getDefaultInstance();
     }
 
-    public static final int PLAY_SWITCH_NOTICE_FIELD_NUMBER = 207;
+    public static final int PLAY_SWITCH_NOTICE_FIELD_NUMBER = 227;
     /**
-     * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+     * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice getPlaySwitchNotice() {
-      if (messageCase_ == 207) {
+      if (messageCase_ == 227) {
          return (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.getDefaultInstance();
     }
     /**
-     * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+     * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNoticeOrBuilder getPlaySwitchNoticeOrBuilder() {
-      if (messageCase_ == 207) {
+      if (messageCase_ == 227) {
          return (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.getDefaultInstance();
     }
 
-    public static final int FINISH_NOTICE_FIELD_NUMBER = 208;
+    public static final int FINISH_NOTICE_FIELD_NUMBER = 228;
     /**
-     * <code>.FinishNotice finish_notice = 208;</code>
+     * <code>.FinishNotice finish_notice = 228;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice getFinishNotice() {
-      if (messageCase_ == 208) {
+      if (messageCase_ == 228) {
          return (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
     }
     /**
-     * <code>.FinishNotice finish_notice = 208;</code>
+     * <code>.FinishNotice finish_notice = 228;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNoticeOrBuilder getFinishNoticeOrBuilder() {
-      if (messageCase_ == 208) {
+      if (messageCase_ == 228) {
          return (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
@@ -1008,9 +1116,9 @@ public final class ContainerOuterClass {
      *
      * <code>.Container.MessageType messageType = 2;</code>
      */
-    public MessageType getMessageType() {
-      MessageType result = MessageType.valueOf(messageType_);
-      return result == null ? MessageType.UNRECOGNIZED : result;
+    public com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType getMessageType() {
+      com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType result = com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType.valueOf(messageType_);
+      return result == null ? com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1025,50 +1133,56 @@ public final class ContainerOuterClass {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (messageType_ != MessageType.None.getNumber()) {
+      if (messageType_ != com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType.None.getNumber()) {
         output.writeEnum(2, messageType_);
       }
       if (messageCase_ == 100) {
-        output.writeMessage(100, (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_);
+        output.writeMessage(100, (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_);
       }
-      if (messageCase_ == 101) {
-        output.writeMessage(101, (com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_);
+      if (messageCase_ == 120) {
+        output.writeMessage(120, (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_);
       }
-      if (messageCase_ == 102) {
-        output.writeMessage(102, (com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_);
+      if (messageCase_ == 121) {
+        output.writeMessage(121, (com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_);
       }
-      if (messageCase_ == 103) {
-        output.writeMessage(103, (com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_);
+      if (messageCase_ == 122) {
+        output.writeMessage(122, (com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_);
       }
-      if (messageCase_ == 104) {
-        output.writeMessage(104, (com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_);
+      if (messageCase_ == 123) {
+        output.writeMessage(123, (com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_);
+      }
+      if (messageCase_ == 124) {
+        output.writeMessage(124, (com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_);
       }
       if (messageCase_ == 200) {
-        output.writeMessage(200, (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_);
+        output.writeMessage(200, (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_);
       }
-      if (messageCase_ == 201) {
-        output.writeMessage(201, (com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_);
+      if (messageCase_ == 220) {
+        output.writeMessage(220, (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_);
       }
-      if (messageCase_ == 202) {
-        output.writeMessage(202, (com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_);
+      if (messageCase_ == 221) {
+        output.writeMessage(221, (com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_);
       }
-      if (messageCase_ == 203) {
-        output.writeMessage(203, (com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_);
+      if (messageCase_ == 222) {
+        output.writeMessage(222, (com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_);
       }
-      if (messageCase_ == 204) {
-        output.writeMessage(204, (com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_);
+      if (messageCase_ == 223) {
+        output.writeMessage(223, (com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_);
       }
-      if (messageCase_ == 205) {
-        output.writeMessage(205, (com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_);
+      if (messageCase_ == 224) {
+        output.writeMessage(224, (com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_);
       }
-      if (messageCase_ == 206) {
-        output.writeMessage(206, (com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_);
+      if (messageCase_ == 225) {
+        output.writeMessage(225, (com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_);
       }
-      if (messageCase_ == 207) {
-        output.writeMessage(207, (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_);
+      if (messageCase_ == 226) {
+        output.writeMessage(226, (com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_);
       }
-      if (messageCase_ == 208) {
-        output.writeMessage(208, (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_);
+      if (messageCase_ == 227) {
+        output.writeMessage(227, (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_);
+      }
+      if (messageCase_ == 228) {
+        output.writeMessage(228, (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_);
       }
     }
 
@@ -1077,80 +1191,88 @@ public final class ContainerOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (messageType_ != MessageType.None.getNumber()) {
+      if (messageType_ != com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType.None.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, messageType_);
       }
       if (messageCase_ == 100) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(100, (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_);
+          .computeMessageSize(100, (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_);
       }
-      if (messageCase_ == 101) {
+      if (messageCase_ == 120) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(101, (com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_);
+          .computeMessageSize(120, (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_);
       }
-      if (messageCase_ == 102) {
+      if (messageCase_ == 121) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(102, (com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_);
+          .computeMessageSize(121, (com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_);
       }
-      if (messageCase_ == 103) {
+      if (messageCase_ == 122) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(103, (com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_);
+          .computeMessageSize(122, (com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_);
       }
-      if (messageCase_ == 104) {
+      if (messageCase_ == 123) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(104, (com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_);
+          .computeMessageSize(123, (com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_);
+      }
+      if (messageCase_ == 124) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(124, (com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_);
       }
       if (messageCase_ == 200) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(200, (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_);
+          .computeMessageSize(200, (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_);
       }
-      if (messageCase_ == 201) {
+      if (messageCase_ == 220) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(201, (com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_);
+          .computeMessageSize(220, (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_);
       }
-      if (messageCase_ == 202) {
+      if (messageCase_ == 221) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(202, (com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_);
+          .computeMessageSize(221, (com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_);
       }
-      if (messageCase_ == 203) {
+      if (messageCase_ == 222) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(203, (com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_);
+          .computeMessageSize(222, (com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_);
       }
-      if (messageCase_ == 204) {
+      if (messageCase_ == 223) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(204, (com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_);
+          .computeMessageSize(223, (com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_);
       }
-      if (messageCase_ == 205) {
+      if (messageCase_ == 224) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(205, (com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_);
+          .computeMessageSize(224, (com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_);
       }
-      if (messageCase_ == 206) {
+      if (messageCase_ == 225) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(206, (com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_);
+          .computeMessageSize(225, (com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_);
       }
-      if (messageCase_ == 207) {
+      if (messageCase_ == 226) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(207, (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_);
+          .computeMessageSize(226, (com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_);
       }
-      if (messageCase_ == 208) {
+      if (messageCase_ == 227) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(208, (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_);
+          .computeMessageSize(227, (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_);
+      }
+      if (messageCase_ == 228) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(228, (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_);
       }
       memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof Container)) {
+      if (!(obj instanceof com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container)) {
         return super.equals(obj);
       }
-      Container other = (Container) obj;
+      com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container other = (com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container) obj;
 
       boolean result = true;
       result = result && messageType_ == other.messageType_;
@@ -1159,58 +1281,66 @@ public final class ContainerOuterClass {
       if (!result) return false;
       switch (messageCase_) {
         case 100:
+          result = result && getLoginMessage()
+              .equals(other.getLoginMessage());
+          break;
+        case 120:
           result = result && getMatchMessage()
               .equals(other.getMatchMessage());
           break;
-        case 101:
+        case 121:
           result = result && getInviteMessage()
               .equals(other.getInviteMessage());
           break;
-        case 102:
+        case 122:
           result = result && getInviteReplyMessage()
               .equals(other.getInviteReplyMessage());
           break;
-        case 103:
+        case 123:
           result = result && getUseCardMessage()
               .equals(other.getUseCardMessage());
           break;
-        case 104:
+        case 124:
           result = result && getUseScrollMessage()
               .equals(other.getUseScrollMessage());
           break;
         case 200:
+          result = result && getLoginNotice()
+              .equals(other.getLoginNotice());
+          break;
+        case 220:
           result = result && getMatchNotice()
               .equals(other.getMatchNotice());
           break;
-        case 201:
+        case 221:
           result = result && getInviteNotice()
               .equals(other.getInviteNotice());
           break;
-        case 202:
+        case 222:
           result = result && getInviteReplyNotice()
               .equals(other.getInviteReplyNotice());
           break;
-        case 203:
+        case 223:
           result = result && getInRoomNotice()
               .equals(other.getInRoomNotice());
           break;
-        case 204:
+        case 224:
           result = result && getDealNotice()
               .equals(other.getDealNotice());
           break;
-        case 205:
+        case 225:
           result = result && getUseCardNotice()
               .equals(other.getUseCardNotice());
           break;
-        case 206:
+        case 226:
           result = result && getUseScrollNotice()
               .equals(other.getUseScrollNotice());
           break;
-        case 207:
+        case 227:
           result = result && getPlaySwitchNotice()
               .equals(other.getPlaySwitchNotice());
           break;
-        case 208:
+        case 228:
           result = result && getFinishNotice()
               .equals(other.getFinishNotice());
           break;
@@ -1220,7 +1350,7 @@ public final class ContainerOuterClass {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1231,58 +1361,66 @@ public final class ContainerOuterClass {
       hash = (53 * hash) + messageType_;
       switch (messageCase_) {
         case 100:
+          hash = (37 * hash) + LOGIN_MESSAGE_FIELD_NUMBER;
+          hash = (53 * hash) + getLoginMessage().hashCode();
+          break;
+        case 120:
           hash = (37 * hash) + MATCH_MESSAGE_FIELD_NUMBER;
           hash = (53 * hash) + getMatchMessage().hashCode();
           break;
-        case 101:
+        case 121:
           hash = (37 * hash) + INVITE_MESSAGE_FIELD_NUMBER;
           hash = (53 * hash) + getInviteMessage().hashCode();
           break;
-        case 102:
+        case 122:
           hash = (37 * hash) + INVITE_REPLY_MESSAGE_FIELD_NUMBER;
           hash = (53 * hash) + getInviteReplyMessage().hashCode();
           break;
-        case 103:
+        case 123:
           hash = (37 * hash) + USE_CARD_MESSAGE_FIELD_NUMBER;
           hash = (53 * hash) + getUseCardMessage().hashCode();
           break;
-        case 104:
+        case 124:
           hash = (37 * hash) + USE_SCROLL_MESSAGE_FIELD_NUMBER;
           hash = (53 * hash) + getUseScrollMessage().hashCode();
           break;
         case 200:
+          hash = (37 * hash) + LOGIN_NOTICE_FIELD_NUMBER;
+          hash = (53 * hash) + getLoginNotice().hashCode();
+          break;
+        case 220:
           hash = (37 * hash) + MATCH_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getMatchNotice().hashCode();
           break;
-        case 201:
+        case 221:
           hash = (37 * hash) + INVITE_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getInviteNotice().hashCode();
           break;
-        case 202:
+        case 222:
           hash = (37 * hash) + INVITE_REPLY_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getInviteReplyNotice().hashCode();
           break;
-        case 203:
+        case 223:
           hash = (37 * hash) + IN_ROOM_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getInRoomNotice().hashCode();
           break;
-        case 204:
+        case 224:
           hash = (37 * hash) + DEAL_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getDealNotice().hashCode();
           break;
-        case 205:
+        case 225:
           hash = (37 * hash) + USE_CARD_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getUseCardNotice().hashCode();
           break;
-        case 206:
+        case 226:
           hash = (37 * hash) + USE_SCROLL_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getUseScrollNotice().hashCode();
           break;
-        case 207:
+        case 227:
           hash = (37 * hash) + PLAY_SWITCH_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getPlaySwitchNotice().hashCode();
           break;
-        case 208:
+        case 228:
           hash = (37 * hash) + FINISH_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getFinishNotice().hashCode();
           break;
@@ -1294,58 +1432,58 @@ public final class ContainerOuterClass {
       return hash;
     }
 
-    public static Container parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Container parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Container parseFrom(byte[] data)
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Container parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Container parseFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Container parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Container parseDelimitedFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static Container parseDelimitedFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Container parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Container parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1357,7 +1495,7 @@ public final class ContainerOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Container prototype) {
+    public static Builder newBuilder(com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -1365,9 +1503,9 @@ public final class ContainerOuterClass {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1381,17 +1519,17 @@ public final class ContainerOuterClass {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Container)
-        ContainerOrBuilder {
+        com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.ContainerOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ContainerOuterClass.internal_static_Container_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.internal_static_Container_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ContainerOuterClass.internal_static_Container_fieldAccessorTable
+        return com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.internal_static_Container_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Container.class, Builder.class);
+                com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.class, com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.Builder.class);
       }
 
       // Construct using com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.newBuilder()
@@ -1400,7 +1538,7 @@ public final class ContainerOuterClass {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1420,52 +1558,59 @@ public final class ContainerOuterClass {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ContainerOuterClass.internal_static_Container_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.internal_static_Container_descriptor;
       }
 
-      public Container getDefaultInstanceForType() {
-        return Container.getDefaultInstance();
+      public com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container getDefaultInstanceForType() {
+        return com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.getDefaultInstance();
       }
 
-      public Container build() {
-        Container result = buildPartial();
+      public com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container build() {
+        com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Container buildPartial() {
-        Container result = new Container(this);
+      public com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container buildPartial() {
+        com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container result = new com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container(this);
         if (messageCase_ == 100) {
+          if (loginMessageBuilder_ == null) {
+            result.message_ = message_;
+          } else {
+            result.message_ = loginMessageBuilder_.build();
+          }
+        }
+        if (messageCase_ == 120) {
           if (matchMessageBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = matchMessageBuilder_.build();
           }
         }
-        if (messageCase_ == 101) {
+        if (messageCase_ == 121) {
           if (inviteMessageBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = inviteMessageBuilder_.build();
           }
         }
-        if (messageCase_ == 102) {
+        if (messageCase_ == 122) {
           if (inviteReplyMessageBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = inviteReplyMessageBuilder_.build();
           }
         }
-        if (messageCase_ == 103) {
+        if (messageCase_ == 123) {
           if (useCardMessageBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = useCardMessageBuilder_.build();
           }
         }
-        if (messageCase_ == 104) {
+        if (messageCase_ == 124) {
           if (useScrollMessageBuilder_ == null) {
             result.message_ = message_;
           } else {
@@ -1473,62 +1618,69 @@ public final class ContainerOuterClass {
           }
         }
         if (messageCase_ == 200) {
+          if (loginNoticeBuilder_ == null) {
+            result.message_ = message_;
+          } else {
+            result.message_ = loginNoticeBuilder_.build();
+          }
+        }
+        if (messageCase_ == 220) {
           if (matchNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = matchNoticeBuilder_.build();
           }
         }
-        if (messageCase_ == 201) {
+        if (messageCase_ == 221) {
           if (inviteNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = inviteNoticeBuilder_.build();
           }
         }
-        if (messageCase_ == 202) {
+        if (messageCase_ == 222) {
           if (inviteReplyNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = inviteReplyNoticeBuilder_.build();
           }
         }
-        if (messageCase_ == 203) {
+        if (messageCase_ == 223) {
           if (inRoomNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = inRoomNoticeBuilder_.build();
           }
         }
-        if (messageCase_ == 204) {
+        if (messageCase_ == 224) {
           if (dealNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = dealNoticeBuilder_.build();
           }
         }
-        if (messageCase_ == 205) {
+        if (messageCase_ == 225) {
           if (useCardNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = useCardNoticeBuilder_.build();
           }
         }
-        if (messageCase_ == 206) {
+        if (messageCase_ == 226) {
           if (useScrollNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = useScrollNoticeBuilder_.build();
           }
         }
-        if (messageCase_ == 207) {
+        if (messageCase_ == 227) {
           if (playSwitchNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = playSwitchNoticeBuilder_.build();
           }
         }
-        if (messageCase_ == 208) {
+        if (messageCase_ == 228) {
           if (finishNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
@@ -1568,20 +1720,24 @@ public final class ContainerOuterClass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Container) {
-          return mergeFrom((Container)other);
+        if (other instanceof com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container) {
+          return mergeFrom((com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Container other) {
-        if (other == Container.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container other) {
+        if (other == com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.getDefaultInstance()) return this;
         if (other.messageType_ != 0) {
           setMessageTypeValue(other.getMessageTypeValue());
         }
         switch (other.getMessageCase()) {
+          case LOGIN_MESSAGE: {
+            mergeLoginMessage(other.getLoginMessage());
+            break;
+          }
           case MATCH_MESSAGE: {
             mergeMatchMessage(other.getMatchMessage());
             break;
@@ -1600,6 +1756,10 @@ public final class ContainerOuterClass {
           }
           case USE_SCROLL_MESSAGE: {
             mergeUseScrollMessage(other.getUseScrollMessage());
+            break;
+          }
+          case LOGIN_NOTICE: {
+            mergeLoginNotice(other.getLoginNotice());
             break;
           }
           case MATCH_NOTICE: {
@@ -1654,11 +1814,11 @@ public final class ContainerOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Container parsedMessage = null;
+        com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Container) e.getUnfinishedMessage();
+          parsedMessage = (com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1668,7 +1828,7 @@ public final class ContainerOuterClass {
         return this;
       }
       private int messageCase_ = 0;
-      private Object message_;
+      private java.lang.Object message_;
       public MessageCase
           getMessageCase() {
         return MessageCase.forNumber(
@@ -1684,25 +1844,155 @@ public final class ContainerOuterClass {
 
 
       private com.google.protobuf.SingleFieldBuilderV3<
+          com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage, com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder, com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder> loginMessageBuilder_;
+      /**
+       * <code>.LoginMessage login_message = 100;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage getLoginMessage() {
+        if (loginMessageBuilder_ == null) {
+          if (messageCase_ == 100) {
+            return (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_;
+          }
+          return com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
+        } else {
+          if (messageCase_ == 100) {
+            return loginMessageBuilder_.getMessage();
+          }
+          return com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.LoginMessage login_message = 100;</code>
+       */
+      public Builder setLoginMessage(com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage value) {
+        if (loginMessageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          message_ = value;
+          onChanged();
+        } else {
+          loginMessageBuilder_.setMessage(value);
+        }
+        messageCase_ = 100;
+        return this;
+      }
+      /**
+       * <code>.LoginMessage login_message = 100;</code>
+       */
+      public Builder setLoginMessage(
+          com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder builderForValue) {
+        if (loginMessageBuilder_ == null) {
+          message_ = builderForValue.build();
+          onChanged();
+        } else {
+          loginMessageBuilder_.setMessage(builderForValue.build());
+        }
+        messageCase_ = 100;
+        return this;
+      }
+      /**
+       * <code>.LoginMessage login_message = 100;</code>
+       */
+      public Builder mergeLoginMessage(com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage value) {
+        if (loginMessageBuilder_ == null) {
+          if (messageCase_ == 100 &&
+              message_ != com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance()) {
+            message_ = com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.newBuilder((com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            message_ = value;
+          }
+          onChanged();
+        } else {
+          if (messageCase_ == 100) {
+            loginMessageBuilder_.mergeFrom(value);
+          }
+          loginMessageBuilder_.setMessage(value);
+        }
+        messageCase_ = 100;
+        return this;
+      }
+      /**
+       * <code>.LoginMessage login_message = 100;</code>
+       */
+      public Builder clearLoginMessage() {
+        if (loginMessageBuilder_ == null) {
+          if (messageCase_ == 100) {
+            messageCase_ = 0;
+            message_ = null;
+            onChanged();
+          }
+        } else {
+          if (messageCase_ == 100) {
+            messageCase_ = 0;
+            message_ = null;
+          }
+          loginMessageBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.LoginMessage login_message = 100;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder getLoginMessageBuilder() {
+        return getLoginMessageFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.LoginMessage login_message = 100;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder getLoginMessageOrBuilder() {
+        if ((messageCase_ == 100) && (loginMessageBuilder_ != null)) {
+          return loginMessageBuilder_.getMessageOrBuilder();
+        } else {
+          if (messageCase_ == 100) {
+            return (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_;
+          }
+          return com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.LoginMessage login_message = 100;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage, com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder, com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder> 
+          getLoginMessageFieldBuilder() {
+        if (loginMessageBuilder_ == null) {
+          if (!(messageCase_ == 100)) {
+            message_ = com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
+          }
+          loginMessageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage, com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder, com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder>(
+                  (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_,
+                  getParentForChildren(),
+                  isClean());
+          message_ = null;
+        }
+        messageCase_ = 100;
+        onChanged();;
+        return loginMessageBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage, com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.Builder, com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessageOrBuilder> matchMessageBuilder_;
       /**
-       * <code>.MatchMessage match_message = 100;</code>
+       * <code>.MatchMessage match_message = 120;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage getMatchMessage() {
         if (matchMessageBuilder_ == null) {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 120) {
             return (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.getDefaultInstance();
         } else {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 120) {
             return matchMessageBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.MatchMessage match_message = 100;</code>
+       * <code>.MatchMessage match_message = 120;</code>
        */
       public Builder setMatchMessage(com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage value) {
         if (matchMessageBuilder_ == null) {
@@ -1714,11 +2004,11 @@ public final class ContainerOuterClass {
         } else {
           matchMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 100;
+        messageCase_ = 120;
         return this;
       }
       /**
-       * <code>.MatchMessage match_message = 100;</code>
+       * <code>.MatchMessage match_message = 120;</code>
        */
       public Builder setMatchMessage(
           com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.Builder builderForValue) {
@@ -1728,15 +2018,15 @@ public final class ContainerOuterClass {
         } else {
           matchMessageBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 100;
+        messageCase_ = 120;
         return this;
       }
       /**
-       * <code>.MatchMessage match_message = 100;</code>
+       * <code>.MatchMessage match_message = 120;</code>
        */
       public Builder mergeMatchMessage(com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage value) {
         if (matchMessageBuilder_ == null) {
-          if (messageCase_ == 100 &&
+          if (messageCase_ == 120 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.newBuilder((com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_)
                 .mergeFrom(value).buildPartial();
@@ -1745,26 +2035,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 120) {
             matchMessageBuilder_.mergeFrom(value);
           }
           matchMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 100;
+        messageCase_ = 120;
         return this;
       }
       /**
-       * <code>.MatchMessage match_message = 100;</code>
+       * <code>.MatchMessage match_message = 120;</code>
        */
       public Builder clearMatchMessage() {
         if (matchMessageBuilder_ == null) {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 120) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 120) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -1773,32 +2063,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.MatchMessage match_message = 100;</code>
+       * <code>.MatchMessage match_message = 120;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.Builder getMatchMessageBuilder() {
         return getMatchMessageFieldBuilder().getBuilder();
       }
       /**
-       * <code>.MatchMessage match_message = 100;</code>
+       * <code>.MatchMessage match_message = 120;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessageOrBuilder getMatchMessageOrBuilder() {
-        if ((messageCase_ == 100) && (matchMessageBuilder_ != null)) {
+        if ((messageCase_ == 120) && (matchMessageBuilder_ != null)) {
           return matchMessageBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 120) {
             return (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.MatchMessage match_message = 100;</code>
+       * <code>.MatchMessage match_message = 120;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage, com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.Builder, com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessageOrBuilder> 
           getMatchMessageFieldBuilder() {
         if (matchMessageBuilder_ == null) {
-          if (!(messageCase_ == 100)) {
+          if (!(messageCase_ == 120)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.getDefaultInstance();
           }
           matchMessageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -1808,7 +2098,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 100;
+        messageCase_ = 120;
         onChanged();;
         return matchMessageBuilder_;
       }
@@ -1816,23 +2106,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage, com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.Builder, com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessageOrBuilder> inviteMessageBuilder_;
       /**
-       * <code>.InviteMessage invite_message = 101;</code>
+       * <code>.InviteMessage invite_message = 121;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage getInviteMessage() {
         if (inviteMessageBuilder_ == null) {
-          if (messageCase_ == 101) {
+          if (messageCase_ == 121) {
             return (com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.getDefaultInstance();
         } else {
-          if (messageCase_ == 101) {
+          if (messageCase_ == 121) {
             return inviteMessageBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.InviteMessage invite_message = 101;</code>
+       * <code>.InviteMessage invite_message = 121;</code>
        */
       public Builder setInviteMessage(com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage value) {
         if (inviteMessageBuilder_ == null) {
@@ -1844,11 +2134,11 @@ public final class ContainerOuterClass {
         } else {
           inviteMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 101;
+        messageCase_ = 121;
         return this;
       }
       /**
-       * <code>.InviteMessage invite_message = 101;</code>
+       * <code>.InviteMessage invite_message = 121;</code>
        */
       public Builder setInviteMessage(
           com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.Builder builderForValue) {
@@ -1858,15 +2148,15 @@ public final class ContainerOuterClass {
         } else {
           inviteMessageBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 101;
+        messageCase_ = 121;
         return this;
       }
       /**
-       * <code>.InviteMessage invite_message = 101;</code>
+       * <code>.InviteMessage invite_message = 121;</code>
        */
       public Builder mergeInviteMessage(com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage value) {
         if (inviteMessageBuilder_ == null) {
-          if (messageCase_ == 101 &&
+          if (messageCase_ == 121 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.newBuilder((com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_)
                 .mergeFrom(value).buildPartial();
@@ -1875,26 +2165,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 101) {
+          if (messageCase_ == 121) {
             inviteMessageBuilder_.mergeFrom(value);
           }
           inviteMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 101;
+        messageCase_ = 121;
         return this;
       }
       /**
-       * <code>.InviteMessage invite_message = 101;</code>
+       * <code>.InviteMessage invite_message = 121;</code>
        */
       public Builder clearInviteMessage() {
         if (inviteMessageBuilder_ == null) {
-          if (messageCase_ == 101) {
+          if (messageCase_ == 121) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 101) {
+          if (messageCase_ == 121) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -1903,32 +2193,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.InviteMessage invite_message = 101;</code>
+       * <code>.InviteMessage invite_message = 121;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.Builder getInviteMessageBuilder() {
         return getInviteMessageFieldBuilder().getBuilder();
       }
       /**
-       * <code>.InviteMessage invite_message = 101;</code>
+       * <code>.InviteMessage invite_message = 121;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessageOrBuilder getInviteMessageOrBuilder() {
-        if ((messageCase_ == 101) && (inviteMessageBuilder_ != null)) {
+        if ((messageCase_ == 121) && (inviteMessageBuilder_ != null)) {
           return inviteMessageBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 101) {
+          if (messageCase_ == 121) {
             return (com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.InviteMessage invite_message = 101;</code>
+       * <code>.InviteMessage invite_message = 121;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage, com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.Builder, com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessageOrBuilder> 
           getInviteMessageFieldBuilder() {
         if (inviteMessageBuilder_ == null) {
-          if (!(messageCase_ == 101)) {
+          if (!(messageCase_ == 121)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage.getDefaultInstance();
           }
           inviteMessageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -1938,7 +2228,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 101;
+        messageCase_ = 121;
         onChanged();;
         return inviteMessageBuilder_;
       }
@@ -1946,23 +2236,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage, com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.Builder, com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessageOrBuilder> inviteReplyMessageBuilder_;
       /**
-       * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+       * <code>.InviteReplyMessage invite_reply_message = 122;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage getInviteReplyMessage() {
         if (inviteReplyMessageBuilder_ == null) {
-          if (messageCase_ == 102) {
+          if (messageCase_ == 122) {
             return (com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.getDefaultInstance();
         } else {
-          if (messageCase_ == 102) {
+          if (messageCase_ == 122) {
             return inviteReplyMessageBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+       * <code>.InviteReplyMessage invite_reply_message = 122;</code>
        */
       public Builder setInviteReplyMessage(com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage value) {
         if (inviteReplyMessageBuilder_ == null) {
@@ -1974,11 +2264,11 @@ public final class ContainerOuterClass {
         } else {
           inviteReplyMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 102;
+        messageCase_ = 122;
         return this;
       }
       /**
-       * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+       * <code>.InviteReplyMessage invite_reply_message = 122;</code>
        */
       public Builder setInviteReplyMessage(
           com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.Builder builderForValue) {
@@ -1988,15 +2278,15 @@ public final class ContainerOuterClass {
         } else {
           inviteReplyMessageBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 102;
+        messageCase_ = 122;
         return this;
       }
       /**
-       * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+       * <code>.InviteReplyMessage invite_reply_message = 122;</code>
        */
       public Builder mergeInviteReplyMessage(com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage value) {
         if (inviteReplyMessageBuilder_ == null) {
-          if (messageCase_ == 102 &&
+          if (messageCase_ == 122 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.newBuilder((com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_)
                 .mergeFrom(value).buildPartial();
@@ -2005,26 +2295,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 102) {
+          if (messageCase_ == 122) {
             inviteReplyMessageBuilder_.mergeFrom(value);
           }
           inviteReplyMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 102;
+        messageCase_ = 122;
         return this;
       }
       /**
-       * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+       * <code>.InviteReplyMessage invite_reply_message = 122;</code>
        */
       public Builder clearInviteReplyMessage() {
         if (inviteReplyMessageBuilder_ == null) {
-          if (messageCase_ == 102) {
+          if (messageCase_ == 122) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 102) {
+          if (messageCase_ == 122) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -2033,32 +2323,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+       * <code>.InviteReplyMessage invite_reply_message = 122;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.Builder getInviteReplyMessageBuilder() {
         return getInviteReplyMessageFieldBuilder().getBuilder();
       }
       /**
-       * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+       * <code>.InviteReplyMessage invite_reply_message = 122;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessageOrBuilder getInviteReplyMessageOrBuilder() {
-        if ((messageCase_ == 102) && (inviteReplyMessageBuilder_ != null)) {
+        if ((messageCase_ == 122) && (inviteReplyMessageBuilder_ != null)) {
           return inviteReplyMessageBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 102) {
+          if (messageCase_ == 122) {
             return (com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.InviteReplyMessage invite_reply_message = 102;</code>
+       * <code>.InviteReplyMessage invite_reply_message = 122;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage, com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.Builder, com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessageOrBuilder> 
           getInviteReplyMessageFieldBuilder() {
         if (inviteReplyMessageBuilder_ == null) {
-          if (!(messageCase_ == 102)) {
+          if (!(messageCase_ == 122)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.getDefaultInstance();
           }
           inviteReplyMessageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2068,7 +2358,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 102;
+        messageCase_ = 122;
         onChanged();;
         return inviteReplyMessageBuilder_;
       }
@@ -2076,23 +2366,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage, com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.Builder, com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessageOrBuilder> useCardMessageBuilder_;
       /**
-       * <code>.UseCardMessage use_card_message = 103;</code>
+       * <code>.UseCardMessage use_card_message = 123;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage getUseCardMessage() {
         if (useCardMessageBuilder_ == null) {
-          if (messageCase_ == 103) {
+          if (messageCase_ == 123) {
             return (com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.getDefaultInstance();
         } else {
-          if (messageCase_ == 103) {
+          if (messageCase_ == 123) {
             return useCardMessageBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.UseCardMessage use_card_message = 103;</code>
+       * <code>.UseCardMessage use_card_message = 123;</code>
        */
       public Builder setUseCardMessage(com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage value) {
         if (useCardMessageBuilder_ == null) {
@@ -2104,11 +2394,11 @@ public final class ContainerOuterClass {
         } else {
           useCardMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 103;
+        messageCase_ = 123;
         return this;
       }
       /**
-       * <code>.UseCardMessage use_card_message = 103;</code>
+       * <code>.UseCardMessage use_card_message = 123;</code>
        */
       public Builder setUseCardMessage(
           com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.Builder builderForValue) {
@@ -2118,15 +2408,15 @@ public final class ContainerOuterClass {
         } else {
           useCardMessageBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 103;
+        messageCase_ = 123;
         return this;
       }
       /**
-       * <code>.UseCardMessage use_card_message = 103;</code>
+       * <code>.UseCardMessage use_card_message = 123;</code>
        */
       public Builder mergeUseCardMessage(com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage value) {
         if (useCardMessageBuilder_ == null) {
-          if (messageCase_ == 103 &&
+          if (messageCase_ == 123 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.newBuilder((com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_)
                 .mergeFrom(value).buildPartial();
@@ -2135,26 +2425,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 103) {
+          if (messageCase_ == 123) {
             useCardMessageBuilder_.mergeFrom(value);
           }
           useCardMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 103;
+        messageCase_ = 123;
         return this;
       }
       /**
-       * <code>.UseCardMessage use_card_message = 103;</code>
+       * <code>.UseCardMessage use_card_message = 123;</code>
        */
       public Builder clearUseCardMessage() {
         if (useCardMessageBuilder_ == null) {
-          if (messageCase_ == 103) {
+          if (messageCase_ == 123) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 103) {
+          if (messageCase_ == 123) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -2163,32 +2453,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.UseCardMessage use_card_message = 103;</code>
+       * <code>.UseCardMessage use_card_message = 123;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.Builder getUseCardMessageBuilder() {
         return getUseCardMessageFieldBuilder().getBuilder();
       }
       /**
-       * <code>.UseCardMessage use_card_message = 103;</code>
+       * <code>.UseCardMessage use_card_message = 123;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessageOrBuilder getUseCardMessageOrBuilder() {
-        if ((messageCase_ == 103) && (useCardMessageBuilder_ != null)) {
+        if ((messageCase_ == 123) && (useCardMessageBuilder_ != null)) {
           return useCardMessageBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 103) {
+          if (messageCase_ == 123) {
             return (com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.UseCardMessage use_card_message = 103;</code>
+       * <code>.UseCardMessage use_card_message = 123;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage, com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.Builder, com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessageOrBuilder> 
           getUseCardMessageFieldBuilder() {
         if (useCardMessageBuilder_ == null) {
-          if (!(messageCase_ == 103)) {
+          if (!(messageCase_ == 123)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage.getDefaultInstance();
           }
           useCardMessageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2198,7 +2488,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 103;
+        messageCase_ = 123;
         onChanged();;
         return useCardMessageBuilder_;
       }
@@ -2206,23 +2496,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage, com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.Builder, com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessageOrBuilder> useScrollMessageBuilder_;
       /**
-       * <code>.UseScrollMessage use_scroll_message = 104;</code>
+       * <code>.UseScrollMessage use_scroll_message = 124;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage getUseScrollMessage() {
         if (useScrollMessageBuilder_ == null) {
-          if (messageCase_ == 104) {
+          if (messageCase_ == 124) {
             return (com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.getDefaultInstance();
         } else {
-          if (messageCase_ == 104) {
+          if (messageCase_ == 124) {
             return useScrollMessageBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.UseScrollMessage use_scroll_message = 104;</code>
+       * <code>.UseScrollMessage use_scroll_message = 124;</code>
        */
       public Builder setUseScrollMessage(com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage value) {
         if (useScrollMessageBuilder_ == null) {
@@ -2234,11 +2524,11 @@ public final class ContainerOuterClass {
         } else {
           useScrollMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 104;
+        messageCase_ = 124;
         return this;
       }
       /**
-       * <code>.UseScrollMessage use_scroll_message = 104;</code>
+       * <code>.UseScrollMessage use_scroll_message = 124;</code>
        */
       public Builder setUseScrollMessage(
           com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.Builder builderForValue) {
@@ -2248,15 +2538,15 @@ public final class ContainerOuterClass {
         } else {
           useScrollMessageBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 104;
+        messageCase_ = 124;
         return this;
       }
       /**
-       * <code>.UseScrollMessage use_scroll_message = 104;</code>
+       * <code>.UseScrollMessage use_scroll_message = 124;</code>
        */
       public Builder mergeUseScrollMessage(com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage value) {
         if (useScrollMessageBuilder_ == null) {
-          if (messageCase_ == 104 &&
+          if (messageCase_ == 124 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.newBuilder((com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_)
                 .mergeFrom(value).buildPartial();
@@ -2265,26 +2555,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 104) {
+          if (messageCase_ == 124) {
             useScrollMessageBuilder_.mergeFrom(value);
           }
           useScrollMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 104;
+        messageCase_ = 124;
         return this;
       }
       /**
-       * <code>.UseScrollMessage use_scroll_message = 104;</code>
+       * <code>.UseScrollMessage use_scroll_message = 124;</code>
        */
       public Builder clearUseScrollMessage() {
         if (useScrollMessageBuilder_ == null) {
-          if (messageCase_ == 104) {
+          if (messageCase_ == 124) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 104) {
+          if (messageCase_ == 124) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -2293,32 +2583,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.UseScrollMessage use_scroll_message = 104;</code>
+       * <code>.UseScrollMessage use_scroll_message = 124;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.Builder getUseScrollMessageBuilder() {
         return getUseScrollMessageFieldBuilder().getBuilder();
       }
       /**
-       * <code>.UseScrollMessage use_scroll_message = 104;</code>
+       * <code>.UseScrollMessage use_scroll_message = 124;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessageOrBuilder getUseScrollMessageOrBuilder() {
-        if ((messageCase_ == 104) && (useScrollMessageBuilder_ != null)) {
+        if ((messageCase_ == 124) && (useScrollMessageBuilder_ != null)) {
           return useScrollMessageBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 104) {
+          if (messageCase_ == 124) {
             return (com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.UseScrollMessage use_scroll_message = 104;</code>
+       * <code>.UseScrollMessage use_scroll_message = 124;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage, com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.Builder, com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessageOrBuilder> 
           getUseScrollMessageFieldBuilder() {
         if (useScrollMessageBuilder_ == null) {
-          if (!(messageCase_ == 104)) {
+          if (!(messageCase_ == 124)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.getDefaultInstance();
           }
           useScrollMessageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2328,31 +2618,161 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 104;
+        messageCase_ = 124;
         onChanged();;
         return useScrollMessageBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
+          com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice, com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder, com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder> loginNoticeBuilder_;
+      /**
+       * <code>.LoginNotice login_notice = 200;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice getLoginNotice() {
+        if (loginNoticeBuilder_ == null) {
+          if (messageCase_ == 200) {
+            return (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_;
+          }
+          return com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
+        } else {
+          if (messageCase_ == 200) {
+            return loginNoticeBuilder_.getMessage();
+          }
+          return com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.LoginNotice login_notice = 200;</code>
+       */
+      public Builder setLoginNotice(com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice value) {
+        if (loginNoticeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          message_ = value;
+          onChanged();
+        } else {
+          loginNoticeBuilder_.setMessage(value);
+        }
+        messageCase_ = 200;
+        return this;
+      }
+      /**
+       * <code>.LoginNotice login_notice = 200;</code>
+       */
+      public Builder setLoginNotice(
+          com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder builderForValue) {
+        if (loginNoticeBuilder_ == null) {
+          message_ = builderForValue.build();
+          onChanged();
+        } else {
+          loginNoticeBuilder_.setMessage(builderForValue.build());
+        }
+        messageCase_ = 200;
+        return this;
+      }
+      /**
+       * <code>.LoginNotice login_notice = 200;</code>
+       */
+      public Builder mergeLoginNotice(com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice value) {
+        if (loginNoticeBuilder_ == null) {
+          if (messageCase_ == 200 &&
+              message_ != com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance()) {
+            message_ = com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            message_ = value;
+          }
+          onChanged();
+        } else {
+          if (messageCase_ == 200) {
+            loginNoticeBuilder_.mergeFrom(value);
+          }
+          loginNoticeBuilder_.setMessage(value);
+        }
+        messageCase_ = 200;
+        return this;
+      }
+      /**
+       * <code>.LoginNotice login_notice = 200;</code>
+       */
+      public Builder clearLoginNotice() {
+        if (loginNoticeBuilder_ == null) {
+          if (messageCase_ == 200) {
+            messageCase_ = 0;
+            message_ = null;
+            onChanged();
+          }
+        } else {
+          if (messageCase_ == 200) {
+            messageCase_ = 0;
+            message_ = null;
+          }
+          loginNoticeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.LoginNotice login_notice = 200;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder getLoginNoticeBuilder() {
+        return getLoginNoticeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.LoginNotice login_notice = 200;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder getLoginNoticeOrBuilder() {
+        if ((messageCase_ == 200) && (loginNoticeBuilder_ != null)) {
+          return loginNoticeBuilder_.getMessageOrBuilder();
+        } else {
+          if (messageCase_ == 200) {
+            return (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_;
+          }
+          return com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.LoginNotice login_notice = 200;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice, com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder, com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder> 
+          getLoginNoticeFieldBuilder() {
+        if (loginNoticeBuilder_ == null) {
+          if (!(messageCase_ == 200)) {
+            message_ = com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
+          }
+          loginNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice, com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder, com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder>(
+                  (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_,
+                  getParentForChildren(),
+                  isClean());
+          message_ = null;
+        }
+        messageCase_ = 200;
+        onChanged();;
+        return loginNoticeBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice, com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.Builder, com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNoticeOrBuilder> matchNoticeBuilder_;
       /**
-       * <code>.MatchNotice match_notice = 200;</code>
+       * <code>.MatchNotice match_notice = 220;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice getMatchNotice() {
         if (matchNoticeBuilder_ == null) {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 220) {
             return (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 220) {
             return matchNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.MatchNotice match_notice = 200;</code>
+       * <code>.MatchNotice match_notice = 220;</code>
        */
       public Builder setMatchNotice(com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice value) {
         if (matchNoticeBuilder_ == null) {
@@ -2364,11 +2784,11 @@ public final class ContainerOuterClass {
         } else {
           matchNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 200;
+        messageCase_ = 220;
         return this;
       }
       /**
-       * <code>.MatchNotice match_notice = 200;</code>
+       * <code>.MatchNotice match_notice = 220;</code>
        */
       public Builder setMatchNotice(
           com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.Builder builderForValue) {
@@ -2378,15 +2798,15 @@ public final class ContainerOuterClass {
         } else {
           matchNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 200;
+        messageCase_ = 220;
         return this;
       }
       /**
-       * <code>.MatchNotice match_notice = 200;</code>
+       * <code>.MatchNotice match_notice = 220;</code>
        */
       public Builder mergeMatchNotice(com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice value) {
         if (matchNoticeBuilder_ == null) {
-          if (messageCase_ == 200 &&
+          if (messageCase_ == 220 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -2395,26 +2815,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 220) {
             matchNoticeBuilder_.mergeFrom(value);
           }
           matchNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 200;
+        messageCase_ = 220;
         return this;
       }
       /**
-       * <code>.MatchNotice match_notice = 200;</code>
+       * <code>.MatchNotice match_notice = 220;</code>
        */
       public Builder clearMatchNotice() {
         if (matchNoticeBuilder_ == null) {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 220) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 220) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -2423,32 +2843,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.MatchNotice match_notice = 200;</code>
+       * <code>.MatchNotice match_notice = 220;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.Builder getMatchNoticeBuilder() {
         return getMatchNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.MatchNotice match_notice = 200;</code>
+       * <code>.MatchNotice match_notice = 220;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNoticeOrBuilder getMatchNoticeOrBuilder() {
-        if ((messageCase_ == 200) && (matchNoticeBuilder_ != null)) {
+        if ((messageCase_ == 220) && (matchNoticeBuilder_ != null)) {
           return matchNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 220) {
             return (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.MatchNotice match_notice = 200;</code>
+       * <code>.MatchNotice match_notice = 220;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice, com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.Builder, com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNoticeOrBuilder> 
           getMatchNoticeFieldBuilder() {
         if (matchNoticeBuilder_ == null) {
-          if (!(messageCase_ == 200)) {
+          if (!(messageCase_ == 220)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.getDefaultInstance();
           }
           matchNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2458,7 +2878,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 200;
+        messageCase_ = 220;
         onChanged();;
         return matchNoticeBuilder_;
       }
@@ -2466,23 +2886,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice, com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.Builder, com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNoticeOrBuilder> inviteNoticeBuilder_;
       /**
-       * <code>.InviteNotice invite_notice = 201;</code>
+       * <code>.InviteNotice invite_notice = 221;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice getInviteNotice() {
         if (inviteNoticeBuilder_ == null) {
-          if (messageCase_ == 201) {
+          if (messageCase_ == 221) {
             return (com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 201) {
+          if (messageCase_ == 221) {
             return inviteNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.InviteNotice invite_notice = 201;</code>
+       * <code>.InviteNotice invite_notice = 221;</code>
        */
       public Builder setInviteNotice(com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice value) {
         if (inviteNoticeBuilder_ == null) {
@@ -2494,11 +2914,11 @@ public final class ContainerOuterClass {
         } else {
           inviteNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 201;
+        messageCase_ = 221;
         return this;
       }
       /**
-       * <code>.InviteNotice invite_notice = 201;</code>
+       * <code>.InviteNotice invite_notice = 221;</code>
        */
       public Builder setInviteNotice(
           com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.Builder builderForValue) {
@@ -2508,15 +2928,15 @@ public final class ContainerOuterClass {
         } else {
           inviteNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 201;
+        messageCase_ = 221;
         return this;
       }
       /**
-       * <code>.InviteNotice invite_notice = 201;</code>
+       * <code>.InviteNotice invite_notice = 221;</code>
        */
       public Builder mergeInviteNotice(com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice value) {
         if (inviteNoticeBuilder_ == null) {
-          if (messageCase_ == 201 &&
+          if (messageCase_ == 221 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -2525,26 +2945,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 201) {
+          if (messageCase_ == 221) {
             inviteNoticeBuilder_.mergeFrom(value);
           }
           inviteNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 201;
+        messageCase_ = 221;
         return this;
       }
       /**
-       * <code>.InviteNotice invite_notice = 201;</code>
+       * <code>.InviteNotice invite_notice = 221;</code>
        */
       public Builder clearInviteNotice() {
         if (inviteNoticeBuilder_ == null) {
-          if (messageCase_ == 201) {
+          if (messageCase_ == 221) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 201) {
+          if (messageCase_ == 221) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -2553,32 +2973,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.InviteNotice invite_notice = 201;</code>
+       * <code>.InviteNotice invite_notice = 221;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.Builder getInviteNoticeBuilder() {
         return getInviteNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.InviteNotice invite_notice = 201;</code>
+       * <code>.InviteNotice invite_notice = 221;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNoticeOrBuilder getInviteNoticeOrBuilder() {
-        if ((messageCase_ == 201) && (inviteNoticeBuilder_ != null)) {
+        if ((messageCase_ == 221) && (inviteNoticeBuilder_ != null)) {
           return inviteNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 201) {
+          if (messageCase_ == 221) {
             return (com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.InviteNotice invite_notice = 201;</code>
+       * <code>.InviteNotice invite_notice = 221;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice, com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.Builder, com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNoticeOrBuilder> 
           getInviteNoticeFieldBuilder() {
         if (inviteNoticeBuilder_ == null) {
-          if (!(messageCase_ == 201)) {
+          if (!(messageCase_ == 221)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.getDefaultInstance();
           }
           inviteNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2588,7 +3008,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 201;
+        messageCase_ = 221;
         onChanged();;
         return inviteNoticeBuilder_;
       }
@@ -2596,23 +3016,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice, com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.Builder, com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNoticeOrBuilder> inviteReplyNoticeBuilder_;
       /**
-       * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+       * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice getInviteReplyNotice() {
         if (inviteReplyNoticeBuilder_ == null) {
-          if (messageCase_ == 202) {
+          if (messageCase_ == 222) {
             return (com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 202) {
+          if (messageCase_ == 222) {
             return inviteReplyNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+       * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
        */
       public Builder setInviteReplyNotice(com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice value) {
         if (inviteReplyNoticeBuilder_ == null) {
@@ -2624,11 +3044,11 @@ public final class ContainerOuterClass {
         } else {
           inviteReplyNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 202;
+        messageCase_ = 222;
         return this;
       }
       /**
-       * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+       * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
        */
       public Builder setInviteReplyNotice(
           com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.Builder builderForValue) {
@@ -2638,15 +3058,15 @@ public final class ContainerOuterClass {
         } else {
           inviteReplyNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 202;
+        messageCase_ = 222;
         return this;
       }
       /**
-       * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+       * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
        */
       public Builder mergeInviteReplyNotice(com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice value) {
         if (inviteReplyNoticeBuilder_ == null) {
-          if (messageCase_ == 202 &&
+          if (messageCase_ == 222 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -2655,26 +3075,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 202) {
+          if (messageCase_ == 222) {
             inviteReplyNoticeBuilder_.mergeFrom(value);
           }
           inviteReplyNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 202;
+        messageCase_ = 222;
         return this;
       }
       /**
-       * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+       * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
        */
       public Builder clearInviteReplyNotice() {
         if (inviteReplyNoticeBuilder_ == null) {
-          if (messageCase_ == 202) {
+          if (messageCase_ == 222) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 202) {
+          if (messageCase_ == 222) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -2683,32 +3103,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+       * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.Builder getInviteReplyNoticeBuilder() {
         return getInviteReplyNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+       * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNoticeOrBuilder getInviteReplyNoticeOrBuilder() {
-        if ((messageCase_ == 202) && (inviteReplyNoticeBuilder_ != null)) {
+        if ((messageCase_ == 222) && (inviteReplyNoticeBuilder_ != null)) {
           return inviteReplyNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 202) {
+          if (messageCase_ == 222) {
             return (com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.InviteReplyNotice invite_reply_notice = 202;</code>
+       * <code>.InviteReplyNotice invite_reply_notice = 222;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice, com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.Builder, com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNoticeOrBuilder> 
           getInviteReplyNoticeFieldBuilder() {
         if (inviteReplyNoticeBuilder_ == null) {
-          if (!(messageCase_ == 202)) {
+          if (!(messageCase_ == 222)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice.getDefaultInstance();
           }
           inviteReplyNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2718,7 +3138,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 202;
+        messageCase_ = 222;
         onChanged();;
         return inviteReplyNoticeBuilder_;
       }
@@ -2726,23 +3146,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice, com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.Builder, com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNoticeOrBuilder> inRoomNoticeBuilder_;
       /**
-       * <code>.InRoomNotice in_room_notice = 203;</code>
+       * <code>.InRoomNotice in_room_notice = 223;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice getInRoomNotice() {
         if (inRoomNoticeBuilder_ == null) {
-          if (messageCase_ == 203) {
+          if (messageCase_ == 223) {
             return (com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 203) {
+          if (messageCase_ == 223) {
             return inRoomNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.InRoomNotice in_room_notice = 203;</code>
+       * <code>.InRoomNotice in_room_notice = 223;</code>
        */
       public Builder setInRoomNotice(com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice value) {
         if (inRoomNoticeBuilder_ == null) {
@@ -2754,11 +3174,11 @@ public final class ContainerOuterClass {
         } else {
           inRoomNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 203;
+        messageCase_ = 223;
         return this;
       }
       /**
-       * <code>.InRoomNotice in_room_notice = 203;</code>
+       * <code>.InRoomNotice in_room_notice = 223;</code>
        */
       public Builder setInRoomNotice(
           com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.Builder builderForValue) {
@@ -2768,15 +3188,15 @@ public final class ContainerOuterClass {
         } else {
           inRoomNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 203;
+        messageCase_ = 223;
         return this;
       }
       /**
-       * <code>.InRoomNotice in_room_notice = 203;</code>
+       * <code>.InRoomNotice in_room_notice = 223;</code>
        */
       public Builder mergeInRoomNotice(com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice value) {
         if (inRoomNoticeBuilder_ == null) {
-          if (messageCase_ == 203 &&
+          if (messageCase_ == 223 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -2785,26 +3205,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 203) {
+          if (messageCase_ == 223) {
             inRoomNoticeBuilder_.mergeFrom(value);
           }
           inRoomNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 203;
+        messageCase_ = 223;
         return this;
       }
       /**
-       * <code>.InRoomNotice in_room_notice = 203;</code>
+       * <code>.InRoomNotice in_room_notice = 223;</code>
        */
       public Builder clearInRoomNotice() {
         if (inRoomNoticeBuilder_ == null) {
-          if (messageCase_ == 203) {
+          if (messageCase_ == 223) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 203) {
+          if (messageCase_ == 223) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -2813,32 +3233,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.InRoomNotice in_room_notice = 203;</code>
+       * <code>.InRoomNotice in_room_notice = 223;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.Builder getInRoomNoticeBuilder() {
         return getInRoomNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.InRoomNotice in_room_notice = 203;</code>
+       * <code>.InRoomNotice in_room_notice = 223;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNoticeOrBuilder getInRoomNoticeOrBuilder() {
-        if ((messageCase_ == 203) && (inRoomNoticeBuilder_ != null)) {
+        if ((messageCase_ == 223) && (inRoomNoticeBuilder_ != null)) {
           return inRoomNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 203) {
+          if (messageCase_ == 223) {
             return (com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.InRoomNotice in_room_notice = 203;</code>
+       * <code>.InRoomNotice in_room_notice = 223;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice, com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.Builder, com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNoticeOrBuilder> 
           getInRoomNoticeFieldBuilder() {
         if (inRoomNoticeBuilder_ == null) {
-          if (!(messageCase_ == 203)) {
+          if (!(messageCase_ == 223)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice.getDefaultInstance();
           }
           inRoomNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2848,7 +3268,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 203;
+        messageCase_ = 223;
         onChanged();;
         return inRoomNoticeBuilder_;
       }
@@ -2856,23 +3276,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice, com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.Builder, com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNoticeOrBuilder> dealNoticeBuilder_;
       /**
-       * <code>.DealNotice deal_notice = 204;</code>
+       * <code>.DealNotice deal_notice = 224;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice getDealNotice() {
         if (dealNoticeBuilder_ == null) {
-          if (messageCase_ == 204) {
+          if (messageCase_ == 224) {
             return (com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 204) {
+          if (messageCase_ == 224) {
             return dealNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.DealNotice deal_notice = 204;</code>
+       * <code>.DealNotice deal_notice = 224;</code>
        */
       public Builder setDealNotice(com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice value) {
         if (dealNoticeBuilder_ == null) {
@@ -2884,11 +3304,11 @@ public final class ContainerOuterClass {
         } else {
           dealNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 204;
+        messageCase_ = 224;
         return this;
       }
       /**
-       * <code>.DealNotice deal_notice = 204;</code>
+       * <code>.DealNotice deal_notice = 224;</code>
        */
       public Builder setDealNotice(
           com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.Builder builderForValue) {
@@ -2898,15 +3318,15 @@ public final class ContainerOuterClass {
         } else {
           dealNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 204;
+        messageCase_ = 224;
         return this;
       }
       /**
-       * <code>.DealNotice deal_notice = 204;</code>
+       * <code>.DealNotice deal_notice = 224;</code>
        */
       public Builder mergeDealNotice(com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice value) {
         if (dealNoticeBuilder_ == null) {
-          if (messageCase_ == 204 &&
+          if (messageCase_ == 224 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -2915,26 +3335,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 204) {
+          if (messageCase_ == 224) {
             dealNoticeBuilder_.mergeFrom(value);
           }
           dealNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 204;
+        messageCase_ = 224;
         return this;
       }
       /**
-       * <code>.DealNotice deal_notice = 204;</code>
+       * <code>.DealNotice deal_notice = 224;</code>
        */
       public Builder clearDealNotice() {
         if (dealNoticeBuilder_ == null) {
-          if (messageCase_ == 204) {
+          if (messageCase_ == 224) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 204) {
+          if (messageCase_ == 224) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -2943,32 +3363,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.DealNotice deal_notice = 204;</code>
+       * <code>.DealNotice deal_notice = 224;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.Builder getDealNoticeBuilder() {
         return getDealNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.DealNotice deal_notice = 204;</code>
+       * <code>.DealNotice deal_notice = 224;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNoticeOrBuilder getDealNoticeOrBuilder() {
-        if ((messageCase_ == 204) && (dealNoticeBuilder_ != null)) {
+        if ((messageCase_ == 224) && (dealNoticeBuilder_ != null)) {
           return dealNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 204) {
+          if (messageCase_ == 224) {
             return (com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.DealNotice deal_notice = 204;</code>
+       * <code>.DealNotice deal_notice = 224;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice, com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.Builder, com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNoticeOrBuilder> 
           getDealNoticeFieldBuilder() {
         if (dealNoticeBuilder_ == null) {
-          if (!(messageCase_ == 204)) {
+          if (!(messageCase_ == 224)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice.getDefaultInstance();
           }
           dealNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2978,7 +3398,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 204;
+        messageCase_ = 224;
         onChanged();;
         return dealNoticeBuilder_;
       }
@@ -2986,23 +3406,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice, com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.Builder, com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNoticeOrBuilder> useCardNoticeBuilder_;
       /**
-       * <code>.UseCardNotice use_card_notice = 205;</code>
+       * <code>.UseCardNotice use_card_notice = 225;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice getUseCardNotice() {
         if (useCardNoticeBuilder_ == null) {
-          if (messageCase_ == 205) {
+          if (messageCase_ == 225) {
             return (com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 205) {
+          if (messageCase_ == 225) {
             return useCardNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.UseCardNotice use_card_notice = 205;</code>
+       * <code>.UseCardNotice use_card_notice = 225;</code>
        */
       public Builder setUseCardNotice(com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice value) {
         if (useCardNoticeBuilder_ == null) {
@@ -3014,11 +3434,11 @@ public final class ContainerOuterClass {
         } else {
           useCardNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 205;
+        messageCase_ = 225;
         return this;
       }
       /**
-       * <code>.UseCardNotice use_card_notice = 205;</code>
+       * <code>.UseCardNotice use_card_notice = 225;</code>
        */
       public Builder setUseCardNotice(
           com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.Builder builderForValue) {
@@ -3028,15 +3448,15 @@ public final class ContainerOuterClass {
         } else {
           useCardNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 205;
+        messageCase_ = 225;
         return this;
       }
       /**
-       * <code>.UseCardNotice use_card_notice = 205;</code>
+       * <code>.UseCardNotice use_card_notice = 225;</code>
        */
       public Builder mergeUseCardNotice(com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice value) {
         if (useCardNoticeBuilder_ == null) {
-          if (messageCase_ == 205 &&
+          if (messageCase_ == 225 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -3045,26 +3465,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 205) {
+          if (messageCase_ == 225) {
             useCardNoticeBuilder_.mergeFrom(value);
           }
           useCardNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 205;
+        messageCase_ = 225;
         return this;
       }
       /**
-       * <code>.UseCardNotice use_card_notice = 205;</code>
+       * <code>.UseCardNotice use_card_notice = 225;</code>
        */
       public Builder clearUseCardNotice() {
         if (useCardNoticeBuilder_ == null) {
-          if (messageCase_ == 205) {
+          if (messageCase_ == 225) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 205) {
+          if (messageCase_ == 225) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -3073,32 +3493,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.UseCardNotice use_card_notice = 205;</code>
+       * <code>.UseCardNotice use_card_notice = 225;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.Builder getUseCardNoticeBuilder() {
         return getUseCardNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.UseCardNotice use_card_notice = 205;</code>
+       * <code>.UseCardNotice use_card_notice = 225;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNoticeOrBuilder getUseCardNoticeOrBuilder() {
-        if ((messageCase_ == 205) && (useCardNoticeBuilder_ != null)) {
+        if ((messageCase_ == 225) && (useCardNoticeBuilder_ != null)) {
           return useCardNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 205) {
+          if (messageCase_ == 225) {
             return (com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.UseCardNotice use_card_notice = 205;</code>
+       * <code>.UseCardNotice use_card_notice = 225;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice, com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.Builder, com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNoticeOrBuilder> 
           getUseCardNoticeFieldBuilder() {
         if (useCardNoticeBuilder_ == null) {
-          if (!(messageCase_ == 205)) {
+          if (!(messageCase_ == 225)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.getDefaultInstance();
           }
           useCardNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3108,7 +3528,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 205;
+        messageCase_ = 225;
         onChanged();;
         return useCardNoticeBuilder_;
       }
@@ -3116,23 +3536,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice, com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.Builder, com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNoticeOrBuilder> useScrollNoticeBuilder_;
       /**
-       * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+       * <code>.UseScrollNotice use_scroll_notice = 226;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice getUseScrollNotice() {
         if (useScrollNoticeBuilder_ == null) {
-          if (messageCase_ == 206) {
+          if (messageCase_ == 226) {
             return (com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 206) {
+          if (messageCase_ == 226) {
             return useScrollNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+       * <code>.UseScrollNotice use_scroll_notice = 226;</code>
        */
       public Builder setUseScrollNotice(com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice value) {
         if (useScrollNoticeBuilder_ == null) {
@@ -3144,11 +3564,11 @@ public final class ContainerOuterClass {
         } else {
           useScrollNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 206;
+        messageCase_ = 226;
         return this;
       }
       /**
-       * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+       * <code>.UseScrollNotice use_scroll_notice = 226;</code>
        */
       public Builder setUseScrollNotice(
           com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.Builder builderForValue) {
@@ -3158,15 +3578,15 @@ public final class ContainerOuterClass {
         } else {
           useScrollNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 206;
+        messageCase_ = 226;
         return this;
       }
       /**
-       * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+       * <code>.UseScrollNotice use_scroll_notice = 226;</code>
        */
       public Builder mergeUseScrollNotice(com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice value) {
         if (useScrollNoticeBuilder_ == null) {
-          if (messageCase_ == 206 &&
+          if (messageCase_ == 226 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -3175,26 +3595,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 206) {
+          if (messageCase_ == 226) {
             useScrollNoticeBuilder_.mergeFrom(value);
           }
           useScrollNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 206;
+        messageCase_ = 226;
         return this;
       }
       /**
-       * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+       * <code>.UseScrollNotice use_scroll_notice = 226;</code>
        */
       public Builder clearUseScrollNotice() {
         if (useScrollNoticeBuilder_ == null) {
-          if (messageCase_ == 206) {
+          if (messageCase_ == 226) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 206) {
+          if (messageCase_ == 226) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -3203,32 +3623,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+       * <code>.UseScrollNotice use_scroll_notice = 226;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.Builder getUseScrollNoticeBuilder() {
         return getUseScrollNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+       * <code>.UseScrollNotice use_scroll_notice = 226;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNoticeOrBuilder getUseScrollNoticeOrBuilder() {
-        if ((messageCase_ == 206) && (useScrollNoticeBuilder_ != null)) {
+        if ((messageCase_ == 226) && (useScrollNoticeBuilder_ != null)) {
           return useScrollNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 206) {
+          if (messageCase_ == 226) {
             return (com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.UseScrollNotice use_scroll_notice = 206;</code>
+       * <code>.UseScrollNotice use_scroll_notice = 226;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice, com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.Builder, com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNoticeOrBuilder> 
           getUseScrollNoticeFieldBuilder() {
         if (useScrollNoticeBuilder_ == null) {
-          if (!(messageCase_ == 206)) {
+          if (!(messageCase_ == 226)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.getDefaultInstance();
           }
           useScrollNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3238,7 +3658,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 206;
+        messageCase_ = 226;
         onChanged();;
         return useScrollNoticeBuilder_;
       }
@@ -3246,23 +3666,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice, com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder, com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNoticeOrBuilder> playSwitchNoticeBuilder_;
       /**
-       * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+       * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice getPlaySwitchNotice() {
         if (playSwitchNoticeBuilder_ == null) {
-          if (messageCase_ == 207) {
+          if (messageCase_ == 227) {
             return (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 207) {
+          if (messageCase_ == 227) {
             return playSwitchNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+       * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
        */
       public Builder setPlaySwitchNotice(com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice value) {
         if (playSwitchNoticeBuilder_ == null) {
@@ -3274,11 +3694,11 @@ public final class ContainerOuterClass {
         } else {
           playSwitchNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 207;
+        messageCase_ = 227;
         return this;
       }
       /**
-       * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+       * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
        */
       public Builder setPlaySwitchNotice(
           com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder builderForValue) {
@@ -3288,15 +3708,15 @@ public final class ContainerOuterClass {
         } else {
           playSwitchNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 207;
+        messageCase_ = 227;
         return this;
       }
       /**
-       * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+       * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
        */
       public Builder mergePlaySwitchNotice(com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice value) {
         if (playSwitchNoticeBuilder_ == null) {
-          if (messageCase_ == 207 &&
+          if (messageCase_ == 227 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -3305,26 +3725,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 207) {
+          if (messageCase_ == 227) {
             playSwitchNoticeBuilder_.mergeFrom(value);
           }
           playSwitchNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 207;
+        messageCase_ = 227;
         return this;
       }
       /**
-       * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+       * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
        */
       public Builder clearPlaySwitchNotice() {
         if (playSwitchNoticeBuilder_ == null) {
-          if (messageCase_ == 207) {
+          if (messageCase_ == 227) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 207) {
+          if (messageCase_ == 227) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -3333,32 +3753,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+       * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder getPlaySwitchNoticeBuilder() {
         return getPlaySwitchNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+       * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNoticeOrBuilder getPlaySwitchNoticeOrBuilder() {
-        if ((messageCase_ == 207) && (playSwitchNoticeBuilder_ != null)) {
+        if ((messageCase_ == 227) && (playSwitchNoticeBuilder_ != null)) {
           return playSwitchNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 207) {
+          if (messageCase_ == 227) {
             return (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.PlaySwitchNotice play_switch_notice = 207;</code>
+       * <code>.PlaySwitchNotice play_switch_notice = 227;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice, com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder, com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNoticeOrBuilder> 
           getPlaySwitchNoticeFieldBuilder() {
         if (playSwitchNoticeBuilder_ == null) {
-          if (!(messageCase_ == 207)) {
+          if (!(messageCase_ == 227)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.getDefaultInstance();
           }
           playSwitchNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3368,7 +3788,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 207;
+        messageCase_ = 227;
         onChanged();;
         return playSwitchNoticeBuilder_;
       }
@@ -3376,23 +3796,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice, com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder, com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNoticeOrBuilder> finishNoticeBuilder_;
       /**
-       * <code>.FinishNotice finish_notice = 208;</code>
+       * <code>.FinishNotice finish_notice = 228;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice getFinishNotice() {
         if (finishNoticeBuilder_ == null) {
-          if (messageCase_ == 208) {
+          if (messageCase_ == 228) {
             return (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 208) {
+          if (messageCase_ == 228) {
             return finishNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.FinishNotice finish_notice = 208;</code>
+       * <code>.FinishNotice finish_notice = 228;</code>
        */
       public Builder setFinishNotice(com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice value) {
         if (finishNoticeBuilder_ == null) {
@@ -3404,11 +3824,11 @@ public final class ContainerOuterClass {
         } else {
           finishNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 208;
+        messageCase_ = 228;
         return this;
       }
       /**
-       * <code>.FinishNotice finish_notice = 208;</code>
+       * <code>.FinishNotice finish_notice = 228;</code>
        */
       public Builder setFinishNotice(
           com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder builderForValue) {
@@ -3418,15 +3838,15 @@ public final class ContainerOuterClass {
         } else {
           finishNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 208;
+        messageCase_ = 228;
         return this;
       }
       /**
-       * <code>.FinishNotice finish_notice = 208;</code>
+       * <code>.FinishNotice finish_notice = 228;</code>
        */
       public Builder mergeFinishNotice(com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice value) {
         if (finishNoticeBuilder_ == null) {
-          if (messageCase_ == 208 &&
+          if (messageCase_ == 228 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -3435,26 +3855,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 208) {
+          if (messageCase_ == 228) {
             finishNoticeBuilder_.mergeFrom(value);
           }
           finishNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 208;
+        messageCase_ = 228;
         return this;
       }
       /**
-       * <code>.FinishNotice finish_notice = 208;</code>
+       * <code>.FinishNotice finish_notice = 228;</code>
        */
       public Builder clearFinishNotice() {
         if (finishNoticeBuilder_ == null) {
-          if (messageCase_ == 208) {
+          if (messageCase_ == 228) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 208) {
+          if (messageCase_ == 228) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -3463,32 +3883,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.FinishNotice finish_notice = 208;</code>
+       * <code>.FinishNotice finish_notice = 228;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder getFinishNoticeBuilder() {
         return getFinishNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.FinishNotice finish_notice = 208;</code>
+       * <code>.FinishNotice finish_notice = 228;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNoticeOrBuilder getFinishNoticeOrBuilder() {
-        if ((messageCase_ == 208) && (finishNoticeBuilder_ != null)) {
+        if ((messageCase_ == 228) && (finishNoticeBuilder_ != null)) {
           return finishNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 208) {
+          if (messageCase_ == 228) {
             return (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.FinishNotice finish_notice = 208;</code>
+       * <code>.FinishNotice finish_notice = 228;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice, com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder, com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNoticeOrBuilder> 
           getFinishNoticeFieldBuilder() {
         if (finishNoticeBuilder_ == null) {
-          if (!(messageCase_ == 208)) {
+          if (!(messageCase_ == 228)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
           }
           finishNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3498,7 +3918,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 208;
+        messageCase_ = 228;
         onChanged();;
         return finishNoticeBuilder_;
       }
@@ -3533,9 +3953,9 @@ public final class ContainerOuterClass {
        *
        * <code>.Container.MessageType messageType = 2;</code>
        */
-      public MessageType getMessageType() {
-        MessageType result = MessageType.valueOf(messageType_);
-        return result == null ? MessageType.UNRECOGNIZED : result;
+      public com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType getMessageType() {
+        com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType result = com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType.valueOf(messageType_);
+        return result == null ? com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType.UNRECOGNIZED : result;
       }
       /**
        * <pre>
@@ -3544,7 +3964,7 @@ public final class ContainerOuterClass {
        *
        * <code>.Container.MessageType messageType = 2;</code>
        */
-      public Builder setMessageType(MessageType value) {
+      public Builder setMessageType(com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -3581,12 +4001,12 @@ public final class ContainerOuterClass {
     }
 
     // @@protoc_insertion_point(class_scope:Container)
-    private static final Container DEFAULT_INSTANCE;
+    private static final com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Container();
+      DEFAULT_INSTANCE = new com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container();
     }
 
-    public static Container getDefaultInstance() {
+    public static com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3604,12 +4024,12 @@ public final class ContainerOuterClass {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<Container> getParserForType() {
       return PARSER;
     }
 
-    public Container getDefaultInstanceForType() {
+    public com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3628,42 +4048,46 @@ public final class ContainerOuterClass {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\017Container.proto\032\022MatchMessage.proto\032\023I" +
-      "nviteMessage.proto\032\030InviteReplyMessage.p" +
-      "roto\032\024UseCardMessage.proto\032\026UseScrollMes" +
-      "sage.proto\032\021MatchNotice.proto\032\022InviteNot" +
-      "ice.proto\032\027InviteReplyNotice.proto\032\022InRo" +
-      "omNotice.proto\032\020DealNotice.proto\032\023UseCar" +
-      "dNotice.proto\032\025UseScrollNotice.proto\032\026Pl" +
-      "aySwitchNotice.proto\032\022FinishNotice.proto" +
-      "\"\350\007\n\tContainer\022&\n\rmatch_message\030d \001(\0132\r." +
-      "MatchMessageH\000\022(\n\016invite_message\030e \001(\0132\016",
-      ".InviteMessageH\000\0223\n\024invite_reply_message" +
-      "\030f \001(\0132\023.InviteReplyMessageH\000\022+\n\020use_car" +
-      "d_message\030g \001(\0132\017.UseCardMessageH\000\022/\n\022us" +
-      "e_scroll_message\030h \001(\0132\021.UseScrollMessag" +
-      "eH\000\022%\n\014match_notice\030\310\001 \001(\0132\014.MatchNotice" +
-      "H\000\022\'\n\rinvite_notice\030\311\001 \001(\0132\r.InviteNotic" +
-      "eH\000\0222\n\023invite_reply_notice\030\312\001 \001(\0132\022.Invi" +
-      "teReplyNoticeH\000\022(\n\016in_room_notice\030\313\001 \001(\013" +
-      "2\r.InRoomNoticeH\000\022#\n\013deal_notice\030\314\001 \001(\0132" +
-      "\013.DealNoticeH\000\022*\n\017use_card_notice\030\315\001 \001(\013",
-      "2\016.UseCardNoticeH\000\022.\n\021use_scroll_notice\030" +
-      "\316\001 \001(\0132\020.UseScrollNoticeH\000\0220\n\022play_switc" +
-      "h_notice\030\317\001 \001(\0132\021.PlaySwitchNoticeH\000\022\'\n\r" +
-      "finish_notice\030\320\001 \001(\0132\r.FinishNoticeH\000\022+\n" +
-      "\013messageType\030\002 \001(\0162\026.Container.MessageTy" +
-      "pe\"\263\002\n\013MessageType\022\010\n\004None\020\000\022\020\n\014MatchMes" +
-      "sage\020d\022\021\n\rInviteMessage\020e\022\026\n\022InviteReply" +
-      "Message\020f\022\022\n\016UseCardMessage\020g\022\024\n\020UseScro" +
-      "llMessage\020h\022\020\n\013MatchNotice\020\310\001\022\021\n\014InviteN" +
-      "otice\020\311\001\022\026\n\021InviteReplyNotice\020\312\001\022\021\n\014InRo",
-      "omNotice\020\313\001\022\017\n\nDealNotice\020\314\001\022\022\n\rUseCardN" +
-      "otice\020\315\001\022\024\n\017UseScrollNotice\020\316\001\022\025\n\020PlaySw" +
-      "itchNotice\020\317\001\022\021\n\014FinishNotice\020\320\001B\t\n\007mess" +
-      "ageB*\n(com.artisankid.elementwar.ewmessa" +
-      "gemodelb\006proto3"
+    java.lang.String[] descriptorData = {
+      "\n\017Container.proto\032\022LoginMessage.proto\032\022M" +
+      "atchMessage.proto\032\023InviteMessage.proto\032\030" +
+      "InviteReplyMessage.proto\032\024UseCardMessage" +
+      ".proto\032\026UseScrollMessage.proto\032\021LoginNot" +
+      "ice.proto\032\021MatchNotice.proto\032\022InviteNoti" +
+      "ce.proto\032\027InviteReplyNotice.proto\032\022InRoo" +
+      "mNotice.proto\032\020DealNotice.proto\032\023UseCard" +
+      "Notice.proto\032\025UseScrollNotice.proto\032\026Pla" +
+      "ySwitchNotice.proto\032\022FinishNotice.proto\"" +
+      "\333\010\n\tContainer\022&\n\rlogin_message\030d \001(\0132\r.L",
+      "oginMessageH\000\022&\n\rmatch_message\030x \001(\0132\r.M" +
+      "atchMessageH\000\022(\n\016invite_message\030y \001(\0132\016." +
+      "InviteMessageH\000\0223\n\024invite_reply_message\030" +
+      "z \001(\0132\023.InviteReplyMessageH\000\022+\n\020use_card" +
+      "_message\030{ \001(\0132\017.UseCardMessageH\000\022/\n\022use" +
+      "_scroll_message\030| \001(\0132\021.UseScrollMessage" +
+      "H\000\022%\n\014login_notice\030\310\001 \001(\0132\014.LoginNoticeH" +
+      "\000\022%\n\014match_notice\030\334\001 \001(\0132\014.MatchNoticeH\000" +
+      "\022\'\n\rinvite_notice\030\335\001 \001(\0132\r.InviteNoticeH" +
+      "\000\0222\n\023invite_reply_notice\030\336\001 \001(\0132\022.Invite",
+      "ReplyNoticeH\000\022(\n\016in_room_notice\030\337\001 \001(\0132\r" +
+      ".InRoomNoticeH\000\022#\n\013deal_notice\030\340\001 \001(\0132\013." +
+      "DealNoticeH\000\022*\n\017use_card_notice\030\341\001 \001(\0132\016" +
+      ".UseCardNoticeH\000\022.\n\021use_scroll_notice\030\342\001" +
+      " \001(\0132\020.UseScrollNoticeH\000\0220\n\022play_switch_" +
+      "notice\030\343\001 \001(\0132\021.PlaySwitchNoticeH\000\022\'\n\rfi" +
+      "nish_notice\030\344\001 \001(\0132\r.FinishNoticeH\000\022+\n\013m" +
+      "essageType\030\002 \001(\0162\026.Container.MessageType" +
+      "\"\327\002\n\013MessageType\022\010\n\004None\020\000\022\020\n\014LoginMessa" +
+      "ge\020d\022\020\n\014MatchMessage\020x\022\021\n\rInviteMessage\020",
+      "y\022\026\n\022InviteReplyMessage\020z\022\022\n\016UseCardMess" +
+      "age\020{\022\024\n\020UseScrollMessage\020|\022\020\n\013LoginNoti" +
+      "ce\020\310\001\022\020\n\013MatchNotice\020\334\001\022\021\n\014InviteNotice\020" +
+      "\335\001\022\026\n\021InviteReplyNotice\020\336\001\022\021\n\014InRoomNoti" +
+      "ce\020\337\001\022\017\n\nDealNotice\020\340\001\022\022\n\rUseCardNotice\020" +
+      "\341\001\022\024\n\017UseScrollNotice\020\342\001\022\025\n\020PlaySwitchNo" +
+      "tice\020\343\001\022\021\n\014FinishNotice\020\344\001B\t\n\007messageB*\n" +
+      "(com.artisankid.elementwar.ewmessagemode" +
+      "lb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3676,11 +4100,13 @@ public final class ContainerOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.getDescriptor(),
+          com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.getDescriptor(),
@@ -3696,12 +4122,14 @@ public final class ContainerOuterClass {
     internal_static_Container_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Container_descriptor,
-        new String[] { "MatchMessage", "InviteMessage", "InviteReplyMessage", "UseCardMessage", "UseScrollMessage", "MatchNotice", "InviteNotice", "InviteReplyNotice", "InRoomNotice", "DealNotice", "UseCardNotice", "UseScrollNotice", "PlaySwitchNotice", "FinishNotice", "MessageType", "Message", });
+        new java.lang.String[] { "LoginMessage", "MatchMessage", "InviteMessage", "InviteReplyMessage", "UseCardMessage", "UseScrollMessage", "LoginNotice", "MatchNotice", "InviteNotice", "InviteReplyNotice", "InRoomNotice", "DealNotice", "UseCardNotice", "UseScrollNotice", "PlaySwitchNotice", "FinishNotice", "MessageType", "Message", });
+    com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.getDescriptor();
+    com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.getDescriptor();
