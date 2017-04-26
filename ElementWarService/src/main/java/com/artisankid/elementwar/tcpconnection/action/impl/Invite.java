@@ -1,13 +1,12 @@
 package com.artisankid.elementwar.tcpconnection.action.impl;
 
-import com.artisankid.elementwar.common.dao.UserDao;
+import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.ewmodel.Magician;
-import com.artisankid.elementwar.common.ewmodel.User;
-import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container;
-import com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.InviteMessage;
-import com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice;
-import com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage;
-import com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice;
+import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
+import com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass;
+import com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass;
+import com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass;
+import com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.ActionRequestMap;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
 import io.netty.channel.ChannelHandlerContext;
@@ -25,15 +24,12 @@ public class Invite {
 
     private Logger logger = LoggerFactory.getLogger(Invite.class);
 
-    @ActionRequestMap(actionKey = Container.INVITE_MESSAGE_FIELD_NUMBER)
-    public void inviteMessage(ChannelHandlerContext context, Container container) {
-        InviteMessage message = container.getInviteMessage();
-        UserDao dao = new UserDao();
+    @ActionRequestMap(actionKey = ContainerOuterClass.Container.INVITE_MESSAGE_FIELD_NUMBER)
+    public void inviteMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
+        InviteMessageOuterClass.InviteMessage message = container.getInviteMessage();
+        MagicianDao dao = new MagicianDao();
 
         Magician sender = dao.selectByOpenID(message.getSenderId());
-        if(sender == null) {
-            return;
-        }
 
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
@@ -51,27 +47,27 @@ public class Invite {
         inviteNotice(targetContext, message.getMessageId(), sender);
     }
 
-    public void inviteNotice(ChannelHandlerContext ctx, String messageID, Magician user) {
-        InviteNotice.Builder notice = InviteNotice.newBuilder();
+    public void inviteNotice(ChannelHandlerContext ctx, String messageID, Magician sender) {
+        InviteNoticeOuterClass.InviteNotice.Builder notice = InviteNoticeOuterClass.InviteNotice.newBuilder();
         notice.setMessageId(messageID);
         long now = System.currentTimeMillis();
         notice.setSendTime(now / 1000);
         notice.setExpiredTime(now / 1000 + 200);
         notice.setNeedResponse(Boolean.FALSE);
-        notice.setSenderId(user.getOpenID());
-        notice.setSenderName(user.getNickname());
-        notice.setSenderPortraitUrl(user.getSmallPortrait());
+        notice.setSenderId(sender.getOpenID());
+        notice.setSenderName(sender.getNickname());
+        notice.setSenderPortraitUrl(sender.getSmallPortrait());
 
-        Container.Builder container = Container.newBuilder();
+        ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
         container.setInviteNotice(notice);
         ctx.writeAndFlush(container);
     }
 
-    @ActionRequestMap(actionKey = Container.INVITE_REPLY_MESSAGE_FIELD_NUMBER)
-    public void inviteReplyMessage(ChannelHandlerContext context, Container container) {
-        InviteReplyMessage message = container.getInviteReplyMessage();
+    @ActionRequestMap(actionKey = ContainerOuterClass.Container.INVITE_REPLY_MESSAGE_FIELD_NUMBER)
+    public void inviteReplyMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
+        InviteReplyMessageOuterClass.InviteReplyMessage message = container.getInviteReplyMessage();
 
-        UserDao dao = new UserDao();
+        MagicianDao dao = new MagicianDao();
 
         Magician sender = dao.selectByOpenID(message.getSenderId());
         if(sender == null) {
@@ -97,7 +93,7 @@ public class Invite {
     }
 
     public void inviteReplyNotice(ChannelHandlerContext ctx, String messageID, Magician sender, InviteReply reply) {
-        InviteReplyNotice.Builder notice = InviteReplyNotice.newBuilder();
+        InviteReplyNoticeOuterClass.InviteReplyNotice.Builder notice = InviteReplyNoticeOuterClass.InviteReplyNotice.newBuilder();
         notice.setMessageId(messageID);
         long now = System.currentTimeMillis();
         notice.setSendTime(now / 1000);
@@ -132,7 +128,7 @@ public class Invite {
             }
         }
 
-        Container.Builder container = Container.newBuilder();
+        ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
         container.setInviteReplyNotice(notice);
         ctx.writeAndFlush(container);
     }

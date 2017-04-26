@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.ewmodel.Magician;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.UserDao;
@@ -36,8 +37,8 @@ public class ModifyNicknameServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String openID = request.getParameter("openID");
 		String nickname = request.getParameter("newNickname");
-		
-		UserDao dao = new UserDao();
+
+		MagicianDao dao = new MagicianDao();
 		Magician magician = dao.selectByOpenID(openID);
 		magician.setNickname(nickname);
 		dao.update(magician);

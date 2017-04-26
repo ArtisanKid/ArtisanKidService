@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.dao.TokenDao;
 import com.artisankid.elementwar.common.dao.UserDao;
 import com.artisankid.elementwar.common.ewmodel.Magician;
@@ -55,7 +56,9 @@ public class LoginServlet extends HttpServlet {
 
 		UserDao userDao = new UserDao();
 		String openID = userDao.insert(user);
-		Magician magician = userDao.selectByOpenID(openID);
+
+		MagicianDao magicianDao = new MagicianDao();
+		Magician magician = magicianDao.selectByOpenID(openID);
 
 		Token magicianToken = new Token();
 		magicianToken.setAccessToken("123456");

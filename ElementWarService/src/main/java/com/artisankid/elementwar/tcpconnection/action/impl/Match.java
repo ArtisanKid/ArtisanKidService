@@ -1,9 +1,9 @@
 package com.artisankid.elementwar.tcpconnection.action.impl;
 
 import com.artisankid.elementwar.common.ewmodel.User;
-import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container;
-import com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage;
-import com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice;
+import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
+import com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass;
+import com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.ActionRequestMap;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
 import io.netty.channel.ChannelHandlerContext;
@@ -17,10 +17,9 @@ import org.slf4j.LoggerFactory;
 public class Match {
     private Logger logger = LoggerFactory.getLogger(Match.class);
 
-    @ActionRequestMap(actionKey = Container.MATCH_MESSAGE_FIELD_NUMBER)
-    public void matchMessage(ChannelHandlerContext ctx, Object o) {
-        Container container = (Container) o;
-        MatchMessage message = container.getMatchMessage();
+    @ActionRequestMap(actionKey = ContainerOuterClass.Container.MATCH_MESSAGE_FIELD_NUMBER)
+    public void matchMessage(ChannelHandlerContext ctx, ContainerOuterClass.Container container) {
+        MatchMessageOuterClass.MatchMessage message = container.getMatchMessage();
         String messageID = message.getMessageId();
         logger.debug("receive msg:" + messageID);
 
@@ -30,7 +29,7 @@ public class Match {
     }
 
     public void matchNotice(ChannelHandlerContext ctx, String messageID, User user) {
-        MatchNotice.Builder notice = MatchNotice.newBuilder();
+        MatchNoticeOuterClass.MatchNotice.Builder notice = MatchNoticeOuterClass.MatchNotice.newBuilder();
         notice.setMessageId(messageID);
         long now = System.currentTimeMillis();
         notice.setSendTime(now / 1000);
@@ -40,7 +39,7 @@ public class Match {
         notice.setUserName(user.getNickname());
         notice.setUserPortraitUrl(user.getSmallPortrait());
 
-        Container.Builder noticeContainer = Container.newBuilder();
+        ContainerOuterClass.Container.Builder noticeContainer = ContainerOuterClass.Container.newBuilder();
         noticeContainer.setMatchNotice(notice);
         ctx.writeAndFlush(noticeContainer);
     }
