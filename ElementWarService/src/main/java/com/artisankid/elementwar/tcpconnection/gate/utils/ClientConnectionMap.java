@@ -56,7 +56,7 @@ public class ClientConnectionMap {
         long netid = conn.getNetId();
         String userId = conn.getUserId();
         if(ClientConnectionMap.allClientMap.remove(netid) != null) {
-            unRegisterUserid(userId);
+            unRegisterUserId(userId);
         } else {
             logger.error("NetId: {} is not exist in allClientMap", netid);
         }
@@ -78,7 +78,7 @@ public class ClientConnectionMap {
         }
     }
 
-    protected static void unRegisterUserid(String userId) {
+    protected static void unRegisterUserId(String userId) {
         if(ClientConnectionMap.userid2netidMap.remove(userId) == null) {
             logger.error("UserId: {} is not exist in userid2netidMap", userId);
         }
