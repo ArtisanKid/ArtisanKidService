@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Room {
     private String roomID;
-    private List<Magician> magicianList;
+    private List<BaseMagician> magicians;
 
     public String getRoomID() {
         return roomID;
@@ -17,11 +17,11 @@ public class Room {
         this.roomID = roomID;
     }
 
-    public List<Magician> getMagicianList() {
-        return magicianList;
+    public List<BaseMagician> getMagicians() {
+        return magicians;
     }
 
-    public void setMagicianList(List<Magician> magicianList) {
-        this.magicianList = magicianList;
+    public void setMagicians(List<BaseMagician> magicians) {
+        this.magicians = magicians;
     }
 }

@@ -58,6 +58,17 @@ public class UserDao {
 		return this.selectMagiciansBySQL(sql);
 	}
 
+	/**
+	 * 根据房间查询用户
+	 *
+	 * @param roomID
+	 * @return
+	 */
+	public List<BaseMagician> selectByRoomID(String roomID) {
+		String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM User LEFT JOIN Magician ON User.userID = Magician.userID WHERE openID IN (SELECT openID FROM Room_Magician WHERE roomID = '" + roomID + "');";
+		return this.selectMagiciansBySQL(sql);
+	}
+
 	private List<BaseMagician> selectMagiciansBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
