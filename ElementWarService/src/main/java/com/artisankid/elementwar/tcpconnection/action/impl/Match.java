@@ -15,13 +15,8 @@ import org.slf4j.LoggerFactory;
  */
 @NettyAction
 public class Match {
-    private Logger logger = LoggerFactory.getLogger(Notice.class);
-    /**
-     * 处理消息逻辑
-     *
-     * @param o
-     * @return
-     */
+    private Logger logger = LoggerFactory.getLogger(Match.class);
+
     @ActionRequestMap(actionKey = Container.MATCH_MESSAGE_FIELD_NUMBER)
     public void matchMessage(ChannelHandlerContext ctx, Object o) {
         Container container = (Container) o;
