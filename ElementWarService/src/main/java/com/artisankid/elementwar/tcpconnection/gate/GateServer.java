@@ -29,7 +29,7 @@ import java.net.InetSocketAddress;
 public class GateServer {
     private static final Logger logger = LoggerFactory.getLogger(GateServer.class);
 
-    private final static int CONNECTION_PORT = 51682;
+    private final static int CONNECTION_PORT = 51683;
 
     public static void main(String[] args){
         init();

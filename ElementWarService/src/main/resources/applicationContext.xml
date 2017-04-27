@@ -14,6 +14,13 @@
        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <context:component-scan
+            base-package="com.artisankid.elementwar.tcpconnection.aspect,com.artisankid.elementwar.tcpconnection.action">
+        <!--如果不写下面这个context:include-filter标签，就需要在切面类上加@Component-->
+        <context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
+    </context:component-scan>
     <!--启用spring的一些annotation -->
     <context:annotation-config/>
 
@@ -22,9 +29,10 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     <mvc:annotation-driven/>
-    <context:component-scan base-package="com.artisankid.elementwar.tcpconnection" />
+    <context:component-scan base-package="com.artisankid.elementwar.tcpconnection"/>
 
     <import resource="dao/spring-myBatis.xml"/>
     <!--服务启动-->
     <import resource="connection_config/conn_start.xml"/>
+
 </beans>

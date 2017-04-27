@@ -2,10 +2,6 @@ package com.artisankid.elementwar.tcpconnection.gate.utils;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.AttributeKey;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import com.artisankid.elementwar.tcpconnection.thirdparty.threedes.ThreeDES;
-
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
