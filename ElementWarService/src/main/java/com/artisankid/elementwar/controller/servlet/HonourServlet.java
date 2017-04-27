@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.dao.UserDao;
 import com.artisankid.elementwar.common.ewmodel.BaseMagician;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
@@ -39,8 +40,9 @@ public class HonourServlet extends HttpServlet {
 		if(pageSize == 0) {
 			pageSize = 20;
 		}
-		
-		List<BaseMagician> users = new UserDao().selectByRank(offset, pageSize);
+
+		MagicianDao dao = new MagicianDao();
+		List<BaseMagician> users = dao.selectByRank(offset, pageSize);
 		
 		ResponseClass<List<BaseMagician>> commonResponse = new ResponseClass<>();
 		commonResponse.setData(users);

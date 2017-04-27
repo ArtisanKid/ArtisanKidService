@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.dao.UserDao;
 import com.artisankid.elementwar.common.ewmodel.BaseMagician;
 import com.artisankid.elementwar.common.ewmodel.BaseMagician.UserRelation;
@@ -42,7 +43,7 @@ public class OpponentsServlet extends HttpServlet {
 			pageSize = 20;
 		}
 		
-		List<BaseMagician> users = new UserDao().selectByRelation(openID, UserRelation.Opponent, offset, pageSize);
+		List<BaseMagician> users = new MagicianDao().selectByRelation(openID, UserRelation.Opponent, offset, pageSize);
 		
 		ResponseClass<List<BaseMagician>> commonResponse = new ResponseClass<>();
 		commonResponse.setData(users);

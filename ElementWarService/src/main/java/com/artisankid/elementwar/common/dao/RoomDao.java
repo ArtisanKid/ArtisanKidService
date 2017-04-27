@@ -1,9 +1,6 @@
 package com.artisankid.elementwar.common.dao;
 
-import com.artisankid.elementwar.common.ewmodel.BaseMagician;
-import com.artisankid.elementwar.common.ewmodel.Effect;
-import com.artisankid.elementwar.common.ewmodel.Level;
-import com.artisankid.elementwar.common.ewmodel.Room;
+import com.artisankid.elementwar.common.ewmodel.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +64,7 @@ public class RoomDao {
         Room object = new Room();
         object.setRoomID(result.get("roomID").toString());
 
-        UserDao dao = new UserDao();
+        MagicianDao dao = new MagicianDao();
         List<BaseMagician> magicians = dao.selectByRoomID(object.getRoomID());
         object.setMagicians(magicians);
         return object;
