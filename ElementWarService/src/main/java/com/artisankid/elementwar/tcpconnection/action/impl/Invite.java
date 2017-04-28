@@ -34,25 +34,28 @@ public class Invite {
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.INVITE_MESSAGE_FIELD_NUMBER)
     public void inviteMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
         InviteMessageOuterClass.InviteMessage message = container.getInviteMessage();
+        final String messageID = message.getMessageId();
+
         MagicianDao dao = new MagicianDao();
 
-        Magician sender = dao.selectByOpenID(message.getSenderId());
+        final String senderID = message.getSenderId();
+        Magician sender = dao.selectByOpenID(senderID);
 
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
             return;
         }
 
-        Magician receiver = dao.selectByOpenID(receiverID);
+        final Magician receiver = dao.selectByOpenID(receiverID);
         if(receiver == null) {
             return;
         }
 
         UserStateManager.UserState state = UserStateManager.getUserState(receiverID);
         if(state == UserStateManager.UserState.Busy) {
-            inviteReplyNotice(receiverID, message.getMessageId(), receiver, InviteReply.Busy);
+            inviteReplyNotice(senderID, messageID, receiver, InviteReply.Busy);
         } else if(state == UserStateManager.UserState.Free) {
-            inviteNotice(receiver, message.getMessageId(), sender);
+            inviteNotice(receiver, messageID, sender);
         }
     }
 
@@ -71,7 +74,7 @@ public class Invite {
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
         container.setInviteNotice(notice);
 
-        Timer timer = new Timer(true);
+        final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
                 inviteReplyNotice(sender.getOpenID(), messageID, receiver, InviteReply.Timeout);
@@ -83,7 +86,7 @@ public class Invite {
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
             @Override
             public void operationComplete(Future<? super Void> future) throws Exception {
-
+                timer.cancel();
             }
         });
     }
@@ -116,12 +119,12 @@ public class Invite {
         }
     }
 
-    public void inviteReplyNotice(String receiverID, String messageID, Magician sender, InviteReply reply) {
+    public void inviteReplyNotice(String receiverID, String messageID, Magician sender, final InviteReply reply) {
         InviteReplyNoticeOuterClass.InviteReplyNotice.Builder notice = InviteReplyNoticeOuterClass.InviteReplyNotice.newBuilder();
         notice.setMessageId(messageID);
         long now = System.currentTimeMillis();
         notice.setSendTime(now / 1000);
-        notice.setExpiredTime(now / 1000 + 200);
+        notice.setExpiredTime(now / 1000 + 30);
         notice.setNeedResponse(Boolean.FALSE);
 
         notice.setSenderId(sender.getOpenID());
@@ -155,7 +158,22 @@ public class Invite {
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
         container.setInviteReplyNotice(notice);
 
+        Timer timer = new Timer(true);
+        TimerTask task = new TimerTask() {
+            public void run() {
+
+            }
+        };
+        timer.schedule(task, 30 * 1000);
+
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container);
+        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+            @Override
+            public void operationComplete(Future<? super Void> future) throws Exception {
+                if(reply == InviteReply.Agree) {
+                    //TODO:进入房间通知
+                }
+            }
+        });
     }
 }
