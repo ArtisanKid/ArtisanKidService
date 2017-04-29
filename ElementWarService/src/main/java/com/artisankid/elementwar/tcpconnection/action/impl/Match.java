@@ -72,7 +72,9 @@ public class Match {
 
         RoomManager.createRoom(Arrays.asList(senderID, receiverID));
         UserManager.getUser(senderID).setState(User.State.Matched);
-        UserManager.getUser(senderID).setState(User.State.Matched);
+        UserManager.getUser(senderID).setHp(30);
+        UserManager.getUser(receiverID).setState(User.State.Matched);
+        UserManager.getUser(receiverID).setHp(30);
 
         String messageID = message.getMessageId();
 
@@ -158,6 +160,6 @@ public class Match {
                 }
             }
         }
-        RoomManager.destroyRoom(userID);
+        RoomManager.removeRoom(userID);
     }
 }

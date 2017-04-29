@@ -21,8 +21,12 @@ public class UserManager {
         return userMap.get(userID);
     }
 
-    public static void setUser(User user) {
+    public static void addUser(User user) {
         userMap.put(user.getUserID(), user);
+    }
+
+    public static void removeUser(String userID) {
+        userMap.remove(userID);
     }
 
     /**
@@ -32,7 +36,7 @@ public class UserManager {
     public static List<String> getMatchUserIDs() {
         List<String> userIDs = new ArrayList<>();
         for (Map.Entry<String, User> entry : userMap.entrySet()) {
-            if(entry.getValue().getState() == User.State.Match) {
+            if(entry.getValue().getState() == User.State.Matching) {
                 userIDs.add(entry.getKey());
             }
         }

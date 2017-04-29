@@ -32,13 +32,22 @@ public class PlaySwitch {
         notice.setNeedResponse(Boolean.FALSE);
         notice.setPlayerId(playerID);
 
+        UserManager.getUser(playerID).setGameState(User.GameState.Playing);
+        UserManager.getUser(playerID).setPlayExpiredTime(expiredTime);
+
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
         container.setPlaySwitchNotice(notice);
 
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
-                //出牌结束或者通知超时，换下一个用户发牌
+                //用户出牌时间可能会被延长
+                if(UserManager.getUser(playerID).getPlayExpiredTime() > System.currentTimeMillis()) {
+                    return;
+                }
+
+                //出牌结束或者通知超时，换下一个用户出牌
+                UserManager.getUser(playerID).setGameState(User.GameState.Waiting);
                 Deal.DealNoticeNextUser(playerID);
             }
         };

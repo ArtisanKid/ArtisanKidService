@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -45,7 +46,7 @@ public class InRoom {
                 for(User user : room.getUsers()) {
                     user.setState(User.State.Free);
                 }
-                RoomManager.destroyRoom(receiverID);
+                RoomManager.removeRoom(receiverID);
             }
         };
         timer.schedule(task, expiredTime - System.currentTimeMillis());
@@ -62,17 +63,23 @@ public class InRoom {
 
                 UserManager.getUser(receiverID).setState(User.State.InRoomed);
 
-                Room room = RoomManager.getRoom(receiverID);
-                for(User user : room.getUsers()) {
+                List<User> users = RoomManager.getRoom(receiverID).getUsers();
+                for(User user : users) {
                     User.State state = user.getState();
                     if(state != User.State.InRoomed) {
                         return;
                     }
                 }
 
-                for(User user : room.getUsers()) {
+                for(Integer i = 0; i < users.size(); i++) {
+                    User user = users.get(i);
                     user.setState(User.State.Gaming);
-                    Deal.DealNotice(user.getUserID(), Arrays.asList("C"));
+
+                    if(i == 0) {
+                        Deal.DealNotice(user.getUserID(), Arrays.asList("C"));
+                    } else {
+                        Deal.DealNoticeOnly(user.getUserID(), Arrays.asList("C"));
+                    }
                 }
             }
         });

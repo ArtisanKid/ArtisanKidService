@@ -29,4 +29,8 @@ public class UserContextManager {
     public static ChannelHandlerContext getUserContext(String userID) {
         return userContextMap.get(userID);
     }
+
+    public static void removeUserContext(String userID) {
+        userContextMap.remove(userID);
+    }
 }

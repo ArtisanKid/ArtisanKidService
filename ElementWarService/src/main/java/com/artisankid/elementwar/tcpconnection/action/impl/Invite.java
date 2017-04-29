@@ -150,7 +150,9 @@ public class Invite {
         if(message.getIsAgree()) {
             RoomManager.createRoom(Arrays.asList(senderID, receiverID));
             UserManager.getUser(senderID).setState(User.State.Invited);
+            UserManager.getUser(senderID).setHp(30);
             UserManager.getUser(receiverID).setState(User.State.Invited);
+            UserManager.getUser(receiverID).setHp(30);
 
             inviteReplyNotice(receiverID, messageID, sender, InviteReply.Agree, expiredTime);
         } else {

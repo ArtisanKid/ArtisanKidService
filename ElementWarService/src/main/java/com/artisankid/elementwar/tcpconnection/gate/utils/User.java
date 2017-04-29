@@ -8,6 +8,11 @@ public class User {
         Free, Matching, Matched, Inviting, Invited, WaitingInRoom, InRooming, InRoomed, Gaming
     }
 
+    public enum GameState {
+        Playing, //正在出牌
+        Waiting //等待
+    }
+
     private String userID;
 
     private State state;
@@ -17,6 +22,10 @@ public class User {
     private long inviteExpiredTime;
 
     private Integer strength;
+
+    private GameState gameState;
+
+    private long playExpiredTime;//出牌超时时间
 
     private Integer hp;
 
@@ -64,6 +73,22 @@ public class User {
 
     public void setStrength(Integer strength) {
         this.strength = strength;
+    }
+
+    public void setGameState(GameState state) {
+        this.gameState = state;
+    }
+
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public long getPlayExpiredTime() {
+        return playExpiredTime;
+    }
+
+    public void setPlayExpiredTime(long playExpiredTime) {
+        this.playExpiredTime = playExpiredTime;
     }
 
     public Integer getHp() {

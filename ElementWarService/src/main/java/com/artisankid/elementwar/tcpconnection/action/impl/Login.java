@@ -1,5 +1,6 @@
 package com.artisankid.elementwar.tcpconnection.action.impl;
 
+import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.dao.TokenDao;
 import com.artisankid.elementwar.common.ewmodel.Magician;
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
@@ -27,28 +28,33 @@ public class Login {
     private Logger logger = LoggerFactory.getLogger(Login.class);
 
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.LOGIN_MESSAGE_FIELD_NUMBER)
-    public void loginMessage(ChannelHandlerContext ctx, ContainerOuterClass.Container container) {
+    public void loginMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
         LoginMessageOuterClass.LoginMessage message = container.getLoginMessage();
 
-        //首先判断是否超时
-        long expiredTime = (long) (message.getExpiredTime() * 1000);
-        long now = System.currentTimeMillis();
-        if(expiredTime <= now) {
-            return;
-        }
+//        //首先判断是否超时
+//        long expiredTime = (long) (message.getExpiredTime() * 1000);
+//        long now = System.currentTimeMillis();
+//        if(expiredTime <= now) {
+//            return;
+//        }
 
-        String messageID = message.getMessageId();
-        String userID = message.getMessageId();
         String accessToken = message.getAccessToken();
-        logger.debug("loginMessage:" + messageID + " userID:" + userID + " accessToken:" + accessToken);
-
         TokenDao dao = new TokenDao();
         if(dao.selectByAccessToken(accessToken) == null) {
             //token验证失败，等待客户端自然超时
             return;
         }
 
-        matchNotice(userID, messageID, userID, expiredTime);
+        String userID = message.getSenderId();
+        UserContextManager.setUserContext(userID, context);
+
+        User user = new User();
+        user.setUserID(userID);
+        user.setStrength(new MagicianDao().selectByOpenID(userID).getStrength());
+        UserManager.addUser(user);
+
+        long expiredTime = (long) (message.getExpiredTime() * 1000);
+        matchNotice(userID, message.getMessageId(), userID, expiredTime);
     }
 
     public void matchNotice(final String receiverID, String messageID, final String userID, final long expiredTime) {
@@ -68,14 +74,20 @@ public class Login {
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
         container.setLoginNotice(notice);
 
+        final Timer timer = new Timer(true);
+        TimerTask task = new TimerTask() {
+            public void run() {
+                UserContextManager.removeUserContext(userID);
+                UserManager.removeUser(userID);
+            }
+        };
+        timer.schedule(task, expiredTime - System.currentTimeMillis());
+
         final ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
             @Override
             public void operationComplete(Future<? super Void> future) throws Exception {
-                if(expiredTime > System.currentTimeMillis()) {
-                    //将userID和ctx进行绑定
-                    UserContextManager.setUserContext(userID, ctx);
-                }
+                timer.cancel();
             }
         });
     }

@@ -46,13 +46,4 @@ public class Room {
     public User getUser(String userID) {
         return userMap.get(userID);
     }
-
-    public boolean isAllUserReady() {
-        for(User user : getUsers()) {
-            if(user.getState() != User.State.Match) {
-                return false;
-            }
-        }
-        return true;
-    }
 }

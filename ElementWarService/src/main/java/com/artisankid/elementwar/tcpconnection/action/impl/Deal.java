@@ -58,6 +58,25 @@ public class Deal {
         });
     }
 
+    static public void DealNoticeOnly(final String receiverID, List<String> cardIDs) {
+        DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
+        long now = System.currentTimeMillis();
+        long expiredTime = now + 10 * 1000;
+        notice.setSendTime(now / 1000);
+        notice.setExpiredTime(expiredTime / 1000);
+        notice.setNeedResponse(Boolean.FALSE);
+        notice.setReceiverId(receiverID);
+        for(Integer i = 0; i < cardIDs.size(); i++) {
+            notice.setCardIds(i, cardIDs.get(i));
+        }
+
+        ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setDealNotice(notice);
+
+        ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
+        ctx.writeAndFlush(container);
+    }
+
     static public void DealNoticeNextUser(String currentUserID) {
         User user  = UserManager.getUser(currentUserID);
         List<User> users = RoomManager.getRoom(currentUserID).getUsers();
@@ -69,6 +88,6 @@ public class Deal {
         }
 
         User nextUser = users.get(index);
-        Deal.DealNotice(nextUser.getUserID(), Arrays.asList("O"));
+        DealNotice(nextUser.getUserID(), Arrays.asList("O"));
     }
 }

@@ -22,7 +22,7 @@ public class RoomManager {
         return room;
     }
 
-    public static void destroyRoom(String userID) {
+    public static void removeRoom(String userID) {
         Room room = getRoom(userID);
         if(room == null) {
             return;
