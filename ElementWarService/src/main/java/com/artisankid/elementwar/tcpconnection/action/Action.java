@@ -5,13 +5,15 @@ import java.lang.reflect.Method;
 /**
  * action处理器
  *
- * Created by ws on 2017/4/22.
+ * Created by WangShaoHua on 2017/4/22.
  */
 public class Action {
 
     private Method method;
 
     private Object object;
+
+    private String beanName;
 
     public Method getMethod() {
         return method;
@@ -27,6 +29,14 @@ public class Action {
 
     public void setObject(Object object) {
         this.object = object;
+    }
+
+    public String getBeanName() {
+        return beanName;
+    }
+
+    public void setBeanName(String beanName) {
+        this.beanName = beanName;
     }
 }
 

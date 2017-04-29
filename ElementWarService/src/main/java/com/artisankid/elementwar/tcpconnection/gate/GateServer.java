@@ -1,6 +1,7 @@
 package com.artisankid.elementwar.tcpconnection.gate;
 
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
+import com.artisankid.elementwar.tcpconnection.beanUtil.SpringContextUtil;
 import com.artisankid.elementwar.tcpconnection.gate.handler.GateServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -17,28 +18,27 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.net.InetSocketAddress;
 
 /**
  * 网关消费
  *
- * @author shaohua.wang
- * @since 20170416
+ * @author WangShaoHua
+ * @since 2017-04-16
  */
 @Component("gateServer")
 public class GateServer {
     private static final Logger logger = LoggerFactory.getLogger(GateServer.class);
 
-    private final static int CONNECTION_PORT = 51683;
+    private final static int CONNECTION_PORT = 51685;
 
-    public static void main(String[] args){
-        init();
-    }
-
+    @Resource
+    private GateServerHandler gateServerHandler;
     /**
      * 初始化方法
      */
-    public static void init() {
+    public  void init() {
         startGateServer(CONNECTION_PORT);
     }
 
@@ -47,7 +47,7 @@ public class GateServer {
      *
      * @param port
      */
-    public static void startGateServer(int port) {
+    public void startGateServer(int port) {
 
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workGroup = new NioEventLoopGroup();
@@ -64,9 +64,8 @@ public class GateServer {
 //                        pipeline.addLast(new ProtobufVarint32FrameDecoder());
                         pipeline.addLast(new ProtobufDecoder(ContainerOuterClass.Container.getDefaultInstance()));
 //                        pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
-
                         pipeline.addLast(new ProtobufEncoder());
-                        pipeline.addLast(new GateServerHandler());
+                        pipeline.addLast(gateServerHandler);
                     }
                 });
 
@@ -86,12 +85,14 @@ public class GateServer {
         });
     }
 
+    /**
+     *
+     * @param bootstrap
+     */
     protected static void bindConnectionOptions(ServerBootstrap bootstrap) {
-
         bootstrap.option(ChannelOption.SO_BACKLOG, 1024);
         bootstrap.childOption(ChannelOption.SO_LINGER, 0);
         bootstrap.childOption(ChannelOption.TCP_NODELAY, true);
-
         bootstrap.childOption(ChannelOption.SO_REUSEADDR, true); //调试用
         bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true); //心跳机制暂时使用TCP选项，之后再自己实现
 
