@@ -84,6 +84,12 @@ public class UseScroll {
         for(User user : RoomManager.getRoom(senderID).getUsers()) {
             useScrollNotice(user.getUserID(), senderID, receiverID, scrollID);
         }
+
+        if(UserManager.getUser(receiverID).getHp() <= 0) {
+            Finish.FinishNotice(senderID);
+        } else if(UserManager.getUser(senderID).getHp() <= 0) {
+            Finish.FinishNotice(receiverID);
+        }
     }
 
     public void useScrollNotice(String receiverID, String senderID, String effectReceiverID, String scrollID) {

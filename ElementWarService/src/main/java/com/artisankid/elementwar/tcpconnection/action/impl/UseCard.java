@@ -86,6 +86,12 @@ public class UseCard {
         for(User user : RoomManager.getRoom(senderID).getUsers()) {
             useCardNotice(user.getUserID(), senderID, receiverID, cardID);
         }
+
+        if(UserManager.getUser(receiverID).getHp() <= 0) {
+            Finish.FinishNotice(senderID);
+        } else if(UserManager.getUser(senderID).getHp() <= 0) {
+            Finish.FinishNotice(receiverID);
+        }
     }
 
     public void useCardNotice(String receiverID, String senderID, String effectReceiverID, String cardID) {
