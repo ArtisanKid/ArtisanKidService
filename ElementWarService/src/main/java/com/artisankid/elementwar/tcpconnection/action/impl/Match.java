@@ -29,9 +29,16 @@ public class Match {
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.MATCH_MESSAGE_FIELD_NUMBER)
     public void matchMessage(ChannelHandlerContext ctx, ContainerOuterClass.Container container) {
         MatchMessageOuterClass.MatchMessage message = container.getMatchMessage();
-
         //获取匹配信息发送者ID
         final String senderID = message.getSenderId();
+
+        //首先判断是否超时
+        long expiredTime = (long) (message.getExpiredTime() * 1000);
+        if(expiredTime <= System.currentTimeMillis()) {
+            UserManager.getUser(senderID).setState(User.State.Free);
+            return;
+        }
+
         Integer senderStrength = UserManager.getUser(senderID).getStrength();
 
         //查询和sender实力相当的用户
@@ -45,35 +52,27 @@ public class Match {
             }
         }
 
-        long expiredTime = (long) (message.getExpiredTime() * 1000);
-
         //如果未找到实力相当的用户，那么就排队
         if(receiverID == null) {
-            long now = System.currentTimeMillis();
-            if(expiredTime <= now) {
-                UserManager.getUser(senderID).setState(User.State.Free);
-                return;
-            }
-
-            UserManager.getUser(senderID).setState(User.State.Match);
+            UserManager.getUser(senderID).setState(User.State.Matching);
             UserManager.getUser(senderID).setMatchExpiredTime(expiredTime);
 
             Timer timer = new Timer(true);
             TimerTask task = new TimerTask() {
                 public void run() {
                     //用户等待的时间超时
-                    if(UserManager.getUser(senderID).getState() == User.State.Match) {
+                    if(UserManager.getUser(senderID).getState() == User.State.Matching) {
                         UserManager.getUser(senderID).setState(User.State.Free);
                     }
                 }
             };
-            timer.schedule(task, expiredTime - now);
+            timer.schedule(task, expiredTime - System.currentTimeMillis());
             return;
         }
 
         RoomManager.createRoom(Arrays.asList(senderID, receiverID));
-        UserManager.getUser(senderID).setState(User.State.InRoom);
-        UserManager.getUser(senderID).setState(User.State.InRoom);
+        UserManager.getUser(senderID).setState(User.State.Matched);
+        UserManager.getUser(senderID).setState(User.State.Matched);
 
         String messageID = message.getMessageId();
 
@@ -84,15 +83,14 @@ public class Match {
     }
 
     public void matchNotice(final String receiverID, String messageID, Magician user, long expiredTime) {
-        final long now = System.currentTimeMillis();
-        if(expiredTime <= now) {
+        if(expiredTime <= System.currentTimeMillis()) {
             matchNoticeFailed(receiverID);
             return;
         }
 
         MatchNoticeOuterClass.MatchNotice.Builder notice = MatchNoticeOuterClass.MatchNotice.newBuilder();
         notice.setMessageId(messageID);
-        notice.setSendTime(now / 1000);
+        notice.setSendTime(System.currentTimeMillis() / 1000);
         notice.setExpiredTime(expiredTime / 1000);
         notice.setNeedResponse(Boolean.FALSE);
 
@@ -106,11 +104,10 @@ public class Match {
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
-                //超时则说明进入房间失败了
                 matchNoticeFailed(receiverID);
             }
         };
-        timer.schedule(task, expiredTime - now);
+        timer.schedule(task, expiredTime - System.currentTimeMillis());
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
@@ -120,8 +117,25 @@ public class Match {
                     return;
                 }
 
+                if(UserManager.getUser(receiverID).getState() == User.State.Matching) {
+                    return;
+                }
+
                 timer.cancel();
-                UserManager.getUser(receiverID).setState(User.State.Busy);
+
+                UserManager.getUser(receiverID).setState(User.State.WaitingInRoom);
+
+                Room room = RoomManager.getRoom(receiverID);
+                for(User user : room.getUsers()) {
+                    User.State state = user.getState();
+                    if(state != User.State.WaitingInRoom) {
+                        return;
+                    }
+                }
+
+                for(User user : room.getUsers()) {
+                    InRoom.InRoomNotice(user.getUserID(), room.getRoomID());
+                }
             }
         });
     }
@@ -133,13 +147,12 @@ public class Match {
             return;
         }
 
-        long now = System.currentTimeMillis();
         for(User user : room.getUsers()) {
             if(user.getUserID() == userID) {
                 user.setState(User.State.Free);
             } else {
-                if(user.getMatchExpiredTime() > now) {
-                    user.setState(User.State.Match);
+                if(user.getMatchExpiredTime() > System.currentTimeMillis()) {
+                    user.setState(User.State.Matching);
                 } else {
                     user.setState(User.State.Free);
                 }
