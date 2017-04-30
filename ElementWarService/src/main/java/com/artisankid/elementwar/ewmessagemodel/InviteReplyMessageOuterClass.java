@@ -25,7 +25,7 @@ public final class InviteReplyMessageOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    String getMessageId();
+    java.lang.String getMessageId();
     /**
      * <pre>
      *消息ID
@@ -70,7 +70,7 @@ public final class InviteReplyMessageOuterClass {
      *
      * <code>string sender_id = 5;</code>
      */
-    String getSenderId();
+    java.lang.String getSenderId();
     /**
      * <pre>
      *发送者ID
@@ -88,7 +88,7 @@ public final class InviteReplyMessageOuterClass {
      *
      * <code>string receiver_id = 20;</code>
      */
-    String getReceiverId();
+    java.lang.String getReceiverId();
     /**
      * <pre>
      *接收者ID
@@ -133,7 +133,7 @@ public final class InviteReplyMessageOuterClass {
       isAgree_ = false;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -159,7 +159,7 @@ public final class InviteReplyMessageOuterClass {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               messageId_ = s;
               break;
@@ -180,13 +180,13 @@ public final class InviteReplyMessageOuterClass {
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               senderId_ = s;
               break;
             }
             case 162: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               receiverId_ = s;
               break;
@@ -209,18 +209,18 @@ public final class InviteReplyMessageOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return InviteReplyMessageOuterClass.internal_static_InviteReplyMessage_descriptor;
+      return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.internal_static_InviteReplyMessage_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return InviteReplyMessageOuterClass.internal_static_InviteReplyMessage_fieldAccessorTable
+      return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.internal_static_InviteReplyMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              InviteReplyMessage.class, Builder.class);
+              com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.class, com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.Builder.class);
     }
 
     public static final int MESSAGE_ID_FIELD_NUMBER = 1;
-    private volatile Object messageId_;
+    private volatile java.lang.Object messageId_;
     /**
      * <pre>
      *消息ID
@@ -228,14 +228,14 @@ public final class InviteReplyMessageOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    public String getMessageId() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getMessageId() {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         messageId_ = s;
         return s;
       }
@@ -249,11 +249,11 @@ public final class InviteReplyMessageOuterClass {
      */
     public com.google.protobuf.ByteString
         getMessageIdBytes() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         messageId_ = b;
         return b;
       } else {
@@ -301,7 +301,7 @@ public final class InviteReplyMessageOuterClass {
     }
 
     public static final int SENDER_ID_FIELD_NUMBER = 5;
-    private volatile Object senderId_;
+    private volatile java.lang.Object senderId_;
     /**
      * <pre>
      *发送者ID
@@ -309,14 +309,14 @@ public final class InviteReplyMessageOuterClass {
      *
      * <code>string sender_id = 5;</code>
      */
-    public String getSenderId() {
-      Object ref = senderId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getSenderId() {
+      java.lang.Object ref = senderId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         senderId_ = s;
         return s;
       }
@@ -330,11 +330,11 @@ public final class InviteReplyMessageOuterClass {
      */
     public com.google.protobuf.ByteString
         getSenderIdBytes() {
-      Object ref = senderId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = senderId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         senderId_ = b;
         return b;
       } else {
@@ -343,7 +343,7 @@ public final class InviteReplyMessageOuterClass {
     }
 
     public static final int RECEIVER_ID_FIELD_NUMBER = 20;
-    private volatile Object receiverId_;
+    private volatile java.lang.Object receiverId_;
     /**
      * <pre>
      *接收者ID
@@ -351,14 +351,14 @@ public final class InviteReplyMessageOuterClass {
      *
      * <code>string receiver_id = 20;</code>
      */
-    public String getReceiverId() {
-      Object ref = receiverId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getReceiverId() {
+      java.lang.Object ref = receiverId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         receiverId_ = s;
         return s;
       }
@@ -372,11 +372,11 @@ public final class InviteReplyMessageOuterClass {
      */
     public com.google.protobuf.ByteString
         getReceiverIdBytes() {
-      Object ref = receiverId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = receiverId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         receiverId_ = b;
         return b;
       } else {
@@ -467,26 +467,26 @@ public final class InviteReplyMessageOuterClass {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof InviteReplyMessage)) {
+      if (!(obj instanceof com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage)) {
         return super.equals(obj);
       }
-      InviteReplyMessage other = (InviteReplyMessage) obj;
+      com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage other = (com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) obj;
 
       boolean result = true;
       result = result && getMessageId()
           .equals(other.getMessageId());
       result = result && (
-          Double.doubleToLongBits(getSendTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getSendTime())
+          == java.lang.Double.doubleToLongBits(
               other.getSendTime()));
       result = result && (
-          Double.doubleToLongBits(getExpiredTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getExpiredTime())
+          == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
       result = result && (getNeedResponse()
           == other.getNeedResponse());
@@ -499,7 +499,7 @@ public final class InviteReplyMessageOuterClass {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -510,10 +510,10 @@ public final class InviteReplyMessageOuterClass {
       hash = (53 * hash) + getMessageId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getSendTime()));
+          java.lang.Double.doubleToLongBits(getSendTime()));
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getExpiredTime()));
+          java.lang.Double.doubleToLongBits(getExpiredTime()));
       hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNeedResponse());
@@ -529,58 +529,58 @@ public final class InviteReplyMessageOuterClass {
       return hash;
     }
 
-    public static InviteReplyMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static InviteReplyMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static InviteReplyMessage parseFrom(byte[] data)
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static InviteReplyMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static InviteReplyMessage parseFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static InviteReplyMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static InviteReplyMessage parseDelimitedFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static InviteReplyMessage parseDelimitedFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static InviteReplyMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static InviteReplyMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -592,7 +592,7 @@ public final class InviteReplyMessageOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(InviteReplyMessage prototype) {
+    public static Builder newBuilder(com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -600,9 +600,9 @@ public final class InviteReplyMessageOuterClass {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -616,17 +616,17 @@ public final class InviteReplyMessageOuterClass {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:InviteReplyMessage)
-        InviteReplyMessageOrBuilder {
+        com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return InviteReplyMessageOuterClass.internal_static_InviteReplyMessage_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.internal_static_InviteReplyMessage_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return InviteReplyMessageOuterClass.internal_static_InviteReplyMessage_fieldAccessorTable
+        return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.internal_static_InviteReplyMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                InviteReplyMessage.class, Builder.class);
+                com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.class, com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.Builder.class);
       }
 
       // Construct using com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.newBuilder()
@@ -635,7 +635,7 @@ public final class InviteReplyMessageOuterClass {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -665,23 +665,23 @@ public final class InviteReplyMessageOuterClass {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return InviteReplyMessageOuterClass.internal_static_InviteReplyMessage_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.internal_static_InviteReplyMessage_descriptor;
       }
 
-      public InviteReplyMessage getDefaultInstanceForType() {
-        return InviteReplyMessage.getDefaultInstance();
+      public com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage getDefaultInstanceForType() {
+        return com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.getDefaultInstance();
       }
 
-      public InviteReplyMessage build() {
-        InviteReplyMessage result = buildPartial();
+      public com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage build() {
+        com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public InviteReplyMessage buildPartial() {
-        InviteReplyMessage result = new InviteReplyMessage(this);
+      public com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage buildPartial() {
+        com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage result = new com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage(this);
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
@@ -720,16 +720,16 @@ public final class InviteReplyMessageOuterClass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof InviteReplyMessage) {
-          return mergeFrom((InviteReplyMessage)other);
+        if (other instanceof com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) {
+          return mergeFrom((com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(InviteReplyMessage other) {
-        if (other == InviteReplyMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage other) {
+        if (other == com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage.getDefaultInstance()) return this;
         if (!other.getMessageId().isEmpty()) {
           messageId_ = other.messageId_;
           onChanged();
@@ -766,11 +766,11 @@ public final class InviteReplyMessageOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        InviteReplyMessage parsedMessage = null;
+        com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (InviteReplyMessage) e.getUnfinishedMessage();
+          parsedMessage = (com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -780,7 +780,7 @@ public final class InviteReplyMessageOuterClass {
         return this;
       }
 
-      private Object messageId_ = "";
+      private java.lang.Object messageId_ = "";
       /**
        * <pre>
        *消息ID
@@ -788,16 +788,16 @@ public final class InviteReplyMessageOuterClass {
        *
        * <code>string message_id = 1;</code>
        */
-      public String getMessageId() {
-        Object ref = messageId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getMessageId() {
+        java.lang.Object ref = messageId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           messageId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -809,11 +809,11 @@ public final class InviteReplyMessageOuterClass {
        */
       public com.google.protobuf.ByteString
           getMessageIdBytes() {
-        Object ref = messageId_;
+        java.lang.Object ref = messageId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           messageId_ = b;
           return b;
         } else {
@@ -828,7 +828,7 @@ public final class InviteReplyMessageOuterClass {
        * <code>string message_id = 1;</code>
        */
       public Builder setMessageId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -983,7 +983,7 @@ public final class InviteReplyMessageOuterClass {
         return this;
       }
 
-      private Object senderId_ = "";
+      private java.lang.Object senderId_ = "";
       /**
        * <pre>
        *发送者ID
@@ -991,16 +991,16 @@ public final class InviteReplyMessageOuterClass {
        *
        * <code>string sender_id = 5;</code>
        */
-      public String getSenderId() {
-        Object ref = senderId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getSenderId() {
+        java.lang.Object ref = senderId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           senderId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1012,11 +1012,11 @@ public final class InviteReplyMessageOuterClass {
        */
       public com.google.protobuf.ByteString
           getSenderIdBytes() {
-        Object ref = senderId_;
+        java.lang.Object ref = senderId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           senderId_ = b;
           return b;
         } else {
@@ -1031,7 +1031,7 @@ public final class InviteReplyMessageOuterClass {
        * <code>string sender_id = 5;</code>
        */
       public Builder setSenderId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1072,7 +1072,7 @@ public final class InviteReplyMessageOuterClass {
         return this;
       }
 
-      private Object receiverId_ = "";
+      private java.lang.Object receiverId_ = "";
       /**
        * <pre>
        *接收者ID
@@ -1080,16 +1080,16 @@ public final class InviteReplyMessageOuterClass {
        *
        * <code>string receiver_id = 20;</code>
        */
-      public String getReceiverId() {
-        Object ref = receiverId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getReceiverId() {
+        java.lang.Object ref = receiverId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           receiverId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1101,11 +1101,11 @@ public final class InviteReplyMessageOuterClass {
        */
       public com.google.protobuf.ByteString
           getReceiverIdBytes() {
-        Object ref = receiverId_;
+        java.lang.Object ref = receiverId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           receiverId_ = b;
           return b;
         } else {
@@ -1120,7 +1120,7 @@ public final class InviteReplyMessageOuterClass {
        * <code>string receiver_id = 20;</code>
        */
       public Builder setReceiverId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1213,12 +1213,12 @@ public final class InviteReplyMessageOuterClass {
     }
 
     // @@protoc_insertion_point(class_scope:InviteReplyMessage)
-    private static final InviteReplyMessage DEFAULT_INSTANCE;
+    private static final com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new InviteReplyMessage();
+      DEFAULT_INSTANCE = new com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage();
     }
 
-    public static InviteReplyMessage getDefaultInstance() {
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1236,12 +1236,12 @@ public final class InviteReplyMessageOuterClass {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<InviteReplyMessage> getParserForType() {
       return PARSER;
     }
 
-    public InviteReplyMessage getDefaultInstanceForType() {
+    public com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.InviteReplyMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1260,7 +1260,7 @@ public final class InviteReplyMessageOuterClass {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\030InviteReplyMessage.proto\"\240\001\n\022InviteRep" +
       "lyMessage\022\022\n\nmessage_id\030\001 \001(\t\022\021\n\tsend_ti" +
       "me\030\002 \001(\001\022\024\n\014expired_time\030\003 \001(\001\022\024\n\014needRe" +
@@ -1286,7 +1286,7 @@ public final class InviteReplyMessageOuterClass {
     internal_static_InviteReplyMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_InviteReplyMessage_descriptor,
-        new String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "SenderId", "ReceiverId", "IsAgree", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "SenderId", "ReceiverId", "IsAgree", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

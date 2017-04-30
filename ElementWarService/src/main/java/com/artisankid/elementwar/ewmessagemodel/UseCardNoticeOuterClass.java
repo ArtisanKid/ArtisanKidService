@@ -25,7 +25,7 @@ public final class UseCardNoticeOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    String getMessageId();
+    java.lang.String getMessageId();
     /**
      * <pre>
      *消息ID
@@ -65,21 +65,12 @@ public final class UseCardNoticeOuterClass {
 
     /**
      * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    double getCalibrationTime();
-
-    /**
-     * <pre>
      *发送者ID
      * </pre>
      *
      * <code>string sender_id = 20;</code>
      */
-    String getSenderId();
+    java.lang.String getSenderId();
     /**
      * <pre>
      *发送者ID
@@ -97,7 +88,7 @@ public final class UseCardNoticeOuterClass {
      *
      * <code>string receiver_id = 30;</code>
      */
-    String getReceiverId();
+    java.lang.String getReceiverId();
     /**
      * <pre>
      *接收者ID
@@ -115,7 +106,7 @@ public final class UseCardNoticeOuterClass {
      *
      * <code>string card_id = 40;</code>
      */
-    String getCardId();
+    java.lang.String getCardId();
     /**
      * <pre>
      *卡牌ID
@@ -125,41 +116,6 @@ public final class UseCardNoticeOuterClass {
      */
     com.google.protobuf.ByteString
         getCardIdBytes();
-
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string card_effect_ids = 41;</code>
-     */
-    java.util.List<String>
-        getCardEffectIdsList();
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string card_effect_ids = 41;</code>
-     */
-    int getCardEffectIdsCount();
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string card_effect_ids = 41;</code>
-     */
-    String getCardEffectIds(int index);
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string card_effect_ids = 41;</code>
-     */
-    com.google.protobuf.ByteString
-        getCardEffectIdsBytes(int index);
   }
   /**
    * <pre>
@@ -181,14 +137,12 @@ public final class UseCardNoticeOuterClass {
       sendTime_ = 0D;
       expiredTime_ = 0D;
       needResponse_ = false;
-      calibrationTime_ = 0D;
       senderId_ = "";
       receiverId_ = "";
       cardId_ = "";
-      cardEffectIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -214,7 +168,7 @@ public final class UseCardNoticeOuterClass {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               messageId_ = s;
               break;
@@ -234,36 +188,22 @@ public final class UseCardNoticeOuterClass {
               needResponse_ = input.readBool();
               break;
             }
-            case 41: {
-
-              calibrationTime_ = input.readDouble();
-              break;
-            }
             case 162: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               senderId_ = s;
               break;
             }
             case 242: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               receiverId_ = s;
               break;
             }
             case 322: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               cardId_ = s;
-              break;
-            }
-            case 330: {
-              String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-                cardEffectIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000100;
-              }
-              cardEffectIds_.add(s);
               break;
             }
           }
@@ -274,27 +214,23 @@ public final class UseCardNoticeOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-          cardEffectIds_ = cardEffectIds_.getUnmodifiableView();
-        }
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return UseCardNoticeOuterClass.internal_static_UseCardNotice_descriptor;
+      return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.internal_static_UseCardNotice_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return UseCardNoticeOuterClass.internal_static_UseCardNotice_fieldAccessorTable
+      return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.internal_static_UseCardNotice_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              UseCardNotice.class, Builder.class);
+              com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.class, com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.Builder.class);
     }
 
-    private int bitField0_;
     public static final int MESSAGE_ID_FIELD_NUMBER = 1;
-    private volatile Object messageId_;
+    private volatile java.lang.Object messageId_;
     /**
      * <pre>
      *消息ID
@@ -302,14 +238,14 @@ public final class UseCardNoticeOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    public String getMessageId() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getMessageId() {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         messageId_ = s;
         return s;
       }
@@ -323,11 +259,11 @@ public final class UseCardNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getMessageIdBytes() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         messageId_ = b;
         return b;
       } else {
@@ -374,21 +310,8 @@ public final class UseCardNoticeOuterClass {
       return needResponse_;
     }
 
-    public static final int CALIBRATION_TIME_FIELD_NUMBER = 5;
-    private double calibrationTime_;
-    /**
-     * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    public double getCalibrationTime() {
-      return calibrationTime_;
-    }
-
     public static final int SENDER_ID_FIELD_NUMBER = 20;
-    private volatile Object senderId_;
+    private volatile java.lang.Object senderId_;
     /**
      * <pre>
      *发送者ID
@@ -396,14 +319,14 @@ public final class UseCardNoticeOuterClass {
      *
      * <code>string sender_id = 20;</code>
      */
-    public String getSenderId() {
-      Object ref = senderId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getSenderId() {
+      java.lang.Object ref = senderId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         senderId_ = s;
         return s;
       }
@@ -417,11 +340,11 @@ public final class UseCardNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getSenderIdBytes() {
-      Object ref = senderId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = senderId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         senderId_ = b;
         return b;
       } else {
@@ -430,7 +353,7 @@ public final class UseCardNoticeOuterClass {
     }
 
     public static final int RECEIVER_ID_FIELD_NUMBER = 30;
-    private volatile Object receiverId_;
+    private volatile java.lang.Object receiverId_;
     /**
      * <pre>
      *接收者ID
@@ -438,14 +361,14 @@ public final class UseCardNoticeOuterClass {
      *
      * <code>string receiver_id = 30;</code>
      */
-    public String getReceiverId() {
-      Object ref = receiverId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getReceiverId() {
+      java.lang.Object ref = receiverId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         receiverId_ = s;
         return s;
       }
@@ -459,11 +382,11 @@ public final class UseCardNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getReceiverIdBytes() {
-      Object ref = receiverId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = receiverId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         receiverId_ = b;
         return b;
       } else {
@@ -472,7 +395,7 @@ public final class UseCardNoticeOuterClass {
     }
 
     public static final int CARD_ID_FIELD_NUMBER = 40;
-    private volatile Object cardId_;
+    private volatile java.lang.Object cardId_;
     /**
      * <pre>
      *卡牌ID
@@ -480,14 +403,14 @@ public final class UseCardNoticeOuterClass {
      *
      * <code>string card_id = 40;</code>
      */
-    public String getCardId() {
-      Object ref = cardId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getCardId() {
+      java.lang.Object ref = cardId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         cardId_ = s;
         return s;
       }
@@ -501,61 +424,16 @@ public final class UseCardNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getCardIdBytes() {
-      Object ref = cardId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = cardId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         cardId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
-    }
-
-    public static final int CARD_EFFECT_IDS_FIELD_NUMBER = 41;
-    private com.google.protobuf.LazyStringList cardEffectIds_;
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string card_effect_ids = 41;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getCardEffectIdsList() {
-      return cardEffectIds_;
-    }
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string card_effect_ids = 41;</code>
-     */
-    public int getCardEffectIdsCount() {
-      return cardEffectIds_.size();
-    }
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string card_effect_ids = 41;</code>
-     */
-    public String getCardEffectIds(int index) {
-      return cardEffectIds_.get(index);
-    }
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string card_effect_ids = 41;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCardEffectIdsBytes(int index) {
-      return cardEffectIds_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -582,9 +460,6 @@ public final class UseCardNoticeOuterClass {
       if (needResponse_ != false) {
         output.writeBool(4, needResponse_);
       }
-      if (calibrationTime_ != 0D) {
-        output.writeDouble(5, calibrationTime_);
-      }
       if (!getSenderIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, senderId_);
       }
@@ -593,9 +468,6 @@ public final class UseCardNoticeOuterClass {
       }
       if (!getCardIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 40, cardId_);
-      }
-      for (int i = 0; i < cardEffectIds_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 41, cardEffectIds_.getRaw(i));
       }
     }
 
@@ -619,10 +491,6 @@ public final class UseCardNoticeOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, needResponse_);
       }
-      if (calibrationTime_ != 0D) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(5, calibrationTime_);
-      }
       if (!getSenderIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, senderId_);
       }
@@ -632,58 +500,44 @@ public final class UseCardNoticeOuterClass {
       if (!getCardIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(40, cardId_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < cardEffectIds_.size(); i++) {
-          dataSize += computeStringSizeNoTag(cardEffectIds_.getRaw(i));
-        }
-        size += dataSize;
-        size += 2 * getCardEffectIdsList().size();
-      }
       memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof UseCardNotice)) {
+      if (!(obj instanceof com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice)) {
         return super.equals(obj);
       }
-      UseCardNotice other = (UseCardNotice) obj;
+      com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice other = (com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) obj;
 
       boolean result = true;
       result = result && getMessageId()
           .equals(other.getMessageId());
       result = result && (
-          Double.doubleToLongBits(getSendTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getSendTime())
+          == java.lang.Double.doubleToLongBits(
               other.getSendTime()));
       result = result && (
-          Double.doubleToLongBits(getExpiredTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getExpiredTime())
+          == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
       result = result && (getNeedResponse()
           == other.getNeedResponse());
-      result = result && (
-          Double.doubleToLongBits(getCalibrationTime())
-          == Double.doubleToLongBits(
-              other.getCalibrationTime()));
       result = result && getSenderId()
           .equals(other.getSenderId());
       result = result && getReceiverId()
           .equals(other.getReceiverId());
       result = result && getCardId()
           .equals(other.getCardId());
-      result = result && getCardEffectIdsList()
-          .equals(other.getCardEffectIdsList());
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -694,83 +548,76 @@ public final class UseCardNoticeOuterClass {
       hash = (53 * hash) + getMessageId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getSendTime()));
+          java.lang.Double.doubleToLongBits(getSendTime()));
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getExpiredTime()));
+          java.lang.Double.doubleToLongBits(getExpiredTime()));
       hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNeedResponse());
-      hash = (37 * hash) + CALIBRATION_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getCalibrationTime()));
       hash = (37 * hash) + SENDER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getSenderId().hashCode();
       hash = (37 * hash) + RECEIVER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getReceiverId().hashCode();
       hash = (37 * hash) + CARD_ID_FIELD_NUMBER;
       hash = (53 * hash) + getCardId().hashCode();
-      if (getCardEffectIdsCount() > 0) {
-        hash = (37 * hash) + CARD_EFFECT_IDS_FIELD_NUMBER;
-        hash = (53 * hash) + getCardEffectIdsList().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static UseCardNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UseCardNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UseCardNotice parseFrom(byte[] data)
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UseCardNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UseCardNotice parseFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UseCardNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UseCardNotice parseDelimitedFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static UseCardNotice parseDelimitedFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UseCardNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UseCardNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -782,7 +629,7 @@ public final class UseCardNoticeOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(UseCardNotice prototype) {
+    public static Builder newBuilder(com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -790,9 +637,9 @@ public final class UseCardNoticeOuterClass {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -806,17 +653,17 @@ public final class UseCardNoticeOuterClass {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:UseCardNotice)
-        UseCardNoticeOrBuilder {
+        com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNoticeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return UseCardNoticeOuterClass.internal_static_UseCardNotice_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.internal_static_UseCardNotice_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return UseCardNoticeOuterClass.internal_static_UseCardNotice_fieldAccessorTable
+        return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.internal_static_UseCardNotice_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                UseCardNotice.class, Builder.class);
+                com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.class, com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.Builder.class);
       }
 
       // Construct using com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.newBuilder()
@@ -825,7 +672,7 @@ public final class UseCardNoticeOuterClass {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -844,54 +691,41 @@ public final class UseCardNoticeOuterClass {
 
         needResponse_ = false;
 
-        calibrationTime_ = 0D;
-
         senderId_ = "";
 
         receiverId_ = "";
 
         cardId_ = "";
 
-        cardEffectIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return UseCardNoticeOuterClass.internal_static_UseCardNotice_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.internal_static_UseCardNotice_descriptor;
       }
 
-      public UseCardNotice getDefaultInstanceForType() {
-        return UseCardNotice.getDefaultInstance();
+      public com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice getDefaultInstanceForType() {
+        return com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.getDefaultInstance();
       }
 
-      public UseCardNotice build() {
-        UseCardNotice result = buildPartial();
+      public com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice build() {
+        com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public UseCardNotice buildPartial() {
-        UseCardNotice result = new UseCardNotice(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+      public com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice buildPartial() {
+        com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice result = new com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice(this);
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
         result.needResponse_ = needResponse_;
-        result.calibrationTime_ = calibrationTime_;
         result.senderId_ = senderId_;
         result.receiverId_ = receiverId_;
         result.cardId_ = cardId_;
-        if (((bitField0_ & 0x00000100) == 0x00000100)) {
-          cardEffectIds_ = cardEffectIds_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000100);
-        }
-        result.cardEffectIds_ = cardEffectIds_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -923,16 +757,16 @@ public final class UseCardNoticeOuterClass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof UseCardNotice) {
-          return mergeFrom((UseCardNotice)other);
+        if (other instanceof com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) {
+          return mergeFrom((com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(UseCardNotice other) {
-        if (other == UseCardNotice.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice other) {
+        if (other == com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice.getDefaultInstance()) return this;
         if (!other.getMessageId().isEmpty()) {
           messageId_ = other.messageId_;
           onChanged();
@@ -946,9 +780,6 @@ public final class UseCardNoticeOuterClass {
         if (other.getNeedResponse() != false) {
           setNeedResponse(other.getNeedResponse());
         }
-        if (other.getCalibrationTime() != 0D) {
-          setCalibrationTime(other.getCalibrationTime());
-        }
         if (!other.getSenderId().isEmpty()) {
           senderId_ = other.senderId_;
           onChanged();
@@ -959,16 +790,6 @@ public final class UseCardNoticeOuterClass {
         }
         if (!other.getCardId().isEmpty()) {
           cardId_ = other.cardId_;
-          onChanged();
-        }
-        if (!other.cardEffectIds_.isEmpty()) {
-          if (cardEffectIds_.isEmpty()) {
-            cardEffectIds_ = other.cardEffectIds_;
-            bitField0_ = (bitField0_ & ~0x00000100);
-          } else {
-            ensureCardEffectIdsIsMutable();
-            cardEffectIds_.addAll(other.cardEffectIds_);
-          }
           onChanged();
         }
         onChanged();
@@ -983,11 +804,11 @@ public final class UseCardNoticeOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        UseCardNotice parsedMessage = null;
+        com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (UseCardNotice) e.getUnfinishedMessage();
+          parsedMessage = (com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -996,9 +817,8 @@ public final class UseCardNoticeOuterClass {
         }
         return this;
       }
-      private int bitField0_;
 
-      private Object messageId_ = "";
+      private java.lang.Object messageId_ = "";
       /**
        * <pre>
        *消息ID
@@ -1006,16 +826,16 @@ public final class UseCardNoticeOuterClass {
        *
        * <code>string message_id = 1;</code>
        */
-      public String getMessageId() {
-        Object ref = messageId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getMessageId() {
+        java.lang.Object ref = messageId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           messageId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1027,11 +847,11 @@ public final class UseCardNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getMessageIdBytes() {
-        Object ref = messageId_;
+        java.lang.Object ref = messageId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           messageId_ = b;
           return b;
         } else {
@@ -1046,7 +866,7 @@ public final class UseCardNoticeOuterClass {
        * <code>string message_id = 1;</code>
        */
       public Builder setMessageId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1201,45 +1021,7 @@ public final class UseCardNoticeOuterClass {
         return this;
       }
 
-      private double calibrationTime_ ;
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public double getCalibrationTime() {
-        return calibrationTime_;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder setCalibrationTime(double value) {
-        
-        calibrationTime_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder clearCalibrationTime() {
-        
-        calibrationTime_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private Object senderId_ = "";
+      private java.lang.Object senderId_ = "";
       /**
        * <pre>
        *发送者ID
@@ -1247,16 +1029,16 @@ public final class UseCardNoticeOuterClass {
        *
        * <code>string sender_id = 20;</code>
        */
-      public String getSenderId() {
-        Object ref = senderId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getSenderId() {
+        java.lang.Object ref = senderId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           senderId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1268,11 +1050,11 @@ public final class UseCardNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getSenderIdBytes() {
-        Object ref = senderId_;
+        java.lang.Object ref = senderId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           senderId_ = b;
           return b;
         } else {
@@ -1287,7 +1069,7 @@ public final class UseCardNoticeOuterClass {
        * <code>string sender_id = 20;</code>
        */
       public Builder setSenderId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1328,7 +1110,7 @@ public final class UseCardNoticeOuterClass {
         return this;
       }
 
-      private Object receiverId_ = "";
+      private java.lang.Object receiverId_ = "";
       /**
        * <pre>
        *接收者ID
@@ -1336,16 +1118,16 @@ public final class UseCardNoticeOuterClass {
        *
        * <code>string receiver_id = 30;</code>
        */
-      public String getReceiverId() {
-        Object ref = receiverId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getReceiverId() {
+        java.lang.Object ref = receiverId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           receiverId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1357,11 +1139,11 @@ public final class UseCardNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getReceiverIdBytes() {
-        Object ref = receiverId_;
+        java.lang.Object ref = receiverId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           receiverId_ = b;
           return b;
         } else {
@@ -1376,7 +1158,7 @@ public final class UseCardNoticeOuterClass {
        * <code>string receiver_id = 30;</code>
        */
       public Builder setReceiverId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1417,7 +1199,7 @@ public final class UseCardNoticeOuterClass {
         return this;
       }
 
-      private Object cardId_ = "";
+      private java.lang.Object cardId_ = "";
       /**
        * <pre>
        *卡牌ID
@@ -1425,16 +1207,16 @@ public final class UseCardNoticeOuterClass {
        *
        * <code>string card_id = 40;</code>
        */
-      public String getCardId() {
-        Object ref = cardId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getCardId() {
+        java.lang.Object ref = cardId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           cardId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1446,11 +1228,11 @@ public final class UseCardNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getCardIdBytes() {
-        Object ref = cardId_;
+        java.lang.Object ref = cardId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           cardId_ = b;
           return b;
         } else {
@@ -1465,7 +1247,7 @@ public final class UseCardNoticeOuterClass {
        * <code>string card_id = 40;</code>
        */
       public Builder setCardId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1505,136 +1287,6 @@ public final class UseCardNoticeOuterClass {
         onChanged();
         return this;
       }
-
-      private com.google.protobuf.LazyStringList cardEffectIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureCardEffectIdsIsMutable() {
-        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
-          cardEffectIds_ = new com.google.protobuf.LazyStringArrayList(cardEffectIds_);
-          bitField0_ |= 0x00000100;
-         }
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string card_effect_ids = 41;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getCardEffectIdsList() {
-        return cardEffectIds_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string card_effect_ids = 41;</code>
-       */
-      public int getCardEffectIdsCount() {
-        return cardEffectIds_.size();
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string card_effect_ids = 41;</code>
-       */
-      public String getCardEffectIds(int index) {
-        return cardEffectIds_.get(index);
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string card_effect_ids = 41;</code>
-       */
-      public com.google.protobuf.ByteString
-          getCardEffectIdsBytes(int index) {
-        return cardEffectIds_.getByteString(index);
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string card_effect_ids = 41;</code>
-       */
-      public Builder setCardEffectIds(
-          int index, String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCardEffectIdsIsMutable();
-        cardEffectIds_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string card_effect_ids = 41;</code>
-       */
-      public Builder addCardEffectIds(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCardEffectIdsIsMutable();
-        cardEffectIds_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string card_effect_ids = 41;</code>
-       */
-      public Builder addAllCardEffectIds(
-          Iterable<String> values) {
-        ensureCardEffectIdsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, cardEffectIds_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string card_effect_ids = 41;</code>
-       */
-      public Builder clearCardEffectIds() {
-        cardEffectIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000100);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string card_effect_ids = 41;</code>
-       */
-      public Builder addCardEffectIdsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureCardEffectIdsIsMutable();
-        cardEffectIds_.add(value);
-        onChanged();
-        return this;
-      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -1650,12 +1302,12 @@ public final class UseCardNoticeOuterClass {
     }
 
     // @@protoc_insertion_point(class_scope:UseCardNotice)
-    private static final UseCardNotice DEFAULT_INSTANCE;
+    private static final com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new UseCardNotice();
+      DEFAULT_INSTANCE = new com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice();
     }
 
-    public static UseCardNotice getDefaultInstance() {
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1673,12 +1325,12 @@ public final class UseCardNoticeOuterClass {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<UseCardNotice> getParserForType() {
       return PARSER;
     }
 
-    public UseCardNotice getDefaultInstanceForType() {
+    public com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.UseCardNotice getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1697,15 +1349,13 @@ public final class UseCardNoticeOuterClass {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\023UseCardNotice.proto\"\316\001\n\rUseCardNotice\022" +
+    java.lang.String[] descriptorData = {
+      "\n\023UseCardNotice.proto\"\233\001\n\rUseCardNotice\022" +
       "\022\n\nmessage_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001\022\024" +
       "\n\014expired_time\030\003 \001(\001\022\024\n\014needResponse\030\004 \001" +
-      "(\010\022\030\n\020calibration_time\030\005 \001(\001\022\021\n\tsender_i" +
-      "d\030\024 \001(\t\022\023\n\013receiver_id\030\036 \001(\t\022\017\n\007card_id\030" +
-      "( \001(\t\022\027\n\017card_effect_ids\030) \003(\tB*\n(com.ar" +
-      "tisankid.elementwar.ewmessagemodelb\006prot" +
-      "o3"
+      "(\010\022\021\n\tsender_id\030\024 \001(\t\022\023\n\013receiver_id\030\036 \001" +
+      "(\t\022\017\n\007card_id\030( \001(\tB*\n(com.artisankid.el" +
+      "ementwar.ewmessagemodelb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1724,7 +1374,7 @@ public final class UseCardNoticeOuterClass {
     internal_static_UseCardNotice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UseCardNotice_descriptor,
-        new String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "CalibrationTime", "SenderId", "ReceiverId", "CardId", "CardEffectIds", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "SenderId", "ReceiverId", "CardId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

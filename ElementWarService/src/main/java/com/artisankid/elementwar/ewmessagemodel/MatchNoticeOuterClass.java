@@ -25,7 +25,7 @@ public final class MatchNoticeOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    String getMessageId();
+    java.lang.String getMessageId();
     /**
      * <pre>
      *消息ID
@@ -65,21 +65,12 @@ public final class MatchNoticeOuterClass {
 
     /**
      * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    double getCalibrationTime();
-
-    /**
-     * <pre>
      *用户ID
      * </pre>
      *
      * <code>string user_id = 20;</code>
      */
-    String getUserId();
+    java.lang.String getUserId();
     /**
      * <pre>
      *用户ID
@@ -97,7 +88,7 @@ public final class MatchNoticeOuterClass {
      *
      * <code>string user_name = 21;</code>
      */
-    String getUserName();
+    java.lang.String getUserName();
     /**
      * <pre>
      *用户名
@@ -115,7 +106,7 @@ public final class MatchNoticeOuterClass {
      *
      * <code>string user_portrait_url = 22;</code>
      */
-    String getUserPortraitUrl();
+    java.lang.String getUserPortraitUrl();
     /**
      * <pre>
      *用户头像
@@ -146,13 +137,12 @@ public final class MatchNoticeOuterClass {
       sendTime_ = 0D;
       expiredTime_ = 0D;
       needResponse_ = false;
-      calibrationTime_ = 0D;
       userId_ = "";
       userName_ = "";
       userPortraitUrl_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -178,7 +168,7 @@ public final class MatchNoticeOuterClass {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               messageId_ = s;
               break;
@@ -198,25 +188,20 @@ public final class MatchNoticeOuterClass {
               needResponse_ = input.readBool();
               break;
             }
-            case 41: {
-
-              calibrationTime_ = input.readDouble();
-              break;
-            }
             case 162: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               userId_ = s;
               break;
             }
             case 170: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               userName_ = s;
               break;
             }
             case 178: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               userPortraitUrl_ = s;
               break;
@@ -234,18 +219,18 @@ public final class MatchNoticeOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return MatchNoticeOuterClass.internal_static_MatchNotice_descriptor;
+      return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.internal_static_MatchNotice_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return MatchNoticeOuterClass.internal_static_MatchNotice_fieldAccessorTable
+      return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.internal_static_MatchNotice_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              MatchNotice.class, Builder.class);
+              com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.class, com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.Builder.class);
     }
 
     public static final int MESSAGE_ID_FIELD_NUMBER = 1;
-    private volatile Object messageId_;
+    private volatile java.lang.Object messageId_;
     /**
      * <pre>
      *消息ID
@@ -253,14 +238,14 @@ public final class MatchNoticeOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    public String getMessageId() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getMessageId() {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         messageId_ = s;
         return s;
       }
@@ -274,11 +259,11 @@ public final class MatchNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getMessageIdBytes() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         messageId_ = b;
         return b;
       } else {
@@ -325,21 +310,8 @@ public final class MatchNoticeOuterClass {
       return needResponse_;
     }
 
-    public static final int CALIBRATION_TIME_FIELD_NUMBER = 5;
-    private double calibrationTime_;
-    /**
-     * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    public double getCalibrationTime() {
-      return calibrationTime_;
-    }
-
     public static final int USER_ID_FIELD_NUMBER = 20;
-    private volatile Object userId_;
+    private volatile java.lang.Object userId_;
     /**
      * <pre>
      *用户ID
@@ -347,14 +319,14 @@ public final class MatchNoticeOuterClass {
      *
      * <code>string user_id = 20;</code>
      */
-    public String getUserId() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getUserId() {
+      java.lang.Object ref = userId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         userId_ = s;
         return s;
       }
@@ -368,11 +340,11 @@ public final class MatchNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getUserIdBytes() {
-      Object ref = userId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = userId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         userId_ = b;
         return b;
       } else {
@@ -381,7 +353,7 @@ public final class MatchNoticeOuterClass {
     }
 
     public static final int USER_NAME_FIELD_NUMBER = 21;
-    private volatile Object userName_;
+    private volatile java.lang.Object userName_;
     /**
      * <pre>
      *用户名
@@ -389,14 +361,14 @@ public final class MatchNoticeOuterClass {
      *
      * <code>string user_name = 21;</code>
      */
-    public String getUserName() {
-      Object ref = userName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         userName_ = s;
         return s;
       }
@@ -410,11 +382,11 @@ public final class MatchNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getUserNameBytes() {
-      Object ref = userName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         userName_ = b;
         return b;
       } else {
@@ -423,7 +395,7 @@ public final class MatchNoticeOuterClass {
     }
 
     public static final int USER_PORTRAIT_URL_FIELD_NUMBER = 22;
-    private volatile Object userPortraitUrl_;
+    private volatile java.lang.Object userPortraitUrl_;
     /**
      * <pre>
      *用户头像
@@ -431,14 +403,14 @@ public final class MatchNoticeOuterClass {
      *
      * <code>string user_portrait_url = 22;</code>
      */
-    public String getUserPortraitUrl() {
-      Object ref = userPortraitUrl_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getUserPortraitUrl() {
+      java.lang.Object ref = userPortraitUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         userPortraitUrl_ = s;
         return s;
       }
@@ -452,11 +424,11 @@ public final class MatchNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getUserPortraitUrlBytes() {
-      Object ref = userPortraitUrl_;
-      if (ref instanceof String) {
+      java.lang.Object ref = userPortraitUrl_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         userPortraitUrl_ = b;
         return b;
       } else {
@@ -487,9 +459,6 @@ public final class MatchNoticeOuterClass {
       }
       if (needResponse_ != false) {
         output.writeBool(4, needResponse_);
-      }
-      if (calibrationTime_ != 0D) {
-        output.writeDouble(5, calibrationTime_);
       }
       if (!getUserIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, userId_);
@@ -522,10 +491,6 @@ public final class MatchNoticeOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, needResponse_);
       }
-      if (calibrationTime_ != 0D) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(5, calibrationTime_);
-      }
       if (!getUserIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, userId_);
       }
@@ -540,33 +505,29 @@ public final class MatchNoticeOuterClass {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof MatchNotice)) {
+      if (!(obj instanceof com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice)) {
         return super.equals(obj);
       }
-      MatchNotice other = (MatchNotice) obj;
+      com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice other = (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) obj;
 
       boolean result = true;
       result = result && getMessageId()
           .equals(other.getMessageId());
       result = result && (
-          Double.doubleToLongBits(getSendTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getSendTime())
+          == java.lang.Double.doubleToLongBits(
               other.getSendTime()));
       result = result && (
-          Double.doubleToLongBits(getExpiredTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getExpiredTime())
+          == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
       result = result && (getNeedResponse()
           == other.getNeedResponse());
-      result = result && (
-          Double.doubleToLongBits(getCalibrationTime())
-          == Double.doubleToLongBits(
-              other.getCalibrationTime()));
       result = result && getUserId()
           .equals(other.getUserId());
       result = result && getUserName()
@@ -576,7 +537,7 @@ public final class MatchNoticeOuterClass {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -587,16 +548,13 @@ public final class MatchNoticeOuterClass {
       hash = (53 * hash) + getMessageId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getSendTime()));
+          java.lang.Double.doubleToLongBits(getSendTime()));
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getExpiredTime()));
+          java.lang.Double.doubleToLongBits(getExpiredTime()));
       hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNeedResponse());
-      hash = (37 * hash) + CALIBRATION_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getCalibrationTime()));
       hash = (37 * hash) + USER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getUserId().hashCode();
       hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
@@ -608,58 +566,58 @@ public final class MatchNoticeOuterClass {
       return hash;
     }
 
-    public static MatchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static MatchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static MatchNotice parseFrom(byte[] data)
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static MatchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static MatchNotice parseFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static MatchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static MatchNotice parseDelimitedFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static MatchNotice parseDelimitedFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static MatchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static MatchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -671,7 +629,7 @@ public final class MatchNoticeOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(MatchNotice prototype) {
+    public static Builder newBuilder(com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -679,9 +637,9 @@ public final class MatchNoticeOuterClass {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -695,17 +653,17 @@ public final class MatchNoticeOuterClass {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:MatchNotice)
-        MatchNoticeOrBuilder {
+        com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNoticeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return MatchNoticeOuterClass.internal_static_MatchNotice_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.internal_static_MatchNotice_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return MatchNoticeOuterClass.internal_static_MatchNotice_fieldAccessorTable
+        return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.internal_static_MatchNotice_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                MatchNotice.class, Builder.class);
+                com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.class, com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.Builder.class);
       }
 
       // Construct using com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.newBuilder()
@@ -714,7 +672,7 @@ public final class MatchNoticeOuterClass {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -733,8 +691,6 @@ public final class MatchNoticeOuterClass {
 
         needResponse_ = false;
 
-        calibrationTime_ = 0D;
-
         userId_ = "";
 
         userName_ = "";
@@ -746,28 +702,27 @@ public final class MatchNoticeOuterClass {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return MatchNoticeOuterClass.internal_static_MatchNotice_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.internal_static_MatchNotice_descriptor;
       }
 
-      public MatchNotice getDefaultInstanceForType() {
-        return MatchNotice.getDefaultInstance();
+      public com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice getDefaultInstanceForType() {
+        return com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.getDefaultInstance();
       }
 
-      public MatchNotice build() {
-        MatchNotice result = buildPartial();
+      public com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice build() {
+        com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public MatchNotice buildPartial() {
-        MatchNotice result = new MatchNotice(this);
+      public com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice buildPartial() {
+        com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice result = new com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice(this);
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
         result.needResponse_ = needResponse_;
-        result.calibrationTime_ = calibrationTime_;
         result.userId_ = userId_;
         result.userName_ = userName_;
         result.userPortraitUrl_ = userPortraitUrl_;
@@ -802,16 +757,16 @@ public final class MatchNoticeOuterClass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof MatchNotice) {
-          return mergeFrom((MatchNotice)other);
+        if (other instanceof com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) {
+          return mergeFrom((com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(MatchNotice other) {
-        if (other == MatchNotice.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice other) {
+        if (other == com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice.getDefaultInstance()) return this;
         if (!other.getMessageId().isEmpty()) {
           messageId_ = other.messageId_;
           onChanged();
@@ -824,9 +779,6 @@ public final class MatchNoticeOuterClass {
         }
         if (other.getNeedResponse() != false) {
           setNeedResponse(other.getNeedResponse());
-        }
-        if (other.getCalibrationTime() != 0D) {
-          setCalibrationTime(other.getCalibrationTime());
         }
         if (!other.getUserId().isEmpty()) {
           userId_ = other.userId_;
@@ -852,11 +804,11 @@ public final class MatchNoticeOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        MatchNotice parsedMessage = null;
+        com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (MatchNotice) e.getUnfinishedMessage();
+          parsedMessage = (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -866,7 +818,7 @@ public final class MatchNoticeOuterClass {
         return this;
       }
 
-      private Object messageId_ = "";
+      private java.lang.Object messageId_ = "";
       /**
        * <pre>
        *消息ID
@@ -874,16 +826,16 @@ public final class MatchNoticeOuterClass {
        *
        * <code>string message_id = 1;</code>
        */
-      public String getMessageId() {
-        Object ref = messageId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getMessageId() {
+        java.lang.Object ref = messageId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           messageId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -895,11 +847,11 @@ public final class MatchNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getMessageIdBytes() {
-        Object ref = messageId_;
+        java.lang.Object ref = messageId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           messageId_ = b;
           return b;
         } else {
@@ -914,7 +866,7 @@ public final class MatchNoticeOuterClass {
        * <code>string message_id = 1;</code>
        */
       public Builder setMessageId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1069,45 +1021,7 @@ public final class MatchNoticeOuterClass {
         return this;
       }
 
-      private double calibrationTime_ ;
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public double getCalibrationTime() {
-        return calibrationTime_;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder setCalibrationTime(double value) {
-        
-        calibrationTime_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder clearCalibrationTime() {
-        
-        calibrationTime_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private Object userId_ = "";
+      private java.lang.Object userId_ = "";
       /**
        * <pre>
        *用户ID
@@ -1115,16 +1029,16 @@ public final class MatchNoticeOuterClass {
        *
        * <code>string user_id = 20;</code>
        */
-      public String getUserId() {
-        Object ref = userId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getUserId() {
+        java.lang.Object ref = userId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           userId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1136,11 +1050,11 @@ public final class MatchNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getUserIdBytes() {
-        Object ref = userId_;
+        java.lang.Object ref = userId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           userId_ = b;
           return b;
         } else {
@@ -1155,7 +1069,7 @@ public final class MatchNoticeOuterClass {
        * <code>string user_id = 20;</code>
        */
       public Builder setUserId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1196,7 +1110,7 @@ public final class MatchNoticeOuterClass {
         return this;
       }
 
-      private Object userName_ = "";
+      private java.lang.Object userName_ = "";
       /**
        * <pre>
        *用户名
@@ -1204,16 +1118,16 @@ public final class MatchNoticeOuterClass {
        *
        * <code>string user_name = 21;</code>
        */
-      public String getUserName() {
-        Object ref = userName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           userName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1225,11 +1139,11 @@ public final class MatchNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getUserNameBytes() {
-        Object ref = userName_;
+        java.lang.Object ref = userName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           userName_ = b;
           return b;
         } else {
@@ -1244,7 +1158,7 @@ public final class MatchNoticeOuterClass {
        * <code>string user_name = 21;</code>
        */
       public Builder setUserName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1285,7 +1199,7 @@ public final class MatchNoticeOuterClass {
         return this;
       }
 
-      private Object userPortraitUrl_ = "";
+      private java.lang.Object userPortraitUrl_ = "";
       /**
        * <pre>
        *用户头像
@@ -1293,16 +1207,16 @@ public final class MatchNoticeOuterClass {
        *
        * <code>string user_portrait_url = 22;</code>
        */
-      public String getUserPortraitUrl() {
-        Object ref = userPortraitUrl_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getUserPortraitUrl() {
+        java.lang.Object ref = userPortraitUrl_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           userPortraitUrl_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1314,11 +1228,11 @@ public final class MatchNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getUserPortraitUrlBytes() {
-        Object ref = userPortraitUrl_;
+        java.lang.Object ref = userPortraitUrl_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           userPortraitUrl_ = b;
           return b;
         } else {
@@ -1333,7 +1247,7 @@ public final class MatchNoticeOuterClass {
        * <code>string user_portrait_url = 22;</code>
        */
       public Builder setUserPortraitUrl(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1388,12 +1302,12 @@ public final class MatchNoticeOuterClass {
     }
 
     // @@protoc_insertion_point(class_scope:MatchNotice)
-    private static final MatchNotice DEFAULT_INSTANCE;
+    private static final com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new MatchNotice();
+      DEFAULT_INSTANCE = new com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice();
     }
 
-    public static MatchNotice getDefaultInstance() {
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1411,12 +1325,12 @@ public final class MatchNoticeOuterClass {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<MatchNotice> getParserForType() {
       return PARSER;
     }
 
-    public MatchNotice getDefaultInstanceForType() {
+    public com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1435,14 +1349,13 @@ public final class MatchNoticeOuterClass {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\021MatchNotice.proto\"\271\001\n\013MatchNotice\022\022\n\nm" +
+    java.lang.String[] descriptorData = {
+      "\n\021MatchNotice.proto\"\237\001\n\013MatchNotice\022\022\n\nm" +
       "essage_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001\022\024\n\014ex" +
-      "pired_time\030\003 \001(\001\022\024\n\014needResponse\030\004 \001(\010\022\030" +
-      "\n\020calibration_time\030\005 \001(\001\022\017\n\007user_id\030\024 \001(" +
-      "\t\022\021\n\tuser_name\030\025 \001(\t\022\031\n\021user_portrait_ur" +
-      "l\030\026 \001(\tB*\n(com.artisankid.elementwar.ewm" +
-      "essagemodelb\006proto3"
+      "pired_time\030\003 \001(\001\022\024\n\014needResponse\030\004 \001(\010\022\017" +
+      "\n\007user_id\030\024 \001(\t\022\021\n\tuser_name\030\025 \001(\t\022\031\n\021us" +
+      "er_portrait_url\030\026 \001(\tB*\n(com.artisankid." +
+      "elementwar.ewmessagemodelb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1461,7 +1374,7 @@ public final class MatchNoticeOuterClass {
     internal_static_MatchNotice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MatchNotice_descriptor,
-        new String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "CalibrationTime", "UserId", "UserName", "UserPortraitUrl", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "UserId", "UserName", "UserPortraitUrl", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
