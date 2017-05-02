@@ -34,7 +34,6 @@ public class BusinessFilter {
                 break;
             default:
                 break;
-            ;
         }
 
         return Boolean.TRUE;
