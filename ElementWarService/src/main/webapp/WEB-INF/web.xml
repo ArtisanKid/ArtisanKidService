@@ -22,6 +22,18 @@
         <param-value>classpath*:/applicationContext.xml</param-value>
     </context-param>
 
+    <!--业务过滤器 文件配置-->
+    <filter>
+        <filter-name>businessServletFilter</filter-name>
+        <filter-class>com.artisankid.elementwar.controller.filter.BusinessServletFilter</filter-class>
+    </filter>
+
+    <!--业务过滤器 映射MAPPING-->
+    <filter-mapping>
+        <filter-name>businessServletFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!--字符串处理过滤器-->
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
