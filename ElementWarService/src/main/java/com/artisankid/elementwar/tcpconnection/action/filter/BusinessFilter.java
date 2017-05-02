@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 
 /**
  * 业务逻辑过滤器
- *
+ * <p>
  * Created by WangShaohua on 2017/4/30.
  */
 public class BusinessFilter {
@@ -14,25 +14,27 @@ public class BusinessFilter {
      *
      * @return
      */
-    public static boolean isIn(int key, Object... args){
-        ChannelHandlerContext ctx = (ChannelHandlerContext)args[0];
-        ContainerOuterClass.Container container = (ContainerOuterClass.Container)args[1];
+    public static boolean isIn(int key, Object... args) {
 
-        switch (container.getMessageType()) {
-            case ContainerOuterClass.Container.MessageType.LoginMessage(100):
+        ChannelHandlerContext ctx = (ChannelHandlerContext) args[0];
+        ContainerOuterClass.Container container = (ContainerOuterClass.Container) args[1];
+
+        switch (container.getMessageType().getNumber()) {
+            case ContainerOuterClass.Container.LOGIN_MESSAGE_FIELD_NUMBER:
                 break;
-            case ContainerOuterClass.Container.MessageType.MatchMessage(120):
+            case ContainerOuterClass.Container.MATCH_MESSAGE_FIELD_NUMBER:
                 break;
-            case ContainerOuterClass.Container.MessageType.InviteMessage(121):
+            case ContainerOuterClass.Container.INVITE_MESSAGE_FIELD_NUMBER:
                 break;
-            case ContainerOuterClass.Container.MessageType.InviteReplyMessage(122):
+            case ContainerOuterClass.Container.INVITE_REPLY_MESSAGE_FIELD_NUMBER:
                 break;
-            case ContainerOuterClass.Container.MessageType.UseCardMessage(123):
+            case ContainerOuterClass.Container.USE_CARD_MESSAGE_FIELD_NUMBER:
                 break;
-            case ContainerOuterClass.Container.MessageType.UseScrollMessage(124):
+            case ContainerOuterClass.Container.USE_SCROLL_MESSAGE_FIELD_NUMBER:
                 break;
             default:
-                break;;
+                break;
+            ;
         }
 
         return Boolean.TRUE;
