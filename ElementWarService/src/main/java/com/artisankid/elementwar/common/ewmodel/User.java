@@ -77,6 +77,7 @@ public class User {
         }
     }
 
+    private String userID;
     private String unionID;
     private String openID;
     private String nickname;
@@ -89,6 +90,14 @@ public class User {
     private String motto;
     private LoginType loginType;
     private Token token;
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
     public String getUnionID() {
         return unionID;

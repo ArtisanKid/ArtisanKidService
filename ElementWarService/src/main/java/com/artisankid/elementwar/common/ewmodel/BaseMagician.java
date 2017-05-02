@@ -64,7 +64,6 @@ public class BaseMagician {
         }
     }
 
-    private String unionID;
     private String openID;
     private String nickname;
     private String smallPortrait;
@@ -72,12 +71,6 @@ public class BaseMagician {
     private String honor;
     private List<Emblem> emblems;//暂时不开发
     private ConnectState state;
-
-    public String getUnionID() { return unionID; }
-
-    public void setUnionID(String unionID) {
-        this.unionID = unionID;
-    }
 
     public String getOpenID() { return openID; }
 

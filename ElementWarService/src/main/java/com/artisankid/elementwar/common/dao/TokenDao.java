@@ -57,8 +57,8 @@ public class TokenDao {
 		object.setAccessToken(result.get("access_token").toString());
 		object.setRefreshToken(result.get("refresh_token").toString());
 
-		Date access_token_expired_time = (Date)result.get("access_token_expired_time");
-		object.setExpiredTime(access_token_expired_time.getTime());
+		Timestamp accessTokenExpiredTime = (Timestamp)result.get("access_token_expired_time");
+		object.setExpiredTime(accessTokenExpiredTime.getTime());
 		return object;
 	}
 	
@@ -83,8 +83,8 @@ public class TokenDao {
 		object.setAccessToken(result.get("access_token").toString());
 		object.setRefreshToken(result.get("refresh_token").toString());
 
-		Date access_token_expired_time = (Date)result.get("access_token_expired_time");
-		object.setExpiredTime(access_token_expired_time.getTime());
+		Timestamp accessTokenExpiredTime = (Timestamp)result.get("access_token_expired_time");
+		object.setExpiredTime(accessTokenExpiredTime.getTime());
 		return object;
 	}
 	

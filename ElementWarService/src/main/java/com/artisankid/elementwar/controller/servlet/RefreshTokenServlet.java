@@ -61,7 +61,7 @@ public class RefreshTokenServlet extends HttpServlet {
             return;
         }
 
-        if(token.getRefreshTokenExpiredTime() <= new Date().getTime()) {
+        if(token.getRefreshTokenExpiredTime() <= System.currentTimeMillis()) {
             //如果refreshToken过期，那么删除这个token
             tokenDao.delete(accessToken);
 

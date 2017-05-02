@@ -2,6 +2,7 @@ package com.artisankid.elementwar.common.dao;
 
 import com.artisankid.elementwar.common.ewmodel.BaseMagician;
 import com.artisankid.elementwar.common.ewmodel.Magician;
+import com.artisankid.elementwar.common.utils.MagicianManager;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -168,8 +169,7 @@ public class MagicianDao {
      * @return
      */
     public boolean insert(String userID) {
-        //TODO:需要创建唯一openID
-        String openID = "这里需要一个新的openID";
+        String openID = MagicianManager.CreateOpenID(userID);
         String sql = "INSERT INTO Magician (userID, openID) VALUES ('" + userID + "', '" + openID + "');";
 
         DatabaseManager manager = new DatabaseManager();

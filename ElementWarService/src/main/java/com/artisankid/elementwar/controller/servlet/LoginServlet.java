@@ -15,6 +15,7 @@ import com.artisankid.elementwar.common.ewmodel.Magician;
 import com.artisankid.elementwar.common.ewmodel.User;
 import com.artisankid.elementwar.common.ewmodel.User.LoginType;
 import com.artisankid.elementwar.common.ewmodel.Token;
+import com.artisankid.elementwar.common.utils.TokenManager;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.google.gson.Gson;
 /**
@@ -55,14 +56,23 @@ public class LoginServlet extends HttpServlet {
 		user.setToken(userToken);
 
 		UserDao userDao = new UserDao();
-		String openID = userDao.insert(user);
+		User existUser = userDao.selectByUnionID(user.getUnionID(), user.getLoginType());
+		String userID;
+		if(existUser == null) {
+			userID = userDao.insert(user);
+		} else {
+			user.setUserID(existUser.getUserID());
+			userID = userDao.update(user);
+		}
 
 		MagicianDao magicianDao = new MagicianDao();
-		Magician magician = magicianDao.selectByOpenID(openID);
+		Magician magician = magicianDao.selectByUserID(userID);
+
+		String openID = magician.getOpenID();
 
 		Token magicianToken = new Token();
-		magicianToken.setAccessToken("123456");
-		magicianToken.setRefreshToken("654321");
+		magicianToken.setAccessToken(TokenManager.CreateAccessToken(openID));
+		magicianToken.setRefreshToken(TokenManager.CreateRefreshToken(openID));
 		Long magicianTokenExpiredTime = System.currentTimeMillis() + 24 * 60 * 60 * 1000;
 		magicianToken.setExpiredTime(magicianTokenExpiredTime);
 

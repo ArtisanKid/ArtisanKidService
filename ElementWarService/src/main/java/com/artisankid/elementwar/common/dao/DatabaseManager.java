@@ -74,7 +74,7 @@ public class DatabaseManager {
     		PreparedStatement statement = connection.prepareStatement(sql);
 			handler.supplyToStatement(statement);
 			int count = statement.executeUpdate();
-			System.out.println("插入" + count + "条数据");
+			System.out.println("更新" + count + "条数据");
 			if(count > 0) {
 				result = true;
 			}
