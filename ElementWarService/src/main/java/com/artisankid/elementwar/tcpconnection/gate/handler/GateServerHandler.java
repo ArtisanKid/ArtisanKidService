@@ -2,16 +2,11 @@ package com.artisankid.elementwar.tcpconnection.gate.handler;
 
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.tcpconnection.action.ActionMapUtil;
-import com.artisankid.elementwar.tcpconnection.action.impl.Notice;
-import com.artisankid.elementwar.tcpconnection.gate.utils.ClientConnectionMap;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
-
 
 /**
  * 网关服务处理器，请求转发

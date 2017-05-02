@@ -25,7 +25,7 @@ public final class UseScrollNoticeOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    String getMessageId();
+    java.lang.String getMessageId();
     /**
      * <pre>
      *消息ID
@@ -65,21 +65,12 @@ public final class UseScrollNoticeOuterClass {
 
     /**
      * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    double getCalibrationTime();
-
-    /**
-     * <pre>
      *发送者ID
      * </pre>
      *
      * <code>string sender_id = 20;</code>
      */
-    String getSenderId();
+    java.lang.String getSenderId();
     /**
      * <pre>
      *发送者ID
@@ -97,7 +88,7 @@ public final class UseScrollNoticeOuterClass {
      *
      * <code>string receiver_id = 30;</code>
      */
-    String getReceiverId();
+    java.lang.String getReceiverId();
     /**
      * <pre>
      *接收者ID
@@ -115,7 +106,7 @@ public final class UseScrollNoticeOuterClass {
      *
      * <code>string scroll_id = 40;</code>
      */
-    String getScrollId();
+    java.lang.String getScrollId();
     /**
      * <pre>
      *卷轴ID
@@ -125,85 +116,6 @@ public final class UseScrollNoticeOuterClass {
      */
     com.google.protobuf.ByteString
         getScrollIdBytes();
-
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string effect_ids = 41;</code>
-     */
-    java.util.List<String>
-        getEffectIdsList();
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string effect_ids = 41;</code>
-     */
-    int getEffectIdsCount();
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string effect_ids = 41;</code>
-     */
-    String getEffectIds(int index);
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string effect_ids = 41;</code>
-     */
-    com.google.protobuf.ByteString
-        getEffectIdsBytes(int index);
-
-    /**
-     * <pre>
-     *生成物
-     * </pre>
-     *
-     * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-     */
-    java.util.List<UseScrollNotice.Resultant>
-        getResultantsList();
-    /**
-     * <pre>
-     *生成物
-     * </pre>
-     *
-     * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-     */
-    UseScrollNotice.Resultant getResultants(int index);
-    /**
-     * <pre>
-     *生成物
-     * </pre>
-     *
-     * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-     */
-    int getResultantsCount();
-    /**
-     * <pre>
-     *生成物
-     * </pre>
-     *
-     * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-     */
-    java.util.List<? extends UseScrollNotice.ResultantOrBuilder>
-        getResultantsOrBuilderList();
-    /**
-     * <pre>
-     *生成物
-     * </pre>
-     *
-     * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-     */
-    UseScrollNotice.ResultantOrBuilder getResultantsOrBuilder(
-            int index);
   }
   /**
    * <pre>
@@ -225,15 +137,12 @@ public final class UseScrollNoticeOuterClass {
       sendTime_ = 0D;
       expiredTime_ = 0D;
       needResponse_ = false;
-      calibrationTime_ = 0D;
       senderId_ = "";
       receiverId_ = "";
       scrollId_ = "";
-      effectIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      resultants_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -259,7 +168,7 @@ public final class UseScrollNoticeOuterClass {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               messageId_ = s;
               break;
@@ -279,45 +188,22 @@ public final class UseScrollNoticeOuterClass {
               needResponse_ = input.readBool();
               break;
             }
-            case 41: {
-
-              calibrationTime_ = input.readDouble();
-              break;
-            }
             case 162: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               senderId_ = s;
               break;
             }
             case 242: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               receiverId_ = s;
               break;
             }
             case 322: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               scrollId_ = s;
-              break;
-            }
-            case 330: {
-              String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-                effectIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000100;
-              }
-              effectIds_.add(s);
-              break;
-            }
-            case 338: {
-              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-                resultants_ = new java.util.ArrayList<Resultant>();
-                mutable_bitField0_ |= 0x00000200;
-              }
-              resultants_.add(
-                  input.readMessage(Resultant.parser(), extensionRegistry));
               break;
             }
           }
@@ -328,596 +214,23 @@ public final class UseScrollNoticeOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-          effectIds_ = effectIds_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-          resultants_ = java.util.Collections.unmodifiableList(resultants_);
-        }
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return UseScrollNoticeOuterClass.internal_static_UseScrollNotice_descriptor;
+      return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.internal_static_UseScrollNotice_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return UseScrollNoticeOuterClass.internal_static_UseScrollNotice_fieldAccessorTable
+      return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.internal_static_UseScrollNotice_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              UseScrollNotice.class, Builder.class);
+              com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.class, com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.Builder.class);
     }
 
-    public interface ResultantOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:UseScrollNotice.Resultant)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>string card_id = 1;</code>
-       */
-      String getCardId();
-      /**
-       * <code>string card_id = 1;</code>
-       */
-      com.google.protobuf.ByteString
-          getCardIdBytes();
-
-      /**
-       * <code>uint32 count = 2;</code>
-       */
-      int getCount();
-    }
-    /**
-     * Protobuf type {@code UseScrollNotice.Resultant}
-     */
-    public  static final class Resultant extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:UseScrollNotice.Resultant)
-        ResultantOrBuilder {
-      // Use Resultant.newBuilder() to construct.
-      private Resultant(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private Resultant() {
-        cardId_ = "";
-        count_ = 0;
-      }
-
-      @Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-      }
-      private Resultant(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        int mutable_bitField0_ = 0;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 10: {
-                String s = input.readStringRequireUtf8();
-
-                cardId_ = s;
-                break;
-              }
-              case 16: {
-
-                count_ = input.readUInt32();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return UseScrollNoticeOuterClass.internal_static_UseScrollNotice_Resultant_descriptor;
-      }
-
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return UseScrollNoticeOuterClass.internal_static_UseScrollNotice_Resultant_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                Resultant.class, Builder.class);
-      }
-
-      public static final int CARD_ID_FIELD_NUMBER = 1;
-      private volatile Object cardId_;
-      /**
-       * <code>string card_id = 1;</code>
-       */
-      public String getCardId() {
-        Object ref = cardId_;
-        if (ref instanceof String) {
-          return (String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          cardId_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string card_id = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getCardIdBytes() {
-        Object ref = cardId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          cardId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int COUNT_FIELD_NUMBER = 2;
-      private int count_;
-      /**
-       * <code>uint32 count = 2;</code>
-       */
-      public int getCount() {
-        return count_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (!getCardIdBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, cardId_);
-        }
-        if (count_ != 0) {
-          output.writeUInt32(2, count_);
-        }
-      }
-
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (!getCardIdBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, cardId_);
-        }
-        if (count_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeUInt32Size(2, count_);
-        }
-        memoizedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @Override
-      public boolean equals(final Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof Resultant)) {
-          return super.equals(obj);
-        }
-        Resultant other = (Resultant) obj;
-
-        boolean result = true;
-        result = result && getCardId()
-            .equals(other.getCardId());
-        result = result && (getCount()
-            == other.getCount());
-        return result;
-      }
-
-      @Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + CARD_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getCardId().hashCode();
-        hash = (37 * hash) + COUNT_FIELD_NUMBER;
-        hash = (53 * hash) + getCount();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static Resultant parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static Resultant parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static Resultant parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static Resultant parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static Resultant parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static Resultant parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static Resultant parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static Resultant parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static Resultant parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static Resultant parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(Resultant prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @Override
-      protected Builder newBuilderForType(
-          BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code UseScrollNotice.Resultant}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:UseScrollNotice.Resultant)
-          ResultantOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return UseScrollNoticeOuterClass.internal_static_UseScrollNotice_Resultant_descriptor;
-        }
-
-        protected FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return UseScrollNoticeOuterClass.internal_static_UseScrollNotice_Resultant_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  Resultant.class, Builder.class);
-        }
-
-        // Construct using com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.Resultant.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        public Builder clear() {
-          super.clear();
-          cardId_ = "";
-
-          count_ = 0;
-
-          return this;
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return UseScrollNoticeOuterClass.internal_static_UseScrollNotice_Resultant_descriptor;
-        }
-
-        public Resultant getDefaultInstanceForType() {
-          return Resultant.getDefaultInstance();
-        }
-
-        public Resultant build() {
-          Resultant result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public Resultant buildPartial() {
-          Resultant result = new Resultant(this);
-          result.cardId_ = cardId_;
-          result.count_ = count_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder clone() {
-          return (Builder) super.clone();
-        }
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            Object value) {
-          return (Builder) super.setField(field, value);
-        }
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
-        }
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
-        }
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
-        }
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            Object value) {
-          return (Builder) super.addRepeatedField(field, value);
-        }
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof Resultant) {
-            return mergeFrom((Resultant)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(Resultant other) {
-          if (other == Resultant.getDefaultInstance()) return this;
-          if (!other.getCardId().isEmpty()) {
-            cardId_ = other.cardId_;
-            onChanged();
-          }
-          if (other.getCount() != 0) {
-            setCount(other.getCount());
-          }
-          onChanged();
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          Resultant parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (Resultant) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private Object cardId_ = "";
-        /**
-         * <code>string card_id = 1;</code>
-         */
-        public String getCardId() {
-          Object ref = cardId_;
-          if (!(ref instanceof String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
-            cardId_ = s;
-            return s;
-          } else {
-            return (String) ref;
-          }
-        }
-        /**
-         * <code>string card_id = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-            getCardIdBytes() {
-          Object ref = cardId_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
-            cardId_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string card_id = 1;</code>
-         */
-        public Builder setCardId(
-            String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          cardId_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string card_id = 1;</code>
-         */
-        public Builder clearCardId() {
-          
-          cardId_ = getDefaultInstance().getCardId();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string card_id = 1;</code>
-         */
-        public Builder setCardIdBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          cardId_ = value;
-          onChanged();
-          return this;
-        }
-
-        private int count_ ;
-        /**
-         * <code>uint32 count = 2;</code>
-         */
-        public int getCount() {
-          return count_;
-        }
-        /**
-         * <code>uint32 count = 2;</code>
-         */
-        public Builder setCount(int value) {
-          
-          count_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>uint32 count = 2;</code>
-         */
-        public Builder clearCount() {
-          
-          count_ = 0;
-          onChanged();
-          return this;
-        }
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return this;
-        }
-
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return this;
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:UseScrollNotice.Resultant)
-      }
-
-      // @@protoc_insertion_point(class_scope:UseScrollNotice.Resultant)
-      private static final Resultant DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new Resultant();
-      }
-
-      public static Resultant getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<Resultant>
-          PARSER = new com.google.protobuf.AbstractParser<Resultant>() {
-        public Resultant parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            return new Resultant(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<Resultant> parser() {
-        return PARSER;
-      }
-
-      @Override
-      public com.google.protobuf.Parser<Resultant> getParserForType() {
-        return PARSER;
-      }
-
-      public Resultant getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    private int bitField0_;
     public static final int MESSAGE_ID_FIELD_NUMBER = 1;
-    private volatile Object messageId_;
+    private volatile java.lang.Object messageId_;
     /**
      * <pre>
      *消息ID
@@ -925,14 +238,14 @@ public final class UseScrollNoticeOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    public String getMessageId() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getMessageId() {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         messageId_ = s;
         return s;
       }
@@ -946,11 +259,11 @@ public final class UseScrollNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getMessageIdBytes() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         messageId_ = b;
         return b;
       } else {
@@ -997,21 +310,8 @@ public final class UseScrollNoticeOuterClass {
       return needResponse_;
     }
 
-    public static final int CALIBRATION_TIME_FIELD_NUMBER = 5;
-    private double calibrationTime_;
-    /**
-     * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    public double getCalibrationTime() {
-      return calibrationTime_;
-    }
-
     public static final int SENDER_ID_FIELD_NUMBER = 20;
-    private volatile Object senderId_;
+    private volatile java.lang.Object senderId_;
     /**
      * <pre>
      *发送者ID
@@ -1019,14 +319,14 @@ public final class UseScrollNoticeOuterClass {
      *
      * <code>string sender_id = 20;</code>
      */
-    public String getSenderId() {
-      Object ref = senderId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getSenderId() {
+      java.lang.Object ref = senderId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         senderId_ = s;
         return s;
       }
@@ -1040,11 +340,11 @@ public final class UseScrollNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getSenderIdBytes() {
-      Object ref = senderId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = senderId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         senderId_ = b;
         return b;
       } else {
@@ -1053,7 +353,7 @@ public final class UseScrollNoticeOuterClass {
     }
 
     public static final int RECEIVER_ID_FIELD_NUMBER = 30;
-    private volatile Object receiverId_;
+    private volatile java.lang.Object receiverId_;
     /**
      * <pre>
      *接收者ID
@@ -1061,14 +361,14 @@ public final class UseScrollNoticeOuterClass {
      *
      * <code>string receiver_id = 30;</code>
      */
-    public String getReceiverId() {
-      Object ref = receiverId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getReceiverId() {
+      java.lang.Object ref = receiverId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         receiverId_ = s;
         return s;
       }
@@ -1082,11 +382,11 @@ public final class UseScrollNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getReceiverIdBytes() {
-      Object ref = receiverId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = receiverId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         receiverId_ = b;
         return b;
       } else {
@@ -1095,7 +395,7 @@ public final class UseScrollNoticeOuterClass {
     }
 
     public static final int SCROLL_ID_FIELD_NUMBER = 40;
-    private volatile Object scrollId_;
+    private volatile java.lang.Object scrollId_;
     /**
      * <pre>
      *卷轴ID
@@ -1103,14 +403,14 @@ public final class UseScrollNoticeOuterClass {
      *
      * <code>string scroll_id = 40;</code>
      */
-    public String getScrollId() {
-      Object ref = scrollId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getScrollId() {
+      java.lang.Object ref = scrollId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         scrollId_ = s;
         return s;
       }
@@ -1124,116 +424,16 @@ public final class UseScrollNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getScrollIdBytes() {
-      Object ref = scrollId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = scrollId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         scrollId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
-    }
-
-    public static final int EFFECT_IDS_FIELD_NUMBER = 41;
-    private com.google.protobuf.LazyStringList effectIds_;
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string effect_ids = 41;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getEffectIdsList() {
-      return effectIds_;
-    }
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string effect_ids = 41;</code>
-     */
-    public int getEffectIdsCount() {
-      return effectIds_.size();
-    }
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string effect_ids = 41;</code>
-     */
-    public String getEffectIds(int index) {
-      return effectIds_.get(index);
-    }
-    /**
-     * <pre>
-     *效果ID
-     * </pre>
-     *
-     * <code>repeated string effect_ids = 41;</code>
-     */
-    public com.google.protobuf.ByteString
-        getEffectIdsBytes(int index) {
-      return effectIds_.getByteString(index);
-    }
-
-    public static final int RESULTANTS_FIELD_NUMBER = 42;
-    private java.util.List<Resultant> resultants_;
-    /**
-     * <pre>
-     *生成物
-     * </pre>
-     *
-     * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-     */
-    public java.util.List<Resultant> getResultantsList() {
-      return resultants_;
-    }
-    /**
-     * <pre>
-     *生成物
-     * </pre>
-     *
-     * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-     */
-    public java.util.List<? extends ResultantOrBuilder>
-        getResultantsOrBuilderList() {
-      return resultants_;
-    }
-    /**
-     * <pre>
-     *生成物
-     * </pre>
-     *
-     * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-     */
-    public int getResultantsCount() {
-      return resultants_.size();
-    }
-    /**
-     * <pre>
-     *生成物
-     * </pre>
-     *
-     * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-     */
-    public Resultant getResultants(int index) {
-      return resultants_.get(index);
-    }
-    /**
-     * <pre>
-     *生成物
-     * </pre>
-     *
-     * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-     */
-    public ResultantOrBuilder getResultantsOrBuilder(
-        int index) {
-      return resultants_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1260,9 +460,6 @@ public final class UseScrollNoticeOuterClass {
       if (needResponse_ != false) {
         output.writeBool(4, needResponse_);
       }
-      if (calibrationTime_ != 0D) {
-        output.writeDouble(5, calibrationTime_);
-      }
       if (!getSenderIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, senderId_);
       }
@@ -1271,12 +468,6 @@ public final class UseScrollNoticeOuterClass {
       }
       if (!getScrollIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 40, scrollId_);
-      }
-      for (int i = 0; i < effectIds_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 41, effectIds_.getRaw(i));
-      }
-      for (int i = 0; i < resultants_.size(); i++) {
-        output.writeMessage(42, resultants_.get(i));
       }
     }
 
@@ -1300,10 +491,6 @@ public final class UseScrollNoticeOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, needResponse_);
       }
-      if (calibrationTime_ != 0D) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(5, calibrationTime_);
-      }
       if (!getSenderIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, senderId_);
       }
@@ -1313,64 +500,44 @@ public final class UseScrollNoticeOuterClass {
       if (!getScrollIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(40, scrollId_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < effectIds_.size(); i++) {
-          dataSize += computeStringSizeNoTag(effectIds_.getRaw(i));
-        }
-        size += dataSize;
-        size += 2 * getEffectIdsList().size();
-      }
-      for (int i = 0; i < resultants_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(42, resultants_.get(i));
-      }
       memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof UseScrollNotice)) {
+      if (!(obj instanceof com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice)) {
         return super.equals(obj);
       }
-      UseScrollNotice other = (UseScrollNotice) obj;
+      com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice other = (com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) obj;
 
       boolean result = true;
       result = result && getMessageId()
           .equals(other.getMessageId());
       result = result && (
-          Double.doubleToLongBits(getSendTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getSendTime())
+          == java.lang.Double.doubleToLongBits(
               other.getSendTime()));
       result = result && (
-          Double.doubleToLongBits(getExpiredTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getExpiredTime())
+          == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
       result = result && (getNeedResponse()
           == other.getNeedResponse());
-      result = result && (
-          Double.doubleToLongBits(getCalibrationTime())
-          == Double.doubleToLongBits(
-              other.getCalibrationTime()));
       result = result && getSenderId()
           .equals(other.getSenderId());
       result = result && getReceiverId()
           .equals(other.getReceiverId());
       result = result && getScrollId()
           .equals(other.getScrollId());
-      result = result && getEffectIdsList()
-          .equals(other.getEffectIdsList());
-      result = result && getResultantsList()
-          .equals(other.getResultantsList());
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1381,87 +548,76 @@ public final class UseScrollNoticeOuterClass {
       hash = (53 * hash) + getMessageId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getSendTime()));
+          java.lang.Double.doubleToLongBits(getSendTime()));
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getExpiredTime()));
+          java.lang.Double.doubleToLongBits(getExpiredTime()));
       hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNeedResponse());
-      hash = (37 * hash) + CALIBRATION_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getCalibrationTime()));
       hash = (37 * hash) + SENDER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getSenderId().hashCode();
       hash = (37 * hash) + RECEIVER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getReceiverId().hashCode();
       hash = (37 * hash) + SCROLL_ID_FIELD_NUMBER;
       hash = (53 * hash) + getScrollId().hashCode();
-      if (getEffectIdsCount() > 0) {
-        hash = (37 * hash) + EFFECT_IDS_FIELD_NUMBER;
-        hash = (53 * hash) + getEffectIdsList().hashCode();
-      }
-      if (getResultantsCount() > 0) {
-        hash = (37 * hash) + RESULTANTS_FIELD_NUMBER;
-        hash = (53 * hash) + getResultantsList().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static UseScrollNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UseScrollNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UseScrollNotice parseFrom(byte[] data)
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UseScrollNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UseScrollNotice parseFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UseScrollNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UseScrollNotice parseDelimitedFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static UseScrollNotice parseDelimitedFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UseScrollNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UseScrollNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1473,7 +629,7 @@ public final class UseScrollNoticeOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(UseScrollNotice prototype) {
+    public static Builder newBuilder(com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -1481,9 +637,9 @@ public final class UseScrollNoticeOuterClass {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1497,17 +653,17 @@ public final class UseScrollNoticeOuterClass {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:UseScrollNotice)
-        UseScrollNoticeOrBuilder {
+        com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNoticeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return UseScrollNoticeOuterClass.internal_static_UseScrollNotice_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.internal_static_UseScrollNotice_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return UseScrollNoticeOuterClass.internal_static_UseScrollNotice_fieldAccessorTable
+        return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.internal_static_UseScrollNotice_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                UseScrollNotice.class, Builder.class);
+                com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.class, com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.Builder.class);
       }
 
       // Construct using com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.newBuilder()
@@ -1516,14 +672,13 @@ public final class UseScrollNoticeOuterClass {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getResultantsFieldBuilder();
         }
       }
       public Builder clear() {
@@ -1536,69 +691,41 @@ public final class UseScrollNoticeOuterClass {
 
         needResponse_ = false;
 
-        calibrationTime_ = 0D;
-
         senderId_ = "";
 
         receiverId_ = "";
 
         scrollId_ = "";
 
-        effectIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000100);
-        if (resultantsBuilder_ == null) {
-          resultants_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000200);
-        } else {
-          resultantsBuilder_.clear();
-        }
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return UseScrollNoticeOuterClass.internal_static_UseScrollNotice_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.internal_static_UseScrollNotice_descriptor;
       }
 
-      public UseScrollNotice getDefaultInstanceForType() {
-        return UseScrollNotice.getDefaultInstance();
+      public com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice getDefaultInstanceForType() {
+        return com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.getDefaultInstance();
       }
 
-      public UseScrollNotice build() {
-        UseScrollNotice result = buildPartial();
+      public com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice build() {
+        com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public UseScrollNotice buildPartial() {
-        UseScrollNotice result = new UseScrollNotice(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+      public com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice buildPartial() {
+        com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice result = new com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice(this);
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
         result.needResponse_ = needResponse_;
-        result.calibrationTime_ = calibrationTime_;
         result.senderId_ = senderId_;
         result.receiverId_ = receiverId_;
         result.scrollId_ = scrollId_;
-        if (((bitField0_ & 0x00000100) == 0x00000100)) {
-          effectIds_ = effectIds_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000100);
-        }
-        result.effectIds_ = effectIds_;
-        if (resultantsBuilder_ == null) {
-          if (((bitField0_ & 0x00000200) == 0x00000200)) {
-            resultants_ = java.util.Collections.unmodifiableList(resultants_);
-            bitField0_ = (bitField0_ & ~0x00000200);
-          }
-          result.resultants_ = resultants_;
-        } else {
-          result.resultants_ = resultantsBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1630,16 +757,16 @@ public final class UseScrollNoticeOuterClass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof UseScrollNotice) {
-          return mergeFrom((UseScrollNotice)other);
+        if (other instanceof com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) {
+          return mergeFrom((com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(UseScrollNotice other) {
-        if (other == UseScrollNotice.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice other) {
+        if (other == com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice.getDefaultInstance()) return this;
         if (!other.getMessageId().isEmpty()) {
           messageId_ = other.messageId_;
           onChanged();
@@ -1653,9 +780,6 @@ public final class UseScrollNoticeOuterClass {
         if (other.getNeedResponse() != false) {
           setNeedResponse(other.getNeedResponse());
         }
-        if (other.getCalibrationTime() != 0D) {
-          setCalibrationTime(other.getCalibrationTime());
-        }
         if (!other.getSenderId().isEmpty()) {
           senderId_ = other.senderId_;
           onChanged();
@@ -1667,42 +791,6 @@ public final class UseScrollNoticeOuterClass {
         if (!other.getScrollId().isEmpty()) {
           scrollId_ = other.scrollId_;
           onChanged();
-        }
-        if (!other.effectIds_.isEmpty()) {
-          if (effectIds_.isEmpty()) {
-            effectIds_ = other.effectIds_;
-            bitField0_ = (bitField0_ & ~0x00000100);
-          } else {
-            ensureEffectIdsIsMutable();
-            effectIds_.addAll(other.effectIds_);
-          }
-          onChanged();
-        }
-        if (resultantsBuilder_ == null) {
-          if (!other.resultants_.isEmpty()) {
-            if (resultants_.isEmpty()) {
-              resultants_ = other.resultants_;
-              bitField0_ = (bitField0_ & ~0x00000200);
-            } else {
-              ensureResultantsIsMutable();
-              resultants_.addAll(other.resultants_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.resultants_.isEmpty()) {
-            if (resultantsBuilder_.isEmpty()) {
-              resultantsBuilder_.dispose();
-              resultantsBuilder_ = null;
-              resultants_ = other.resultants_;
-              bitField0_ = (bitField0_ & ~0x00000200);
-              resultantsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getResultantsFieldBuilder() : null;
-            } else {
-              resultantsBuilder_.addAllMessages(other.resultants_);
-            }
-          }
         }
         onChanged();
         return this;
@@ -1716,11 +804,11 @@ public final class UseScrollNoticeOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        UseScrollNotice parsedMessage = null;
+        com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (UseScrollNotice) e.getUnfinishedMessage();
+          parsedMessage = (com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1729,9 +817,8 @@ public final class UseScrollNoticeOuterClass {
         }
         return this;
       }
-      private int bitField0_;
 
-      private Object messageId_ = "";
+      private java.lang.Object messageId_ = "";
       /**
        * <pre>
        *消息ID
@@ -1739,16 +826,16 @@ public final class UseScrollNoticeOuterClass {
        *
        * <code>string message_id = 1;</code>
        */
-      public String getMessageId() {
-        Object ref = messageId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getMessageId() {
+        java.lang.Object ref = messageId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           messageId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1760,11 +847,11 @@ public final class UseScrollNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getMessageIdBytes() {
-        Object ref = messageId_;
+        java.lang.Object ref = messageId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           messageId_ = b;
           return b;
         } else {
@@ -1779,7 +866,7 @@ public final class UseScrollNoticeOuterClass {
        * <code>string message_id = 1;</code>
        */
       public Builder setMessageId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1934,45 +1021,7 @@ public final class UseScrollNoticeOuterClass {
         return this;
       }
 
-      private double calibrationTime_ ;
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public double getCalibrationTime() {
-        return calibrationTime_;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder setCalibrationTime(double value) {
-        
-        calibrationTime_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder clearCalibrationTime() {
-        
-        calibrationTime_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private Object senderId_ = "";
+      private java.lang.Object senderId_ = "";
       /**
        * <pre>
        *发送者ID
@@ -1980,16 +1029,16 @@ public final class UseScrollNoticeOuterClass {
        *
        * <code>string sender_id = 20;</code>
        */
-      public String getSenderId() {
-        Object ref = senderId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getSenderId() {
+        java.lang.Object ref = senderId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           senderId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2001,11 +1050,11 @@ public final class UseScrollNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getSenderIdBytes() {
-        Object ref = senderId_;
+        java.lang.Object ref = senderId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           senderId_ = b;
           return b;
         } else {
@@ -2020,7 +1069,7 @@ public final class UseScrollNoticeOuterClass {
        * <code>string sender_id = 20;</code>
        */
       public Builder setSenderId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2061,7 +1110,7 @@ public final class UseScrollNoticeOuterClass {
         return this;
       }
 
-      private Object receiverId_ = "";
+      private java.lang.Object receiverId_ = "";
       /**
        * <pre>
        *接收者ID
@@ -2069,16 +1118,16 @@ public final class UseScrollNoticeOuterClass {
        *
        * <code>string receiver_id = 30;</code>
        */
-      public String getReceiverId() {
-        Object ref = receiverId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getReceiverId() {
+        java.lang.Object ref = receiverId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           receiverId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2090,11 +1139,11 @@ public final class UseScrollNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getReceiverIdBytes() {
-        Object ref = receiverId_;
+        java.lang.Object ref = receiverId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           receiverId_ = b;
           return b;
         } else {
@@ -2109,7 +1158,7 @@ public final class UseScrollNoticeOuterClass {
        * <code>string receiver_id = 30;</code>
        */
       public Builder setReceiverId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2150,7 +1199,7 @@ public final class UseScrollNoticeOuterClass {
         return this;
       }
 
-      private Object scrollId_ = "";
+      private java.lang.Object scrollId_ = "";
       /**
        * <pre>
        *卷轴ID
@@ -2158,16 +1207,16 @@ public final class UseScrollNoticeOuterClass {
        *
        * <code>string scroll_id = 40;</code>
        */
-      public String getScrollId() {
-        Object ref = scrollId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getScrollId() {
+        java.lang.Object ref = scrollId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           scrollId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2179,11 +1228,11 @@ public final class UseScrollNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getScrollIdBytes() {
-        Object ref = scrollId_;
+        java.lang.Object ref = scrollId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           scrollId_ = b;
           return b;
         } else {
@@ -2198,7 +1247,7 @@ public final class UseScrollNoticeOuterClass {
        * <code>string scroll_id = 40;</code>
        */
       public Builder setScrollId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2238,448 +1287,6 @@ public final class UseScrollNoticeOuterClass {
         onChanged();
         return this;
       }
-
-      private com.google.protobuf.LazyStringList effectIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureEffectIdsIsMutable() {
-        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
-          effectIds_ = new com.google.protobuf.LazyStringArrayList(effectIds_);
-          bitField0_ |= 0x00000100;
-         }
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string effect_ids = 41;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getEffectIdsList() {
-        return effectIds_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string effect_ids = 41;</code>
-       */
-      public int getEffectIdsCount() {
-        return effectIds_.size();
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string effect_ids = 41;</code>
-       */
-      public String getEffectIds(int index) {
-        return effectIds_.get(index);
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string effect_ids = 41;</code>
-       */
-      public com.google.protobuf.ByteString
-          getEffectIdsBytes(int index) {
-        return effectIds_.getByteString(index);
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string effect_ids = 41;</code>
-       */
-      public Builder setEffectIds(
-          int index, String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEffectIdsIsMutable();
-        effectIds_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string effect_ids = 41;</code>
-       */
-      public Builder addEffectIds(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEffectIdsIsMutable();
-        effectIds_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string effect_ids = 41;</code>
-       */
-      public Builder addAllEffectIds(
-          Iterable<String> values) {
-        ensureEffectIdsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, effectIds_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string effect_ids = 41;</code>
-       */
-      public Builder clearEffectIds() {
-        effectIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000100);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *效果ID
-       * </pre>
-       *
-       * <code>repeated string effect_ids = 41;</code>
-       */
-      public Builder addEffectIdsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureEffectIdsIsMutable();
-        effectIds_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<Resultant> resultants_ =
-        java.util.Collections.emptyList();
-      private void ensureResultantsIsMutable() {
-        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
-          resultants_ = new java.util.ArrayList<Resultant>(resultants_);
-          bitField0_ |= 0x00000200;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          Resultant, Resultant.Builder, ResultantOrBuilder> resultantsBuilder_;
-
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public java.util.List<Resultant> getResultantsList() {
-        if (resultantsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(resultants_);
-        } else {
-          return resultantsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public int getResultantsCount() {
-        if (resultantsBuilder_ == null) {
-          return resultants_.size();
-        } else {
-          return resultantsBuilder_.getCount();
-        }
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Resultant getResultants(int index) {
-        if (resultantsBuilder_ == null) {
-          return resultants_.get(index);
-        } else {
-          return resultantsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Builder setResultants(
-          int index, Resultant value) {
-        if (resultantsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureResultantsIsMutable();
-          resultants_.set(index, value);
-          onChanged();
-        } else {
-          resultantsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Builder setResultants(
-          int index, Resultant.Builder builderForValue) {
-        if (resultantsBuilder_ == null) {
-          ensureResultantsIsMutable();
-          resultants_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          resultantsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Builder addResultants(Resultant value) {
-        if (resultantsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureResultantsIsMutable();
-          resultants_.add(value);
-          onChanged();
-        } else {
-          resultantsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Builder addResultants(
-          int index, Resultant value) {
-        if (resultantsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureResultantsIsMutable();
-          resultants_.add(index, value);
-          onChanged();
-        } else {
-          resultantsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Builder addResultants(
-          Resultant.Builder builderForValue) {
-        if (resultantsBuilder_ == null) {
-          ensureResultantsIsMutable();
-          resultants_.add(builderForValue.build());
-          onChanged();
-        } else {
-          resultantsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Builder addResultants(
-          int index, Resultant.Builder builderForValue) {
-        if (resultantsBuilder_ == null) {
-          ensureResultantsIsMutable();
-          resultants_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          resultantsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Builder addAllResultants(
-          Iterable<? extends Resultant> values) {
-        if (resultantsBuilder_ == null) {
-          ensureResultantsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, resultants_);
-          onChanged();
-        } else {
-          resultantsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Builder clearResultants() {
-        if (resultantsBuilder_ == null) {
-          resultants_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000200);
-          onChanged();
-        } else {
-          resultantsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Builder removeResultants(int index) {
-        if (resultantsBuilder_ == null) {
-          ensureResultantsIsMutable();
-          resultants_.remove(index);
-          onChanged();
-        } else {
-          resultantsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Resultant.Builder getResultantsBuilder(
-          int index) {
-        return getResultantsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public ResultantOrBuilder getResultantsOrBuilder(
-          int index) {
-        if (resultantsBuilder_ == null) {
-          return resultants_.get(index);  } else {
-          return resultantsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public java.util.List<? extends ResultantOrBuilder>
-           getResultantsOrBuilderList() {
-        if (resultantsBuilder_ != null) {
-          return resultantsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(resultants_);
-        }
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Resultant.Builder addResultantsBuilder() {
-        return getResultantsFieldBuilder().addBuilder(
-            Resultant.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public Resultant.Builder addResultantsBuilder(
-          int index) {
-        return getResultantsFieldBuilder().addBuilder(
-            index, Resultant.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       *生成物
-       * </pre>
-       *
-       * <code>repeated .UseScrollNotice.Resultant resultants = 42;</code>
-       */
-      public java.util.List<Resultant.Builder>
-           getResultantsBuilderList() {
-        return getResultantsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          Resultant, Resultant.Builder, ResultantOrBuilder>
-          getResultantsFieldBuilder() {
-        if (resultantsBuilder_ == null) {
-          resultantsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              Resultant, Resultant.Builder, ResultantOrBuilder>(
-                  resultants_,
-                  ((bitField0_ & 0x00000200) == 0x00000200),
-                  getParentForChildren(),
-                  isClean());
-          resultants_ = null;
-        }
-        return resultantsBuilder_;
-      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -2695,12 +1302,12 @@ public final class UseScrollNoticeOuterClass {
     }
 
     // @@protoc_insertion_point(class_scope:UseScrollNotice)
-    private static final UseScrollNotice DEFAULT_INSTANCE;
+    private static final com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new UseScrollNotice();
+      DEFAULT_INSTANCE = new com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice();
     }
 
-    public static UseScrollNotice getDefaultInstance() {
+    public static com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2718,12 +1325,12 @@ public final class UseScrollNoticeOuterClass {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<UseScrollNotice> getParserForType() {
       return PARSER;
     }
 
-    public UseScrollNotice getDefaultInstanceForType() {
+    public com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.UseScrollNotice getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2734,11 +1341,6 @@ public final class UseScrollNoticeOuterClass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_UseScrollNotice_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_UseScrollNotice_Resultant_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_UseScrollNotice_Resultant_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2747,17 +1349,13 @@ public final class UseScrollNoticeOuterClass {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\025UseScrollNotice.proto\"\252\002\n\017UseScrollNot" +
+    java.lang.String[] descriptorData = {
+      "\n\025UseScrollNotice.proto\"\237\001\n\017UseScrollNot" +
       "ice\022\022\n\nmessage_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001" +
       "(\001\022\024\n\014expired_time\030\003 \001(\001\022\024\n\014needResponse" +
-      "\030\004 \001(\010\022\030\n\020calibration_time\030\005 \001(\001\022\021\n\tsend" +
-      "er_id\030\024 \001(\t\022\023\n\013receiver_id\030\036 \001(\t\022\021\n\tscro" +
-      "ll_id\030( \001(\t\022\022\n\neffect_ids\030) \003(\t\022.\n\nresul" +
-      "tants\030* \003(\0132\032.UseScrollNotice.Resultant\032" +
-      "+\n\tResultant\022\017\n\007card_id\030\001 \001(\t\022\r\n\005count\030\002" +
-      " \001(\rB*\n(com.artisankid.elementwar.ewmess" +
-      "agemodelb\006proto3"
+      "\030\004 \001(\010\022\021\n\tsender_id\030\024 \001(\t\022\023\n\013receiver_id" +
+      "\030\036 \001(\t\022\021\n\tscroll_id\030( \001(\tB*\n(com.artisan" +
+      "kid.elementwar.ewmessagemodelb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2776,13 +1374,7 @@ public final class UseScrollNoticeOuterClass {
     internal_static_UseScrollNotice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UseScrollNotice_descriptor,
-        new String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "CalibrationTime", "SenderId", "ReceiverId", "ScrollId", "EffectIds", "Resultants", });
-    internal_static_UseScrollNotice_Resultant_descriptor =
-      internal_static_UseScrollNotice_descriptor.getNestedTypes().get(0);
-    internal_static_UseScrollNotice_Resultant_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_UseScrollNotice_Resultant_descriptor,
-        new String[] { "CardId", "Count", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "SenderId", "ReceiverId", "ScrollId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

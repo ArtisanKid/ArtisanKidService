@@ -25,7 +25,7 @@ public final class PlaySwitchNoticeOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    String getMessageId();
+    java.lang.String getMessageId();
     /**
      * <pre>
      *消息ID
@@ -65,21 +65,12 @@ public final class PlaySwitchNoticeOuterClass {
 
     /**
      * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    double getCalibrationTime();
-
-    /**
-     * <pre>
      *出牌方ID
      * </pre>
      *
      * <code>string player_id = 20;</code>
      */
-    String getPlayerId();
+    java.lang.String getPlayerId();
     /**
      * <pre>
      *出牌方ID
@@ -110,11 +101,10 @@ public final class PlaySwitchNoticeOuterClass {
       sendTime_ = 0D;
       expiredTime_ = 0D;
       needResponse_ = false;
-      calibrationTime_ = 0D;
       playerId_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -140,7 +130,7 @@ public final class PlaySwitchNoticeOuterClass {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               messageId_ = s;
               break;
@@ -160,13 +150,8 @@ public final class PlaySwitchNoticeOuterClass {
               needResponse_ = input.readBool();
               break;
             }
-            case 41: {
-
-              calibrationTime_ = input.readDouble();
-              break;
-            }
             case 162: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               playerId_ = s;
               break;
@@ -184,18 +169,18 @@ public final class PlaySwitchNoticeOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PlaySwitchNoticeOuterClass.internal_static_PlaySwitchNotice_descriptor;
+      return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.internal_static_PlaySwitchNotice_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PlaySwitchNoticeOuterClass.internal_static_PlaySwitchNotice_fieldAccessorTable
+      return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.internal_static_PlaySwitchNotice_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PlaySwitchNotice.class, Builder.class);
+              com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.class, com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder.class);
     }
 
     public static final int MESSAGE_ID_FIELD_NUMBER = 1;
-    private volatile Object messageId_;
+    private volatile java.lang.Object messageId_;
     /**
      * <pre>
      *消息ID
@@ -203,14 +188,14 @@ public final class PlaySwitchNoticeOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    public String getMessageId() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getMessageId() {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         messageId_ = s;
         return s;
       }
@@ -224,11 +209,11 @@ public final class PlaySwitchNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getMessageIdBytes() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         messageId_ = b;
         return b;
       } else {
@@ -275,21 +260,8 @@ public final class PlaySwitchNoticeOuterClass {
       return needResponse_;
     }
 
-    public static final int CALIBRATION_TIME_FIELD_NUMBER = 5;
-    private double calibrationTime_;
-    /**
-     * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    public double getCalibrationTime() {
-      return calibrationTime_;
-    }
-
     public static final int PLAYER_ID_FIELD_NUMBER = 20;
-    private volatile Object playerId_;
+    private volatile java.lang.Object playerId_;
     /**
      * <pre>
      *出牌方ID
@@ -297,14 +269,14 @@ public final class PlaySwitchNoticeOuterClass {
      *
      * <code>string player_id = 20;</code>
      */
-    public String getPlayerId() {
-      Object ref = playerId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getPlayerId() {
+      java.lang.Object ref = playerId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         playerId_ = s;
         return s;
       }
@@ -318,11 +290,11 @@ public final class PlaySwitchNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getPlayerIdBytes() {
-      Object ref = playerId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = playerId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         playerId_ = b;
         return b;
       } else {
@@ -354,9 +326,6 @@ public final class PlaySwitchNoticeOuterClass {
       if (needResponse_ != false) {
         output.writeBool(4, needResponse_);
       }
-      if (calibrationTime_ != 0D) {
-        output.writeDouble(5, calibrationTime_);
-      }
       if (!getPlayerIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, playerId_);
       }
@@ -382,10 +351,6 @@ public final class PlaySwitchNoticeOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, needResponse_);
       }
-      if (calibrationTime_ != 0D) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(5, calibrationTime_);
-      }
       if (!getPlayerIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, playerId_);
       }
@@ -394,39 +359,35 @@ public final class PlaySwitchNoticeOuterClass {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PlaySwitchNotice)) {
+      if (!(obj instanceof com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice)) {
         return super.equals(obj);
       }
-      PlaySwitchNotice other = (PlaySwitchNotice) obj;
+      com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice other = (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) obj;
 
       boolean result = true;
       result = result && getMessageId()
           .equals(other.getMessageId());
       result = result && (
-          Double.doubleToLongBits(getSendTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getSendTime())
+          == java.lang.Double.doubleToLongBits(
               other.getSendTime()));
       result = result && (
-          Double.doubleToLongBits(getExpiredTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getExpiredTime())
+          == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
       result = result && (getNeedResponse()
           == other.getNeedResponse());
-      result = result && (
-          Double.doubleToLongBits(getCalibrationTime())
-          == Double.doubleToLongBits(
-              other.getCalibrationTime()));
       result = result && getPlayerId()
           .equals(other.getPlayerId());
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -437,16 +398,13 @@ public final class PlaySwitchNoticeOuterClass {
       hash = (53 * hash) + getMessageId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getSendTime()));
+          java.lang.Double.doubleToLongBits(getSendTime()));
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getExpiredTime()));
+          java.lang.Double.doubleToLongBits(getExpiredTime()));
       hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNeedResponse());
-      hash = (37 * hash) + CALIBRATION_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getCalibrationTime()));
       hash = (37 * hash) + PLAYER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPlayerId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -454,58 +412,58 @@ public final class PlaySwitchNoticeOuterClass {
       return hash;
     }
 
-    public static PlaySwitchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PlaySwitchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PlaySwitchNotice parseFrom(byte[] data)
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PlaySwitchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PlaySwitchNotice parseFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PlaySwitchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PlaySwitchNotice parseDelimitedFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PlaySwitchNotice parseDelimitedFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PlaySwitchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PlaySwitchNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -517,7 +475,7 @@ public final class PlaySwitchNoticeOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PlaySwitchNotice prototype) {
+    public static Builder newBuilder(com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -525,9 +483,9 @@ public final class PlaySwitchNoticeOuterClass {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -541,17 +499,17 @@ public final class PlaySwitchNoticeOuterClass {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:PlaySwitchNotice)
-        PlaySwitchNoticeOrBuilder {
+        com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNoticeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PlaySwitchNoticeOuterClass.internal_static_PlaySwitchNotice_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.internal_static_PlaySwitchNotice_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PlaySwitchNoticeOuterClass.internal_static_PlaySwitchNotice_fieldAccessorTable
+        return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.internal_static_PlaySwitchNotice_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PlaySwitchNotice.class, Builder.class);
+                com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.class, com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder.class);
       }
 
       // Construct using com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.newBuilder()
@@ -560,7 +518,7 @@ public final class PlaySwitchNoticeOuterClass {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -579,8 +537,6 @@ public final class PlaySwitchNoticeOuterClass {
 
         needResponse_ = false;
 
-        calibrationTime_ = 0D;
-
         playerId_ = "";
 
         return this;
@@ -588,28 +544,27 @@ public final class PlaySwitchNoticeOuterClass {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PlaySwitchNoticeOuterClass.internal_static_PlaySwitchNotice_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.internal_static_PlaySwitchNotice_descriptor;
       }
 
-      public PlaySwitchNotice getDefaultInstanceForType() {
-        return PlaySwitchNotice.getDefaultInstance();
+      public com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice getDefaultInstanceForType() {
+        return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.getDefaultInstance();
       }
 
-      public PlaySwitchNotice build() {
-        PlaySwitchNotice result = buildPartial();
+      public com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice build() {
+        com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public PlaySwitchNotice buildPartial() {
-        PlaySwitchNotice result = new PlaySwitchNotice(this);
+      public com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice buildPartial() {
+        com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice result = new com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice(this);
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
         result.needResponse_ = needResponse_;
-        result.calibrationTime_ = calibrationTime_;
         result.playerId_ = playerId_;
         onBuilt();
         return result;
@@ -642,16 +597,16 @@ public final class PlaySwitchNoticeOuterClass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PlaySwitchNotice) {
-          return mergeFrom((PlaySwitchNotice)other);
+        if (other instanceof com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) {
+          return mergeFrom((com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PlaySwitchNotice other) {
-        if (other == PlaySwitchNotice.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice other) {
+        if (other == com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.getDefaultInstance()) return this;
         if (!other.getMessageId().isEmpty()) {
           messageId_ = other.messageId_;
           onChanged();
@@ -664,9 +619,6 @@ public final class PlaySwitchNoticeOuterClass {
         }
         if (other.getNeedResponse() != false) {
           setNeedResponse(other.getNeedResponse());
-        }
-        if (other.getCalibrationTime() != 0D) {
-          setCalibrationTime(other.getCalibrationTime());
         }
         if (!other.getPlayerId().isEmpty()) {
           playerId_ = other.playerId_;
@@ -684,11 +636,11 @@ public final class PlaySwitchNoticeOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PlaySwitchNotice parsedMessage = null;
+        com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PlaySwitchNotice) e.getUnfinishedMessage();
+          parsedMessage = (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -698,7 +650,7 @@ public final class PlaySwitchNoticeOuterClass {
         return this;
       }
 
-      private Object messageId_ = "";
+      private java.lang.Object messageId_ = "";
       /**
        * <pre>
        *消息ID
@@ -706,16 +658,16 @@ public final class PlaySwitchNoticeOuterClass {
        *
        * <code>string message_id = 1;</code>
        */
-      public String getMessageId() {
-        Object ref = messageId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getMessageId() {
+        java.lang.Object ref = messageId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           messageId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -727,11 +679,11 @@ public final class PlaySwitchNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getMessageIdBytes() {
-        Object ref = messageId_;
+        java.lang.Object ref = messageId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           messageId_ = b;
           return b;
         } else {
@@ -746,7 +698,7 @@ public final class PlaySwitchNoticeOuterClass {
        * <code>string message_id = 1;</code>
        */
       public Builder setMessageId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -901,45 +853,7 @@ public final class PlaySwitchNoticeOuterClass {
         return this;
       }
 
-      private double calibrationTime_ ;
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public double getCalibrationTime() {
-        return calibrationTime_;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder setCalibrationTime(double value) {
-        
-        calibrationTime_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder clearCalibrationTime() {
-        
-        calibrationTime_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private Object playerId_ = "";
+      private java.lang.Object playerId_ = "";
       /**
        * <pre>
        *出牌方ID
@@ -947,16 +861,16 @@ public final class PlaySwitchNoticeOuterClass {
        *
        * <code>string player_id = 20;</code>
        */
-      public String getPlayerId() {
-        Object ref = playerId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getPlayerId() {
+        java.lang.Object ref = playerId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           playerId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -968,11 +882,11 @@ public final class PlaySwitchNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getPlayerIdBytes() {
-        Object ref = playerId_;
+        java.lang.Object ref = playerId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           playerId_ = b;
           return b;
         } else {
@@ -987,7 +901,7 @@ public final class PlaySwitchNoticeOuterClass {
        * <code>string player_id = 20;</code>
        */
       public Builder setPlayerId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1042,12 +956,12 @@ public final class PlaySwitchNoticeOuterClass {
     }
 
     // @@protoc_insertion_point(class_scope:PlaySwitchNotice)
-    private static final PlaySwitchNotice DEFAULT_INSTANCE;
+    private static final com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PlaySwitchNotice();
+      DEFAULT_INSTANCE = new com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice();
     }
 
-    public static PlaySwitchNotice getDefaultInstance() {
+    public static com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1065,12 +979,12 @@ public final class PlaySwitchNoticeOuterClass {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<PlaySwitchNotice> getParserForType() {
       return PARSER;
     }
 
-    public PlaySwitchNotice getDefaultInstanceForType() {
+    public com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1089,13 +1003,12 @@ public final class PlaySwitchNoticeOuterClass {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\026PlaySwitchNotice.proto\"\222\001\n\020PlaySwitchN" +
-      "otice\022\022\n\nmessage_id\030\001 \001(\t\022\021\n\tsend_time\030\002" +
-      " \001(\001\022\024\n\014expired_time\030\003 \001(\001\022\024\n\014needRespon" +
-      "se\030\004 \001(\010\022\030\n\020calibration_time\030\005 \001(\001\022\021\n\tpl" +
-      "ayer_id\030\024 \001(\tB*\n(com.artisankid.elementw" +
-      "ar.ewmessagemodelb\006proto3"
+    java.lang.String[] descriptorData = {
+      "\n\026PlaySwitchNotice.proto\"x\n\020PlaySwitchNo" +
+      "tice\022\022\n\nmessage_id\030\001 \001(\t\022\021\n\tsend_time\030\002 " +
+      "\001(\001\022\024\n\014expired_time\030\003 \001(\001\022\024\n\014needRespons" +
+      "e\030\004 \001(\010\022\021\n\tplayer_id\030\024 \001(\tB*\n(com.artisa" +
+      "nkid.elementwar.ewmessagemodelb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1114,7 +1027,7 @@ public final class PlaySwitchNoticeOuterClass {
     internal_static_PlaySwitchNotice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlaySwitchNotice_descriptor,
-        new String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "CalibrationTime", "PlayerId", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "PlayerId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

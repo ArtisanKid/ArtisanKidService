@@ -65,15 +65,6 @@ public final class LoginNoticeOuterClass {
 
     /**
      * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    double getCalibrationTime();
-
-    /**
-     * <pre>
      *用户ID
      * </pre>
      *
@@ -110,7 +101,6 @@ public final class LoginNoticeOuterClass {
       sendTime_ = 0D;
       expiredTime_ = 0D;
       needResponse_ = false;
-      calibrationTime_ = 0D;
       userId_ = "";
     }
 
@@ -158,11 +148,6 @@ public final class LoginNoticeOuterClass {
             case 32: {
 
               needResponse_ = input.readBool();
-              break;
-            }
-            case 41: {
-
-              calibrationTime_ = input.readDouble();
               break;
             }
             case 50: {
@@ -275,19 +260,6 @@ public final class LoginNoticeOuterClass {
       return needResponse_;
     }
 
-    public static final int CALIBRATION_TIME_FIELD_NUMBER = 5;
-    private double calibrationTime_;
-    /**
-     * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    public double getCalibrationTime() {
-      return calibrationTime_;
-    }
-
     public static final int USER_ID_FIELD_NUMBER = 6;
     private volatile java.lang.Object userId_;
     /**
@@ -354,9 +326,6 @@ public final class LoginNoticeOuterClass {
       if (needResponse_ != false) {
         output.writeBool(4, needResponse_);
       }
-      if (calibrationTime_ != 0D) {
-        output.writeDouble(5, calibrationTime_);
-      }
       if (!getUserIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, userId_);
       }
@@ -381,10 +350,6 @@ public final class LoginNoticeOuterClass {
       if (needResponse_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, needResponse_);
-      }
-      if (calibrationTime_ != 0D) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(5, calibrationTime_);
       }
       if (!getUserIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, userId_);
@@ -417,10 +382,6 @@ public final class LoginNoticeOuterClass {
               other.getExpiredTime()));
       result = result && (getNeedResponse()
           == other.getNeedResponse());
-      result = result && (
-          java.lang.Double.doubleToLongBits(getCalibrationTime())
-          == java.lang.Double.doubleToLongBits(
-              other.getCalibrationTime()));
       result = result && getUserId()
           .equals(other.getUserId());
       return result;
@@ -444,9 +405,6 @@ public final class LoginNoticeOuterClass {
       hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNeedResponse());
-      hash = (37 * hash) + CALIBRATION_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getCalibrationTime()));
       hash = (37 * hash) + USER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getUserId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -579,8 +537,6 @@ public final class LoginNoticeOuterClass {
 
         needResponse_ = false;
 
-        calibrationTime_ = 0D;
-
         userId_ = "";
 
         return this;
@@ -609,7 +565,6 @@ public final class LoginNoticeOuterClass {
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
         result.needResponse_ = needResponse_;
-        result.calibrationTime_ = calibrationTime_;
         result.userId_ = userId_;
         onBuilt();
         return result;
@@ -664,9 +619,6 @@ public final class LoginNoticeOuterClass {
         }
         if (other.getNeedResponse() != false) {
           setNeedResponse(other.getNeedResponse());
-        }
-        if (other.getCalibrationTime() != 0D) {
-          setCalibrationTime(other.getCalibrationTime());
         }
         if (!other.getUserId().isEmpty()) {
           userId_ = other.userId_;
@@ -901,44 +853,6 @@ public final class LoginNoticeOuterClass {
         return this;
       }
 
-      private double calibrationTime_ ;
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public double getCalibrationTime() {
-        return calibrationTime_;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder setCalibrationTime(double value) {
-        
-        calibrationTime_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder clearCalibrationTime() {
-        
-        calibrationTime_ = 0D;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object userId_ = "";
       /**
        * <pre>
@@ -1090,12 +1004,11 @@ public final class LoginNoticeOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021LoginNotice.proto\"\213\001\n\013LoginNotice\022\022\n\nm" +
-      "essage_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001\022\024\n\014ex" +
-      "pired_time\030\003 \001(\001\022\024\n\014needResponse\030\004 \001(\010\022\030" +
-      "\n\020calibration_time\030\005 \001(\001\022\017\n\007user_id\030\006 \001(" +
-      "\tB*\n(com.artisankid.elementwar.ewmessage" +
-      "modelb\006proto3"
+      "\n\021LoginNotice.proto\"q\n\013LoginNotice\022\022\n\nme" +
+      "ssage_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001\022\024\n\014exp" +
+      "ired_time\030\003 \001(\001\022\024\n\014needResponse\030\004 \001(\010\022\017\n" +
+      "\007user_id\030\006 \001(\tB*\n(com.artisankid.element" +
+      "war.ewmessagemodelb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1114,7 +1027,7 @@ public final class LoginNoticeOuterClass {
     internal_static_LoginNotice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LoginNotice_descriptor,
-        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "CalibrationTime", "UserId", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "UserId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

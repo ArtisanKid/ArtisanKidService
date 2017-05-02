@@ -25,7 +25,7 @@ public final class InviteNoticeOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    String getMessageId();
+    java.lang.String getMessageId();
     /**
      * <pre>
      *消息ID
@@ -65,21 +65,12 @@ public final class InviteNoticeOuterClass {
 
     /**
      * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    double getCalibrationTime();
-
-    /**
-     * <pre>
      *发送者ID
      * </pre>
      *
      * <code>string sender_id = 20;</code>
      */
-    String getSenderId();
+    java.lang.String getSenderId();
     /**
      * <pre>
      *发送者ID
@@ -97,7 +88,7 @@ public final class InviteNoticeOuterClass {
      *
      * <code>string sender_name = 21;</code>
      */
-    String getSenderName();
+    java.lang.String getSenderName();
     /**
      * <pre>
      *发送者名
@@ -115,7 +106,7 @@ public final class InviteNoticeOuterClass {
      *
      * <code>string sender_portrait_url = 22;</code>
      */
-    String getSenderPortraitUrl();
+    java.lang.String getSenderPortraitUrl();
     /**
      * <pre>
      *发送者头像
@@ -146,13 +137,12 @@ public final class InviteNoticeOuterClass {
       sendTime_ = 0D;
       expiredTime_ = 0D;
       needResponse_ = false;
-      calibrationTime_ = 0D;
       senderId_ = "";
       senderName_ = "";
       senderPortraitUrl_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -178,7 +168,7 @@ public final class InviteNoticeOuterClass {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               messageId_ = s;
               break;
@@ -198,25 +188,20 @@ public final class InviteNoticeOuterClass {
               needResponse_ = input.readBool();
               break;
             }
-            case 41: {
-
-              calibrationTime_ = input.readDouble();
-              break;
-            }
             case 162: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               senderId_ = s;
               break;
             }
             case 170: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               senderName_ = s;
               break;
             }
             case 178: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               senderPortraitUrl_ = s;
               break;
@@ -234,18 +219,18 @@ public final class InviteNoticeOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return InviteNoticeOuterClass.internal_static_InviteNotice_descriptor;
+      return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.internal_static_InviteNotice_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return InviteNoticeOuterClass.internal_static_InviteNotice_fieldAccessorTable
+      return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.internal_static_InviteNotice_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              InviteNotice.class, Builder.class);
+              com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.class, com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.Builder.class);
     }
 
     public static final int MESSAGE_ID_FIELD_NUMBER = 1;
-    private volatile Object messageId_;
+    private volatile java.lang.Object messageId_;
     /**
      * <pre>
      *消息ID
@@ -253,14 +238,14 @@ public final class InviteNoticeOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    public String getMessageId() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getMessageId() {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         messageId_ = s;
         return s;
       }
@@ -274,11 +259,11 @@ public final class InviteNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getMessageIdBytes() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         messageId_ = b;
         return b;
       } else {
@@ -325,21 +310,8 @@ public final class InviteNoticeOuterClass {
       return needResponse_;
     }
 
-    public static final int CALIBRATION_TIME_FIELD_NUMBER = 5;
-    private double calibrationTime_;
-    /**
-     * <pre>
-     *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-     * </pre>
-     *
-     * <code>double calibration_time = 5;</code>
-     */
-    public double getCalibrationTime() {
-      return calibrationTime_;
-    }
-
     public static final int SENDER_ID_FIELD_NUMBER = 20;
-    private volatile Object senderId_;
+    private volatile java.lang.Object senderId_;
     /**
      * <pre>
      *发送者ID
@@ -347,14 +319,14 @@ public final class InviteNoticeOuterClass {
      *
      * <code>string sender_id = 20;</code>
      */
-    public String getSenderId() {
-      Object ref = senderId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getSenderId() {
+      java.lang.Object ref = senderId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         senderId_ = s;
         return s;
       }
@@ -368,11 +340,11 @@ public final class InviteNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getSenderIdBytes() {
-      Object ref = senderId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = senderId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         senderId_ = b;
         return b;
       } else {
@@ -381,7 +353,7 @@ public final class InviteNoticeOuterClass {
     }
 
     public static final int SENDER_NAME_FIELD_NUMBER = 21;
-    private volatile Object senderName_;
+    private volatile java.lang.Object senderName_;
     /**
      * <pre>
      *发送者名
@@ -389,14 +361,14 @@ public final class InviteNoticeOuterClass {
      *
      * <code>string sender_name = 21;</code>
      */
-    public String getSenderName() {
-      Object ref = senderName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getSenderName() {
+      java.lang.Object ref = senderName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         senderName_ = s;
         return s;
       }
@@ -410,11 +382,11 @@ public final class InviteNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getSenderNameBytes() {
-      Object ref = senderName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = senderName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         senderName_ = b;
         return b;
       } else {
@@ -423,7 +395,7 @@ public final class InviteNoticeOuterClass {
     }
 
     public static final int SENDER_PORTRAIT_URL_FIELD_NUMBER = 22;
-    private volatile Object senderPortraitUrl_;
+    private volatile java.lang.Object senderPortraitUrl_;
     /**
      * <pre>
      *发送者头像
@@ -431,14 +403,14 @@ public final class InviteNoticeOuterClass {
      *
      * <code>string sender_portrait_url = 22;</code>
      */
-    public String getSenderPortraitUrl() {
-      Object ref = senderPortraitUrl_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getSenderPortraitUrl() {
+      java.lang.Object ref = senderPortraitUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         senderPortraitUrl_ = s;
         return s;
       }
@@ -452,11 +424,11 @@ public final class InviteNoticeOuterClass {
      */
     public com.google.protobuf.ByteString
         getSenderPortraitUrlBytes() {
-      Object ref = senderPortraitUrl_;
-      if (ref instanceof String) {
+      java.lang.Object ref = senderPortraitUrl_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         senderPortraitUrl_ = b;
         return b;
       } else {
@@ -487,9 +459,6 @@ public final class InviteNoticeOuterClass {
       }
       if (needResponse_ != false) {
         output.writeBool(4, needResponse_);
-      }
-      if (calibrationTime_ != 0D) {
-        output.writeDouble(5, calibrationTime_);
       }
       if (!getSenderIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, senderId_);
@@ -522,10 +491,6 @@ public final class InviteNoticeOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, needResponse_);
       }
-      if (calibrationTime_ != 0D) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(5, calibrationTime_);
-      }
       if (!getSenderIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, senderId_);
       }
@@ -540,33 +505,29 @@ public final class InviteNoticeOuterClass {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof InviteNotice)) {
+      if (!(obj instanceof com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice)) {
         return super.equals(obj);
       }
-      InviteNotice other = (InviteNotice) obj;
+      com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice other = (com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) obj;
 
       boolean result = true;
       result = result && getMessageId()
           .equals(other.getMessageId());
       result = result && (
-          Double.doubleToLongBits(getSendTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getSendTime())
+          == java.lang.Double.doubleToLongBits(
               other.getSendTime()));
       result = result && (
-          Double.doubleToLongBits(getExpiredTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getExpiredTime())
+          == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
       result = result && (getNeedResponse()
           == other.getNeedResponse());
-      result = result && (
-          Double.doubleToLongBits(getCalibrationTime())
-          == Double.doubleToLongBits(
-              other.getCalibrationTime()));
       result = result && getSenderId()
           .equals(other.getSenderId());
       result = result && getSenderName()
@@ -576,7 +537,7 @@ public final class InviteNoticeOuterClass {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -587,16 +548,13 @@ public final class InviteNoticeOuterClass {
       hash = (53 * hash) + getMessageId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getSendTime()));
+          java.lang.Double.doubleToLongBits(getSendTime()));
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getExpiredTime()));
+          java.lang.Double.doubleToLongBits(getExpiredTime()));
       hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNeedResponse());
-      hash = (37 * hash) + CALIBRATION_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getCalibrationTime()));
       hash = (37 * hash) + SENDER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getSenderId().hashCode();
       hash = (37 * hash) + SENDER_NAME_FIELD_NUMBER;
@@ -608,58 +566,58 @@ public final class InviteNoticeOuterClass {
       return hash;
     }
 
-    public static InviteNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static InviteNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static InviteNotice parseFrom(byte[] data)
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static InviteNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static InviteNotice parseFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static InviteNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static InviteNotice parseDelimitedFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static InviteNotice parseDelimitedFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static InviteNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static InviteNotice parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -671,7 +629,7 @@ public final class InviteNoticeOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(InviteNotice prototype) {
+    public static Builder newBuilder(com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -679,9 +637,9 @@ public final class InviteNoticeOuterClass {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -695,17 +653,17 @@ public final class InviteNoticeOuterClass {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:InviteNotice)
-        InviteNoticeOrBuilder {
+        com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNoticeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return InviteNoticeOuterClass.internal_static_InviteNotice_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.internal_static_InviteNotice_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return InviteNoticeOuterClass.internal_static_InviteNotice_fieldAccessorTable
+        return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.internal_static_InviteNotice_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                InviteNotice.class, Builder.class);
+                com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.class, com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.Builder.class);
       }
 
       // Construct using com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.newBuilder()
@@ -714,7 +672,7 @@ public final class InviteNoticeOuterClass {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -733,8 +691,6 @@ public final class InviteNoticeOuterClass {
 
         needResponse_ = false;
 
-        calibrationTime_ = 0D;
-
         senderId_ = "";
 
         senderName_ = "";
@@ -746,28 +702,27 @@ public final class InviteNoticeOuterClass {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return InviteNoticeOuterClass.internal_static_InviteNotice_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.internal_static_InviteNotice_descriptor;
       }
 
-      public InviteNotice getDefaultInstanceForType() {
-        return InviteNotice.getDefaultInstance();
+      public com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice getDefaultInstanceForType() {
+        return com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.getDefaultInstance();
       }
 
-      public InviteNotice build() {
-        InviteNotice result = buildPartial();
+      public com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice build() {
+        com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public InviteNotice buildPartial() {
-        InviteNotice result = new InviteNotice(this);
+      public com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice buildPartial() {
+        com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice result = new com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice(this);
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
         result.needResponse_ = needResponse_;
-        result.calibrationTime_ = calibrationTime_;
         result.senderId_ = senderId_;
         result.senderName_ = senderName_;
         result.senderPortraitUrl_ = senderPortraitUrl_;
@@ -802,16 +757,16 @@ public final class InviteNoticeOuterClass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof InviteNotice) {
-          return mergeFrom((InviteNotice)other);
+        if (other instanceof com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) {
+          return mergeFrom((com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(InviteNotice other) {
-        if (other == InviteNotice.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice other) {
+        if (other == com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice.getDefaultInstance()) return this;
         if (!other.getMessageId().isEmpty()) {
           messageId_ = other.messageId_;
           onChanged();
@@ -824,9 +779,6 @@ public final class InviteNoticeOuterClass {
         }
         if (other.getNeedResponse() != false) {
           setNeedResponse(other.getNeedResponse());
-        }
-        if (other.getCalibrationTime() != 0D) {
-          setCalibrationTime(other.getCalibrationTime());
         }
         if (!other.getSenderId().isEmpty()) {
           senderId_ = other.senderId_;
@@ -852,11 +804,11 @@ public final class InviteNoticeOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        InviteNotice parsedMessage = null;
+        com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (InviteNotice) e.getUnfinishedMessage();
+          parsedMessage = (com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -866,7 +818,7 @@ public final class InviteNoticeOuterClass {
         return this;
       }
 
-      private Object messageId_ = "";
+      private java.lang.Object messageId_ = "";
       /**
        * <pre>
        *消息ID
@@ -874,16 +826,16 @@ public final class InviteNoticeOuterClass {
        *
        * <code>string message_id = 1;</code>
        */
-      public String getMessageId() {
-        Object ref = messageId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getMessageId() {
+        java.lang.Object ref = messageId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           messageId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -895,11 +847,11 @@ public final class InviteNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getMessageIdBytes() {
-        Object ref = messageId_;
+        java.lang.Object ref = messageId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           messageId_ = b;
           return b;
         } else {
@@ -914,7 +866,7 @@ public final class InviteNoticeOuterClass {
        * <code>string message_id = 1;</code>
        */
       public Builder setMessageId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1069,45 +1021,7 @@ public final class InviteNoticeOuterClass {
         return this;
       }
 
-      private double calibrationTime_ ;
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public double getCalibrationTime() {
-        return calibrationTime_;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder setCalibrationTime(double value) {
-        
-        calibrationTime_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *校准时间戳。因为时间戳处在1482934107这种量级，超过2^28，需要fixed32这种高效率编码类型
-       * </pre>
-       *
-       * <code>double calibration_time = 5;</code>
-       */
-      public Builder clearCalibrationTime() {
-        
-        calibrationTime_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private Object senderId_ = "";
+      private java.lang.Object senderId_ = "";
       /**
        * <pre>
        *发送者ID
@@ -1115,16 +1029,16 @@ public final class InviteNoticeOuterClass {
        *
        * <code>string sender_id = 20;</code>
        */
-      public String getSenderId() {
-        Object ref = senderId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getSenderId() {
+        java.lang.Object ref = senderId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           senderId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1136,11 +1050,11 @@ public final class InviteNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getSenderIdBytes() {
-        Object ref = senderId_;
+        java.lang.Object ref = senderId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           senderId_ = b;
           return b;
         } else {
@@ -1155,7 +1069,7 @@ public final class InviteNoticeOuterClass {
        * <code>string sender_id = 20;</code>
        */
       public Builder setSenderId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1196,7 +1110,7 @@ public final class InviteNoticeOuterClass {
         return this;
       }
 
-      private Object senderName_ = "";
+      private java.lang.Object senderName_ = "";
       /**
        * <pre>
        *发送者名
@@ -1204,16 +1118,16 @@ public final class InviteNoticeOuterClass {
        *
        * <code>string sender_name = 21;</code>
        */
-      public String getSenderName() {
-        Object ref = senderName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getSenderName() {
+        java.lang.Object ref = senderName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           senderName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1225,11 +1139,11 @@ public final class InviteNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getSenderNameBytes() {
-        Object ref = senderName_;
+        java.lang.Object ref = senderName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           senderName_ = b;
           return b;
         } else {
@@ -1244,7 +1158,7 @@ public final class InviteNoticeOuterClass {
        * <code>string sender_name = 21;</code>
        */
       public Builder setSenderName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1285,7 +1199,7 @@ public final class InviteNoticeOuterClass {
         return this;
       }
 
-      private Object senderPortraitUrl_ = "";
+      private java.lang.Object senderPortraitUrl_ = "";
       /**
        * <pre>
        *发送者头像
@@ -1293,16 +1207,16 @@ public final class InviteNoticeOuterClass {
        *
        * <code>string sender_portrait_url = 22;</code>
        */
-      public String getSenderPortraitUrl() {
-        Object ref = senderPortraitUrl_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getSenderPortraitUrl() {
+        java.lang.Object ref = senderPortraitUrl_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           senderPortraitUrl_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1314,11 +1228,11 @@ public final class InviteNoticeOuterClass {
        */
       public com.google.protobuf.ByteString
           getSenderPortraitUrlBytes() {
-        Object ref = senderPortraitUrl_;
+        java.lang.Object ref = senderPortraitUrl_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           senderPortraitUrl_ = b;
           return b;
         } else {
@@ -1333,7 +1247,7 @@ public final class InviteNoticeOuterClass {
        * <code>string sender_portrait_url = 22;</code>
        */
       public Builder setSenderPortraitUrl(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1388,12 +1302,12 @@ public final class InviteNoticeOuterClass {
     }
 
     // @@protoc_insertion_point(class_scope:InviteNotice)
-    private static final InviteNotice DEFAULT_INSTANCE;
+    private static final com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new InviteNotice();
+      DEFAULT_INSTANCE = new com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice();
     }
 
-    public static InviteNotice getDefaultInstance() {
+    public static com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1411,12 +1325,12 @@ public final class InviteNoticeOuterClass {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<InviteNotice> getParserForType() {
       return PARSER;
     }
 
-    public InviteNotice getDefaultInstanceForType() {
+    public com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.InviteNotice getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1435,14 +1349,14 @@ public final class InviteNoticeOuterClass {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\022InviteNotice.proto\"\300\001\n\014InviteNotice\022\022\n" +
+    java.lang.String[] descriptorData = {
+      "\n\022InviteNotice.proto\"\246\001\n\014InviteNotice\022\022\n" +
       "\nmessage_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001\022\024\n\014" +
       "expired_time\030\003 \001(\001\022\024\n\014needResponse\030\004 \001(\010" +
-      "\022\030\n\020calibration_time\030\005 \001(\001\022\021\n\tsender_id\030" +
-      "\024 \001(\t\022\023\n\013sender_name\030\025 \001(\t\022\033\n\023sender_por" +
-      "trait_url\030\026 \001(\tB*\n(com.artisankid.elemen" +
-      "twar.ewmessagemodelb\006proto3"
+      "\022\021\n\tsender_id\030\024 \001(\t\022\023\n\013sender_name\030\025 \001(\t" +
+      "\022\033\n\023sender_portrait_url\030\026 \001(\tB*\n(com.art" +
+      "isankid.elementwar.ewmessagemodelb\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1461,7 +1375,7 @@ public final class InviteNoticeOuterClass {
     internal_static_InviteNotice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_InviteNotice_descriptor,
-        new String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "CalibrationTime", "SenderId", "SenderName", "SenderPortraitUrl", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "SenderId", "SenderName", "SenderPortraitUrl", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -25,7 +25,7 @@ public final class MatchMessageOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    String getMessageId();
+    java.lang.String getMessageId();
     /**
      * <pre>
      *消息ID
@@ -70,7 +70,7 @@ public final class MatchMessageOuterClass {
      *
      * <code>string sender_id = 5;</code>
      */
-    String getSenderId();
+    java.lang.String getSenderId();
     /**
      * <pre>
      *发送者ID
@@ -104,7 +104,7 @@ public final class MatchMessageOuterClass {
       senderId_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -130,7 +130,7 @@ public final class MatchMessageOuterClass {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               messageId_ = s;
               break;
@@ -151,7 +151,7 @@ public final class MatchMessageOuterClass {
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               senderId_ = s;
               break;
@@ -169,18 +169,18 @@ public final class MatchMessageOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return MatchMessageOuterClass.internal_static_MatchMessage_descriptor;
+      return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.internal_static_MatchMessage_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return MatchMessageOuterClass.internal_static_MatchMessage_fieldAccessorTable
+      return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.internal_static_MatchMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              MatchMessage.class, Builder.class);
+              com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.class, com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.Builder.class);
     }
 
     public static final int MESSAGE_ID_FIELD_NUMBER = 1;
-    private volatile Object messageId_;
+    private volatile java.lang.Object messageId_;
     /**
      * <pre>
      *消息ID
@@ -188,14 +188,14 @@ public final class MatchMessageOuterClass {
      *
      * <code>string message_id = 1;</code>
      */
-    public String getMessageId() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getMessageId() {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         messageId_ = s;
         return s;
       }
@@ -209,11 +209,11 @@ public final class MatchMessageOuterClass {
      */
     public com.google.protobuf.ByteString
         getMessageIdBytes() {
-      Object ref = messageId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = messageId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         messageId_ = b;
         return b;
       } else {
@@ -261,7 +261,7 @@ public final class MatchMessageOuterClass {
     }
 
     public static final int SENDER_ID_FIELD_NUMBER = 5;
-    private volatile Object senderId_;
+    private volatile java.lang.Object senderId_;
     /**
      * <pre>
      *发送者ID
@@ -269,14 +269,14 @@ public final class MatchMessageOuterClass {
      *
      * <code>string sender_id = 5;</code>
      */
-    public String getSenderId() {
-      Object ref = senderId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getSenderId() {
+      java.lang.Object ref = senderId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         senderId_ = s;
         return s;
       }
@@ -290,11 +290,11 @@ public final class MatchMessageOuterClass {
      */
     public com.google.protobuf.ByteString
         getSenderIdBytes() {
-      Object ref = senderId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = senderId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         senderId_ = b;
         return b;
       } else {
@@ -359,26 +359,26 @@ public final class MatchMessageOuterClass {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof MatchMessage)) {
+      if (!(obj instanceof com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage)) {
         return super.equals(obj);
       }
-      MatchMessage other = (MatchMessage) obj;
+      com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage other = (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) obj;
 
       boolean result = true;
       result = result && getMessageId()
           .equals(other.getMessageId());
       result = result && (
-          Double.doubleToLongBits(getSendTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getSendTime())
+          == java.lang.Double.doubleToLongBits(
               other.getSendTime()));
       result = result && (
-          Double.doubleToLongBits(getExpiredTime())
-          == Double.doubleToLongBits(
+          java.lang.Double.doubleToLongBits(getExpiredTime())
+          == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
       result = result && (getNeedResponse()
           == other.getNeedResponse());
@@ -387,7 +387,7 @@ public final class MatchMessageOuterClass {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -398,10 +398,10 @@ public final class MatchMessageOuterClass {
       hash = (53 * hash) + getMessageId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getSendTime()));
+          java.lang.Double.doubleToLongBits(getSendTime()));
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          Double.doubleToLongBits(getExpiredTime()));
+          java.lang.Double.doubleToLongBits(getExpiredTime()));
       hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNeedResponse());
@@ -412,58 +412,58 @@ public final class MatchMessageOuterClass {
       return hash;
     }
 
-    public static MatchMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static MatchMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static MatchMessage parseFrom(byte[] data)
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static MatchMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static MatchMessage parseFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static MatchMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static MatchMessage parseDelimitedFrom(java.io.InputStream input)
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static MatchMessage parseDelimitedFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static MatchMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static MatchMessage parseFrom(
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -475,7 +475,7 @@ public final class MatchMessageOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(MatchMessage prototype) {
+    public static Builder newBuilder(com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -483,9 +483,9 @@ public final class MatchMessageOuterClass {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -499,17 +499,17 @@ public final class MatchMessageOuterClass {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:MatchMessage)
-        MatchMessageOrBuilder {
+        com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return MatchMessageOuterClass.internal_static_MatchMessage_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.internal_static_MatchMessage_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return MatchMessageOuterClass.internal_static_MatchMessage_fieldAccessorTable
+        return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.internal_static_MatchMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                MatchMessage.class, Builder.class);
+                com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.class, com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.Builder.class);
       }
 
       // Construct using com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.newBuilder()
@@ -518,7 +518,7 @@ public final class MatchMessageOuterClass {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -544,23 +544,23 @@ public final class MatchMessageOuterClass {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return MatchMessageOuterClass.internal_static_MatchMessage_descriptor;
+        return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.internal_static_MatchMessage_descriptor;
       }
 
-      public MatchMessage getDefaultInstanceForType() {
-        return MatchMessage.getDefaultInstance();
+      public com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage getDefaultInstanceForType() {
+        return com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.getDefaultInstance();
       }
 
-      public MatchMessage build() {
-        MatchMessage result = buildPartial();
+      public com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage build() {
+        com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public MatchMessage buildPartial() {
-        MatchMessage result = new MatchMessage(this);
+      public com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage buildPartial() {
+        com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage result = new com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage(this);
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
@@ -597,16 +597,16 @@ public final class MatchMessageOuterClass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof MatchMessage) {
-          return mergeFrom((MatchMessage)other);
+        if (other instanceof com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) {
+          return mergeFrom((com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(MatchMessage other) {
-        if (other == MatchMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage other) {
+        if (other == com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage.getDefaultInstance()) return this;
         if (!other.getMessageId().isEmpty()) {
           messageId_ = other.messageId_;
           onChanged();
@@ -636,11 +636,11 @@ public final class MatchMessageOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        MatchMessage parsedMessage = null;
+        com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (MatchMessage) e.getUnfinishedMessage();
+          parsedMessage = (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -650,7 +650,7 @@ public final class MatchMessageOuterClass {
         return this;
       }
 
-      private Object messageId_ = "";
+      private java.lang.Object messageId_ = "";
       /**
        * <pre>
        *消息ID
@@ -658,16 +658,16 @@ public final class MatchMessageOuterClass {
        *
        * <code>string message_id = 1;</code>
        */
-      public String getMessageId() {
-        Object ref = messageId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getMessageId() {
+        java.lang.Object ref = messageId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           messageId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -679,11 +679,11 @@ public final class MatchMessageOuterClass {
        */
       public com.google.protobuf.ByteString
           getMessageIdBytes() {
-        Object ref = messageId_;
+        java.lang.Object ref = messageId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           messageId_ = b;
           return b;
         } else {
@@ -698,7 +698,7 @@ public final class MatchMessageOuterClass {
        * <code>string message_id = 1;</code>
        */
       public Builder setMessageId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -853,7 +853,7 @@ public final class MatchMessageOuterClass {
         return this;
       }
 
-      private Object senderId_ = "";
+      private java.lang.Object senderId_ = "";
       /**
        * <pre>
        *发送者ID
@@ -861,16 +861,16 @@ public final class MatchMessageOuterClass {
        *
        * <code>string sender_id = 5;</code>
        */
-      public String getSenderId() {
-        Object ref = senderId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getSenderId() {
+        java.lang.Object ref = senderId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           senderId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -882,11 +882,11 @@ public final class MatchMessageOuterClass {
        */
       public com.google.protobuf.ByteString
           getSenderIdBytes() {
-        Object ref = senderId_;
+        java.lang.Object ref = senderId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           senderId_ = b;
           return b;
         } else {
@@ -901,7 +901,7 @@ public final class MatchMessageOuterClass {
        * <code>string sender_id = 5;</code>
        */
       public Builder setSenderId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -956,12 +956,12 @@ public final class MatchMessageOuterClass {
     }
 
     // @@protoc_insertion_point(class_scope:MatchMessage)
-    private static final MatchMessage DEFAULT_INSTANCE;
+    private static final com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new MatchMessage();
+      DEFAULT_INSTANCE = new com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage();
     }
 
-    public static MatchMessage getDefaultInstance() {
+    public static com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -979,12 +979,12 @@ public final class MatchMessageOuterClass {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<MatchMessage> getParserForType() {
       return PARSER;
     }
 
-    public MatchMessage getDefaultInstanceForType() {
+    public com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1003,7 +1003,7 @@ public final class MatchMessageOuterClass {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\022MatchMessage.proto\"t\n\014MatchMessage\022\022\n\n" +
       "message_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001\022\024\n\014e" +
       "xpired_time\030\003 \001(\001\022\024\n\014needResponse\030\004 \001(\010\022" +
@@ -1027,7 +1027,7 @@ public final class MatchMessageOuterClass {
     internal_static_MatchMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MatchMessage_descriptor,
-        new String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "SenderId", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "SenderId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

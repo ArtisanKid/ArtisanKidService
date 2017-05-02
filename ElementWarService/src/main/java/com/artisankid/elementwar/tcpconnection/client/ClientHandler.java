@@ -36,7 +36,6 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object>  {
         nowDate.add(Calendar.SECOND,3000);
         dealNotice.setExpiredTime(nowDate.getTimeInMillis() / 1000);
         dealNotice.setNeedResponse(Boolean.TRUE);
-        dealNotice.setCalibrationTime(nowDate.getTimeInMillis()/1000);
 
 
         ContainerOuterClass.Container.Builder containerBuilder = ContainerOuterClass.Container.newBuilder();
@@ -73,7 +72,6 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object>  {
         nowDate.add(Calendar.SECOND,3000);
         returnDealNotice.setExpiredTime(nowDate.getTimeInMillis() / 1000);
         returnDealNotice.setNeedResponse(Boolean.TRUE);
-        returnDealNotice.setCalibrationTime(nowDate.getTimeInMillis()/1000);
 
 
         ContainerOuterClass.Container.Builder containerBuilder = ContainerOuterClass.Container.newBuilder();

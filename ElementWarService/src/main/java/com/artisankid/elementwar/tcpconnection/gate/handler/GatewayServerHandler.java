@@ -34,7 +34,6 @@ public class GatewayServerHandler extends ChannelInboundHandlerAdapter{
         nowDate.add(Calendar.SECOND,3000);
         returnDealNotice.setExpiredTime(nowDate.getTimeInMillis()/1000);
         returnDealNotice.setNeedResponse(Boolean.TRUE);
-        returnDealNotice.setCalibrationTime(nowDate.getTimeInMillis()/1000);
         ctx.writeAndFlush(returnDealNotice);
     }
 
