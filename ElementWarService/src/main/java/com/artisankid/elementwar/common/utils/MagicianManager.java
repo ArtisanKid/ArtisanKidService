@@ -1,5 +1,8 @@
 package com.artisankid.elementwar.common.utils;
 
+import com.artisankid.elementwar.common.dao.MagicianDao;
+import com.artisankid.elementwar.common.dao.TokenDao;
+
 /**
  * Created by LiXiangYu on 2017/5/2.
  */
@@ -18,5 +21,14 @@ public class MagicianManager {
         int hashCode = identifier.hashCode();
         String hashValue = Integer.toHexString(hashCode);
         return hashValue;
+    }
+
+    static public Boolean VerifyOpenID(String openID) {
+        MagicianDao dao = new MagicianDao();
+        if(dao.selectByOpenID(openID) != null) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
     }
 }
