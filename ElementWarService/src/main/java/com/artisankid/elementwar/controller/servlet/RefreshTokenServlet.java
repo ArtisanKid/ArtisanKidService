@@ -1,9 +1,8 @@
 package com.artisankid.elementwar.controller.servlet;
 
 import com.artisankid.elementwar.common.dao.TokenDao;
-import com.artisankid.elementwar.common.dao.UserDao;
-import com.artisankid.elementwar.common.ewmodel.Magician;
 import com.artisankid.elementwar.common.ewmodel.Token;
+import com.artisankid.elementwar.common.utils.TokenManager;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.google.gson.Gson;
 
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 
 /**
  * Created by LiXiangYu on 2017/4/15.
@@ -34,6 +32,7 @@ public class RefreshTokenServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String openID = request.getParameter("openID");
         String accessToken = request.getParameter("accessToken");
         String refreshToken = request.getParameter("refreshToken");
 
@@ -49,7 +48,7 @@ public class RefreshTokenServlet extends HttpServlet {
             return;
         }
 
-        if(!token.getRefreshToken().equals(refreshToken)) {
+        if(token.getRefreshToken().equals(refreshToken) == Boolean.FALSE) {
             //如果refreshToken无效，那么删除这个token
             tokenDao.delete(accessToken);
 
@@ -73,7 +72,7 @@ public class RefreshTokenServlet extends HttpServlet {
             return;
         }
 
-        token.setAccessToken("这里是一个新的token");
+        token.setAccessToken(TokenManager.CreateAccessToken(openID));
         Long tokenExpiredTime = System.currentTimeMillis() + 24 * 60 * 60 * 1000;
         token.setExpiredTime(tokenExpiredTime);
         tokenDao.update(token);

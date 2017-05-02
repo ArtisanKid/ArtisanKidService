@@ -1,14 +1,16 @@
 package com.artisankid.elementwar.controller.filter;
 
+import com.artisankid.elementwar.common.dao.MagicianDao;
+import com.artisankid.elementwar.common.dao.TokenDao;
+import com.artisankid.elementwar.common.ewmodel.Token;
+import com.artisankid.elementwar.ewmodel.ResponseClass;
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -29,6 +31,57 @@ public class BusinessServletFilter implements Filter {
         //TODO 过滤逻辑
         logger.error("filter------------------------------------");
 
+        HttpServletRequest request = (HttpServletRequest)servletRequest;
+        HttpServletResponse response = (HttpServletResponse)servletResponse;
+
+        if(request.getRequestURI().equals("/login")) {
+            //通过
+        }
+
+        if(request.getRequestURI().equals("/token/refresh")) {
+            //通过
+        }
+
+        //验证openID是否有效
+        String openID = request.getParameter("openID");
+        if(openID == null) {
+            ResponseClass<Token> commonResponse = new ResponseClass<>();
+            commonResponse.setCode(9000);
+            commonResponse.setMessage("请求参数缺失(openID)");
+            String json = new Gson().toJson(commonResponse);
+            response.getWriter().append(json);
+            return;
+        }
+
+        MagicianDao magicianDao = new MagicianDao();
+        if(magicianDao.selectByOpenID(openID) == null) {
+            ResponseClass<Token> commonResponse = new ResponseClass<>();
+            commonResponse.setCode(100800);
+            commonResponse.setMessage("用户不存在");
+            String json = new Gson().toJson(commonResponse);
+            response.getWriter().append(json);
+            return;
+        }
+
+        String accessToken = request.getParameter("accessToken");
+        if(accessToken == null) {
+            ResponseClass<Token> commonResponse = new ResponseClass<>();
+            commonResponse.setCode(9000);
+            commonResponse.setMessage("请求参数缺失(accessToken)");
+            String json = new Gson().toJson(commonResponse);
+            response.getWriter().append(json);
+            return;
+        }
+
+        TokenDao tokenDao = new TokenDao();
+        if(tokenDao.selectByAccessToken(accessToken) == null) {
+            ResponseClass<Token> commonResponse = new ResponseClass<>();
+            commonResponse.setCode(100901);
+            commonResponse.setMessage("access token无效");
+            String json = new Gson().toJson(commonResponse);
+            response.getWriter().append(json);
+            return;
+        }
     }
 
     @Override
