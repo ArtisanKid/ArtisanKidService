@@ -17,7 +17,20 @@ public class TokenDao {
 	 */
 	public List<Token> selectAll() {
 		String sql = "SELECT * FROM Magician_Token";
-		
+		return selectBySQL(sql);
+	}
+
+	/**
+	 * 根据openID查询Token
+	 * @param openID
+	 * @return
+	 */
+	public List<Token> selectByOpenID(String openID) {
+		String sql = "SELECT * FROM Magician_Token WHERE openID = '" + openID + "';";
+		return selectBySQL(sql);
+	}
+
+	private List<Token> selectBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		List<Map<String, Object>> result = manager.select(sql);
@@ -29,8 +42,8 @@ public class TokenDao {
 			object.setAccessToken(map.get("access_token").toString());
 			object.setRefreshToken(map.get("refresh_token").toString());
 
-			Date access_token_expired_time = (Date)map.get("access_token_expired_time");
-			object.setExpiredTime(access_token_expired_time.getTime());
+			Timestamp accessTokenExpiredTime = (Timestamp)map.get("access_token_expired_time");
+			object.setExpiredTime(accessTokenExpiredTime.getTime());
 			objects.add(object);
 		}
 		return objects;
