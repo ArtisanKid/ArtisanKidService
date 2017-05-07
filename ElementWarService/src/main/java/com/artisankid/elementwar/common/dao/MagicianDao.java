@@ -93,7 +93,7 @@ public class MagicianDao {
      * @return
      */
     public Magician selectByUserID(String userID) {
-        String sql = "SELECT * FROM User LEFT JOIN Magician ON User.userID = Magician.userID WHERE userID = '" + userID + "';";
+        String sql = "SELECT * FROM Magician LEFT JOIN User ON Magician.userID = User.userID WHERE Magician.userID = '" + userID + "';";
         return this.selectMagicianBySQL(sql);
     }
 
@@ -104,7 +104,7 @@ public class MagicianDao {
      * @return
      */
     public Magician selectByOpenID(String openID) {
-        String sql = "SELECT * FROM User LEFT JOIN Magician ON User.userID = Magician.userID WHERE openID = '" + openID + "';";
+        String sql = "SELECT * FROM Magician LEFT JOIN User ON Magician.userID = User.userID WHERE openID = '" + openID + "';";
         return this.selectMagicianBySQL(sql);
     }
 
@@ -115,7 +115,7 @@ public class MagicianDao {
      * @return
      */
     public Magician selectByNickname(String nickname) {
-        String sql = "SELECT * FROM User LEFT JOIN Magician ON User.userID = Magician.userID WHERE nickname = '" + nickname + "';";
+        String sql = "SELECT * FROM Magician LEFT JOIN User ON Magician.userID = User.userID WHERE nickname = '" + nickname + "';";
         return this.selectMagicianBySQL(sql);
     }
 

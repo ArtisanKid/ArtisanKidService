@@ -36,51 +36,49 @@ public class BusinessServletFilter implements Filter {
 
         if(request.getRequestURI().equals("/login")) {
             //通过
-        }
-
-        if(request.getRequestURI().equals("/token/refresh")) {
+        } else if(request.getRequestURI().equals("/token/refresh")) {
             //通过
-        }
+        } else {
+            //验证openID是否有效
+            String openID = request.getParameter("openID");
+            if (openID == null) {
+                ResponseClass<Token> commonResponse = new ResponseClass<>();
+                commonResponse.setCode(9000);
+                commonResponse.setMessage("请求参数缺失(openID)");
+                String json = new Gson().toJson(commonResponse);
+                response.getWriter().append(json);
+                return;
+            }
 
-        //验证openID是否有效
-        String openID = request.getParameter("openID");
-        if(openID == null) {
-            ResponseClass<Token> commonResponse = new ResponseClass<>();
-            commonResponse.setCode(9000);
-            commonResponse.setMessage("请求参数缺失(openID)");
-            String json = new Gson().toJson(commonResponse);
-            response.getWriter().append(json);
-            return;
-        }
+            MagicianDao magicianDao = new MagicianDao();
+            if (magicianDao.selectByOpenID(openID) == null) {
+                ResponseClass<Token> commonResponse = new ResponseClass<>();
+                commonResponse.setCode(100800);
+                commonResponse.setMessage("用户不存在");
+                String json = new Gson().toJson(commonResponse);
+                response.getWriter().append(json);
+                return;
+            }
 
-        MagicianDao magicianDao = new MagicianDao();
-        if(magicianDao.selectByOpenID(openID) == null) {
-            ResponseClass<Token> commonResponse = new ResponseClass<>();
-            commonResponse.setCode(100800);
-            commonResponse.setMessage("用户不存在");
-            String json = new Gson().toJson(commonResponse);
-            response.getWriter().append(json);
-            return;
-        }
+            String accessToken = request.getParameter("accessToken");
+            if (accessToken == null) {
+                ResponseClass<Token> commonResponse = new ResponseClass<>();
+                commonResponse.setCode(9000);
+                commonResponse.setMessage("请求参数缺失(accessToken)");
+                String json = new Gson().toJson(commonResponse);
+                response.getWriter().append(json);
+                return;
+            }
 
-        String accessToken = request.getParameter("accessToken");
-        if(accessToken == null) {
-            ResponseClass<Token> commonResponse = new ResponseClass<>();
-            commonResponse.setCode(9000);
-            commonResponse.setMessage("请求参数缺失(accessToken)");
-            String json = new Gson().toJson(commonResponse);
-            response.getWriter().append(json);
-            return;
-        }
-
-        TokenDao tokenDao = new TokenDao();
-        if(tokenDao.selectByAccessToken(accessToken) == null) {
-            ResponseClass<Token> commonResponse = new ResponseClass<>();
-            commonResponse.setCode(100901);
-            commonResponse.setMessage("access token无效");
-            String json = new Gson().toJson(commonResponse);
-            response.getWriter().append(json);
-            return;
+            TokenDao tokenDao = new TokenDao();
+            if (tokenDao.selectByAccessToken(accessToken) == null) {
+                ResponseClass<Token> commonResponse = new ResponseClass<>();
+                commonResponse.setCode(100901);
+                commonResponse.setMessage("access token无效");
+                String json = new Gson().toJson(commonResponse);
+                response.getWriter().append(json);
+                return;
+            }
         }
     }
 
