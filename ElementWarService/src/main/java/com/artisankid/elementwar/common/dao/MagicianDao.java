@@ -40,7 +40,7 @@ public class MagicianDao {
      * @return
      */
     public List<BaseMagician> selectByRelation(String openID, BaseMagician.UserRelation relation, int offset, int pageSize) {
-        String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM User LEFT JOIN Magician ON User.userID = Magician.userID WHERE openID IN (SELECT openID FROM Magician_Magician WHERE openID = '" + openID + "' AND relation = '" + relation.getValue() + "' ORDER BY create_time LIMIT " + offset + "," + pageSize + ") ORDER BY create_time;";
+        String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM Magician LEFT JOIN User ON Magician.userID = User.userID WHERE openID IN (SELECT openID FROM Magician_Relation WHERE openID = '" + openID + "' AND relation = '" + relation.getValue() + "' ORDER BY create_time LIMIT " + offset + "," + pageSize + ") ORDER BY create_time;";
         return this.selectMagiciansBySQL(sql);
     }
 
@@ -52,7 +52,7 @@ public class MagicianDao {
      * @return
      */
     public List<BaseMagician> selectByRank(int offset, int pageSize) {
-        String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM User LEFT JOIN Magician ON User.userID = Magician.userID ORDER BY rank DESC LIMIT " + offset + "," + pageSize + ";";
+        String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM Magician LEFT JOIN User ON Magician.userID = User.userID ORDER BY rank DESC LIMIT " + offset + "," + pageSize + ";";
         return this.selectMagiciansBySQL(sql);
     }
 
@@ -63,7 +63,7 @@ public class MagicianDao {
      * @return
      */
     public List<BaseMagician> selectByRoomID(String roomID) {
-        String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM User LEFT JOIN Magician ON User.userID = Magician.userID WHERE openID IN (SELECT openID FROM Room_Magician WHERE roomID = '" + roomID + "');";
+        String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM Magician LEFT JOIN User ON Magician.userID = User.userID WHERE openID IN (SELECT openID FROM Room_Magician WHERE roomID = '" + roomID + "');";
         return this.selectMagiciansBySQL(sql);
     }
 
@@ -191,6 +191,7 @@ public class MagicianDao {
                 + "portrait = '" + magician.getPortrait() + "', "
                 + "small_portrait = '" + magician.getSmallPortrait() + "', "
                 + "large_portrait = '" + magician.getLargePortrait() + "', "
+                + "motto = '" + magician.getMotto() + "', "
                 + "mobile = '" + magician.getMobile() + "' "
                 + "WHERE userID = (SELECT userID FROM Magician WHERE openID = '" + magician.getOpenID() + "');";
 
@@ -216,7 +217,7 @@ public class MagicianDao {
      * @return
      */
     public boolean insertRelation(String openID, String targetOpenID, BaseMagician.UserRelation relation) {
-        String sql = "INSERT INTO Magician_Relation (openID, ref_openID, type) VALUES ('"
+        String sql = "INSERT INTO Magician_Relation (openID, ref_openID, relation) VALUES ('"
                 + openID + "', '"
                 + targetOpenID + "', '"
                 + relation.getValue() + "');";

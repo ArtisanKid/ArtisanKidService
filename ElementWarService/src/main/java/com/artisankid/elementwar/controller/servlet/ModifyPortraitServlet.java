@@ -34,17 +34,31 @@ public class ModifyPortraitServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
 		String openID = request.getParameter("openID");
-		String portrait = request.getParameter("portrait");
+
+		//TODO:newPortrait是一个图片的二进制数据对象，需要处理才能使用
+		String portrait = request.getParameter("newPortrait");
+		if(portrait == null) {
+			portrait = request.getParameter("newPortraitURL");
+		}
+		if(portrait == null) {
+			portrait = request.getParameter("newPortraitID");
+		}
 
 		MagicianDao dao = new MagicianDao();
 		Magician magician = dao.selectByOpenID(openID);
 		magician.setPortrait(portrait);
+		magician.setLargePortrait(portrait);
+		magician.setSmallPortrait(portrait);
 		dao.update(magician);
 		
 		HashMap<String, String> portraits = new HashMap<>();
-		//这里需要设置大中小三个头像url
+		portraits.put("portrait", portrait);
+		portraits.put("largePortrait", portrait);
+		portraits.put("smallPortrait", portrait);
 		
 		ResponseClass<HashMap<String, String>> commonResponse = new ResponseClass<>();
 		commonResponse.setData(portraits);
@@ -59,5 +73,4 @@ public class ModifyPortraitServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

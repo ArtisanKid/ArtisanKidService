@@ -32,6 +32,9 @@ public class RefreshTokenServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+
         String openID = request.getParameter("openID");
         String accessToken = request.getParameter("accessToken");
         String refreshToken = request.getParameter("refreshToken");

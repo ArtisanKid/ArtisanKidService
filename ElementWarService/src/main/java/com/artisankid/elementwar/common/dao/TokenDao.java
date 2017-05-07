@@ -17,7 +17,7 @@ public class TokenDao {
 	 */
 	public List<Token> selectAll() {
 		String sql = "SELECT * FROM Magician_Token";
-		return selectBySQL(sql);
+		return selectTokensBySQL(sql);
 	}
 
 	/**
@@ -27,10 +27,10 @@ public class TokenDao {
 	 */
 	public List<Token> selectByOpenID(String openID) {
 		String sql = "SELECT * FROM Magician_Token WHERE openID = '" + openID + "';";
-		return selectBySQL(sql);
+		return selectTokensBySQL(sql);
 	}
 
-	private List<Token> selectBySQL(String sql) {
+	private List<Token> selectTokensBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		List<Map<String, Object>> result = manager.select(sql);
@@ -56,23 +56,7 @@ public class TokenDao {
 	 */
 	public Token selectByAccessToken(String accessToken) {
 		String sql = "SELECT * FROM Magician_Token WHERE access_token = '" + accessToken + "';";
-		
-		DatabaseManager manager = new DatabaseManager();
-		manager.connection();
-		Map<String, Object> result = manager.selectOne(sql);
-		manager.close();
-		
-		if(result == null) {
-			return null;
-		}
-		
-		Token object = new Token();
-		object.setAccessToken(result.get("access_token").toString());
-		object.setRefreshToken(result.get("refresh_token").toString());
-
-		Timestamp accessTokenExpiredTime = (Timestamp)result.get("access_token_expired_time");
-		object.setExpiredTime(accessTokenExpiredTime.getTime());
-		return object;
+		return selectTokenBySQL(sql);
 	}
 	
 	/**
@@ -82,22 +66,29 @@ public class TokenDao {
 	 */
 	public Token selectByRefreshToken(String refreshToken) {
 		String sql = "SELECT * FROM Magician_Token WHERE refresh_token = '" + refreshToken + "';";
-		
+		return selectTokenBySQL(sql);
+	}
+
+	private Token selectTokenBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		Map<String, Object> result = manager.selectOne(sql);
 		manager.close();
-		
+
 		if(result == null) {
 			return null;
 		}
-		
+
 		Token object = new Token();
 		object.setAccessToken(result.get("access_token").toString());
 		object.setRefreshToken(result.get("refresh_token").toString());
 
 		Timestamp accessTokenExpiredTime = (Timestamp)result.get("access_token_expired_time");
 		object.setExpiredTime(accessTokenExpiredTime.getTime());
+
+		Timestamp refreshTokenExpiredTime = (Timestamp)result.get("refresh_token_expired_time");
+		object.setRefreshTokenExpiredTime(refreshTokenExpiredTime.getTime());
+
 		return object;
 	}
 	
