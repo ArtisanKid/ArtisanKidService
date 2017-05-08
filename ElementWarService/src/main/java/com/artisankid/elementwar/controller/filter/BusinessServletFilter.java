@@ -82,6 +82,8 @@ public class BusinessServletFilter implements Filter {
             response.getWriter().append(json);
             return;
         }
+//        过滤器使用
+        filterChain.doFilter(request,response);
     }
 
     @Override
