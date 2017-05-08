@@ -80,6 +80,8 @@ public class BusinessServletFilter implements Filter {
                 return;
             }
         }
+//        过滤器使用
+        filterChain.doFilter(request,response);
     }
 
     @Override
