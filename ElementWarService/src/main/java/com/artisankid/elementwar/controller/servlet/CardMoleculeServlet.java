@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 /**
  * Servlet implementation class CardMoleculeServlet
  */
-@WebServlet("/magic/card/molecule")
+@WebServlet("/magic/card/molecules")
 public class CardMoleculeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,9 +34,20 @@ public class CardMoleculeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		int offset = Integer.parseInt(request.getParameter("offset"));
-		int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
+		String offsetParam = request.getParameter("offset");
+		int offset = 0;
+		if(offsetParam != null) {
+			offset = Integer.parseInt(offsetParam);
+		}
+
+		String pageSizeParam = request.getParameter("pageSize");
+		int pageSize = 0;
+		if(pageSizeParam != null) {
+			pageSize = Integer.parseInt(pageSizeParam);
+		}
 		if(pageSize == 0) {
 			pageSize = 20;
 		}

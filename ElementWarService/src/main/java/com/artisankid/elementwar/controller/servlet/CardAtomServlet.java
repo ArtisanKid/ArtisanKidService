@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 /**
  * Servlet implementation class CardAtomServlet
  */
-@WebServlet("/magic/cards/atom")
+@WebServlet("/magic/card/atoms")
 public class CardAtomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,7 +34,9 @@ public class CardAtomServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub		
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
 		List<BaseCard> cards = new CardDao().select(ElementType.Atom, 0, Integer.MAX_VALUE);
 		
 		ResponseClass<List<BaseCard>> commonResponse = new ResponseClass<>();

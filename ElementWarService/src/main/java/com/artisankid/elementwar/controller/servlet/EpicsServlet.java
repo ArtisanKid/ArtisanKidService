@@ -33,10 +33,22 @@ public class EpicsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
 		String openID = request.getParameter("openID");
-		int offset = Integer.parseInt(request.getParameter("offset"));
-		int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+
+		String offsetParam = request.getParameter("offset");
+		int offset = 0;
+		if(offsetParam != null) {
+			offset = Integer.parseInt(offsetParam);
+		}
+
+		String pageSizeParam = request.getParameter("pageSize");
+		int pageSize = 0;
+		if(pageSizeParam != null) {
+			pageSize = Integer.parseInt(pageSizeParam);
+		}
 		if(pageSize == 0) {
 			pageSize = 20;
 		}

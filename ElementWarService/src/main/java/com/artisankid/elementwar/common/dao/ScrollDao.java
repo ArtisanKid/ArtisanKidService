@@ -40,9 +40,9 @@ public class ScrollDao {
 	 * @return
 	 */
 	public List<BaseScroll> selectByKeyword(String levelID, String reactionID, String keyword, int offset, int pageSize) {
-		if((levelID != null || levelID.length() == 0)
-				&& (reactionID != null || reactionID.length() == 0)
-				&& (keyword != null || keyword.length() == 0) ) {
+		if((levelID == null || levelID.length() == 0)
+				&& (reactionID == null || reactionID.length() == 0)
+				&& (keyword == null || keyword.length() == 0) ) {
 			return new ArrayList<>();
 		}
 
@@ -98,6 +98,11 @@ public class ScrollDao {
 		return this.selectScrollBySQL(sql);
 	}
 
+	public Scroll selectByFormulaID(String formulaID) {
+		String sql = "SELECT * FROM Scroll WHERE formulaID = '" + formulaID + "';";
+		return this.selectScrollBySQL(sql);
+	}
+
 	private Scroll selectScrollBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
@@ -109,22 +114,36 @@ public class ScrollDao {
 		}
 
 		Scroll scroll = new Scroll();
-		scroll.setScrollID(result.get("scrollID").toString());
-		scroll.setName(result.get("name").toString());
-		scroll.setWitticism(result.get("witticism").toString());
-		scroll.setDetail(result.get("detail").toString());
+		if(result.get("scrollID") != null) {
+			scroll.setScrollID(result.get("scrollID").toString());
+		}
+		if(result.get("name") != null) {
+			scroll.setName(result.get("name").toString());
+		}
+		if(result.get("witticism") != null) {
+			scroll.setWitticism(result.get("witticism").toString());
+		}
+		if(result.get("detail") != null) {
+			scroll.setDetail(result.get("detail").toString());
+		}
 
-		LevelDao levelDao = new LevelDao();
-		Level level = levelDao.selectByLevelID(result.get("levelID").toString());
-		scroll.setLevel(level);
+		if(result.get("levelID") != null) {
+			LevelDao levelDao = new LevelDao();
+			Level level = levelDao.selectByLevelID(result.get("levelID").toString());
+			scroll.setLevel(level);
+		}
 
-		FormulaDao formulaDao = new FormulaDao();
-		Formula formula = formulaDao.selectByFormulaID(result.get("formulaID").toString());
-		scroll.setFormula(formula);
+		if(result.get("formulaID") != null) {
+			FormulaDao formulaDao = new FormulaDao();
+			Formula formula = formulaDao.selectByFormulaID(result.get("formulaID").toString());
+			scroll.setFormula(formula);
+		}
 
-		EffectDao effectDao = new EffectDao();
-		List<Effect> effects = effectDao.selectByScrollID(scroll.getScrollID());
-		scroll.setEffects(effects);
+		if(scroll.getScrollID() != null) {
+			EffectDao effectDao = new EffectDao();
+			List<Effect> effects = effectDao.selectByScrollID(scroll.getScrollID());
+			scroll.setEffects(effects);
+		}
 
 		return scroll;
 	}

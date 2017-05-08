@@ -39,8 +39,18 @@ public class OpponentsServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 
 		String openID = request.getParameter("openID");
-		int offset = Integer.parseInt(request.getParameter("offset"));
-		int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+
+		String offsetParam = request.getParameter("offset");
+		int offset = 0;
+		if(offsetParam != null) {
+			offset = Integer.parseInt(offsetParam);
+		}
+
+		String pageSizeParam = request.getParameter("pageSize");
+		int pageSize = 0;
+		if(pageSizeParam != null) {
+			pageSize = Integer.parseInt(pageSizeParam);
+		}
 		if(pageSize == 0) {
 			pageSize = 20;
 		}
