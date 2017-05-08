@@ -34,7 +34,9 @@ public class UserInformationServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
 		String openID = request.getParameter("openID");
 		
 		Magician magician = new MagicianDao().selectByOpenID(openID);
@@ -51,8 +53,5 @@ public class UserInformationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
-		//暂未完善token逻辑
 	}
-
 }

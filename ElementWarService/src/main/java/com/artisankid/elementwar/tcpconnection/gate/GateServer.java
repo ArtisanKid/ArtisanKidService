@@ -31,7 +31,7 @@ import java.net.InetSocketAddress;
 public class GateServer {
     private static final Logger logger = LoggerFactory.getLogger(GateServer.class);
 
-    private final static int CONNECTION_PORT = 51685;
+    private final static int CONNECTION_PORT = 51686;
 
     @Resource
     private GateServerHandler gateServerHandler;

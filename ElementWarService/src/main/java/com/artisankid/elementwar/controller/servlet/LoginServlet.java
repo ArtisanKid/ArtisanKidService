@@ -37,16 +37,21 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
+		//首先将参数转换为对象
 		User user = new User();
-		user.setLoginType(LoginType.enumOf(Integer.parseInt(request.getParameter("platform"))));
+		String platform = request.getParameter("platform");
+		user.setLoginType(LoginType.enumOf(Integer.parseInt(platform)));
 		user.setUnionID(request.getParameter("unionID"));
 		user.setOpenID(request.getParameter("openID"));
 		user.setNickname(request.getParameter("nickname"));
-		user.setPortrait(request.getParameter("portrait"));
-		user.setLargePortrait(request.getParameter("largePortrait"));
-		user.setSmallPortrait(request.getParameter("smallPortrait"));
 		user.setMobile(request.getParameter("mobile"));
 		user.setMotto(request.getParameter("motto"));
+		user.setPortrait(request.getParameter("portrait"));
+		//user.setLargePortrait(request.getParameter("largePortrait"));
+		//user.setSmallPortrait(request.getParameter("smallPortrait"));
 
 		Token userToken = new Token();
 		userToken.setAccessToken(request.getParameter("accessToken"));
@@ -55,6 +60,7 @@ public class LoginServlet extends HttpServlet {
 		userToken.setExpiredTime(userTokenExpiredTime.longValue());
 		user.setToken(userToken);
 
+		//根据是否已经有对应用户来决定是插入还是更新
 		UserDao userDao = new UserDao();
 		User existUser = userDao.selectByUnionID(user.getUnionID(), user.getLoginType());
 		String userID;
@@ -65,17 +71,19 @@ public class LoginServlet extends HttpServlet {
 			userID = userDao.update(user);
 		}
 
+		//搜索创建的魔法师
 		MagicianDao magicianDao = new MagicianDao();
 		Magician magician = magicianDao.selectByUserID(userID);
 
+		//创建对应的Token
 		String openID = magician.getOpenID();
-
 		Token magicianToken = new Token();
 		magicianToken.setAccessToken(TokenManager.CreateAccessToken(openID));
 		magicianToken.setRefreshToken(TokenManager.CreateRefreshToken(openID));
 		Long magicianTokenExpiredTime = System.currentTimeMillis() + 24 * 60 * 60 * 1000;
 		magicianToken.setExpiredTime(magicianTokenExpiredTime);
 
+		//存储创建的Token
 		TokenDao tokenDao = new TokenDao();
 		tokenDao.insert(openID, magicianToken);
 

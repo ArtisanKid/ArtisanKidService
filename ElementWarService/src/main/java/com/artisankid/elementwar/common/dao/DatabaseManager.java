@@ -33,13 +33,13 @@ public class DatabaseManager {
     public List<Map<String, Object>> select(String sql) {
     	System.out.println(sql);
     	
-    	List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+    	List<Map<String, Object>> result = new ArrayList<>();
     	try {
 			ResultSet set = statement.executeQuery(sql);
 			ResultSetMetaData metaData = (ResultSetMetaData) set.getMetaData();
 			int columnCount = metaData.getColumnCount();
 			while (set.next()) {
-				Map<String, Object> map = new HashMap<String, Object>();
+				Map<String, Object> map = new HashMap<>();
 				//草泥马，数据库取名称和取值神马的都是从1开始的
 				for (int i = 1; i <= columnCount; i++) {
 					String key = metaData.getColumnName(i); 

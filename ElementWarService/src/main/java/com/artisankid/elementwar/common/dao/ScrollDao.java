@@ -25,11 +25,6 @@ public class ScrollDao {
 	 * @return
 	 */
 	public List<BaseScroll> select(String levelID, String reactionID) {
-		if(levelID.length() == 0
-				|| reactionID.length() == 0) {
-			return new ArrayList<>();
-		}
-
 		String sql = "SELECT scrollID, name, witticism FROM Scroll LEFT JOIN Formula_Reaction ON Scroll.formulaID = Formula_Reaction.formulaID WHERE levelID = '" + levelID + "' AND reactionID = '" + reactionID + "';";
 		return this.selectScrollsBySQL(sql);
 	}
@@ -37,34 +32,38 @@ public class ScrollDao {
 	/**
 	 * 根据关键字查询卷轴
 	 *
-	 * @param levelID
-	 * @param reactionID
-	 * @param keyword
+	 * @param levelID 可以为null
+	 * @param reactionID 可以为null
+	 * @param keyword 可以为null
 	 * @param offset
 	 * @param pageSize
 	 * @return
 	 */
 	public List<BaseScroll> selectByKeyword(String levelID, String reactionID, String keyword, int offset, int pageSize) {
-		if(levelID.length() == 0
-				&& reactionID.length() == 0
-				&& keyword.length() == 0 ) {
+		if((levelID != null || levelID.length() == 0)
+				&& (reactionID != null || reactionID.length() == 0)
+				&& (keyword != null || keyword.length() == 0) ) {
 			return new ArrayList<>();
 		}
 
 		String sql = "SELECT scrollID, name, witticism FROM Scroll";
-		if(levelID.length() > 0 && reactionID.length() > 0 && keyword.length() > 0) {
+		if(levelID != null && reactionID != null && keyword != null &&
+				levelID.length() > 0 && reactionID.length() > 0 && keyword.length() > 0) {
 			sql = sql + " WHERE levelID = '" + levelID + "' AND reactionID = '" + reactionID + "' AND witticism LIKE '%" + keyword + "%' OR detail LIKE '%" + keyword + "%'";
-		} else if(levelID.length() > 0 && reactionID.length() > 0) {
+		} else if(levelID != null && reactionID != null &&
+				levelID.length() > 0 && reactionID.length() > 0) {
 			sql = sql + " WHERE levelID = '" + levelID + "' AND reactionID = '" + reactionID + "'";
-		} else if(levelID.length() > 0 && keyword.length() > 0) {
+		} else if(levelID != null && keyword != null &&
+				levelID.length() > 0 && keyword.length() > 0) {
 			sql = sql + " WHERE levelID = '" + levelID + "' AND witticism LIKE '%" + keyword + "%' OR detail LIKE '%" + keyword + "%'";
-		} else if(reactionID.length() > 0 && keyword.length() > 0) {
+		} else if(reactionID != null && keyword != null &&
+				reactionID.length() > 0 && keyword.length() > 0) {
 			sql = sql + " WHERE reactionID = '" + reactionID + "' AND witticism LIKE '%" + keyword + "%' OR detail LIKE '%" + keyword + "%'";
-		} else if(levelID.length() > 0) {
+		} else if(levelID != null && levelID.length() > 0) {
 			sql = sql + " WHERE levelID = '" + levelID + "'";
-		} else if(reactionID.length() > 0) {
+		} else if(reactionID != null && reactionID.length() > 0) {
 			sql = sql + " WHERE reactionID = '" + reactionID + "'";
-		} else if(keyword.length() > 0) {
+		} else if(keyword != null && keyword.length() > 0) {
 			sql = sql + " WHERE witticism LIKE '%" + keyword + "%' OR detail LIKE '%" + keyword + "%'";
 		}
 		sql = sql + " LIMIT " + offset + "," + pageSize + ";";
@@ -77,7 +76,7 @@ public class ScrollDao {
 		List<Map<String, Object>> result = manager.select(sql);
 		manager.close();
 
-		ArrayList<BaseScroll> scrolls = new ArrayList<BaseScroll>();
+		ArrayList<BaseScroll> scrolls = new ArrayList<>();
 		for (Map<String, Object> map : result) {
 			BaseScroll scroll = new BaseScroll();
 			scroll.setScrollID((String) map.get("scrollID"));
@@ -110,21 +109,21 @@ public class ScrollDao {
 		}
 
 		Scroll scroll = new Scroll();
-		scroll.setScrollID((String) result.get("scrollID"));
-		scroll.setName((String) result.get("name"));		    
-		scroll.setWitticism((String) result.get("witticism"));
-		scroll.setDetail((String) result.get("detail"));
+		scroll.setScrollID(result.get("scrollID").toString());
+		scroll.setName(result.get("name").toString());
+		scroll.setWitticism(result.get("witticism").toString());
+		scroll.setDetail(result.get("detail").toString());
 
 		LevelDao levelDao = new LevelDao();
-		Level level = levelDao.selectByLevelID((String) result.get("levelID"));
+		Level level = levelDao.selectByLevelID(result.get("levelID").toString());
 		scroll.setLevel(level);
 
 		FormulaDao formulaDao = new FormulaDao();
-		Formula formula = formulaDao.selectByFormulaID((String) result.get("formulaID"));
+		Formula formula = formulaDao.selectByFormulaID(result.get("formulaID").toString());
 		scroll.setFormula(formula);
 
 		EffectDao effectDao = new EffectDao();
-		List<Effect> effects = effectDao.selectByScrollID((String) result.get("effectID"));
+		List<Effect> effects = effectDao.selectByScrollID(scroll.getScrollID());
 		scroll.setEffects(effects);
 
 		return scroll;

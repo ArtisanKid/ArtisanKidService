@@ -35,7 +35,9 @@ public class OpponentsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
 		String openID = request.getParameter("openID");
 		int offset = Integer.parseInt(request.getParameter("offset"));
 		int pageSize = Integer.parseInt(request.getParameter("pageSize"));

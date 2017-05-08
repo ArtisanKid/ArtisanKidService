@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 /**
  * Servlet implementation class HonourServlet
  */
-@WebServlet("/honour")
+@WebServlet("/magician/honour")
 public class HonourServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,15 +34,16 @@ public class HonourServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
 		int offset = Integer.parseInt(request.getParameter("offset"));
 		int pageSize = Integer.parseInt(request.getParameter("pageSize"));
 		if(pageSize == 0) {
 			pageSize = 20;
 		}
 
-		MagicianDao dao = new MagicianDao();
-		List<BaseMagician> users = dao.selectByRank(offset, pageSize);
+		List<BaseMagician> users = new MagicianDao().selectByRank(offset, pageSize);
 		
 		ResponseClass<List<BaseMagician>> commonResponse = new ResponseClass<>();
 		commonResponse.setData(users);
@@ -57,5 +58,4 @@ public class HonourServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
