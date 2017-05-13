@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.ewmodel.Magician;
+import com.artisankid.elementwar.controller.utils.Error;
+import com.artisankid.elementwar.controller.utils.ErrorEnum;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.UserDao;
 import com.google.gson.Gson;
@@ -46,6 +48,12 @@ public class ModifyPortraitServlet extends HttpServlet {
 		}
 		if(portrait == null) {
 			portrait = request.getParameter("newPortraitID");
+		}
+
+		if(portrait == null || portrait.isEmpty()) {
+			String json = Error.ErrorToJSON(ErrorEnum.RequestParamLack);
+			response.getWriter().append(json);
+			return;
 		}
 
 		MagicianDao dao = new MagicianDao();

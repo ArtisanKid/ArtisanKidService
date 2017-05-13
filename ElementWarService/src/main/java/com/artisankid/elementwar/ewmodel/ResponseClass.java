@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class ResponseClass<T> {
 
-	private double responseTime;
-	private int  code;
+	private Double responseTime;
+	private Integer  code;
 	private String message;
 	private T data;
 	
@@ -15,16 +15,16 @@ public class ResponseClass<T> {
 		message = "success";
 	}
 	
-	public double getResponseTime() {
+	public Double getResponseTime() {
 		return responseTime;
 	}
-	public void setResponseTime(double responseTime) {
+	public void setResponseTime(Double responseTime) {
 		this.responseTime = responseTime;
 	}
-	public int getCode() {
+	public Integer getCode() {
 		return code;
 	}
-	public void setCode(int code) {
+	public void setCode(Integer code) {
 		this.code = code;
 	}
 	public String getMessage() {

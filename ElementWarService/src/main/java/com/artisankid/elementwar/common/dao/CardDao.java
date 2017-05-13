@@ -18,7 +18,7 @@ public class CardDao {
 	 * @param pageSize
 	 * @return
 	 */
-	public List<BaseCard> select(ElementType type, int offset, int pageSize) {
+	public List<BaseCard> select(ElementType type, Integer offset, Integer pageSize) {
 		String sql = "SELECT cardID, elementID FROM Card WHERE elementID IN (SELECT elementID FROM Element WHERE type = '" + type.getValue() + "') LIMIT " + offset + "," + pageSize + ";";
 		
 		DatabaseManager manager = new DatabaseManager();

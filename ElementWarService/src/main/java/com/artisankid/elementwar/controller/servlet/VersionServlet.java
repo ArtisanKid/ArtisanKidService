@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.controller.utils.Error;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.VersionDao;
 import com.artisankid.elementwar.common.ewmodel.Version;
@@ -33,14 +34,15 @@ public class VersionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
 		VersionDao dao = new VersionDao();
 		Version releaseVersion = dao.selectLatestRelease();
 		Version resourceVersion = dao.selectLatestResource();
 
-		HashMap<String, Version> versions = new HashMap<String, Version>();
+		HashMap<String, Version> versions = new HashMap<>();
 		versions.put("release", releaseVersion);
 		versions.put("resource", resourceVersion);
 

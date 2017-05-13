@@ -2,6 +2,7 @@ package com.artisankid.elementwar.controller.servlet;
 
 import com.artisankid.elementwar.common.dao.TokenDao;
 import com.artisankid.elementwar.common.ewmodel.Token;
+import com.artisankid.elementwar.controller.utils.Error;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.google.gson.Gson;
 

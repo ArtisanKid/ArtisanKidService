@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.ewmodel.BaseMagician;
 import com.artisankid.elementwar.common.ewmodel.BaseMagician.UserRelation;
+import com.artisankid.elementwar.controller.utils.Error;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.UserDao;
 import com.google.gson.Gson;

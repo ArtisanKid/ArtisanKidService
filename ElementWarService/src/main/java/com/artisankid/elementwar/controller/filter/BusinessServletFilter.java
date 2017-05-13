@@ -3,6 +3,8 @@ package com.artisankid.elementwar.controller.filter;
 import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.dao.TokenDao;
 import com.artisankid.elementwar.common.ewmodel.Token;
+import com.artisankid.elementwar.controller.utils.Error;
+import com.artisankid.elementwar.controller.utils.ErrorEnum;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
@@ -41,41 +43,29 @@ public class BusinessServletFilter implements Filter {
         } else {
             //验证openID是否有效
             String openID = request.getParameter("openID");
-            if (openID == null) {
-                ResponseClass<Token> commonResponse = new ResponseClass<>();
-                commonResponse.setCode(9000);
-                commonResponse.setMessage("请求参数缺失(openID)");
-                String json = new Gson().toJson(commonResponse);
+            if(openID == null || openID.isEmpty()) {
+                String json = Error.ErrorToJSON(ErrorEnum.OpenIDCantNil);
                 response.getWriter().append(json);
                 return;
             }
 
             MagicianDao magicianDao = new MagicianDao();
             if (magicianDao.selectByOpenID(openID) == null) {
-                ResponseClass<Token> commonResponse = new ResponseClass<>();
-                commonResponse.setCode(100800);
-                commonResponse.setMessage("用户不存在");
-                String json = new Gson().toJson(commonResponse);
+                String json = Error.ErrorToJSON(ErrorEnum.OpenIDNotExist);
                 response.getWriter().append(json);
                 return;
             }
 
             String accessToken = request.getParameter("accessToken");
-            if (accessToken == null) {
-                ResponseClass<Token> commonResponse = new ResponseClass<>();
-                commonResponse.setCode(9000);
-                commonResponse.setMessage("请求参数缺失(accessToken)");
-                String json = new Gson().toJson(commonResponse);
+            if(accessToken == null || accessToken.isEmpty()) {
+                String json = Error.ErrorToJSON(ErrorEnum.AccessTokenCantNil);
                 response.getWriter().append(json);
                 return;
             }
 
             TokenDao tokenDao = new TokenDao();
             if (tokenDao.selectByAccessToken(accessToken) == null) {
-                ResponseClass<Token> commonResponse = new ResponseClass<>();
-                commonResponse.setCode(100901);
-                commonResponse.setMessage("access token无效");
-                String json = new Gson().toJson(commonResponse);
+                String json = Error.ErrorToJSON(ErrorEnum.AccessTokenNotExist);
                 response.getWriter().append(json);
                 return;
             }

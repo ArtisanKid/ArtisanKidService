@@ -35,18 +35,10 @@ public class ConditionsServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
 
-        String conditionID = request.getParameter("conditionID");
         String formulaID = request.getParameter("formulaID");
 
         ConditionDao dao = new ConditionDao();
-        if (conditionID != null) {
-            Condition object = dao.selectByConditionID(conditionID);
-
-            ResponseClass<Condition> commonResponse = new ResponseClass<>();
-            commonResponse.setData(object);
-            String json = new Gson().toJson(commonResponse);
-            response.getWriter().append(json);
-        } else if (formulaID != null) {
+        if (formulaID != null) {
             List<Condition> objectList = dao.selectByFormulaID(formulaID);
 
             ResponseClass<List<Condition>> commonResponse = new ResponseClass<>();

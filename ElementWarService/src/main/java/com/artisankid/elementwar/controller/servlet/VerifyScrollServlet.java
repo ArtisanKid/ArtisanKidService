@@ -6,6 +6,8 @@ import com.artisankid.elementwar.common.ewmodel.Balance;
 import com.artisankid.elementwar.common.ewmodel.BaseScroll;
 import com.artisankid.elementwar.common.ewmodel.Formula;
 import com.artisankid.elementwar.common.ewmodel.Scroll;
+import com.artisankid.elementwar.controller.utils.Error;
+import com.artisankid.elementwar.controller.utils.ErrorEnum;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.google.gson.Gson;
 
@@ -42,31 +44,23 @@ public class VerifyScrollServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         String reactantCountsParam = request.getParameter("reactants");
-        List<String> reactantCounts = Arrays.asList(reactantCountsParam.split(";"));
-        List<Balance> reactants = new ArrayList<>();
-        for(String reactantCount : reactantCounts) {
-            List<String> params = Arrays.asList(reactantCount.split(":"));
-            Balance balance = new Balance();
-            balance.setElementID(params.get(0).toString());
-            balance.setCount(Integer.parseInt(params.get(1).toString()));
-            reactants.add(balance);
+        String conditionParam = request.getParameter("conditionIDs");
+        String resultantCountParam = request.getParameter("resultants");
+
+        if((reactantCountsParam == null || reactantCountsParam.isEmpty())
+                || (conditionParam == null || conditionParam.isEmpty())
+                || (resultantCountParam == null || resultantCountParam.isEmpty())) {
+            String json = Error.ErrorToJSON(ErrorEnum.RequestParamLack);
+            response.getWriter().append(json);
+            return;
         }
 
-        String conditionParam = request.getParameter("conditionIDs");
+        List<Balance> reactants = convertToBalances(reactantCountsParam);
         List<String> conditionIDs = Arrays.asList(conditionParam.split(";"));
 
-        String resultantCountParam = request.getParameter("resultants");
         List<Balance> resultants = null;
         if(resultantCountParam != null) {
-            List<String> resultantCounts = Arrays.asList(resultantCountParam.split(";"));
-            resultants = new ArrayList<>();
-            for (String resultantCount : resultantCounts) {
-                List<String> params = Arrays.asList(resultantCount.split(":"));
-                Balance balance = new Balance();
-                balance.setElementID(params.get(0).toString());
-                balance.setCount(Integer.parseInt(params.get(1).toString()));
-                resultants.add(balance);
-            }
+            resultants = convertToBalances(resultantCountParam);
         }
 
         Formula formula = null;
@@ -95,5 +89,18 @@ public class VerifyScrollServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         doGet(request, response);
+    }
+
+    List<Balance> convertToBalances(String param) {
+        List<String> counts = Arrays.asList(param.split(";"));
+        List<Balance> balances = new ArrayList<>();
+        for(String reactantCount : counts) {
+            List<String> params = Arrays.asList(reactantCount.split(":"));
+            Balance balance = new Balance();
+            balance.setElementID(params.get(0).toString());
+            balance.setCount(Integer.parseInt(params.get(1).toString()));
+            balances.add(balance);
+        }
+        return balances;
     }
 }

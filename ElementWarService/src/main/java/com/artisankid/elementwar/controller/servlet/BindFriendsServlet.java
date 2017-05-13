@@ -2,16 +2,18 @@ package com.artisankid.elementwar.controller.servlet;
 
 import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.ewmodel.BaseMagician;
+import com.artisankid.elementwar.controller.utils.ErrorEnum;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.artisankid.elementwar.controller.utils.Error;
 
 /**
  * Servlet implementation class BindFriendsServlet
@@ -37,6 +39,12 @@ public class BindFriendsServlet extends HttpServlet {
 
 		String openID = request.getParameter("openID");
 		String friendID = request.getParameter("friendID");
+
+		if(friendID == null || friendID.isEmpty()) {
+			String json = Error.ErrorToJSON(ErrorEnum.RequestParamLack);
+			response.getWriter().append(json);
+			return;
+		}
 
 		new MagicianDao().insertRelation(openID, friendID, BaseMagician.UserRelation.Friend);
 

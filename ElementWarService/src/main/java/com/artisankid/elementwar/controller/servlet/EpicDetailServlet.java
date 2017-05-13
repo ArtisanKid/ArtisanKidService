@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.controller.utils.Error;
+import com.artisankid.elementwar.controller.utils.ErrorEnum;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.EpicDao;
 import com.artisankid.elementwar.common.ewmodel.Epic;
@@ -37,6 +39,11 @@ public class EpicDetailServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 
 		String epicID = request.getParameter("epicID");
+		if(epicID == null || epicID.isEmpty()) {
+			String json = Error.ErrorToJSON(ErrorEnum.RequestParamLack);
+			response.getWriter().append(json);
+			return;
+		}
 
 		String offsetParam = request.getParameter("offset");
 		int offset = 0;

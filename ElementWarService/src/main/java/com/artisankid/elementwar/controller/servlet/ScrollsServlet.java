@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.controller.utils.Error;
+import com.artisankid.elementwar.controller.utils.ErrorEnum;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.ScrollDao;
 import com.artisankid.elementwar.common.ewmodel.BaseScroll;
@@ -38,6 +40,13 @@ public class ScrollsServlet extends HttpServlet {
 
 		String levelID = request.getParameter("levelID");
 		String reactionID = request.getParameter("reactionID");
+
+		if((levelID == null || levelID.isEmpty())
+				|| (reactionID == null || reactionID.isEmpty())) {
+			String json = Error.ErrorToJSON(ErrorEnum.RequestParamLack);
+			response.getWriter().append(json);
+			return;
+		}
 		
 		List<BaseScroll> scrolls = new ScrollDao().select(levelID, reactionID);
 		

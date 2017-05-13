@@ -3,6 +3,8 @@ package com.artisankid.elementwar.controller.servlet;
 import com.artisankid.elementwar.common.dao.TokenDao;
 import com.artisankid.elementwar.common.ewmodel.Token;
 import com.artisankid.elementwar.common.utils.TokenManager;
+import com.artisankid.elementwar.controller.utils.Error;
+import com.artisankid.elementwar.controller.utils.ErrorEnum;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.google.gson.Gson;
 
@@ -37,28 +39,22 @@ public class RefreshTokenServlet extends HttpServlet {
 
         String openID = request.getParameter("openID");
         String accessToken = request.getParameter("accessToken");
+
         String refreshToken = request.getParameter("refreshToken");
-
-        TokenDao tokenDao = new TokenDao();
-        Token token = tokenDao.selectByAccessToken(accessToken);
-
-        if(token == null) {
-            ResponseClass<Token> commonResponse = new ResponseClass<>();
-            commonResponse.setCode(100901);
-            commonResponse.setMessage("access token无效");
-            String json = new Gson().toJson(commonResponse);
+        if(refreshToken == null || refreshToken.isEmpty()) {
+            String json = Error.ErrorToJSON(ErrorEnum.RequestParamLack);
             response.getWriter().append(json);
             return;
         }
 
-        if(token.getRefreshToken().equals(refreshToken) == Boolean.FALSE) {
-            //如果refreshToken无效，那么删除这个token
+        TokenDao tokenDao = new TokenDao();
+        Token token = tokenDao.selectByAccessToken(accessToken);
+
+        if(!token.getRefreshToken().equals(refreshToken)) {
+            //如果refreshToken不存在，那么删除这个token
             tokenDao.delete(accessToken);
 
-            ResponseClass<Token> commonResponse = new ResponseClass<>();
-            commonResponse.setCode(100903);
-            commonResponse.setMessage("refresh token无效");
-            String json = new Gson().toJson(commonResponse);
+            String json = Error.ErrorToJSON(ErrorEnum.RefreshTokenNotExist);
             response.getWriter().append(json);
             return;
         }
@@ -67,10 +63,7 @@ public class RefreshTokenServlet extends HttpServlet {
             //如果refreshToken过期，那么删除这个token
             tokenDao.delete(accessToken);
 
-            ResponseClass<Token> commonResponse = new ResponseClass<>();
-            commonResponse.setCode(100902);
-            commonResponse.setMessage("refresh token过期");
-            String json = new Gson().toJson(commonResponse);
+            String json = Error.ErrorToJSON(ErrorEnum.RefreshTokenExpired);
             response.getWriter().append(json);
             return;
         }

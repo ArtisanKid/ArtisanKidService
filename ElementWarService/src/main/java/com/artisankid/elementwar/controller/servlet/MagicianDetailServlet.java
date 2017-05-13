@@ -2,6 +2,7 @@ package com.artisankid.elementwar.controller.servlet;
 
 import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.ewmodel.Magician;
+import com.artisankid.elementwar.controller.utils.Error;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.google.gson.Gson;
 

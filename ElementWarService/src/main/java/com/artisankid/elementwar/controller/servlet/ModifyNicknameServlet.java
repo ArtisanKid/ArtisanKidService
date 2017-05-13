@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.ewmodel.Magician;
+import com.artisankid.elementwar.controller.utils.Error;
+import com.artisankid.elementwar.controller.utils.ErrorEnum;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.UserDao;
 import com.artisankid.elementwar.common.ewmodel.User;
@@ -38,7 +40,13 @@ public class ModifyNicknameServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 
 		String openID = request.getParameter("openID");
+
 		String nickname = request.getParameter("newNickname");
+		if(nickname == null || nickname.isEmpty()) {
+			String json = Error.ErrorToJSON(ErrorEnum.RequestParamLack);
+			response.getWriter().append(json);
+			return;
+		}
 
 		MagicianDao dao = new MagicianDao();
 		Magician magician = dao.selectByOpenID(openID);

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.controller.utils.Error;
+import com.artisankid.elementwar.controller.utils.ErrorEnum;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.ScrollDao;
 import com.artisankid.elementwar.common.ewmodel.Scroll;
@@ -36,10 +38,15 @@ public class ScrollDetailServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 
 		String scrollID = request.getParameter("scrollID");
+		if(scrollID == null || scrollID.isEmpty()) {
+			String json = Error.ErrorToJSON(ErrorEnum.RequestParamLack);
+			response.getWriter().append(json);
+			return;
+		}
 		
 		Scroll scroll = new ScrollDao().selectByScrollID(scrollID);
 		
-		ResponseClass<Scroll> commonResponse = new ResponseClass<Scroll>();
+		ResponseClass<Scroll> commonResponse = new ResponseClass<>();
 		commonResponse.setData(scroll);
     	String json = new Gson().toJson(commonResponse);
     	response.getWriter().append(json);

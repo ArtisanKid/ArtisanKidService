@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.artisankid.elementwar.controller.utils.Error;
+import com.artisankid.elementwar.controller.utils.ErrorEnum;
 import com.artisankid.elementwar.ewmodel.ResponseClass;
 import com.artisankid.elementwar.common.dao.CardDao;
 import com.artisankid.elementwar.common.ewmodel.Card;
@@ -35,6 +37,12 @@ public class CardDetailServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 
 		String cardID = request.getParameter("cardID");
+
+		if(cardID == null || cardID.isEmpty()) {
+			String json = Error.ErrorToJSON(ErrorEnum.RequestParamLack);
+			response.getWriter().append(json);
+			return;
+		}
 
 		Card card = new CardDao().selectByCardID(cardID);
 		
