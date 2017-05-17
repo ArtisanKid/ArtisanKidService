@@ -9,8 +9,8 @@ public enum ErrorEnum {
     ServerError(1000, "服务器错误"),
     PermissionError(2000, "权限错误（需要登录）"),
     PermissionScopeError(2001, "权限范围错误（超出用户权限）"),
-    RequestParamLack(3000, "请求参数缺失"),
-    RequestParamError(3001, "请求格式错误（请求参数格式错误，类型错误）"),
+    RequestParamLack(8000, "请求参数缺失"),
+    RequestParamError(8001, "请求格式错误（请求参数格式错误，类型错误）"),
 
     AccessTokenCantNil(1000000, "access token不可为空"),
     AccessTokenNotExist(1000001, "access token不存在"),

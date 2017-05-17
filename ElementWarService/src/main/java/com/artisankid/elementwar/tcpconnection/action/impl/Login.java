@@ -53,11 +53,11 @@ public class Login {
         user.setStrength(new MagicianDao().selectByOpenID(userID).getStrength());
         UserManager.addUser(user);
 
-        long expiredTime = (long) (message.getExpiredTime() * 1000);
-        matchNotice(userID, message.getMessageId(), userID, expiredTime);
+        Long expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
+        loginNotice(userID, message.getMessageId(), userID, expiredTime);
     }
 
-    public void matchNotice(final String receiverID, String messageID, final String userID, final long expiredTime) {
+    public void loginNotice(final String receiverID, String messageID, final String userID, final Long expiredTime) {
         final long now = System.currentTimeMillis();
         if(expiredTime <= now) {
             return;
