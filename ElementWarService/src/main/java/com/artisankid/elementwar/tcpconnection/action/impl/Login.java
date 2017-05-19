@@ -31,20 +31,6 @@ public class Login {
     public void loginMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
         LoginMessageOuterClass.LoginMessage message = container.getLoginMessage();
 
-//        //首先判断是否超时
-//        long expiredTime = (long) (message.getExpiredTime() * 1000);
-//        long now = System.currentTimeMillis();
-//        if(expiredTime <= now) {
-//            return;
-//        }
-
-        String accessToken = message.getAccessToken();
-        TokenDao dao = new TokenDao();
-        if(dao.selectByAccessToken(accessToken) == null) {
-            //token验证失败，等待客户端自然超时
-            return;
-        }
-
         String userID = message.getSenderId();
         UserContextManager.setUserContext(userID, context);
 
