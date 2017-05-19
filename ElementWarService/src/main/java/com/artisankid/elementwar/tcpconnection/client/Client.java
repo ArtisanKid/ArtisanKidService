@@ -47,7 +47,7 @@ public class Client {
      * @param index
      */
     private static void startConnection(Bootstrap b, final int index) {
-        b.connect("localhost", 51685)
+        b.connect("139.129.164.156", 51685)
                 .addListener(new ChannelFutureListener() {
                     @Override
                     public void operationComplete(ChannelFuture future)

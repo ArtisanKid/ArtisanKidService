@@ -28,6 +28,6 @@
 
     <import resource="dao/spring-myBatis.xml"/>
     <!--服务启动-->
-    <import resource="connection_config/conn_start.xml"/>
+    <import resource="connection/connectionstart.xml"/>
 
 </beans>
