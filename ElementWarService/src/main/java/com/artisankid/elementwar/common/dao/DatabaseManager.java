@@ -18,7 +18,7 @@ public class DatabaseManager {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            connection = DriverManager.getConnection("jdbc:mysql://139.129.164.156:3306/ElementWar", "mysql", "qqaazzwwssxxeeddcc1234");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ElementWar", "root", "123456");
             statement = connection.createStatement(); //创建Statement对象
 			statement.executeUpdate("SET NAMES UTF8MB4");
             System.out.println("成功连接数据库！");

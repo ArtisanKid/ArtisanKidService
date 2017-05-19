@@ -138,7 +138,7 @@ public class UserDao {
                 + "openID = '" + user.getOpenID() + "', "
                 + "nickname = '" + user.getNickname() + "', "
                 + "portrait = '" + user.getPortrait() + "', "
-                + "getSmallPortrait = '" + user.getSmallPortrait() + "', "
+                + "small_portrait = '" + user.getSmallPortrait() + "', "
                 + "large_portrait = '" + user.getLargePortrait() + "', "
                 + "mobile = '" + user.getMobile() + "', "
                 + "access_token = '" + user.getToken().getAccessToken() + "', "
