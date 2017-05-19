@@ -12,6 +12,6 @@
     <!--启动网关服务-->
     <bean name="gateServiceStart" class="com.artisankid.elementwar.tcpconnection.gate.GateServer" init-method="init"></bean>
     <!--处理器初始化-->
-    <!--<bean class="com.artisankid.elementwar.tcpconnection.action.ActionBeanPostProcessor"/>-->
+    <bean class="com.artisankid.elementwar.tcpconnection.action.ActionBeanPostProcessor"/>
 
 </beans>
