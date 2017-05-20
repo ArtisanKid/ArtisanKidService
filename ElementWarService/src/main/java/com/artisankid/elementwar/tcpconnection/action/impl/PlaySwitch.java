@@ -36,6 +36,7 @@ public class PlaySwitch {
         UserManager.getUser(playerID).setPlayExpiredTime(expiredTime);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.PlaySwitchNotice);
         container.setPlaySwitchNotice(notice);
 
         final Timer timer = new Timer(true);

@@ -101,6 +101,7 @@ public class Match {
         notice.setUserPortraitUrl(user.getSmallPortrait());
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.MatchNotice);
         container.setMatchNotice(notice);
 
         final Timer timer = new Timer(true);

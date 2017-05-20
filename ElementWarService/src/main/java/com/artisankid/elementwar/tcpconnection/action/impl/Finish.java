@@ -27,6 +27,7 @@ public class Finish {
         notice.setWinnerId(winnerID);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.FinishNotice);
         container.setFinishNotice(notice);
 
         List<User> users = RoomManager.getRoom(winnerID).getUsers();

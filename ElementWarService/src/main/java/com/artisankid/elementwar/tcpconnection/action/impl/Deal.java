@@ -71,6 +71,7 @@ public class Deal {
         }
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.DealNotice);
         container.setDealNotice(notice);
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);

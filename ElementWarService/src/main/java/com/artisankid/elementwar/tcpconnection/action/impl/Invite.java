@@ -90,6 +90,7 @@ public class Invite {
         notice.setSenderPortraitUrl(sender.getSmallPortrait());
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.InviteNotice);
         container.setInviteNotice(notice);
 
         final Timer timer = new Timer(true);
@@ -198,6 +199,7 @@ public class Invite {
         }
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.InviteReplyNotice);
         container.setInviteReplyNotice(notice);
 
         final Timer timer = new Timer(true);

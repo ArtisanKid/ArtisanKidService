@@ -32,6 +32,7 @@ public class InRoom {
         notice.setRoomId(roomID);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.InRoomNotice);
         container.setInRoomNotice(notice);
 
         final Timer timer = new Timer(true);

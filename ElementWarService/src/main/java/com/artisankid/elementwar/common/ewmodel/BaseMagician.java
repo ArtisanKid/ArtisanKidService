@@ -67,7 +67,7 @@ public class BaseMagician {
     private String openID;
     private String nickname;
     private String smallPortrait;
-    private int strength;
+    private Integer strength;
     private String honor;
     private List<Emblem> emblems;//暂时不开发
     private ConnectState state;
@@ -94,11 +94,11 @@ public class BaseMagician {
         this.smallPortrait = smallPortrait;
     }
 
-    public int getStrength() {
+    public Integer getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public void setStrength(Integer strength) {
         this.strength = strength;
     }
 

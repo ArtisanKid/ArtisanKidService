@@ -31,16 +31,23 @@ public class Login {
     public void loginMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
         LoginMessageOuterClass.LoginMessage message = container.getLoginMessage();
 
-        String userID = message.getSenderId();
-        UserContextManager.setUserContext(userID, context);
+        String openID = message.getSenderId();
+        UserContextManager.setUserContext(openID, context);
+
+        MagicianDao dao = new MagicianDao();
+        Magician magician = dao.selectByOpenID(openID);
+        Integer strength = magician.getStrength();
 
         User user = new User();
-        user.setUserID(userID);
-        user.setStrength(new MagicianDao().selectByOpenID(userID).getStrength());
+        user.setUserID(openID);
+        user.setStrength(strength);
         UserManager.addUser(user);
 
+        //TODO:给所有的朋友或者对手发送信息？
+
+        String messageID = message.getMessageId();
         Long expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
-        loginNotice(userID, message.getMessageId(), userID, expiredTime);
+        loginNotice(openID, messageID, openID, expiredTime);
     }
 
     public void loginNotice(final String receiverID, String messageID, final String userID, final Long expiredTime) {
@@ -58,6 +65,7 @@ public class Login {
         notice.setUserId(userID);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.LoginNotice);
         container.setLoginNotice(notice);
 
         final Timer timer = new Timer(true);

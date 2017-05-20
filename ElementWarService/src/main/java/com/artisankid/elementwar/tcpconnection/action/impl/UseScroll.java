@@ -104,6 +104,7 @@ public class UseScroll {
         notice.setScrollId(scrollID);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.UseScrollNotice);
         container.setUseScrollNotice(notice);
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);

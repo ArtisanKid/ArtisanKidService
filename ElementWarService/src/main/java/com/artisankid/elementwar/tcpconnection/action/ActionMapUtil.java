@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ActionMapUtil {
 
-    private static Map<Integer, Action> map = new HashMap<Integer, Action>();
+    private static Map<Integer, Action> map = new HashMap<>();
 
     public static Object invote(int key, Object... args) throws Exception {
         /**

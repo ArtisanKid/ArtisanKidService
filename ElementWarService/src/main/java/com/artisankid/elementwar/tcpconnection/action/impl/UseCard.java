@@ -101,11 +101,13 @@ public class UseCard {
         notice.setSendTime(now / 1000);
         notice.setExpiredTime(expiredTime / 1000);
         notice.setNeedResponse(Boolean.FALSE);
+
         notice.setSenderId(senderID);
         notice.setReceiverId(effectReceiverID);
         notice.setCardId(cardID);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.UseCardNotice);
         container.setUseCardNotice(notice);
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
