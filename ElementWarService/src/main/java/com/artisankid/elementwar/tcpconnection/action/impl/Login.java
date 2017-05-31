@@ -29,6 +29,8 @@ public class Login {
 
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.LOGIN_MESSAGE_FIELD_NUMBER)
     public void loginMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
+        logger.debug("LoginMessage 处理...");
+
         LoginMessageOuterClass.LoginMessage message = container.getLoginMessage();
 
         String openID = message.getSenderId();
@@ -51,15 +53,10 @@ public class Login {
     }
 
     public void loginNotice(final String receiverID, String messageID, final String userID, final Long expiredTime) {
-        final long now = System.currentTimeMillis();
-        if(expiredTime <= now) {
-            return;
-        }
-
         //需要将登录通知返回给用户，确定登录
         LoginNoticeOuterClass.LoginNotice.Builder notice = LoginNoticeOuterClass.LoginNotice.newBuilder();
         notice.setMessageId(messageID);
-        notice.setSendTime(now / 1000);
+        notice.setSendTime(System.currentTimeMillis() / 1000);
         notice.setExpiredTime(expiredTime / 1000);
         notice.setNeedResponse(Boolean.FALSE);
         notice.setUserId(userID);
@@ -71,6 +68,7 @@ public class Login {
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
+                logger.error("LoginNotice 超时");
                 UserContextManager.removeUserContext(userID);
                 UserManager.removeUser(userID);
             }
@@ -81,6 +79,7 @@ public class Login {
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
             @Override
             public void operationComplete(Future<? super Void> future) throws Exception {
+                logger.debug("LoginNotice 成功");
                 timer.cancel();
             }
         });

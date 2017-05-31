@@ -28,32 +28,37 @@ public class UseScroll {
     private Logger logger = LoggerFactory.getLogger(UseCard.class);
 
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.USE_SCROLL_MESSAGE_FIELD_NUMBER)
-    public void UseScrollMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
+    public void useScrollMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
         UseScrollMessageOuterClass.UseScrollMessage message = container.getUseScrollMessage();
+        String senderID = message.getSenderId();
 
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
+            logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID为空");
             return;
         }
 
         MagicianDao magicianDao = new MagicianDao();
         Magician receiver = magicianDao.selectByOpenID(receiverID);
         if(receiver == null) {
+            logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID无效");
             return;
         }
 
         String scrollID = message.getScrollId();
         if(scrollID == null) {
+            logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID为空");
             return;
         }
 
         ScrollDao scrollDao = new ScrollDao();
         Scroll scroll = scrollDao.selectByScrollID(scrollID);
         if(scroll == null) {
+            logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID无效");
             return;
         }
 
-        String senderID = message.getSenderId();
+        logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID:" + scrollID + " 开始处理出卷轴...");
 
         //根据卷轴效果处理血量
         //卷轴不区分对别人使用还是自己使用
@@ -81,6 +86,8 @@ public class UseScroll {
             }
         }
 
+        logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID:" + scrollID + " 准备发送UseScrollNotice");
+
         for(User user : RoomManager.getRoom(senderID).getUsers()) {
             useScrollNotice(user.getUserID(), senderID, receiverID, scrollID);
         }
@@ -93,6 +100,8 @@ public class UseScroll {
     }
 
     public void useScrollNotice(String receiverID, String senderID, String effectReceiverID, String scrollID) {
+        logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 发送...");
+
         UseScrollNoticeOuterClass.UseScrollNotice.Builder notice = UseScrollNoticeOuterClass.UseScrollNotice.newBuilder();
         long now = System.currentTimeMillis();
         long expiredTime = now + 10 * 1000;
@@ -107,6 +116,7 @@ public class UseScroll {
         container.setMessageType(ContainerOuterClass.Container.MessageType.UseScrollNotice);
         container.setUseScrollNotice(notice);
 
+        //出牌操作的效果没有超时的概念
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
         ctx.writeAndFlush(container);
     }

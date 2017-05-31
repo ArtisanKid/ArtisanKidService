@@ -29,17 +29,11 @@ public class Match {
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.MATCH_MESSAGE_FIELD_NUMBER)
     public void matchMessage(ChannelHandlerContext ctx, ContainerOuterClass.Container container) {
         MatchMessageOuterClass.MatchMessage message = container.getMatchMessage();
-        //获取匹配信息发送者ID
+        final String messageID = message.getMessageId();
         final String senderID = message.getSenderId();
-
-        //首先判断是否超时
-        long expiredTime = (long) (message.getExpiredTime() * 1000);
-        if(expiredTime <= System.currentTimeMillis()) {
-            UserManager.getUser(senderID).setState(User.State.Free);
-            return;
-        }
-
         Integer senderStrength = UserManager.getUser(senderID).getStrength();
+
+        logger.debug("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 开始匹配...");
 
         //查询和sender实力相当的用户
         List<String> userIDs = UserManager.getMatchUserIDs();
@@ -47,21 +41,29 @@ public class Match {
         for(String userID : userIDs) {
             Integer strength = UserManager.getUser(userID).getStrength();
             if(Math.abs(senderStrength - strength) < 20) {
+                logger.debug("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 找到匹配用户:" + userID);
                 receiverID = userID;
                 break;
             }
         }
 
+        long expiredTime =  new Double(message.getExpiredTime() * 1000).longValue();
+
         //如果未找到实力相当的用户，那么就排队
         if(receiverID == null) {
+            logger.debug("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Matching");
+
             UserManager.getUser(senderID).setState(User.State.Matching);
             UserManager.getUser(senderID).setMatchExpiredTime(expiredTime);
 
             Timer timer = new Timer(true);
             TimerTask task = new TimerTask() {
                 public void run() {
+                    logger.debug("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 未找到匹配用户");
+
                     //用户等待的时间超时
                     if(UserManager.getUser(senderID).getState() == User.State.Matching) {
+                        logger.debug("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Free");
                         UserManager.getUser(senderID).setState(User.State.Free);
                     }
                 }
@@ -76,7 +78,7 @@ public class Match {
         UserManager.getUser(receiverID).setState(User.State.Matched);
         UserManager.getUser(receiverID).setHp(30);
 
-        String messageID = message.getMessageId();
+        logger.debug("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 准备发送MatchNotice");
 
         //给双方发送通知
         MagicianDao dao = new MagicianDao();
@@ -84,11 +86,8 @@ public class Match {
         matchNotice(receiverID, messageID, dao.selectByOpenID(senderID), UserManager.getUser(receiverID).getMatchExpiredTime());
     }
 
-    public void matchNotice(final String receiverID, String messageID, Magician user, long expiredTime) {
-        if(expiredTime <= System.currentTimeMillis()) {
-            matchNoticeFailed(receiverID);
-            return;
-        }
+    public void matchNotice(final String receiverID, final String messageID, Magician user, long expiredTime) {
+        logger.debug("MatchMessage" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送MatchNotice");
 
         MatchNoticeOuterClass.MatchNotice.Builder notice = MatchNoticeOuterClass.MatchNotice.newBuilder();
         notice.setMessageId(messageID);
@@ -107,6 +106,7 @@ public class Match {
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
+                logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID  + " 发送超时");
                 matchNoticeFailed(receiverID);
             }
         };
@@ -117,14 +117,18 @@ public class Match {
             @Override
             public void operationComplete(Future<? super Void> future) throws Exception {
                 if(UserManager.getUser(receiverID).getState() == User.State.Free) {
+                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送已经超时，状态为Free");
                     return;
                 }
 
                 if(UserManager.getUser(receiverID).getState() == User.State.Matching) {
+                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送已经超时，状态为Matching");
                     return;
                 }
 
                 timer.cancel();
+
+                logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送成功，状态变为WaitingInRoom");
 
                 UserManager.getUser(receiverID).setState(User.State.WaitingInRoom);
 
@@ -135,6 +139,8 @@ public class Match {
                         return;
                     }
                 }
+
+                logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 准备进入房间...");
 
                 for(User user : room.getUsers()) {
                     InRoom.InRoomNotice(user.getUserID(), room.getRoomID());

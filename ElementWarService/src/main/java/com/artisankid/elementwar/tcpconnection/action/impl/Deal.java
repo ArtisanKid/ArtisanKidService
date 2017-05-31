@@ -20,9 +20,11 @@ import java.util.TimerTask;
  */
 @NettyAction
 public class Deal {
-    private Logger logger = LoggerFactory.getLogger(Deal.class);
+    private static Logger logger = LoggerFactory.getLogger(Deal.class);
 
-    static public void DealNotice(final String receiverID, List<String> cardIDs) {
+    static public void DealNotice(final String receiverID, final List<String> cardIDs) {
+        logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送...");
+
         DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
         long now = System.currentTimeMillis();
         long expiredTime = now + 10 * 1000;
@@ -40,7 +42,8 @@ public class Deal {
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
-                //发牌没有收到，换下一个用户出牌
+                logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送超时，换下个用户收牌");
+                //发牌没有收到，换下一个用户收牌
                 DealNoticeNextUser(receiverID);
             }
         };
@@ -52,6 +55,8 @@ public class Deal {
             public void operationComplete(Future<? super Void> future) throws Exception {
                 timer.cancel();
 
+                logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功，准备出牌...");
+
                 //发牌成功，通知出牌
                 PlaySwitch.PlaySwitchNotice(receiverID);
             }
@@ -59,6 +64,8 @@ public class Deal {
     }
 
     static public void DealNoticeOnly(final String receiverID, List<String> cardIDs) {
+        logger.debug("DealNoticeOnly" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送...");
+
         DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
         long now = System.currentTimeMillis();
         long expiredTime = now + 10 * 1000;

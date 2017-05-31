@@ -8,6 +8,8 @@ import com.artisankid.elementwar.tcpconnection.gate.utils.User;
 import com.artisankid.elementwar.tcpconnection.gate.utils.UserContextManager;
 import com.artisankid.elementwar.tcpconnection.gate.utils.UserManager;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.concurrent.Future;
+import io.netty.util.concurrent.GenericFutureListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,14 +23,16 @@ import java.util.TimerTask;
  */
 @NettyAction
 public class PlaySwitch {
-    private Logger logger = LoggerFactory.getLogger(PlaySwitch.class);
+    private static Logger logger = LoggerFactory.getLogger(PlaySwitch.class);
 
     static public void PlaySwitchNotice(final String playerID) {
+        logger.debug("DealNotice" + " playerID:" + playerID + " 发送...");
+
         PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder notice = PlaySwitchNoticeOuterClass.PlaySwitchNotice.newBuilder();
         long now = System.currentTimeMillis();
         long expiredTime = now + 30 * 1000;
         notice.setSendTime(now / 1000);
-        notice.setExpiredTime(expiredTime);
+        notice.setExpiredTime(expiredTime / 1000);
         notice.setNeedResponse(Boolean.FALSE);
         notice.setPlayerId(playerID);
 
@@ -44,8 +48,11 @@ public class PlaySwitch {
             public void run() {
                 //用户出牌时间可能会被延长
                 if(UserManager.getUser(playerID).getPlayExpiredTime() > System.currentTimeMillis()) {
+                    logger.debug("DealNotice" + " playerID:" + playerID + " 用户出牌时间被延长了");
                     return;
                 }
+
+                logger.debug("DealNotice" + " playerID:" + playerID + " 切换出牌超时，状态变更为Waiting，下一用户出牌");
 
                 //出牌结束或者通知超时，换下一个用户出牌
                 UserManager.getUser(playerID).setGameState(User.GameState.Waiting);
@@ -55,6 +62,13 @@ public class PlaySwitch {
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(playerID);
-        ctx.writeAndFlush(container);
+        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+            @Override
+            public void operationComplete(Future<? super Void> future) throws Exception {
+                timer.cancel();
+
+                logger.debug("DealNotice" + " playerID:" + playerID + " 切换出牌超时成功");
+            }
+        });
     }
 }

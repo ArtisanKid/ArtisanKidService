@@ -18,16 +18,18 @@ import java.util.TimerTask;
  * Created by LiXiangYu on 2017/4/26.
  */
 public class InRoom {
-    private Logger logger = LoggerFactory.getLogger(Finish.class);
+    private static Logger logger = LoggerFactory.getLogger(Finish.class);
 
-    static public void InRoomNotice(final String receiverID, String roomID) {
+    static public void InRoomNotice(final String receiverID, final String roomID) {
+        logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送...");
+
         UserManager.getUser(receiverID).setState(User.State.InRooming);
 
         InRoomNoticeOuterClass.InRoomNotice.Builder notice = InRoomNoticeOuterClass.InRoomNotice.newBuilder();
         long now = System.currentTimeMillis();
         long expiredTime = now + 10 * 1000;
         notice.setSendTime(now / 1000);
-        notice.setExpiredTime(expiredTime);
+        notice.setExpiredTime(expiredTime / 1000);
         notice.setNeedResponse(Boolean.FALSE);
         notice.setRoomId(roomID);
 
@@ -44,6 +46,8 @@ public class InRoom {
                     return;
                 }
 
+                logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送超时，状态变为Free");
+
                 for(User user : room.getUsers()) {
                     user.setState(User.State.Free);
                 }
@@ -56,11 +60,13 @@ public class InRoom {
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
             @Override
             public void operationComplete(Future<? super Void> future) throws Exception {
-                timer.cancel();
-
                 if(UserManager.getUser(receiverID).getState() == User.State.Free) {
                     return;
                 }
+
+                logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送成功");
+
+                timer.cancel();
 
                 UserManager.getUser(receiverID).setState(User.State.InRoomed);
 
@@ -71,6 +77,8 @@ public class InRoom {
                         return;
                     }
                 }
+
+                logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 准备发牌...");
 
                 for(Integer i = 0; i < users.size(); i++) {
                     User user = users.get(i);

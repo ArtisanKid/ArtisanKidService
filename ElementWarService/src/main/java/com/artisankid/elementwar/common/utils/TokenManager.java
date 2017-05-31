@@ -25,6 +25,15 @@ public class TokenManager {
         return hashValue;
     }
 
+    static public Boolean VerifyAccessToken(String accessToken) {
+        TokenDao tokenDao = new TokenDao();
+        if(tokenDao.selectByAccessToken(accessToken) != null) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
+    }
+
     static public Boolean VerifyAccessToken(String openID, String accessToken) {
         TokenDao tokenDao = new TokenDao();
         for(Token token : tokenDao.selectByOpenID(openID)) {

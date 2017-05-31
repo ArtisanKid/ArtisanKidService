@@ -27,30 +27,35 @@ public class UseCard {
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.USE_CARD_MESSAGE_FIELD_NUMBER)
     public void useCardMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
         UseCardMessageOuterClass.UseCardMessage message = container.getUseCardMessage();
+        String senderID = message.getSenderId();
 
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
+            logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID为空");
             return;
         }
 
         MagicianDao magicianDao = new MagicianDao();
         Magician receiver = magicianDao.selectByOpenID(receiverID);
         if(receiver == null) {
+            logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID无效");
             return;
         }
 
         String cardID = message.getCardId();
         if(cardID == null) {
+            logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID为空");
             return;
         }
 
         CardDao cardDao = new CardDao();
         Card card = cardDao.selectByCardID(cardID);
         if(card == null) {
+            logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID无效");
             return;
         }
 
-        String senderID = message.getSenderId();
+        logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 开始处理出牌...");
 
         //根据卡牌效果处理血量
         //卡牌区分对别人使用还是自己使用
@@ -83,6 +88,8 @@ public class UseCard {
             }
         }
 
+        logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 准备发送UseCardNotice");
+
         for(User user : RoomManager.getRoom(senderID).getUsers()) {
             useCardNotice(user.getUserID(), senderID, receiverID, cardID);
         }
@@ -95,6 +102,8 @@ public class UseCard {
     }
 
     public void useCardNotice(String receiverID, String senderID, String effectReceiverID, String cardID) {
+        logger.debug("UseCardNotice " + " senderID:" + senderID + " receiverID:" + receiverID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 发送...");
+
         UseCardNoticeOuterClass.UseCardNotice.Builder notice = UseCardNoticeOuterClass.UseCardNotice.newBuilder();
         long now = System.currentTimeMillis();
         long expiredTime = now + 10 * 1000;
@@ -110,6 +119,7 @@ public class UseCard {
         container.setMessageType(ContainerOuterClass.Container.MessageType.UseCardNotice);
         container.setUseCardNotice(notice);
 
+        //出牌操作的效果没有超时的概念
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
         ctx.writeAndFlush(container);
     }
