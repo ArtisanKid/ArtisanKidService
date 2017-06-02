@@ -23,7 +23,7 @@ public class Deal {
     private static Logger logger = LoggerFactory.getLogger(Deal.class);
 
     static public void DealNotice(final String receiverID, final List<String> cardIDs) {
-        logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送...");
+        logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 开始发送...");
 
         DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
         long now = System.currentTimeMillis();
@@ -42,7 +42,7 @@ public class Deal {
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
-                logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送超时，换下个用户收牌");
+                logger.error("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送超时，给下个用户发牌");
                 //发牌没有收到，换下一个用户收牌
                 DealNoticeNextUser(receiverID);
             }
@@ -53,9 +53,9 @@ public class Deal {
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
             @Override
             public void operationComplete(Future<? super Void> future) throws Exception {
-                timer.cancel();
-
                 logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功，准备出牌...");
+
+                timer.cancel();
 
                 //发牌成功，通知出牌
                 PlaySwitch.PlaySwitchNotice(receiverID);
@@ -63,8 +63,8 @@ public class Deal {
         });
     }
 
-    static public void DealNoticeOnly(final String receiverID, List<String> cardIDs) {
-        logger.debug("DealNoticeOnly" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送...");
+    static public void DealNoticeOnly(final String receiverID, final List<String> cardIDs) {
+        logger.debug("DealNoticeOnly" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 开始发送...");
 
         DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
         long now = System.currentTimeMillis();
@@ -82,7 +82,12 @@ public class Deal {
         container.setDealNotice(notice);
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container);
+        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+            @Override
+            public void operationComplete(Future<? super Void> future) throws Exception {
+                logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功");
+            }
+        });;
     }
 
     static public void DealNoticeNextUser(String currentUserID) {

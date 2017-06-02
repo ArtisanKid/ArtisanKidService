@@ -21,7 +21,7 @@ public class InRoom {
     private static Logger logger = LoggerFactory.getLogger(Finish.class);
 
     static public void InRoomNotice(final String receiverID, final String roomID) {
-        logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送...");
+        logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 开始发送...");
 
         UserManager.getUser(receiverID).setState(User.State.InRooming);
 
@@ -46,7 +46,7 @@ public class InRoom {
                     return;
                 }
 
-                logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送超时，状态变为Free");
+                logger.error("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送超时，状态变为Free");
 
                 for(User user : room.getUsers()) {
                     user.setState(User.State.Free);

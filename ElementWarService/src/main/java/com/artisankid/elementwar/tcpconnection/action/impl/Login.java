@@ -29,11 +29,12 @@ public class Login {
 
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.LOGIN_MESSAGE_FIELD_NUMBER)
     public void loginMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
-        logger.debug("LoginMessage 处理...");
-
         LoginMessageOuterClass.LoginMessage message = container.getLoginMessage();
-
+        String messageID = message.getMessageId();
         String openID = message.getSenderId();
+
+        logger.debug("LoginMessage " + " messageID:" + messageID + " senderID:" + openID + " 开始登录...");
+
         UserContextManager.setUserContext(openID, context);
 
         MagicianDao dao = new MagicianDao();
@@ -47,12 +48,13 @@ public class Login {
 
         //TODO:给所有的朋友或者对手发送信息？
 
-        String messageID = message.getMessageId();
         Long expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
         loginNotice(openID, messageID, openID, expiredTime);
     }
 
-    public void loginNotice(final String receiverID, String messageID, final String userID, final Long expiredTime) {
+    public void loginNotice(final String receiverID, final String messageID, final String userID, final Long expiredTime) {
+        logger.debug("LoginMessage" + " messageID:" + messageID + " receiverID:" + receiverID + " targetID:" + userID + " 开始发送...");
+
         //需要将登录通知返回给用户，确定登录
         LoginNoticeOuterClass.LoginNotice.Builder notice = LoginNoticeOuterClass.LoginNotice.newBuilder();
         notice.setMessageId(messageID);
@@ -68,7 +70,7 @@ public class Login {
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
-                logger.error("LoginNotice 超时");
+                logger.error("LoginNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " targetID:" + userID + " 发送超时");
                 UserContextManager.removeUserContext(userID);
                 UserManager.removeUser(userID);
             }
@@ -79,7 +81,7 @@ public class Login {
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
             @Override
             public void operationComplete(Future<? super Void> future) throws Exception {
-                logger.debug("LoginNotice 成功");
+                logger.debug("LoginNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " targetID:" + userID + " 发送成功");
                 timer.cancel();
             }
         });

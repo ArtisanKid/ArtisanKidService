@@ -31,27 +31,27 @@ public class UseCard {
 
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
-            logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID为空");
+            logger.error("UseCardMessage " + " senderID:" + senderID + " receiverID为空");
             return;
         }
 
         MagicianDao magicianDao = new MagicianDao();
         Magician receiver = magicianDao.selectByOpenID(receiverID);
         if(receiver == null) {
-            logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID无效");
+            logger.error("UseCardMessage " + " senderID:" + senderID + " receiverID无效");
             return;
         }
 
         String cardID = message.getCardId();
         if(cardID == null) {
-            logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID为空");
+            logger.error("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID为空");
             return;
         }
 
         CardDao cardDao = new CardDao();
         Card card = cardDao.selectByCardID(cardID);
         if(card == null) {
-            logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID无效");
+            logger.error("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID无效");
             return;
         }
 
@@ -88,7 +88,7 @@ public class UseCard {
             }
         }
 
-        logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 准备发送UseCardNotice");
+        logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 准备发送UseCardNotice...");
 
         for(User user : RoomManager.getRoom(senderID).getUsers()) {
             useCardNotice(user.getUserID(), senderID, receiverID, cardID);
@@ -102,7 +102,7 @@ public class UseCard {
     }
 
     public void useCardNotice(String receiverID, String senderID, String effectReceiverID, String cardID) {
-        logger.debug("UseCardNotice " + " senderID:" + senderID + " receiverID:" + receiverID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 发送...");
+        logger.debug("UseCardNotice " + " senderID:" + senderID + " receiverID:" + receiverID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 开始发送...");
 
         UseCardNoticeOuterClass.UseCardNotice.Builder notice = UseCardNoticeOuterClass.UseCardNotice.newBuilder();
         long now = System.currentTimeMillis();

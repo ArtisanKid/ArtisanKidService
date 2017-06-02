@@ -34,27 +34,27 @@ public class UseScroll {
 
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
-            logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID为空");
+            logger.error("UseScrollMessage " + " senderID:" + senderID + " receiverID为空");
             return;
         }
 
         MagicianDao magicianDao = new MagicianDao();
         Magician receiver = magicianDao.selectByOpenID(receiverID);
         if(receiver == null) {
-            logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID无效");
+            logger.error("UseScrollMessage " + " senderID:" + senderID + " receiverID无效");
             return;
         }
 
         String scrollID = message.getScrollId();
         if(scrollID == null) {
-            logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID为空");
+            logger.error("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID为空");
             return;
         }
 
         ScrollDao scrollDao = new ScrollDao();
         Scroll scroll = scrollDao.selectByScrollID(scrollID);
         if(scroll == null) {
-            logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID无效");
+            logger.error("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID无效");
             return;
         }
 
@@ -100,7 +100,7 @@ public class UseScroll {
     }
 
     public void useScrollNotice(String receiverID, String senderID, String effectReceiverID, String scrollID) {
-        logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 发送...");
+        logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 正在发送...");
 
         UseScrollNoticeOuterClass.UseScrollNotice.Builder notice = UseScrollNoticeOuterClass.UseScrollNotice.newBuilder();
         long now = System.currentTimeMillis();

@@ -26,7 +26,7 @@ public class PlaySwitch {
     private static Logger logger = LoggerFactory.getLogger(PlaySwitch.class);
 
     static public void PlaySwitchNotice(final String playerID) {
-        logger.debug("DealNotice" + " playerID:" + playerID + " 发送...");
+        logger.debug("DealNotice" + " playerID:" + playerID + " 开始发送...");
 
         PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder notice = PlaySwitchNoticeOuterClass.PlaySwitchNotice.newBuilder();
         long now = System.currentTimeMillis();
@@ -48,11 +48,11 @@ public class PlaySwitch {
             public void run() {
                 //用户出牌时间可能会被延长
                 if(UserManager.getUser(playerID).getPlayExpiredTime() > System.currentTimeMillis()) {
-                    logger.debug("DealNotice" + " playerID:" + playerID + " 用户出牌时间被延长了");
+                    logger.debug("DealNotice" + " playerID:" + playerID + " 用户出牌时间被延长");
                     return;
                 }
 
-                logger.debug("DealNotice" + " playerID:" + playerID + " 切换出牌超时，状态变更为Waiting，下一用户出牌");
+                logger.debug("DealNotice" + " playerID:" + playerID + " 切换出牌超时，状态变更为Waiting，准备下一轮发牌...");
 
                 //出牌结束或者通知超时，换下一个用户出牌
                 UserManager.getUser(playerID).setGameState(User.GameState.Waiting);

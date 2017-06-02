@@ -18,7 +18,7 @@ public class Finish {
     private static Logger logger = LoggerFactory.getLogger(Finish.class);
 
     static public void FinishNotice(String winnerID) {
-        logger.debug("FinishNotice" + " winnerID:" + winnerID + " 发送...");
+        logger.debug("FinishNotice" + " winnerID:" + winnerID + " 开始发送...");
 
         FinishNoticeOuterClass.FinishNotice.Builder notice = FinishNoticeOuterClass.FinishNotice.newBuilder();
         long now = System.currentTimeMillis();
