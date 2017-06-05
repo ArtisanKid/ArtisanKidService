@@ -26,7 +26,7 @@ import java.util.TimerTask;
 @NettyAction
 public class Invite {
     enum InviteReply {
-        Busy, Agree, Refuse
+        Offline, Busy, Agree, Refuse
     }
 
     private Logger logger = LoggerFactory.getLogger(Invite.class);
@@ -53,6 +53,12 @@ public class Invite {
         }
 
         long expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
+
+        if(UserManager.getUser(receiverID) == null) {
+            logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " 用户不在线，准备发送InviteReplyNotice...");
+            inviteReplyNotice(senderID, messageID, receiver, InviteReply.Offline, expiredTime);
+            return;
+        }
 
         User.State state = UserManager.getUser(receiverID).getState();
         if(state == User.State.Free) {
@@ -84,8 +90,14 @@ public class Invite {
         notice.setNeedResponse(Boolean.TRUE);
 
         notice.setSenderId(senderID);
-        notice.setSenderName(sender.getNickname());
-        notice.setSenderPortraitUrl(sender.getSmallPortrait());
+        String nickname = sender.getNickname();
+        if(nickname != null) {
+            notice.setSenderName(nickname);
+        }
+        String smallPortrait = sender.getNickname();
+        if(smallPortrait != null) {
+            notice.setSenderPortraitUrl(smallPortrait);
+        }
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
         container.setMessageType(ContainerOuterClass.Container.MessageType.InviteNotice);
@@ -144,7 +156,9 @@ public class Invite {
         if(message.getIsAgree()) {
             logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " 同意邀请，状态变为Invited，准备发送InviteReplyNotice...");
 
+            //创建房间
             RoomManager.createRoom(Arrays.asList(senderID, receiverID));
+
             UserManager.getUser(senderID).setState(User.State.Invited);
             UserManager.getUser(senderID).setHp(30);
             UserManager.getUser(receiverID).setState(User.State.Invited);
@@ -169,17 +183,27 @@ public class Invite {
         notice.setNeedResponse(Boolean.FALSE);
 
         notice.setSenderId(senderID);
-        notice.setSenderName(sender.getNickname());
-        notice.setSenderPortraitUrl(sender.getSmallPortrait());
+        String nickname = sender.getNickname();
+        if(nickname != null) {
+            notice.setSenderName(nickname);
+        }
+        String smallPortrait = sender.getSmallPortrait();
+        if(smallPortrait != null) {
+            notice.setSenderPortraitUrl(smallPortrait);
+        }
 
         switch (reply) {
-            case Agree:
-                notice.setIsAgree(true);
-                notice.setAlert("对方同意了邀请！");
+            case Offline:
+                notice.setIsAgree(false);
+                notice.setAlert("对方离线");
                 break;
             case Busy:
                 notice.setIsAgree(false);
                 notice.setAlert("正在游戏中...");
+                break;
+            case Agree:
+                notice.setIsAgree(true);
+                notice.setAlert("对方同意了邀请！");
                 break;
             case Refuse:
                 notice.setIsAgree(false);
@@ -198,7 +222,10 @@ public class Invite {
         TimerTask task = new TimerTask() {
             public void run() {
                 logger.error("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 发送超时，状态变为Free");
-                UserManager.getUser(receiverID).setState(User.State.Free);
+                User socketReceiver = UserManager.getUser(receiverID);
+                if(socketReceiver != null) {
+                    socketReceiver.setState(User.State.Free);
+                }
                 UserManager.getUser(senderID).setState(User.State.Free);
             }
         };
@@ -208,8 +235,14 @@ public class Invite {
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
             @Override
             public void operationComplete(Future<? super Void> future) throws Exception {
-                if(UserManager.getUser(receiverID).getState() == User.State.Free
-                        || UserManager.getUser(senderID).getState() == User.State.Free) {
+                User socketReceiver = UserManager.getUser(receiverID);
+                if(socketReceiver != null) {
+                    if(socketReceiver.getState() == User.State.Free) {
+                        return;
+                    }
+                }
+
+                if(UserManager.getUser(senderID).getState() == User.State.Free) {
                     return;
                 }
 
@@ -236,7 +269,10 @@ public class Invite {
                     }
                 } else {
                     logger.debug("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 发送成功，状态变为Free");
-                    UserManager.getUser(receiverID).setState(User.State.Free);
+
+                    if(socketReceiver != null) {
+                        socketReceiver.setState(User.State.Free);
+                    }
                     UserManager.getUser(senderID).setState(User.State.Free);
                 }
             }

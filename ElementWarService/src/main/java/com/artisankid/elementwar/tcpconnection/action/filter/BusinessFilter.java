@@ -27,81 +27,65 @@ public class BusinessFilter {
         ContainerOuterClass.Container container = (ContainerOuterClass.Container) args[1];
 
         long expiredTime = 0;
+        String messageID = null;
         String senderID = null;
         String messageName = null;
         switch (container.getMessageType().getNumber()) {
             case ContainerOuterClass.Container.LOGIN_MESSAGE_FIELD_NUMBER: {
                 messageName = "LOGIN_MESSAGE";
-
                 LoginMessageOuterClass.LoginMessage message = container.getLoginMessage();
-                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
-
+                messageID = message.getMessageId();
                 senderID = message.getSenderId();
-                if(senderID == null || senderID.length() == 0) {
-                    logger.error("LOGIN_MESSAGE senderID为空");
-                    return Boolean.FALSE;
-                }
-
-                if(MagicianManager.VerifyOpenID(senderID) == Boolean.FALSE) {
-                    logger.error("LOGIN_MESSAGE senderID无效");
-                    return Boolean.FALSE;
-                }
-
-                String accessToken = message.getAccessToken();
-                if (accessToken == null || accessToken.length() == 0) {
-                    logger.error("LOGIN_MESSAGE accessToken为空");
-                    return Boolean.FALSE;
-                }
-
-                if(TokenManager.VerifyAccessToken(accessToken) == Boolean.FALSE) {
-                    //token验证失败，等待客户端自然超时
-                    logger.error("LOGIN_MESSAGE accessToken无效");
-                    return Boolean.FALSE;
-                }
-
-                if (TokenManager.VerifyAccessToken(senderID, accessToken) == Boolean.FALSE) {
-                    logger.error("LOGIN_MESSAGE accessToken不匹配");
-                    return Boolean.FALSE;
-                }
+                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
                 break;
             }
             case ContainerOuterClass.Container.MATCH_MESSAGE_FIELD_NUMBER: {
                 messageName = "MATCH_MESSAGE";
                 MatchMessageOuterClass.MatchMessage message = container.getMatchMessage();
-                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
+                messageID = message.getMessageId();
                 senderID = message.getSenderId();
+                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
                 break;
             }
             case ContainerOuterClass.Container.INVITE_MESSAGE_FIELD_NUMBER: {
                 messageName = "INVITE_MESSAGE";
                 InviteMessageOuterClass.InviteMessage message = container.getInviteMessage();
-                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
+                messageID = message.getMessageId();
                 senderID = message.getSenderId();
+                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
                 break;
             }
             case ContainerOuterClass.Container.INVITE_REPLY_MESSAGE_FIELD_NUMBER: {
                 messageName = "INVITE_REPLY_MESSAGE";
                 InviteReplyMessageOuterClass.InviteReplyMessage message = container.getInviteReplyMessage();
-                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
+                messageID = message.getMessageId();
                 senderID = message.getSenderId();
+                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
                 break;
             }
             case ContainerOuterClass.Container.USE_CARD_MESSAGE_FIELD_NUMBER: {
                 messageName = "USE_CARD_MESSAGE";
                 UseCardMessageOuterClass.UseCardMessage message = container.getUseCardMessage();
-                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
+                messageID = message.getMessageId();
                 senderID = message.getSenderId();
+                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
                 break;
             }
             case ContainerOuterClass.Container.USE_SCROLL_MESSAGE_FIELD_NUMBER: {
                 messageName = "USE_SCROLL_MESSAGE";
                 UseScrollMessageOuterClass.UseScrollMessage message = container.getUseScrollMessage();
-                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
+                messageID = message.getMessageId();
                 senderID = message.getSenderId();
+                expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
                 break;
             }
             default:
                 break;
+        }
+
+        if(messageID == null || messageID.length() == 0) {
+            logger.error(messageName + " messageID为空");
+            return Boolean.FALSE;
         }
 
         if(senderID == null || senderID.length() == 0) {

@@ -17,9 +17,7 @@ public class User {
 
     private State state;
 
-    private long matchExpiredTime;
-
-    private long inviteExpiredTime;
+    private Long matchExpiredTime = 0L;
 
     private Integer strength;
 
@@ -27,7 +25,7 @@ public class User {
 
     private long playExpiredTime;//出牌超时时间
 
-    private Integer hp;
+    private Integer hp = 0;
 
     public String getUserID() {
         return userID;
@@ -51,20 +49,12 @@ public class User {
         this.state = state;
     }
 
-    public long getMatchExpiredTime() {
+    public Long getMatchExpiredTime() {
         return matchExpiredTime;
     }
 
-    public void setMatchExpiredTime(long matchExpiredTime) {
+    public void setMatchExpiredTime(Long matchExpiredTime) {
         this.matchExpiredTime = matchExpiredTime;
-    }
-
-    public long getInviteExpiredTime() {
-        return inviteExpiredTime;
-    }
-
-    public void setInviteExpiredTime(long inviteExpiredTime) {
-        this.inviteExpiredTime = inviteExpiredTime;
     }
 
     public Integer getStrength() {
@@ -83,7 +73,7 @@ public class User {
         return gameState;
     }
 
-    public long getPlayExpiredTime() {
+    public Long getPlayExpiredTime() {
         return playExpiredTime;
     }
 

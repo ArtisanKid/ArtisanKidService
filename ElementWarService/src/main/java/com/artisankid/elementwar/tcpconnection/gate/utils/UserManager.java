@@ -12,12 +12,6 @@ public class UserManager {
     private static ConcurrentHashMap<String, User> userMap = new ConcurrentHashMap<>();
 
     public static User getUser(String userID) {
-        User user = userMap.get(userID);
-        if(user == null) {
-            user = new User();
-            user.setState(User.State.Free);
-            userMap.put(userID, user);
-        }
         return userMap.get(userID);
     }
 

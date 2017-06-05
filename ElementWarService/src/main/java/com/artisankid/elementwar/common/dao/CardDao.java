@@ -71,7 +71,7 @@ public class CardDao {
 		object.setElement(element);
 		
 		EffectDao effectDao = new EffectDao();
-		List<Effect> effects = effectDao.selectByCardID(result.get("cardID").toString());
+		List<Effect> effects = effectDao.selectByCardID(object.getCardID());
 		object.setEffects(effects);
 		
 		return object;

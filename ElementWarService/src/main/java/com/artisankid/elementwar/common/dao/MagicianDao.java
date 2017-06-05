@@ -141,7 +141,9 @@ public class MagicianDao {
         object.setMobile((String) result.get("mobile"));
 
         Date birthday = (Date)result.get("birthday");
-        object.setBirthday(birthday.getTime());
+        if(birthday != null) {
+            object.setBirthday(birthday.getTime());
+        }
         object.setMotto((String) result.get("motto"));
 
         int win_count = (Integer)result.get("win_count");

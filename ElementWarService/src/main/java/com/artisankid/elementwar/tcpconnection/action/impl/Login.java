@@ -3,6 +3,7 @@ package com.artisankid.elementwar.tcpconnection.action.impl;
 import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.dao.TokenDao;
 import com.artisankid.elementwar.common.ewmodel.Magician;
+import com.artisankid.elementwar.common.utils.TokenManager;
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass;
@@ -31,25 +32,41 @@ public class Login {
     public void loginMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
         LoginMessageOuterClass.LoginMessage message = container.getLoginMessage();
         String messageID = message.getMessageId();
-        String openID = message.getSenderId();
+        String senderID = message.getSenderId();
 
-        logger.debug("LoginMessage " + " messageID:" + messageID + " senderID:" + openID + " 开始登录...");
+        logger.debug("LoginMessage " + " messageID:" + messageID + " senderID:" + senderID + " 开始登录...");
 
-        UserContextManager.setUserContext(openID, context);
+        String accessToken = message.getAccessToken();
+        if (accessToken == null || accessToken.length() == 0) {
+            logger.error("LoginMessage" + " messageID:" + messageID + " senderID:" + senderID + " accessToken为空");
+            return;
+        }
+
+        if(TokenManager.VerifyAccessToken(accessToken) == Boolean.FALSE) {
+            logger.error("LoginMessage" + " messageID:" + messageID + " senderID:" + senderID + " accessToken无效");
+            return;
+        }
+
+        if (TokenManager.VerifyAccessToken(senderID, accessToken) == Boolean.FALSE) {
+            logger.error("LoginMessage" + " messageID:" + messageID + " senderID:" + senderID + " accessToken不匹配");
+            return;
+        }
+
+        UserContextManager.setUserContext(senderID, context);
 
         MagicianDao dao = new MagicianDao();
-        Magician magician = dao.selectByOpenID(openID);
+        Magician magician = dao.selectByOpenID(senderID);
         Integer strength = magician.getStrength();
 
         User user = new User();
-        user.setUserID(openID);
+        user.setUserID(senderID);
         user.setStrength(strength);
         UserManager.addUser(user);
 
         //TODO:给所有的朋友或者对手发送信息？
 
         Long expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
-        loginNotice(openID, messageID, openID, expiredTime);
+        loginNotice(senderID, messageID, senderID, expiredTime);
     }
 
     public void loginNotice(final String receiverID, final String messageID, final String userID, final Long expiredTime) {
