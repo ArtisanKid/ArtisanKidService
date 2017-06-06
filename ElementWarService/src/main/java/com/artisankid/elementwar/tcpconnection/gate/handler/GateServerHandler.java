@@ -2,18 +2,18 @@ package com.artisankid.elementwar.tcpconnection.gate.handler;
 
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.tcpconnection.action.ActionMapUtil;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 /**
  * 网关服务处理器，请求转发
  * <p>
  * Created by shaohua.wang on 2017/04/16.
  */
-@Component
+@ChannelHandler.Sharable
 public class GateServerHandler extends SimpleChannelInboundHandler {
     private static final Logger logger = LoggerFactory.getLogger(GateServerHandler.class);
 

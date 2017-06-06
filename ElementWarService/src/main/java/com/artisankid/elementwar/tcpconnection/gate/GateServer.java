@@ -33,8 +33,6 @@ public class GateServer {
 
     private final static int CONNECTION_PORT = 51685;
 
-    @Resource
-    private GateServerHandler gateServerHandler;
     /**
      * 初始化方法
      */
@@ -65,7 +63,8 @@ public class GateServer {
                         pipeline.addLast(new ProtobufDecoder(ContainerOuterClass.Container.getDefaultInstance()));
 //                        pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
                         pipeline.addLast(new ProtobufEncoder());
-                        pipeline.addLast(gateServerHandler);
+
+                        pipeline.addLast(new GateServerHandler());
                     }
                 });
 
