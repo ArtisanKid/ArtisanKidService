@@ -56,8 +56,8 @@ public class LoginServlet extends HttpServlet {
 		Token userToken = new Token();
 		userToken.setAccessToken(request.getParameter("accessToken"));
 		userToken.setRefreshToken(request.getParameter("refreshToken"));
-		Double userTokenExpiredTime = Double.parseDouble(request.getParameter("expiredTime")) * 1000;
-		userToken.setExpiredTime(userTokenExpiredTime.longValue());
+		Double userTokenExpiredTime = Double.parseDouble(request.getParameter("expiredTime"));
+		userToken.setExpiredTime(userTokenExpiredTime);
 		user.setToken(userToken);
 
 		//根据是否已经有对应用户来决定是插入还是更新
@@ -81,7 +81,7 @@ public class LoginServlet extends HttpServlet {
 		magicianToken.setAccessToken(TokenManager.CreateAccessToken(openID));
 		magicianToken.setRefreshToken(TokenManager.CreateRefreshToken(openID));
 		Long magicianTokenExpiredTime = System.currentTimeMillis() + 24 * 60 * 60 * 1000;
-		magicianToken.setExpiredTime(magicianTokenExpiredTime);
+		magicianToken.setExpiredTime(magicianTokenExpiredTime / 1000.);
 
 		//存储创建的Token
 		TokenDao tokenDao = new TokenDao();

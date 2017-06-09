@@ -43,7 +43,7 @@ public class TokenDao {
 			object.setRefreshToken(map.get("refresh_token").toString());
 
 			Timestamp accessTokenExpiredTime = (Timestamp)map.get("access_token_expired_time");
-			object.setExpiredTime(accessTokenExpiredTime.getTime());
+			object.setExpiredTime(accessTokenExpiredTime.getTime() / 1000.);
 			objects.add(object);
 		}
 		return objects;
@@ -84,10 +84,10 @@ public class TokenDao {
 		object.setRefreshToken(result.get("refresh_token").toString());
 
 		Timestamp accessTokenExpiredTime = (Timestamp)result.get("access_token_expired_time");
-		object.setExpiredTime(accessTokenExpiredTime.getTime());
+		object.setExpiredTime(accessTokenExpiredTime.getTime() / 1000.);
 
 		Timestamp refreshTokenExpiredTime = (Timestamp)result.get("refresh_token_expired_time");
-		object.setRefreshTokenExpiredTime(refreshTokenExpiredTime.getTime());
+		object.setRefreshTokenExpiredTime(refreshTokenExpiredTime.getTime() / 1000.);
 
 		return object;
 	}
@@ -105,7 +105,7 @@ public class TokenDao {
 				+ object.getRefreshToken() + "', "
 				+ "?);";
 
-		Long accessTokenExpiredTime = object.getExpiredTime();
+		Long accessTokenExpiredTime = new Double(object.getExpiredTime() * 1000).longValue();
 		final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
 
 		Long refreshTokenExpiredTime = accessTokenExpiredTime + 30 * 24 * 60 * 60 * 1000;//refreshToken过期时间 天*小时*分钟*秒
@@ -141,7 +141,7 @@ public class TokenDao {
 				+ "refresh_token_expired_time = ? "
 				+ "WHERE refresh_token = '" + object.getRefreshToken() + "';";
 
-		Long accessTokenExpiredTime = object.getExpiredTime();
+		Long accessTokenExpiredTime = new Double(object.getExpiredTime() * 1000).longValue();
 		final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
 
 		Long refreshTokenExpiredTime = accessTokenExpiredTime + 30 * 24 * 60 * 60 * 1000;//refreshToken过期时间 天*小时*分钟*秒

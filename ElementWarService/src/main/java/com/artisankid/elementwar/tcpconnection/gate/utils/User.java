@@ -17,6 +17,7 @@ public class User {
 
     private State state;
 
+    private String matchMessageID;
     private Long matchExpiredTime = 0L;
 
     private Integer strength;
@@ -47,6 +48,14 @@ public class User {
 
     public void setState(State state) {
         this.state = state;
+    }
+
+    public String getMatchMessageID() {
+        return matchMessageID;
+    }
+
+    public void setMatchMessageID(String matchMessageID) {
+        this.matchMessageID = matchMessageID;
     }
 
     public Long getMatchExpiredTime() {

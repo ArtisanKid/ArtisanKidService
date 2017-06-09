@@ -33,7 +33,7 @@ public class Match {
         final String senderID = message.getSenderId();
         Integer senderStrength = UserManager.getUser(senderID).getStrength();
 
-        logger.debug("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 开始匹配...");
+        logger.debug("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 开始匹配...");
 
         //查询和sender实力相当的用户
         List<String> userIDs = UserManager.getMatchUserIDs();
@@ -41,7 +41,7 @@ public class Match {
         for(String userID : userIDs) {
             Integer strength = UserManager.getUser(userID).getStrength();
             if(Math.abs(senderStrength - strength) < 20) {
-                logger.debug("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 找到匹配用户:" + userID);
+                logger.debug("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 找到匹配用户:" + userID);
                 receiverID = userID;
                 break;
             }
@@ -51,21 +51,24 @@ public class Match {
 
         //如果未找到实力相当的用户，那么就排队
         if(receiverID == null) {
-            logger.debug("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Matching");
+            logger.debug("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Matching");
 
             UserManager.getUser(senderID).setState(User.State.Matching);
+            UserManager.getUser(senderID).setMatchMessageID(messageID);
             UserManager.getUser(senderID).setMatchExpiredTime(expiredTime);
 
             Timer timer = new Timer(true);
             TimerTask task = new TimerTask() {
                 public void run() {
-                    logger.error("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 未找到匹配用户");
+                    logger.error("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 未找到匹配用户");
 
                     //用户等待的时间超时
-                    if(UserManager.getUser(senderID).getState() == User.State.Matching) {
-                        logger.error("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Free");
-                        UserManager.getUser(senderID).setState(User.State.Free);
+                    if(UserManager.getUser(senderID).getState() != User.State.Matching) {
+                        return;
                     }
+
+                    logger.error("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Free");
+                    UserManager.getUser(senderID).setState(User.State.Free);
                 }
             };
             timer.schedule(task, expiredTime - System.currentTimeMillis());
@@ -78,12 +81,15 @@ public class Match {
         UserManager.getUser(receiverID).setState(User.State.Matched);
         UserManager.getUser(receiverID).setHp(30);
 
-        logger.debug("MatchMessage " + " messageID:" + messageID + " senderID:" + senderID + " 准备发送MatchNotice...");
-
         //给双方发送通知
         MagicianDao dao = new MagicianDao();
+
+        logger.debug("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 准备发送MatchNotice...");
         matchNotice(senderID, messageID, dao.selectByOpenID(receiverID), expiredTime);
-        matchNotice(receiverID, messageID, dao.selectByOpenID(senderID), UserManager.getUser(receiverID).getMatchExpiredTime());
+
+        String receiverMessageID = UserManager.getUser(receiverID).getMatchMessageID();
+        logger.debug("MatchMessage" + " messageID:" + receiverMessageID + " senderID:" + senderID + " 准备发送MatchNotice...");
+        matchNotice(receiverID, receiverMessageID, dao.selectByOpenID(senderID), UserManager.getUser(receiverID).getMatchExpiredTime());
     }
 
     public void matchNotice(final String receiverID, final String messageID, Magician user, long expiredTime) {

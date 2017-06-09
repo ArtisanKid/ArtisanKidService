@@ -85,7 +85,8 @@ public class UserDao {
                 + "?, '"
                 + user.getToken().getRefreshToken() + "');";
 
-        final Timestamp accessTokenExpiredTimestamp = new Timestamp(user.getToken().getExpiredTime());
+        Long expiredTime = new Double(user.getToken().getExpiredTime() * 1000).longValue();
+        final Timestamp accessTokenExpiredTimestamp = new Timestamp(expiredTime);
         boolean insertUnionUserResult = manager.update(insertUnionUserSQL, new StatementHandler() {
             @Override
             public void supplyToStatement(PreparedStatement statement) {
@@ -146,7 +147,8 @@ public class UserDao {
                 + "refresh_token = '" + user.getToken().getRefreshToken() + "' "
                 + "WHERE unionID = '" + user.getUnionID() + "';";
 
-        final Timestamp accessTokenExpiredTimestamp = new Timestamp(user.getToken().getExpiredTime());
+        Long expiredTime = new Double(user.getToken().getExpiredTime() * 1000).longValue();
+        final Timestamp accessTokenExpiredTimestamp = new Timestamp(expiredTime);
         boolean updateUnionUserResult = manager.update(updateUnionUserSQL, new StatementHandler() {
             @Override
             public void supplyToStatement(PreparedStatement statement) {
