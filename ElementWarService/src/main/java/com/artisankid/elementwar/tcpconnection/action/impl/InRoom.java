@@ -26,11 +26,11 @@ public class InRoom {
         UserManager.getUser(receiverID).setState(User.State.InRooming);
 
         InRoomNoticeOuterClass.InRoomNotice.Builder notice = InRoomNoticeOuterClass.InRoomNotice.newBuilder();
-        long now = System.currentTimeMillis();
-        long expiredTime = now + 10 * 1000;
-        notice.setSendTime(now / 1000);
-        notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.FALSE);
+        Long now = System.currentTimeMillis();
+        Long expiredTime = now + 10 * 1000L;
+        notice.setSendTime(now / 1000.);
+        notice.setExpiredTime(expiredTime / 1000.);
+
         notice.setRoomId(roomID);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();

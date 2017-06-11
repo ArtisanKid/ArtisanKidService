@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
 		Token magicianToken = new Token();
 		magicianToken.setAccessToken(TokenManager.CreateAccessToken(openID));
 		magicianToken.setRefreshToken(TokenManager.CreateRefreshToken(openID));
-		Long magicianTokenExpiredTime = System.currentTimeMillis() + 24 * 60 * 60 * 1000;
+		Long magicianTokenExpiredTime = System.currentTimeMillis() + 24 * 60 * 60 * 1000L;
 		magicianToken.setExpiredTime(magicianTokenExpiredTime / 1000.);
 
 		//存储创建的Token

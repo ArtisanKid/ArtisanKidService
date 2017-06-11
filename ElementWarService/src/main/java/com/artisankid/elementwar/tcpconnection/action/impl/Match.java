@@ -47,7 +47,7 @@ public class Match {
             }
         }
 
-        long expiredTime =  new Double(message.getExpiredTime() * 1000).longValue();
+        Long expiredTime =  new Double(message.getExpiredTime() * 1000L).longValue();
 
         //如果未找到实力相当的用户，那么就排队
         if(receiverID == null) {
@@ -60,12 +60,12 @@ public class Match {
             Timer timer = new Timer(true);
             TimerTask task = new TimerTask() {
                 public void run() {
-                    logger.error("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 未找到匹配用户");
-
                     //用户等待的时间超时
                     if(UserManager.getUser(senderID).getState() != User.State.Matching) {
                         return;
                     }
+
+                    logger.error("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 未找到匹配用户");
 
                     logger.error("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Free");
                     UserManager.getUser(senderID).setState(User.State.Free);
@@ -75,11 +75,11 @@ public class Match {
             return;
         }
 
-        RoomManager.createRoom(Arrays.asList(senderID, receiverID));
         UserManager.getUser(senderID).setState(User.State.Matched);
-        UserManager.getUser(senderID).setHp(30);
         UserManager.getUser(receiverID).setState(User.State.Matched);
-        UserManager.getUser(receiverID).setHp(30);
+
+        //使用两个UserID创建房间
+        RoomManager.createRoom(Arrays.asList(senderID, receiverID));
 
         //给双方发送通知
         MagicianDao dao = new MagicianDao();
@@ -92,14 +92,13 @@ public class Match {
         matchNotice(receiverID, receiverMessageID, dao.selectByOpenID(senderID), UserManager.getUser(receiverID).getMatchExpiredTime());
     }
 
-    public void matchNotice(final String receiverID, final String messageID, Magician user, long expiredTime) {
-        logger.debug("MatchMessage" + " messageID:" + messageID + " receiverID:" + receiverID + " 开始发送...");
+    public void matchNotice(final String receiverID, final String messageID, Magician user, Long expiredTime) {
+        logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 开始发送...");
 
         MatchNoticeOuterClass.MatchNotice.Builder notice = MatchNoticeOuterClass.MatchNotice.newBuilder();
         notice.setMessageId(messageID);
-        notice.setSendTime(System.currentTimeMillis() / 1000);
-        notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.FALSE);
+        notice.setSendTime(System.currentTimeMillis() / 1000.);
+        notice.setExpiredTime(expiredTime / 1000.);
 
         notice.setUserId(user.getOpenID());
         notice.setUserName(user.getNickname());
@@ -138,7 +137,7 @@ public class Match {
 
                 UserManager.getUser(receiverID).setState(User.State.WaitingInRoom);
 
-                Room room = RoomManager.getRoom(receiverID);
+                final Room room = RoomManager.getRoom(receiverID);
                 for(User user : room.getUsers()) {
                     User.State state = user.getState();
                     if(state != User.State.WaitingInRoom) {
@@ -149,9 +148,14 @@ public class Match {
 
                 logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 准备进入房间...");
 
-                for(User user : room.getUsers()) {
-                    InRoom.InRoomNotice(user.getUserID(), room.getRoomID());
-                }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(User user : room.getUsers()) {
+                            InRoom.InRoomNotice(user.getUserID(), room.getRoomID());
+                        }
+                    }
+                }).start();
             }
         });
     }

@@ -23,10 +23,16 @@ public class Room {
 
     public void setUserIDs(List<String> userIDs) {
         for(String userID : userIDs) {
-            User user = new User();
+            User user = UserManager.getUser(userID);
             user.setHp(30);
             userMap.put(userID, user);
         }
+    }
+
+    public void addUserID(String userID) {
+        User user = UserManager.getUser(userID);
+        user.setHp(30);
+        userMap.put(userID, user);
     }
 
     public List<User> getUsers() {
@@ -35,15 +41,5 @@ public class Room {
             users.add(entry.getValue());
         }
         return users;
-    }
-
-    public void addUserID(String userID) {
-        User user = new User();
-        user.setHp(30);
-        userMap.put(userID, user);
-    }
-
-    public User getUser(String userID) {
-        return userMap.get(userID);
     }
 }

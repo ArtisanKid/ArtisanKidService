@@ -59,7 +59,7 @@ public class RefreshTokenServlet extends HttpServlet {
             return;
         }
 
-        if(token.getRefreshTokenExpiredTime() * 1000 <= System.currentTimeMillis()) {
+        if(token.getRefreshTokenExpiredTime() * 1000L <= System.currentTimeMillis()) {
             //如果refreshToken过期，那么删除这个token
             tokenDao.delete(accessToken);
 
@@ -69,7 +69,7 @@ public class RefreshTokenServlet extends HttpServlet {
         }
 
         token.setAccessToken(TokenManager.CreateAccessToken(openID));
-        Long tokenExpiredTime = System.currentTimeMillis() + 24 * 60 * 60 * 1000;
+        Long tokenExpiredTime = System.currentTimeMillis() + 24 * 60 * 60 * 1000L;
         token.setExpiredTime(tokenExpiredTime / 1000.);
         tokenDao.update(token);
 

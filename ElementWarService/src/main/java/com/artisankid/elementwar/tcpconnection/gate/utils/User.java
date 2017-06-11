@@ -86,7 +86,7 @@ public class User {
         return playExpiredTime;
     }
 
-    public void setPlayExpiredTime(long playExpiredTime) {
+    public void setPlayExpiredTime(Long playExpiredTime) {
         this.playExpiredTime = playExpiredTime;
     }
 

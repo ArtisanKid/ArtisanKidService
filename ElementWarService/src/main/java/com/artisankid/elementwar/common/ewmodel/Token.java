@@ -2,7 +2,7 @@ package com.artisankid.elementwar.common.ewmodel;
 
 public class Token {
 	private String accessToken;
-    private Double expiredTime; //秒
+    private Double expiredTime; //单位秒
     private String refreshToken;
     private Double refreshTokenExpiredTime;//秒
     

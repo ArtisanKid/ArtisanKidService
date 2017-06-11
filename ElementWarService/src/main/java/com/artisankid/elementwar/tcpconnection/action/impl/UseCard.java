@@ -105,11 +105,10 @@ public class UseCard {
         logger.debug("UseCardNotice " + " senderID:" + senderID + " receiverID:" + receiverID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 开始发送...");
 
         UseCardNoticeOuterClass.UseCardNotice.Builder notice = UseCardNoticeOuterClass.UseCardNotice.newBuilder();
-        long now = System.currentTimeMillis();
-        long expiredTime = now + 10 * 1000;
-        notice.setSendTime(now / 1000);
-        notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.FALSE);
+        Long now = System.currentTimeMillis();
+        Long expiredTime = now + 10 * 1000L;
+        notice.setSendTime(now / 1000.);
+        notice.setExpiredTime(expiredTime / 1000.);
 
         notice.setSenderId(senderID);
         notice.setReceiverId(effectReceiverID);

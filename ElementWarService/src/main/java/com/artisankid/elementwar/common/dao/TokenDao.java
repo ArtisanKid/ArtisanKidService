@@ -44,6 +44,10 @@ public class TokenDao {
 
 			Timestamp accessTokenExpiredTime = (Timestamp)map.get("access_token_expired_time");
 			object.setExpiredTime(accessTokenExpiredTime.getTime() / 1000.);
+
+			Timestamp refreshTokenExpiredTime = (Timestamp)map.get("refresh_token_expired_time");
+			object.setRefreshTokenExpiredTime(refreshTokenExpiredTime.getTime() / 1000.);
+
 			objects.add(object);
 		}
 		return objects;
@@ -105,10 +109,11 @@ public class TokenDao {
 				+ object.getRefreshToken() + "', "
 				+ "?);";
 
-		Long accessTokenExpiredTime = new Double(object.getExpiredTime() * 1000).longValue();
+		Long accessTokenExpiredTime = new Double(object.getExpiredTime() * 1000L).longValue();
 		final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
 
-		Long refreshTokenExpiredTime = accessTokenExpiredTime + 30 * 24 * 60 * 60 * 1000;//refreshToken过期时间 天*小时*分钟*秒
+		Long monthTimeInterval = new Long(30 * 24 * 60 * 60 * 1000L);
+		Long refreshTokenExpiredTime = accessTokenExpiredTime + monthTimeInterval;//refreshToken过期时间 天*小时*分钟*秒
 		final Timestamp refreshTokenExpiredTimestamp = new Timestamp(refreshTokenExpiredTime);
 
 		DatabaseManager manager = new DatabaseManager();
@@ -141,10 +146,11 @@ public class TokenDao {
 				+ "refresh_token_expired_time = ? "
 				+ "WHERE refresh_token = '" + object.getRefreshToken() + "';";
 
-		Long accessTokenExpiredTime = new Double(object.getExpiredTime() * 1000).longValue();
+		Long accessTokenExpiredTime = new Double(object.getExpiredTime() * 1000L).longValue();
 		final Timestamp accessTokenExpiredTimestamp = new Timestamp(accessTokenExpiredTime);
 
-		Long refreshTokenExpiredTime = accessTokenExpiredTime + 30 * 24 * 60 * 60 * 1000;//refreshToken过期时间 天*小时*分钟*秒
+		Long monthTimeInterval = new Long(30 * 24 * 60 * 60 * 1000L);
+		Long refreshTokenExpiredTime = accessTokenExpiredTime + monthTimeInterval;//refreshToken过期时间 天*小时*分钟*秒
 		final Timestamp refreshTokenExpiredTimestamp = new Timestamp(refreshTokenExpiredTime);
 
 		DatabaseManager manager = new DatabaseManager();

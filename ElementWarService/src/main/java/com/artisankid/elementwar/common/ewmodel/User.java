@@ -86,7 +86,7 @@ public class User {
     private String smallPortrait;
     private String largePortrait;
     private String mobile;
-    private double birthday;
+    private Long birthday;
     private String motto;
     private LoginType loginType;
     private Token token;
@@ -163,11 +163,11 @@ public class User {
         this.mobile = mobile;
     }
 
-    public double getBirthday() {
+    public Long getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(double birthday) {
+    public void setBirthday(Long birthday) {
         this.birthday = birthday;
     }
 

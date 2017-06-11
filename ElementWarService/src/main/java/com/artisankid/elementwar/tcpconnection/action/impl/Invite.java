@@ -52,7 +52,7 @@ public class Invite {
             return;
         }
 
-        long expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
+        Long expiredTime = new Double(message.getExpiredTime() * 1000L).longValue();
 
         if(UserManager.getUser(receiverID) == null) {
             logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " 用户不在线，准备发送InviteReplyNotice...");
@@ -78,16 +78,15 @@ public class Invite {
         }
     }
 
-    public void inviteNotice(final String receiverID, final String messageID, final Magician sender, long expiredTime) {
+    public void inviteNotice(final String receiverID, final String messageID, final Magician sender, Long expiredTime) {
         final String senderID = sender.getOpenID();
 
         logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 开始发送...");
 
         InviteNoticeOuterClass.InviteNotice.Builder notice = InviteNoticeOuterClass.InviteNotice.newBuilder();
         notice.setMessageId(messageID);
-        notice.setSendTime(System.currentTimeMillis() / 1000);
-        notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.TRUE);
+        notice.setSendTime(System.currentTimeMillis() / 1000.);
+        notice.setExpiredTime(expiredTime / 1000.);
 
         notice.setSenderId(senderID);
         String nickname = sender.getNickname();
@@ -151,18 +150,16 @@ public class Invite {
             return;
         }
 
-        long expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
+        Long expiredTime = new Double(message.getExpiredTime() * 1000L).longValue();
         Magician sender = dao.selectByOpenID(senderID);
         if(message.getIsAgree()) {
             logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " 同意邀请，状态变为Invited，准备发送InviteReplyNotice...");
 
+            UserManager.getUser(senderID).setState(User.State.Invited);
+            UserManager.getUser(receiverID).setState(User.State.Invited);
+
             //创建房间
             RoomManager.createRoom(Arrays.asList(senderID, receiverID));
-
-            UserManager.getUser(senderID).setState(User.State.Invited);
-            UserManager.getUser(senderID).setHp(30);
-            UserManager.getUser(receiverID).setState(User.State.Invited);
-            UserManager.getUser(receiverID).setHp(30);
 
             inviteReplyNotice(receiverID, messageID, sender, InviteReply.Agree, expiredTime);
         } else {
@@ -171,16 +168,15 @@ public class Invite {
         }
     }
 
-    public void inviteReplyNotice(final String receiverID, final String messageID, final Magician sender, final InviteReply reply, long expiredTime) {
+    public void inviteReplyNotice(final String receiverID, final String messageID, final Magician sender, final InviteReply reply, Long expiredTime) {
         final String senderID = sender.getOpenID();
 
         logger.debug("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 开始发送...");
 
         InviteReplyNoticeOuterClass.InviteReplyNotice.Builder notice = InviteReplyNoticeOuterClass.InviteReplyNotice.newBuilder();
         notice.setMessageId(messageID);
-        notice.setSendTime(System.currentTimeMillis() / 1000);
-        notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.FALSE);
+        notice.setSendTime(System.currentTimeMillis() / 1000L);
+        notice.setExpiredTime(expiredTime / 1000L);
 
         notice.setSenderId(senderID);
         String nickname = sender.getNickname();

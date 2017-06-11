@@ -26,17 +26,16 @@ public class Deal {
         logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 开始发送...");
 
         DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
-        long now = System.currentTimeMillis();
-        long expiredTime = now + 10 * 1000;
-        notice.setSendTime(now / 1000);
-        notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.FALSE);
+        Long now = System.currentTimeMillis();
+        Long expiredTime = now + 10 * 1000L;
+        notice.setSendTime(now / 1000.);
+        notice.setExpiredTime(expiredTime / 1000.);
+
         notice.setReceiverId(receiverID);
-        for(Integer i = 0; i < cardIDs.size(); i++) {
-            notice.setCardIds(i, cardIDs.get(i));
-        }
+        notice.addAllCardIds(cardIDs);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
+        container.setMessageType(ContainerOuterClass.Container.MessageType.DealNotice);
         container.setDealNotice(notice);
 
         final Timer timer = new Timer(true);
@@ -67,15 +66,13 @@ public class Deal {
         logger.debug("DealNoticeOnly" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 开始发送...");
 
         DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
-        long now = System.currentTimeMillis();
-        long expiredTime = now + 10 * 1000;
-        notice.setSendTime(now / 1000);
-        notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.FALSE);
+        Long now = System.currentTimeMillis();
+        Long expiredTime = now + 10 * 1000L;
+        notice.setSendTime(now / 1000.);
+        notice.setExpiredTime(expiredTime / 1000.);
+
         notice.setReceiverId(receiverID);
-        for(Integer i = 0; i < cardIDs.size(); i++) {
-            notice.setCardIds(i, cardIDs.get(i));
-        }
+        notice.addAllCardIds(cardIDs);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
         container.setMessageType(ContainerOuterClass.Container.MessageType.DealNotice);

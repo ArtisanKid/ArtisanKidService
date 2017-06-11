@@ -26,14 +26,14 @@ public class PlaySwitch {
     private static Logger logger = LoggerFactory.getLogger(PlaySwitch.class);
 
     static public void PlaySwitchNotice(final String playerID) {
-        logger.debug("DealNotice" + " playerID:" + playerID + " 开始发送...");
+        logger.debug("PlaySwitchNotice" + " playerID:" + playerID + " 开始发送...");
 
         PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder notice = PlaySwitchNoticeOuterClass.PlaySwitchNotice.newBuilder();
-        long now = System.currentTimeMillis();
-        long expiredTime = now + 30 * 1000;
-        notice.setSendTime(now / 1000);
-        notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.FALSE);
+        Long now = System.currentTimeMillis();
+        Long expiredTime = now + 30 * 1000L;
+        notice.setSendTime(now / 1000.);
+        notice.setExpiredTime(expiredTime / 1000.);
+
         notice.setPlayerId(playerID);
 
         UserManager.getUser(playerID).setGameState(User.GameState.Playing);
@@ -67,7 +67,7 @@ public class PlaySwitch {
             public void operationComplete(Future<? super Void> future) throws Exception {
                 timer.cancel();
 
-                logger.debug("DealNotice" + " playerID:" + playerID + " 切换出牌超时成功");
+                logger.debug("DealNotice" + " playerID:" + playerID + " 切换出牌成功");
             }
         });
     }

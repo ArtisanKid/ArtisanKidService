@@ -65,7 +65,7 @@ public class Login {
 
         //TODO:给所有的朋友或者对手发送信息？
 
-        Long expiredTime = new Double(message.getExpiredTime() * 1000).longValue();
+        Long expiredTime = new Double(message.getExpiredTime() * 1000L).longValue();
         loginNotice(senderID, messageID, senderID, expiredTime);
     }
 
@@ -75,9 +75,8 @@ public class Login {
         //需要将登录通知返回给用户，确定登录
         LoginNoticeOuterClass.LoginNotice.Builder notice = LoginNoticeOuterClass.LoginNotice.newBuilder();
         notice.setMessageId(messageID);
-        notice.setSendTime(System.currentTimeMillis() / 1000);
-        notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.FALSE);
+        notice.setSendTime(System.currentTimeMillis() / 1000.);
+        notice.setExpiredTime(expiredTime / 1000.);
         notice.setUserId(userID);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();

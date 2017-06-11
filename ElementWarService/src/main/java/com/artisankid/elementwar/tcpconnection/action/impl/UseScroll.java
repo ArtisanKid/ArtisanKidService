@@ -103,11 +103,11 @@ public class UseScroll {
         logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 正在发送...");
 
         UseScrollNoticeOuterClass.UseScrollNotice.Builder notice = UseScrollNoticeOuterClass.UseScrollNotice.newBuilder();
-        long now = System.currentTimeMillis();
-        long expiredTime = now + 10 * 1000;
-        notice.setSendTime(now / 1000);
-        notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.FALSE);
+        Long now = System.currentTimeMillis();
+        Long expiredTime = now + 10 * 1000L;
+        notice.setSendTime(now / 1000.);
+        notice.setExpiredTime(expiredTime / 1000.);
+
         notice.setSenderId(senderID);
         notice.setReceiverId(effectReceiverID);
         notice.setScrollId(scrollID);
