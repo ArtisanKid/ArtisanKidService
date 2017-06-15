@@ -10,9 +10,9 @@ import com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.ActionRequestMap;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
 import com.artisankid.elementwar.tcpconnection.gate.utils.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -114,9 +114,9 @@ public class Invite {
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+        ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
+            public void operationComplete(ChannelFuture future) throws Exception {
                 if(UserManager.getUser(receiverID).getState() == User.State.Free
                         || UserManager.getUser(senderID).getState() == User.State.Free) {
                     return;
@@ -228,9 +228,9 @@ public class Invite {
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+        ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
+            public void operationComplete(ChannelFuture future) throws Exception {
                 User socketReceiver = UserManager.getUser(receiverID);
                 if(socketReceiver != null) {
                     if(socketReceiver.getState() == User.State.Free) {

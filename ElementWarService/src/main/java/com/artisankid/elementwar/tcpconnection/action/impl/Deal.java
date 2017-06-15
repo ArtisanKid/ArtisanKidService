@@ -4,6 +4,8 @@ import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
 import com.artisankid.elementwar.tcpconnection.gate.utils.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
@@ -79,9 +81,9 @@ public class Deal {
         container.setDealNotice(notice);
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+        ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
+            public void operationComplete(ChannelFuture future) throws Exception {
                 logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功");
             }
         });;

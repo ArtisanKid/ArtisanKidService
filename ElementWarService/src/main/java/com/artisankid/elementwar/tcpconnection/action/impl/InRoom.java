@@ -3,9 +3,9 @@ package com.artisankid.elementwar.tcpconnection.action.impl;
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.gate.utils.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,9 +57,9 @@ public class InRoom {
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+        ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
+            public void operationComplete(ChannelFuture future) throws Exception {
                 if(UserManager.getUser(receiverID).getState() == User.State.Free) {
                     return;
                 }
@@ -74,6 +74,7 @@ public class InRoom {
                 for(User user : users) {
                     User.State state = user.getState();
                     if(state != User.State.InRoomed) {
+                        logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 等待其他人状态变更");
                         return;
                     }
                 }

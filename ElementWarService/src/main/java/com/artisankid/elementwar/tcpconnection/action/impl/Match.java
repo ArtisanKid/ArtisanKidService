@@ -8,9 +8,9 @@ import com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.ActionRequestMap;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
 import com.artisankid.elementwar.tcpconnection.gate.utils.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +47,7 @@ public class Match {
             }
         }
 
-        Long expiredTime =  new Double(message.getExpiredTime() * 1000L).longValue();
+        final Long expiredTime =  new Double(message.getExpiredTime() * 1000L).longValue();
 
         //如果未找到实力相当的用户，那么就排队
         if(receiverID == null) {
@@ -118,9 +118,9 @@ public class Match {
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+        ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
+            public void operationComplete(ChannelFuture future) throws Exception {
                 if(UserManager.getUser(receiverID).getState() == User.State.Free) {
                     logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送已经超时，状态为Free");
                     return;
@@ -148,14 +148,19 @@ public class Match {
 
                 logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 准备进入房间...");
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
+                if(future.isDone()) {
+                    if (future.isSuccess()) {
                         for(User user : room.getUsers()) {
                             InRoom.InRoomNotice(user.getUserID(), room.getRoomID());
                         }
+                    } else if (future.isCancelled()) {
+                        logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 写入被取消");
+                    } else {
+                        logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 写入失败 " + future.cause());
                     }
-                }).start();
+                } else {
+                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 写入未完成");
+                }
             }
         });
     }

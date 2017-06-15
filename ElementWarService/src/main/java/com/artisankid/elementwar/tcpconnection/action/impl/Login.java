@@ -1,20 +1,17 @@
 package com.artisankid.elementwar.tcpconnection.action.impl;
 
 import com.artisankid.elementwar.common.dao.MagicianDao;
-import com.artisankid.elementwar.common.dao.TokenDao;
 import com.artisankid.elementwar.common.ewmodel.Magician;
 import com.artisankid.elementwar.common.utils.TokenManager;
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass;
-import com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.ActionRequestMap;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
-import com.artisankid.elementwar.tcpconnection.client.Client;
 import com.artisankid.elementwar.tcpconnection.gate.utils.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -94,9 +91,9 @@ public class Login {
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
         final ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+        ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
+            public void operationComplete(ChannelFuture future) throws Exception {
                 logger.debug("LoginNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " targetID:" + userID + " 发送成功");
                 timer.cancel();
             }

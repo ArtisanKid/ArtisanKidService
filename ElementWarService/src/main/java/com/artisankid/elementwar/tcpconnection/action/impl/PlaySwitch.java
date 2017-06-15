@@ -3,18 +3,15 @@ package com.artisankid.elementwar.tcpconnection.action.impl;
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
-import com.artisankid.elementwar.tcpconnection.gate.utils.RoomManager;
 import com.artisankid.elementwar.tcpconnection.gate.utils.User;
 import com.artisankid.elementwar.tcpconnection.gate.utils.UserContextManager;
 import com.artisankid.elementwar.tcpconnection.gate.utils.UserManager;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -62,9 +59,9 @@ public class PlaySwitch {
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(playerID);
-        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+        ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
+            public void operationComplete(ChannelFuture future) throws Exception {
                 timer.cancel();
 
                 logger.debug("DealNotice" + " playerID:" + playerID + " 切换出牌成功");
