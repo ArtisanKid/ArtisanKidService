@@ -9,8 +9,8 @@ public class User {
     }
 
     public enum GameState {
+        Waiting, //等待
         Playing, //正在出牌
-        Waiting //等待
     }
 
     private String userID;

@@ -54,9 +54,9 @@ public class Deal {
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
             @Override
             public void operationComplete(Future<? super Void> future) throws Exception {
-                logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功，准备出牌...");
-
                 timer.cancel();
+
+                logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功，准备出牌...");
 
                 //发牌成功，通知出牌
                 PlaySwitch.PlaySwitchNotice(receiverID);
@@ -84,18 +84,17 @@ public class Deal {
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功");
+                logger.debug("DealNoticeOnly" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功");
             }
         });;
     }
 
-    static public void DealNoticeNextUser(String currentUserID) {
-        User user  = UserManager.getUser(currentUserID);
-        List<User> users = RoomManager.getRoom(currentUserID).getUsers();
-        Integer index = users.indexOf(user);
-        if(index < users.size()) {
-            index++;
-        } else {
+    static public void DealNoticeNextUser(String currentPlayerID) {
+        User currentUser  = UserManager.getUser(currentPlayerID);
+        List<User> users = RoomManager.getRoom(currentPlayerID).getUsers();
+        Integer index = users.indexOf(currentUser);
+        index++;
+        if(index >= users.size()) {
             index = 0;
         }
 

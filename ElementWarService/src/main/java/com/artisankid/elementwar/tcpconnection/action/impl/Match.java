@@ -31,11 +31,16 @@ public class Match {
         MatchMessageOuterClass.MatchMessage message = container.getMatchMessage();
         final String messageID = message.getMessageId();
         final String senderID = message.getSenderId();
-        Integer senderStrength = UserManager.getUser(senderID).getStrength();
+
+        if(UserManager.getUser(senderID).getState() != User.State.Free) {
+            logger.error("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " sender状态错误");
+            return;
+        }
 
         logger.debug("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 开始匹配...");
 
         //查询和sender实力相当的用户
+        Integer senderStrength = UserManager.getUser(senderID).getStrength();
         List<String> userIDs = UserManager.getMatchUserIDs();
         String receiverID = null;
         for(String userID : userIDs) {

@@ -10,10 +10,7 @@ import com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.ActionRequestMap;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
-import com.artisankid.elementwar.tcpconnection.gate.utils.RoomManager;
-import com.artisankid.elementwar.tcpconnection.gate.utils.User;
-import com.artisankid.elementwar.tcpconnection.gate.utils.UserContextManager;
-import com.artisankid.elementwar.tcpconnection.gate.utils.UserManager;
+import com.artisankid.elementwar.tcpconnection.gate.utils.*;
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,35 +27,47 @@ public class UseScroll {
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.USE_SCROLL_MESSAGE_FIELD_NUMBER)
     public void useScrollMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
         UseScrollMessageOuterClass.UseScrollMessage message = container.getUseScrollMessage();
+        String messageID = message.getMessageId();
         String senderID = message.getSenderId();
+
+        Room room = RoomManager.getRoom(senderID);
+        if(room == null) {
+            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " room为空");
+            return;
+        }
+
+        if(UserManager.getUser(senderID).getGameState() != User.GameState.Playing) {
+            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " senderID和当前出卷轴用户不一致");
+            return;
+        }
 
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
-            logger.error("UseScrollMessage " + " senderID:" + senderID + " receiverID为空");
+            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID为空");
             return;
         }
 
         MagicianDao magicianDao = new MagicianDao();
         Magician receiver = magicianDao.selectByOpenID(receiverID);
         if(receiver == null) {
-            logger.error("UseScrollMessage " + " senderID:" + senderID + " receiverID无效");
+            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效");
             return;
         }
 
         String scrollID = message.getScrollId();
         if(scrollID == null) {
-            logger.error("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID为空");
+            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID为空");
             return;
         }
 
         ScrollDao scrollDao = new ScrollDao();
         Scroll scroll = scrollDao.selectByScrollID(scrollID);
         if(scroll == null) {
-            logger.error("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID无效");
+            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID无效");
             return;
         }
 
-        logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID:" + scrollID + " 开始处理出卷轴...");
+        logger.debug("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID:" + scrollID + " 开始处理出卷轴...");
 
         //根据卷轴效果处理血量
         //卷轴不区分对别人使用还是自己使用
@@ -86,10 +95,10 @@ public class UseScroll {
             }
         }
 
-        logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID:" + scrollID + " 准备发送UseScrollNotice");
+        logger.debug("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID:" + scrollID + " 准备发送UseScrollNotice");
 
         for(User user : RoomManager.getRoom(senderID).getUsers()) {
-            useScrollNotice(user.getUserID(), senderID, receiverID, scrollID);
+            useScrollNotice(user.getUserID(), messageID, senderID, receiverID, scrollID);
         }
 
         if(UserManager.getUser(receiverID).getHp() <= 0) {
@@ -99,8 +108,8 @@ public class UseScroll {
         }
     }
 
-    public void useScrollNotice(String receiverID, String senderID, String effectReceiverID, String scrollID) {
-        logger.debug("UseScrollMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 正在发送...");
+    public void useScrollNotice(String receiverID, String messageID, String senderID, String effectReceiverID, String scrollID) {
+        logger.debug("UseScrollMessage " + " messageID:" + messageID + " receiverID:" + receiverID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 正在发送...");
 
         UseScrollNoticeOuterClass.UseScrollNotice.Builder notice = UseScrollNoticeOuterClass.UseScrollNotice.newBuilder();
         Long now = System.currentTimeMillis();

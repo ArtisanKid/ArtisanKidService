@@ -37,6 +37,11 @@ public class Invite {
         String messageID = message.getMessageId();
         final String senderID = message.getSenderId();
 
+        if(UserManager.getUser(senderID).getState() != User.State.Free) {
+            logger.error("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " sender状态错误");
+            return;
+        }
+
         logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " 开始邀请...");
 
         String receiverID = message.getReceiverId();

@@ -27,35 +27,47 @@ public class UseCard {
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.USE_CARD_MESSAGE_FIELD_NUMBER)
     public void useCardMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
         UseCardMessageOuterClass.UseCardMessage message = container.getUseCardMessage();
+        String messageID = message.getMessageId();
         String senderID = message.getSenderId();
+
+        Room room = RoomManager.getRoom(senderID);
+        if(room == null) {
+            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " room为空");
+            return;
+        }
+
+        if(UserManager.getUser(senderID).getGameState() != User.GameState.Playing) {
+            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " senderID和当前出牌用户不一致");
+            return;
+        }
 
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
-            logger.error("UseCardMessage " + " senderID:" + senderID + " receiverID为空");
+            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID为空");
             return;
         }
 
         MagicianDao magicianDao = new MagicianDao();
         Magician receiver = magicianDao.selectByOpenID(receiverID);
         if(receiver == null) {
-            logger.error("UseCardMessage " + " senderID:" + senderID + " receiverID无效");
+            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效");
             return;
         }
 
         String cardID = message.getCardId();
         if(cardID == null) {
-            logger.error("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID为空");
+            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID为空");
             return;
         }
 
         CardDao cardDao = new CardDao();
         Card card = cardDao.selectByCardID(cardID);
         if(card == null) {
-            logger.error("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID无效");
+            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID无效");
             return;
         }
 
-        logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 开始处理出牌...");
+        logger.debug("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 开始处理出牌...");
 
         //根据卡牌效果处理血量
         //卡牌区分对别人使用还是自己使用
@@ -88,10 +100,10 @@ public class UseCard {
             }
         }
 
-        logger.debug("UseCardMessage " + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 准备发送UseCardNotice...");
+        logger.debug("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 准备发送UseCardNotice...");
 
         for(User user : RoomManager.getRoom(senderID).getUsers()) {
-            useCardNotice(user.getUserID(), senderID, receiverID, cardID);
+            useCardNotice(user.getUserID(), messageID, senderID, receiverID, cardID);
         }
 
         if(UserManager.getUser(receiverID).getHp() <= 0) {
@@ -101,10 +113,11 @@ public class UseCard {
         }
     }
 
-    public void useCardNotice(String receiverID, String senderID, String effectReceiverID, String cardID) {
-        logger.debug("UseCardNotice " + " senderID:" + senderID + " receiverID:" + receiverID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 开始发送...");
+    public void useCardNotice(String receiverID, String messageID, String senderID, String effectReceiverID, String cardID) {
+        logger.debug("UseCardNotice " + " messageID:" + messageID + " receiverID:" + receiverID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 开始发送...");
 
         UseCardNoticeOuterClass.UseCardNotice.Builder notice = UseCardNoticeOuterClass.UseCardNotice.newBuilder();
+        notice.setMessageId(messageID);
         Long now = System.currentTimeMillis();
         Long expiredTime = now + 10 * 1000L;
         notice.setSendTime(now / 1000.);

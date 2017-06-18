@@ -59,9 +59,9 @@ public class GateServer {
                             throws Exception {
 
                         ChannelPipeline pipeline = channel.pipeline();
-//                        pipeline.addLast(new ProtobufVarint32FrameDecoder());
+                        pipeline.addLast(new ProtobufVarint32FrameDecoder());
                         pipeline.addLast(new ProtobufDecoder(ContainerOuterClass.Container.getDefaultInstance()));
-//                        pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
+                        pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
                         pipeline.addLast(new ProtobufEncoder());
 
                         pipeline.addLast(new GateServerHandler());
