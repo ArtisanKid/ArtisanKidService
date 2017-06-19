@@ -25,7 +25,6 @@ public class Finish {
         long expiredTime = now + 30 * 1000;
         notice.setSendTime(now / 1000);
         notice.setExpiredTime(expiredTime / 1000);
-        notice.setNeedResponse(Boolean.FALSE);
         notice.setWinnerId(winnerID);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
