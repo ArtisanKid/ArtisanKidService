@@ -113,24 +113,12 @@ public class User {
         return cardIDs;
     }
 
-    public void setCardIDs(List<String> cardIDs) {
-        this.cardIDs = cardIDs;
-    }
-
-    public void addCardID(String cardID) {
-        this.cardIDs.add(cardID);
-    }
-
     public void addCardIDs(List<String> cardIDs) {
         this.cardIDs.addAll(cardIDs);
     }
 
     public void removeCardID(String cardID) {
         this.cardIDs.remove(cardID);
-    }
-
-    public void removeCardIDs(List<String> cardIDs) {
-        this.cardIDs.removeAll(cardIDs);
     }
 
     public boolean existCardID(String cardID) {

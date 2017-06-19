@@ -19,11 +19,11 @@ public final class ContainerOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.LoginMessage login_message = 100;</code>
+     * <code>.LoginMessage login_message = 110;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage getLoginMessage();
     /**
-     * <code>.LoginMessage login_message = 100;</code>
+     * <code>.LoginMessage login_message = 110;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder getLoginMessageOrBuilder();
 
@@ -73,11 +73,20 @@ public final class ContainerOuterClass {
     com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessageOrBuilder getUseScrollMessageOrBuilder();
 
     /**
-     * <code>.LoginNotice login_notice = 200;</code>
+     * <code>.ErrorNotice error_notice = 200;</code>
+     */
+    com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice getErrorNotice();
+    /**
+     * <code>.ErrorNotice error_notice = 200;</code>
+     */
+    com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNoticeOrBuilder getErrorNoticeOrBuilder();
+
+    /**
+     * <code>.LoginNotice login_notice = 210;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice getLoginNotice();
     /**
-     * <code>.LoginNotice login_notice = 200;</code>
+     * <code>.LoginNotice login_notice = 210;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder getLoginNoticeOrBuilder();
 
@@ -231,9 +240,9 @@ public final class ContainerOuterClass {
               messageType_ = rawValue;
               break;
             }
-            case 802: {
+            case 882: {
               com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder subBuilder = null;
-              if (messageCase_ == 100) {
+              if (messageCase_ == 110) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_).toBuilder();
               }
               message_ =
@@ -242,7 +251,7 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 100;
+              messageCase_ = 110;
               break;
             }
             case 962: {
@@ -316,8 +325,22 @@ public final class ContainerOuterClass {
               break;
             }
             case 1602: {
-              com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder subBuilder = null;
+              com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.Builder subBuilder = null;
               if (messageCase_ == 200) {
+                subBuilder = ((com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice) message_).toBuilder();
+              }
+              message_ =
+                  input.readMessage(com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice) message_);
+                message_ = subBuilder.buildPartial();
+              }
+              messageCase_ = 200;
+              break;
+            }
+            case 1682: {
+              com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder subBuilder = null;
+              if (messageCase_ == 210) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_).toBuilder();
               }
               message_ =
@@ -326,7 +349,7 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 200;
+              messageCase_ = 210;
               break;
             }
             case 1762: {
@@ -488,9 +511,9 @@ public final class ContainerOuterClass {
        */
       None(0),
       /**
-       * <code>LoginMessage = 100;</code>
+       * <code>LoginMessage = 110;</code>
        */
-      LoginMessage(100),
+      LoginMessage(110),
       /**
        * <code>MatchMessage = 120;</code>
        */
@@ -512,9 +535,13 @@ public final class ContainerOuterClass {
        */
       UseScrollMessage(124),
       /**
-       * <code>LoginNotice = 200;</code>
+       * <code>ErrorNotice = 200;</code>
        */
-      LoginNotice(200),
+      ErrorNotice(200),
+      /**
+       * <code>LoginNotice = 210;</code>
+       */
+      LoginNotice(210),
       /**
        * <code>MatchNotice = 220;</code>
        */
@@ -559,9 +586,9 @@ public final class ContainerOuterClass {
        */
       public static final int None_VALUE = 0;
       /**
-       * <code>LoginMessage = 100;</code>
+       * <code>LoginMessage = 110;</code>
        */
-      public static final int LoginMessage_VALUE = 100;
+      public static final int LoginMessage_VALUE = 110;
       /**
        * <code>MatchMessage = 120;</code>
        */
@@ -583,9 +610,13 @@ public final class ContainerOuterClass {
        */
       public static final int UseScrollMessage_VALUE = 124;
       /**
-       * <code>LoginNotice = 200;</code>
+       * <code>ErrorNotice = 200;</code>
        */
-      public static final int LoginNotice_VALUE = 200;
+      public static final int ErrorNotice_VALUE = 200;
+      /**
+       * <code>LoginNotice = 210;</code>
+       */
+      public static final int LoginNotice_VALUE = 210;
       /**
        * <code>MatchNotice = 220;</code>
        */
@@ -643,13 +674,14 @@ public final class ContainerOuterClass {
       public static MessageType forNumber(int value) {
         switch (value) {
           case 0: return None;
-          case 100: return LoginMessage;
+          case 110: return LoginMessage;
           case 120: return MatchMessage;
           case 121: return InviteMessage;
           case 122: return InviteReplyMessage;
           case 123: return UseCardMessage;
           case 124: return UseScrollMessage;
-          case 200: return LoginNotice;
+          case 200: return ErrorNotice;
+          case 210: return LoginNotice;
           case 220: return MatchNotice;
           case 221: return InviteNotice;
           case 222: return InviteReplyNotice;
@@ -715,13 +747,14 @@ public final class ContainerOuterClass {
     private java.lang.Object message_;
     public enum MessageCase
         implements com.google.protobuf.Internal.EnumLite {
-      LOGIN_MESSAGE(100),
+      LOGIN_MESSAGE(110),
       MATCH_MESSAGE(120),
       INVITE_MESSAGE(121),
       INVITE_REPLY_MESSAGE(122),
       USE_CARD_MESSAGE(123),
       USE_SCROLL_MESSAGE(124),
-      LOGIN_NOTICE(200),
+      ERROR_NOTICE(200),
+      LOGIN_NOTICE(210),
       MATCH_NOTICE(220),
       INVITE_NOTICE(221),
       INVITE_REPLY_NOTICE(222),
@@ -746,13 +779,14 @@ public final class ContainerOuterClass {
 
       public static MessageCase forNumber(int value) {
         switch (value) {
-          case 100: return LOGIN_MESSAGE;
+          case 110: return LOGIN_MESSAGE;
           case 120: return MATCH_MESSAGE;
           case 121: return INVITE_MESSAGE;
           case 122: return INVITE_REPLY_MESSAGE;
           case 123: return USE_CARD_MESSAGE;
           case 124: return USE_SCROLL_MESSAGE;
-          case 200: return LOGIN_NOTICE;
+          case 200: return ERROR_NOTICE;
+          case 210: return LOGIN_NOTICE;
           case 220: return MATCH_NOTICE;
           case 221: return INVITE_NOTICE;
           case 222: return INVITE_REPLY_NOTICE;
@@ -777,21 +811,21 @@ public final class ContainerOuterClass {
           messageCase_);
     }
 
-    public static final int LOGIN_MESSAGE_FIELD_NUMBER = 100;
+    public static final int LOGIN_MESSAGE_FIELD_NUMBER = 110;
     /**
-     * <code>.LoginMessage login_message = 100;</code>
+     * <code>.LoginMessage login_message = 110;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage getLoginMessage() {
-      if (messageCase_ == 100) {
+      if (messageCase_ == 110) {
          return (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
     }
     /**
-     * <code>.LoginMessage login_message = 100;</code>
+     * <code>.LoginMessage login_message = 110;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder getLoginMessageOrBuilder() {
-      if (messageCase_ == 100) {
+      if (messageCase_ == 110) {
          return (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
@@ -897,21 +931,41 @@ public final class ContainerOuterClass {
       return com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage.getDefaultInstance();
     }
 
-    public static final int LOGIN_NOTICE_FIELD_NUMBER = 200;
+    public static final int ERROR_NOTICE_FIELD_NUMBER = 200;
     /**
-     * <code>.LoginNotice login_notice = 200;</code>
+     * <code>.ErrorNotice error_notice = 200;</code>
+     */
+    public com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice getErrorNotice() {
+      if (messageCase_ == 200) {
+         return (com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice) message_;
+      }
+      return com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.getDefaultInstance();
+    }
+    /**
+     * <code>.ErrorNotice error_notice = 200;</code>
+     */
+    public com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNoticeOrBuilder getErrorNoticeOrBuilder() {
+      if (messageCase_ == 200) {
+         return (com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice) message_;
+      }
+      return com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.getDefaultInstance();
+    }
+
+    public static final int LOGIN_NOTICE_FIELD_NUMBER = 210;
+    /**
+     * <code>.LoginNotice login_notice = 210;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice getLoginNotice() {
-      if (messageCase_ == 200) {
+      if (messageCase_ == 210) {
          return (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
     }
     /**
-     * <code>.LoginNotice login_notice = 200;</code>
+     * <code>.LoginNotice login_notice = 210;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder getLoginNoticeOrBuilder() {
-      if (messageCase_ == 200) {
+      if (messageCase_ == 210) {
          return (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
@@ -1136,8 +1190,8 @@ public final class ContainerOuterClass {
       if (messageType_ != com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container.MessageType.None.getNumber()) {
         output.writeEnum(2, messageType_);
       }
-      if (messageCase_ == 100) {
-        output.writeMessage(100, (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_);
+      if (messageCase_ == 110) {
+        output.writeMessage(110, (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_);
       }
       if (messageCase_ == 120) {
         output.writeMessage(120, (com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.MatchMessage) message_);
@@ -1155,7 +1209,10 @@ public final class ContainerOuterClass {
         output.writeMessage(124, (com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.UseScrollMessage) message_);
       }
       if (messageCase_ == 200) {
-        output.writeMessage(200, (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_);
+        output.writeMessage(200, (com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice) message_);
+      }
+      if (messageCase_ == 210) {
+        output.writeMessage(210, (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_);
       }
       if (messageCase_ == 220) {
         output.writeMessage(220, (com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice) message_);
@@ -1195,9 +1252,9 @@ public final class ContainerOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, messageType_);
       }
-      if (messageCase_ == 100) {
+      if (messageCase_ == 110) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(100, (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_);
+          .computeMessageSize(110, (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_);
       }
       if (messageCase_ == 120) {
         size += com.google.protobuf.CodedOutputStream
@@ -1221,7 +1278,11 @@ public final class ContainerOuterClass {
       }
       if (messageCase_ == 200) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(200, (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_);
+          .computeMessageSize(200, (com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice) message_);
+      }
+      if (messageCase_ == 210) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(210, (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_);
       }
       if (messageCase_ == 220) {
         size += com.google.protobuf.CodedOutputStream
@@ -1280,7 +1341,7 @@ public final class ContainerOuterClass {
           other.getMessageCase());
       if (!result) return false;
       switch (messageCase_) {
-        case 100:
+        case 110:
           result = result && getLoginMessage()
               .equals(other.getLoginMessage());
           break;
@@ -1305,6 +1366,10 @@ public final class ContainerOuterClass {
               .equals(other.getUseScrollMessage());
           break;
         case 200:
+          result = result && getErrorNotice()
+              .equals(other.getErrorNotice());
+          break;
+        case 210:
           result = result && getLoginNotice()
               .equals(other.getLoginNotice());
           break;
@@ -1360,7 +1425,7 @@ public final class ContainerOuterClass {
       hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
       hash = (53 * hash) + messageType_;
       switch (messageCase_) {
-        case 100:
+        case 110:
           hash = (37 * hash) + LOGIN_MESSAGE_FIELD_NUMBER;
           hash = (53 * hash) + getLoginMessage().hashCode();
           break;
@@ -1385,6 +1450,10 @@ public final class ContainerOuterClass {
           hash = (53 * hash) + getUseScrollMessage().hashCode();
           break;
         case 200:
+          hash = (37 * hash) + ERROR_NOTICE_FIELD_NUMBER;
+          hash = (53 * hash) + getErrorNotice().hashCode();
+          break;
+        case 210:
           hash = (37 * hash) + LOGIN_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getLoginNotice().hashCode();
           break;
@@ -1586,7 +1655,7 @@ public final class ContainerOuterClass {
 
       public com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container buildPartial() {
         com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container result = new com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass.Container(this);
-        if (messageCase_ == 100) {
+        if (messageCase_ == 110) {
           if (loginMessageBuilder_ == null) {
             result.message_ = message_;
           } else {
@@ -1629,6 +1698,13 @@ public final class ContainerOuterClass {
           }
         }
         if (messageCase_ == 200) {
+          if (errorNoticeBuilder_ == null) {
+            result.message_ = message_;
+          } else {
+            result.message_ = errorNoticeBuilder_.build();
+          }
+        }
+        if (messageCase_ == 210) {
           if (loginNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
@@ -1769,6 +1845,10 @@ public final class ContainerOuterClass {
             mergeUseScrollMessage(other.getUseScrollMessage());
             break;
           }
+          case ERROR_NOTICE: {
+            mergeErrorNotice(other.getErrorNotice());
+            break;
+          }
           case LOGIN_NOTICE: {
             mergeLoginNotice(other.getLoginNotice());
             break;
@@ -1857,23 +1937,23 @@ public final class ContainerOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage, com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder, com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder> loginMessageBuilder_;
       /**
-       * <code>.LoginMessage login_message = 100;</code>
+       * <code>.LoginMessage login_message = 110;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage getLoginMessage() {
         if (loginMessageBuilder_ == null) {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 110) {
             return (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
         } else {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 110) {
             return loginMessageBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.LoginMessage login_message = 100;</code>
+       * <code>.LoginMessage login_message = 110;</code>
        */
       public Builder setLoginMessage(com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage value) {
         if (loginMessageBuilder_ == null) {
@@ -1885,11 +1965,11 @@ public final class ContainerOuterClass {
         } else {
           loginMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 100;
+        messageCase_ = 110;
         return this;
       }
       /**
-       * <code>.LoginMessage login_message = 100;</code>
+       * <code>.LoginMessage login_message = 110;</code>
        */
       public Builder setLoginMessage(
           com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder builderForValue) {
@@ -1899,15 +1979,15 @@ public final class ContainerOuterClass {
         } else {
           loginMessageBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 100;
+        messageCase_ = 110;
         return this;
       }
       /**
-       * <code>.LoginMessage login_message = 100;</code>
+       * <code>.LoginMessage login_message = 110;</code>
        */
       public Builder mergeLoginMessage(com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage value) {
         if (loginMessageBuilder_ == null) {
-          if (messageCase_ == 100 &&
+          if (messageCase_ == 110 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.newBuilder((com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_)
                 .mergeFrom(value).buildPartial();
@@ -1916,26 +1996,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 110) {
             loginMessageBuilder_.mergeFrom(value);
           }
           loginMessageBuilder_.setMessage(value);
         }
-        messageCase_ = 100;
+        messageCase_ = 110;
         return this;
       }
       /**
-       * <code>.LoginMessage login_message = 100;</code>
+       * <code>.LoginMessage login_message = 110;</code>
        */
       public Builder clearLoginMessage() {
         if (loginMessageBuilder_ == null) {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 110) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 110) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -1944,32 +2024,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.LoginMessage login_message = 100;</code>
+       * <code>.LoginMessage login_message = 110;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder getLoginMessageBuilder() {
         return getLoginMessageFieldBuilder().getBuilder();
       }
       /**
-       * <code>.LoginMessage login_message = 100;</code>
+       * <code>.LoginMessage login_message = 110;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder getLoginMessageOrBuilder() {
-        if ((messageCase_ == 100) && (loginMessageBuilder_ != null)) {
+        if ((messageCase_ == 110) && (loginMessageBuilder_ != null)) {
           return loginMessageBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 100) {
+          if (messageCase_ == 110) {
             return (com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
         }
       }
       /**
-       * <code>.LoginMessage login_message = 100;</code>
+       * <code>.LoginMessage login_message = 110;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage, com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.Builder, com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessageOrBuilder> 
           getLoginMessageFieldBuilder() {
         if (loginMessageBuilder_ == null) {
-          if (!(messageCase_ == 100)) {
+          if (!(messageCase_ == 110)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.LoginMessage.getDefaultInstance();
           }
           loginMessageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -1979,7 +2059,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 100;
+        messageCase_ = 110;
         onChanged();;
         return loginMessageBuilder_;
       }
@@ -2635,25 +2715,155 @@ public final class ContainerOuterClass {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
+          com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice, com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.Builder, com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNoticeOrBuilder> errorNoticeBuilder_;
+      /**
+       * <code>.ErrorNotice error_notice = 200;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice getErrorNotice() {
+        if (errorNoticeBuilder_ == null) {
+          if (messageCase_ == 200) {
+            return (com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice) message_;
+          }
+          return com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.getDefaultInstance();
+        } else {
+          if (messageCase_ == 200) {
+            return errorNoticeBuilder_.getMessage();
+          }
+          return com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.ErrorNotice error_notice = 200;</code>
+       */
+      public Builder setErrorNotice(com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice value) {
+        if (errorNoticeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          message_ = value;
+          onChanged();
+        } else {
+          errorNoticeBuilder_.setMessage(value);
+        }
+        messageCase_ = 200;
+        return this;
+      }
+      /**
+       * <code>.ErrorNotice error_notice = 200;</code>
+       */
+      public Builder setErrorNotice(
+          com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.Builder builderForValue) {
+        if (errorNoticeBuilder_ == null) {
+          message_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorNoticeBuilder_.setMessage(builderForValue.build());
+        }
+        messageCase_ = 200;
+        return this;
+      }
+      /**
+       * <code>.ErrorNotice error_notice = 200;</code>
+       */
+      public Builder mergeErrorNotice(com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice value) {
+        if (errorNoticeBuilder_ == null) {
+          if (messageCase_ == 200 &&
+              message_ != com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.getDefaultInstance()) {
+            message_ = com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice) message_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            message_ = value;
+          }
+          onChanged();
+        } else {
+          if (messageCase_ == 200) {
+            errorNoticeBuilder_.mergeFrom(value);
+          }
+          errorNoticeBuilder_.setMessage(value);
+        }
+        messageCase_ = 200;
+        return this;
+      }
+      /**
+       * <code>.ErrorNotice error_notice = 200;</code>
+       */
+      public Builder clearErrorNotice() {
+        if (errorNoticeBuilder_ == null) {
+          if (messageCase_ == 200) {
+            messageCase_ = 0;
+            message_ = null;
+            onChanged();
+          }
+        } else {
+          if (messageCase_ == 200) {
+            messageCase_ = 0;
+            message_ = null;
+          }
+          errorNoticeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.ErrorNotice error_notice = 200;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.Builder getErrorNoticeBuilder() {
+        return getErrorNoticeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.ErrorNotice error_notice = 200;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNoticeOrBuilder getErrorNoticeOrBuilder() {
+        if ((messageCase_ == 200) && (errorNoticeBuilder_ != null)) {
+          return errorNoticeBuilder_.getMessageOrBuilder();
+        } else {
+          if (messageCase_ == 200) {
+            return (com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice) message_;
+          }
+          return com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.ErrorNotice error_notice = 200;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice, com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.Builder, com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNoticeOrBuilder> 
+          getErrorNoticeFieldBuilder() {
+        if (errorNoticeBuilder_ == null) {
+          if (!(messageCase_ == 200)) {
+            message_ = com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.getDefaultInstance();
+          }
+          errorNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice, com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice.Builder, com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNoticeOrBuilder>(
+                  (com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.ErrorNotice) message_,
+                  getParentForChildren(),
+                  isClean());
+          message_ = null;
+        }
+        messageCase_ = 200;
+        onChanged();;
+        return errorNoticeBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice, com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder, com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder> loginNoticeBuilder_;
       /**
-       * <code>.LoginNotice login_notice = 200;</code>
+       * <code>.LoginNotice login_notice = 210;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice getLoginNotice() {
         if (loginNoticeBuilder_ == null) {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 210) {
             return (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 210) {
             return loginNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.LoginNotice login_notice = 200;</code>
+       * <code>.LoginNotice login_notice = 210;</code>
        */
       public Builder setLoginNotice(com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice value) {
         if (loginNoticeBuilder_ == null) {
@@ -2665,11 +2875,11 @@ public final class ContainerOuterClass {
         } else {
           loginNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 200;
+        messageCase_ = 210;
         return this;
       }
       /**
-       * <code>.LoginNotice login_notice = 200;</code>
+       * <code>.LoginNotice login_notice = 210;</code>
        */
       public Builder setLoginNotice(
           com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder builderForValue) {
@@ -2679,15 +2889,15 @@ public final class ContainerOuterClass {
         } else {
           loginNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 200;
+        messageCase_ = 210;
         return this;
       }
       /**
-       * <code>.LoginNotice login_notice = 200;</code>
+       * <code>.LoginNotice login_notice = 210;</code>
        */
       public Builder mergeLoginNotice(com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice value) {
         if (loginNoticeBuilder_ == null) {
-          if (messageCase_ == 200 &&
+          if (messageCase_ == 210 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -2696,26 +2906,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 210) {
             loginNoticeBuilder_.mergeFrom(value);
           }
           loginNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 200;
+        messageCase_ = 210;
         return this;
       }
       /**
-       * <code>.LoginNotice login_notice = 200;</code>
+       * <code>.LoginNotice login_notice = 210;</code>
        */
       public Builder clearLoginNotice() {
         if (loginNoticeBuilder_ == null) {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 210) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 210) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -2724,32 +2934,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.LoginNotice login_notice = 200;</code>
+       * <code>.LoginNotice login_notice = 210;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder getLoginNoticeBuilder() {
         return getLoginNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.LoginNotice login_notice = 200;</code>
+       * <code>.LoginNotice login_notice = 210;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder getLoginNoticeOrBuilder() {
-        if ((messageCase_ == 200) && (loginNoticeBuilder_ != null)) {
+        if ((messageCase_ == 210) && (loginNoticeBuilder_ != null)) {
           return loginNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 200) {
+          if (messageCase_ == 210) {
             return (com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.LoginNotice login_notice = 200;</code>
+       * <code>.LoginNotice login_notice = 210;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice, com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.Builder, com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNoticeOrBuilder> 
           getLoginNoticeFieldBuilder() {
         if (loginNoticeBuilder_ == null) {
-          if (!(messageCase_ == 200)) {
+          if (!(messageCase_ == 210)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.LoginNotice.getDefaultInstance();
           }
           loginNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2759,7 +2969,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 200;
+        messageCase_ = 210;
         onChanged();;
         return loginNoticeBuilder_;
       }
@@ -4063,42 +4273,44 @@ public final class ContainerOuterClass {
       "\n\017Container.proto\032\022LoginMessage.proto\032\022M" +
       "atchMessage.proto\032\023InviteMessage.proto\032\030" +
       "InviteReplyMessage.proto\032\024UseCardMessage" +
-      ".proto\032\026UseScrollMessage.proto\032\021LoginNot" +
-      "ice.proto\032\021MatchNotice.proto\032\022InviteNoti" +
-      "ce.proto\032\027InviteReplyNotice.proto\032\022InRoo" +
-      "mNotice.proto\032\020DealNotice.proto\032\023UseCard" +
-      "Notice.proto\032\025UseScrollNotice.proto\032\026Pla" +
-      "ySwitchNotice.proto\032\022FinishNotice.proto\"" +
-      "\333\010\n\tContainer\022&\n\rlogin_message\030d \001(\0132\r.L",
-      "oginMessageH\000\022&\n\rmatch_message\030x \001(\0132\r.M" +
-      "atchMessageH\000\022(\n\016invite_message\030y \001(\0132\016." +
-      "InviteMessageH\000\0223\n\024invite_reply_message\030" +
-      "z \001(\0132\023.InviteReplyMessageH\000\022+\n\020use_card" +
-      "_message\030{ \001(\0132\017.UseCardMessageH\000\022/\n\022use" +
-      "_scroll_message\030| \001(\0132\021.UseScrollMessage" +
-      "H\000\022%\n\014login_notice\030\310\001 \001(\0132\014.LoginNoticeH" +
-      "\000\022%\n\014match_notice\030\334\001 \001(\0132\014.MatchNoticeH\000" +
-      "\022\'\n\rinvite_notice\030\335\001 \001(\0132\r.InviteNoticeH" +
-      "\000\0222\n\023invite_reply_notice\030\336\001 \001(\0132\022.Invite",
-      "ReplyNoticeH\000\022(\n\016in_room_notice\030\337\001 \001(\0132\r" +
-      ".InRoomNoticeH\000\022#\n\013deal_notice\030\340\001 \001(\0132\013." +
-      "DealNoticeH\000\022*\n\017use_card_notice\030\341\001 \001(\0132\016" +
-      ".UseCardNoticeH\000\022.\n\021use_scroll_notice\030\342\001" +
-      " \001(\0132\020.UseScrollNoticeH\000\0220\n\022play_switch_" +
-      "notice\030\343\001 \001(\0132\021.PlaySwitchNoticeH\000\022\'\n\rfi" +
-      "nish_notice\030\344\001 \001(\0132\r.FinishNoticeH\000\022+\n\013m" +
-      "essageType\030\002 \001(\0162\026.Container.MessageType" +
-      "\"\327\002\n\013MessageType\022\010\n\004None\020\000\022\020\n\014LoginMessa" +
-      "ge\020d\022\020\n\014MatchMessage\020x\022\021\n\rInviteMessage\020",
-      "y\022\026\n\022InviteReplyMessage\020z\022\022\n\016UseCardMess" +
-      "age\020{\022\024\n\020UseScrollMessage\020|\022\020\n\013LoginNoti" +
-      "ce\020\310\001\022\020\n\013MatchNotice\020\334\001\022\021\n\014InviteNotice\020" +
-      "\335\001\022\026\n\021InviteReplyNotice\020\336\001\022\021\n\014InRoomNoti" +
-      "ce\020\337\001\022\017\n\nDealNotice\020\340\001\022\022\n\rUseCardNotice\020" +
-      "\341\001\022\024\n\017UseScrollNotice\020\342\001\022\025\n\020PlaySwitchNo" +
-      "tice\020\343\001\022\021\n\014FinishNotice\020\344\001B\t\n\007messageB*\n" +
-      "(com.artisankid.elementwar.ewmessagemode" +
-      "lb\006proto3"
+      ".proto\032\026UseScrollMessage.proto\032\021ErrorNot" +
+      "ice.proto\032\021LoginNotice.proto\032\021MatchNotic" +
+      "e.proto\032\022InviteNotice.proto\032\027InviteReply" +
+      "Notice.proto\032\022InRoomNotice.proto\032\020DealNo" +
+      "tice.proto\032\023UseCardNotice.proto\032\025UseScro" +
+      "llNotice.proto\032\026PlaySwitchNotice.proto\032\022" +
+      "FinishNotice.proto\"\224\t\n\tContainer\022&\n\rlogi",
+      "n_message\030n \001(\0132\r.LoginMessageH\000\022&\n\rmatc" +
+      "h_message\030x \001(\0132\r.MatchMessageH\000\022(\n\016invi" +
+      "te_message\030y \001(\0132\016.InviteMessageH\000\0223\n\024in" +
+      "vite_reply_message\030z \001(\0132\023.InviteReplyMe" +
+      "ssageH\000\022+\n\020use_card_message\030{ \001(\0132\017.UseC" +
+      "ardMessageH\000\022/\n\022use_scroll_message\030| \001(\013" +
+      "2\021.UseScrollMessageH\000\022%\n\014error_notice\030\310\001" +
+      " \001(\0132\014.ErrorNoticeH\000\022%\n\014login_notice\030\322\001 " +
+      "\001(\0132\014.LoginNoticeH\000\022%\n\014match_notice\030\334\001 \001" +
+      "(\0132\014.MatchNoticeH\000\022\'\n\rinvite_notice\030\335\001 \001",
+      "(\0132\r.InviteNoticeH\000\0222\n\023invite_reply_noti" +
+      "ce\030\336\001 \001(\0132\022.InviteReplyNoticeH\000\022(\n\016in_ro" +
+      "om_notice\030\337\001 \001(\0132\r.InRoomNoticeH\000\022#\n\013dea" +
+      "l_notice\030\340\001 \001(\0132\013.DealNoticeH\000\022*\n\017use_ca" +
+      "rd_notice\030\341\001 \001(\0132\016.UseCardNoticeH\000\022.\n\021us" +
+      "e_scroll_notice\030\342\001 \001(\0132\020.UseScrollNotice" +
+      "H\000\0220\n\022play_switch_notice\030\343\001 \001(\0132\021.PlaySw" +
+      "itchNoticeH\000\022\'\n\rfinish_notice\030\344\001 \001(\0132\r.F" +
+      "inishNoticeH\000\022+\n\013messageType\030\002 \001(\0162\026.Con" +
+      "tainer.MessageType\"\351\002\n\013MessageType\022\010\n\004No",
+      "ne\020\000\022\020\n\014LoginMessage\020n\022\020\n\014MatchMessage\020x" +
+      "\022\021\n\rInviteMessage\020y\022\026\n\022InviteReplyMessag" +
+      "e\020z\022\022\n\016UseCardMessage\020{\022\024\n\020UseScrollMess" +
+      "age\020|\022\020\n\013ErrorNotice\020\310\001\022\020\n\013LoginNotice\020\322" +
+      "\001\022\020\n\013MatchNotice\020\334\001\022\021\n\014InviteNotice\020\335\001\022\026" +
+      "\n\021InviteReplyNotice\020\336\001\022\021\n\014InRoomNotice\020\337" +
+      "\001\022\017\n\nDealNotice\020\340\001\022\022\n\rUseCardNotice\020\341\001\022\024" +
+      "\n\017UseScrollNotice\020\342\001\022\025\n\020PlaySwitchNotice" +
+      "\020\343\001\022\021\n\014FinishNotice\020\344\001B\t\n\007messageB*\n(com" +
+      ".artisankid.elementwar.ewmessagemodelb\006p",
+      "roto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4117,6 +4329,7 @@ public final class ContainerOuterClass {
           com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.getDescriptor(),
+          com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.getDescriptor(),
@@ -4133,13 +4346,14 @@ public final class ContainerOuterClass {
     internal_static_Container_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Container_descriptor,
-        new java.lang.String[] { "LoginMessage", "MatchMessage", "InviteMessage", "InviteReplyMessage", "UseCardMessage", "UseScrollMessage", "LoginNotice", "MatchNotice", "InviteNotice", "InviteReplyNotice", "InRoomNotice", "DealNotice", "UseCardNotice", "UseScrollNotice", "PlaySwitchNotice", "FinishNotice", "MessageType", "Message", });
+        new java.lang.String[] { "LoginMessage", "MatchMessage", "InviteMessage", "InviteReplyMessage", "UseCardMessage", "UseScrollMessage", "ErrorNotice", "LoginNotice", "MatchNotice", "InviteNotice", "InviteReplyNotice", "InRoomNotice", "DealNotice", "UseCardNotice", "UseScrollNotice", "PlaySwitchNotice", "FinishNotice", "MessageType", "Message", });
     com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.InviteReplyMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass.getDescriptor();
+    com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.LoginNoticeOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.InviteNoticeOuterClass.getDescriptor();

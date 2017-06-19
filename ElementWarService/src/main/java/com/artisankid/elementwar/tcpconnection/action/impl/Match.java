@@ -33,7 +33,8 @@ public class Match {
         final String senderID = message.getSenderId();
 
         if(UserManager.getUser(senderID).getState() != User.State.Free) {
-            logger.error("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " sender状态错误");
+            String error = "InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " sender状态错误";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
@@ -70,9 +71,7 @@ public class Match {
                         return;
                     }
 
-                    logger.error("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 未找到匹配用户");
-
-                    logger.error("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Free");
+                    logger.error("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 未找到匹配用户，状态变为Free");
                     UserManager.getUser(senderID).setState(User.State.Free);
                 }
             };
@@ -126,6 +125,8 @@ public class Match {
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
+                timer.cancel();
+
                 if(UserManager.getUser(receiverID).getState() == User.State.Free) {
                     logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送已经超时，状态为Free");
                     return;
@@ -137,8 +138,6 @@ public class Match {
                 }
 
                 logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送成功，状态变为WaitingInRoom");
-
-                timer.cancel();
 
                 UserManager.getUser(receiverID).setState(User.State.WaitingInRoom);
 
@@ -153,18 +152,8 @@ public class Match {
 
                 logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 准备进入房间...");
 
-                if(future.isDone()) {
-                    if (future.isSuccess()) {
-                        for(User user : room.getUsers()) {
-                            InRoom.InRoomNotice(user.getUserID(), room.getRoomID());
-                        }
-                    } else if (future.isCancelled()) {
-                        logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 写入被取消");
-                    } else {
-                        logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 写入失败 " + future.cause());
-                    }
-                } else {
-                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 写入未完成");
+                for(User user : room.getUsers()) {
+                    InRoom.InRoomNotice(user.getUserID(), room.getRoomID());
                 }
             }
         });

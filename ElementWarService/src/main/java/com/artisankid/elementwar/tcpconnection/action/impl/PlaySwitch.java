@@ -23,12 +23,6 @@ public class PlaySwitch {
     static public void PlaySwitchNotice(final String playerID) {
         logger.debug("PlaySwitchNotice" + " playerID:" + playerID + " 开始发送...");
 
-        final Room room = RoomManager.getRoom(playerID);
-        if(room == null) {
-            logger.error("PlaySwitchNotice " + " playerID:" + playerID + " room为空");
-            return;
-        }
-
         PlaySwitchNoticeOuterClass.PlaySwitchNotice.Builder notice = PlaySwitchNoticeOuterClass.PlaySwitchNotice.newBuilder();
         Long now = System.currentTimeMillis();
         final Long expiredTime = now + 30 * 1000L;
@@ -65,6 +59,8 @@ public class PlaySwitch {
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
+                timer.cancel();
+
                 logger.debug("PlaySwitchNotice" + " playerID:" + playerID + " 切换出牌成功");
 
                 User currentPlayer = UserManager.getUser(playerID);

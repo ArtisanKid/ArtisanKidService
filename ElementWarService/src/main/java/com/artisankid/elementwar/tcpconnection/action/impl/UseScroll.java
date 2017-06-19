@@ -1,21 +1,23 @@
 package com.artisankid.elementwar.tcpconnection.action.impl;
 
+import com.artisankid.elementwar.common.dao.CardDao;
 import com.artisankid.elementwar.common.dao.MagicianDao;
 import com.artisankid.elementwar.common.dao.ScrollDao;
-import com.artisankid.elementwar.common.ewmodel.Effect;
-import com.artisankid.elementwar.common.ewmodel.Magician;
-import com.artisankid.elementwar.common.ewmodel.Scroll;
+import com.artisankid.elementwar.common.ewmodel.*;
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.UseScrollMessageOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.ActionRequestMap;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
 import com.artisankid.elementwar.tcpconnection.gate.utils.*;
+import com.artisankid.elementwar.tcpconnection.gate.utils.Room;
+import com.artisankid.elementwar.tcpconnection.gate.utils.User;
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by LiXiangYu on 2017/4/26.
@@ -32,42 +34,66 @@ public class UseScroll {
 
         Room room = RoomManager.getRoom(senderID);
         if(room == null) {
-            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " room为空");
+            String error = "UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " room为空";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         if(UserManager.getUser(senderID).getGameState() != User.GameState.Playing) {
-            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " senderID和当前出卷轴用户不一致");
+            String error = "UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " senderID和当前出卷轴用户不一致";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
-            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID为空");
+            String error = "UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID为空";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         MagicianDao magicianDao = new MagicianDao();
         Magician receiver = magicianDao.selectByOpenID(receiverID);
         if(receiver == null) {
-            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效");
+            String error = "UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         String scrollID = message.getScrollId();
         if(scrollID == null) {
-            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID为空");
+            String error = "UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID为空";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         ScrollDao scrollDao = new ScrollDao();
         Scroll scroll = scrollDao.selectByScrollID(scrollID);
         if(scroll == null) {
-            logger.error("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID无效");
+            String error = "UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID无效";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
+        List<String> cardIDs = new ArrayList<>();
+        CardDao cardDao = new CardDao();
+        for(Balance balance : scroll.getFormula().getReactants()) {
+            Card card = cardDao.selectByElementID(balance.getElementID());
+            if(!UserManager.getUser(senderID).existCardID(card.getCardID())) {
+                String error = "UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID:" + scrollID + " 用户不具有cardID";
+                Error.ErrorNotice(senderID, messageID, 0, error);
+                return;
+            }
+
+            cardIDs.add(card.getCardID());
+        }
+
         logger.debug("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID:" + scrollID + " 开始处理出卷轴...");
+
+        for(String cardID : cardIDs) {
+            //使用掉此卷轴
+            UserManager.getUser(senderID).removeCardID(cardID);
+        }
 
         //根据卷轴效果处理血量
         //卷轴不区分对别人使用还是自己使用

@@ -32,6 +32,8 @@ public class Deal {
         final List<String> cardIDs = new ArrayList<>();
         cardIDs.add(randomCardID());
 
+        UserManager.getUser(receiverID).addCardIDs(cardIDs);
+
         DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
         Long now = System.currentTimeMillis();
         Long expiredTime = now + 10 * 1000L;
@@ -78,6 +80,8 @@ public class Deal {
         cardIDs.add(randomCardID());
         cardIDs.add(randomCardID());
         cardIDs.add(randomCardID());
+
+        UserManager.getUser(receiverID).addCardIDs(cardIDs);
 
         DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
         Long now = System.currentTimeMillis();

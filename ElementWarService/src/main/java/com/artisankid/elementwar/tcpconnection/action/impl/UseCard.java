@@ -6,6 +6,7 @@ import com.artisankid.elementwar.common.ewmodel.Card;
 import com.artisankid.elementwar.common.ewmodel.Effect;
 import com.artisankid.elementwar.common.ewmodel.Magician;
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
+import com.artisankid.elementwar.ewmessagemodel.ErrorNoticeOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.ActionRequestMap;
@@ -32,42 +33,57 @@ public class UseCard {
 
         Room room = RoomManager.getRoom(senderID);
         if(room == null) {
-            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " room为空");
+            String error = "UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " room为空";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         if(UserManager.getUser(senderID).getGameState() != User.GameState.Playing) {
-            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " senderID和当前出牌用户不一致");
+            String error = "UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " senderID和当前出牌用户不一致";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
-            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID为空");
+            String error = "UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID为空";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         MagicianDao magicianDao = new MagicianDao();
         Magician receiver = magicianDao.selectByOpenID(receiverID);
         if(receiver == null) {
-            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效");
+            String error = "UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         String cardID = message.getCardId();
         if(cardID == null) {
-            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID为空");
+            String error = "UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID为空";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         CardDao cardDao = new CardDao();
         Card card = cardDao.selectByCardID(cardID);
         if(card == null) {
-            logger.error("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID无效");
+            String error = "UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID无效";
+            Error.ErrorNotice(senderID, messageID, 0, error);
+            return;
+        }
+
+        if(!UserManager.getUser(senderID).existCardID(cardID)) {
+            String error = "UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 用户不具有cardID";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         logger.debug("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 开始处理出牌...");
+
+        //使用掉此卡牌
+        UserManager.getUser(senderID).removeCardID(cardID);
 
         //根据卡牌效果处理血量
         //卡牌区分对别人使用还是自己使用

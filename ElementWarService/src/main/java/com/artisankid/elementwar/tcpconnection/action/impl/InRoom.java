@@ -9,7 +9,6 @@ import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,7 +17,7 @@ import java.util.TimerTask;
  * Created by LiXiangYu on 2017/4/26.
  */
 public class InRoom {
-    private static Logger logger = LoggerFactory.getLogger(Finish.class);
+    private static Logger logger = LoggerFactory.getLogger(InRoom.class);
 
     static public void InRoomNotice(final String receiverID, final String roomID) {
         logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 开始发送...");
@@ -30,7 +29,6 @@ public class InRoom {
         Long expiredTime = now + 10 * 1000L;
         notice.setSendTime(now / 1000.);
         notice.setExpiredTime(expiredTime / 1000.);
-
         notice.setRoomId(roomID);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
@@ -60,13 +58,13 @@ public class InRoom {
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
+                timer.cancel();
+
                 if(UserManager.getUser(receiverID).getState() == User.State.Free) {
                     return;
                 }
 
                 logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送成功");
-
-                timer.cancel();
 
                 UserManager.getUser(receiverID).setState(User.State.InRoomed);
 

@@ -38,24 +38,27 @@ public class Invite {
         final String senderID = message.getSenderId();
 
         if(UserManager.getUser(senderID).getState() != User.State.Free) {
-            logger.error("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " sender状态错误");
+            String error = "InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " sender状态错误";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
-        logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " 开始邀请...");
-
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
-            logger.error("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID为空");
+            String error = "InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID为空";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         MagicianDao dao = new MagicianDao();
         final Magician receiver = dao.selectByOpenID(receiverID);
         if(receiver == null) {
-            logger.error("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效");
+            String error = "InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
+
+        logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " 开始邀请...");
 
         Long expiredTime = new Double(message.getExpiredTime() * 1000L).longValue();
 
@@ -70,10 +73,7 @@ public class Invite {
             logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Inviting，准备发送InviteNotice...");
 
             UserManager.getUser(senderID).setState(User.State.Inviting);
-            //UserManager.getUser(senderID).setInviteExpiredTime(expiredTime);
-
             UserManager.getUser(receiverID).setState(User.State.Inviting);
-            //UserManager.getUser(receiverID).setInviteExpiredTime(expiredTime);
 
             Magician sender = dao.selectByOpenID(senderID);
             inviteNotice(receiverID, messageID, sender, expiredTime);
@@ -122,14 +122,14 @@ public class Invite {
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
+                timer.cancel();
+
                 if(UserManager.getUser(receiverID).getState() == User.State.Free
                         || UserManager.getUser(senderID).getState() == User.State.Free) {
                     return;
                 }
 
                 logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 发送成功");
-
-                timer.cancel();
             }
         });
     }
@@ -140,20 +140,22 @@ public class Invite {
         String messageID = message.getMessageId();
         String senderID = message.getSenderId();
 
-        logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " 开始回复邀请...");
-
         String receiverID = message.getReceiverId();
         if(receiverID == null) {
-            logger.error("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID为空");
+            String error = "InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID为空";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         MagicianDao dao = new MagicianDao();
         Magician receiver = dao.selectByOpenID(receiverID);
         if(receiver == null) {
-            logger.error("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效");
+            String error = "InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
+
+        logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " 开始回复邀请...");
 
         Long expiredTime = new Double(message.getExpiredTime() * 1000L).longValue();
         Magician sender = dao.selectByOpenID(senderID);
@@ -236,6 +238,8 @@ public class Invite {
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
+                timer.cancel();
+
                 User socketReceiver = UserManager.getUser(receiverID);
                 if(socketReceiver != null) {
                     if(socketReceiver.getState() == User.State.Free) {
@@ -248,8 +252,6 @@ public class Invite {
                 }
 
                 logger.debug("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 发送成功");
-
-                timer.cancel();
 
                 if(reply == InviteReply.Agree) {
                     logger.debug("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 发送成功，状态变为WaitingInRoom");

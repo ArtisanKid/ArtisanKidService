@@ -31,23 +31,26 @@ public class Login {
         String messageID = message.getMessageId();
         String senderID = message.getSenderId();
 
-        logger.debug("LoginMessage " + " messageID:" + messageID + " senderID:" + senderID + " 开始登录...");
-
         String accessToken = message.getAccessToken();
         if (accessToken == null || accessToken.length() == 0) {
-            logger.error("LoginMessage" + " messageID:" + messageID + " senderID:" + senderID + " accessToken为空");
+            String error = "LoginMessage" + " messageID:" + messageID + " senderID:" + senderID + " accessToken为空";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         if(TokenManager.VerifyAccessToken(accessToken) == Boolean.FALSE) {
-            logger.error("LoginMessage" + " messageID:" + messageID + " senderID:" + senderID + " accessToken无效");
+            String error = "LoginMessage" + " messageID:" + messageID + " senderID:" + senderID + " accessToken无效";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
 
         if (TokenManager.VerifyAccessToken(senderID, accessToken) == Boolean.FALSE) {
-            logger.error("LoginMessage" + " messageID:" + messageID + " senderID:" + senderID + " accessToken不匹配");
+            String error = "LoginMessage" + " messageID:" + messageID + " senderID:" + senderID + " accessToken不匹配";
+            Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
+
+        logger.debug("LoginMessage " + " messageID:" + messageID + " senderID:" + senderID + " 开始登录...");
 
         UserContextManager.setUserContext(senderID, context);
 
@@ -94,8 +97,9 @@ public class Login {
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                logger.debug("LoginNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " targetID:" + userID + " 发送成功");
                 timer.cancel();
+
+                logger.debug("LoginNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " targetID:" + userID + " 发送成功");
             }
         });
     }
