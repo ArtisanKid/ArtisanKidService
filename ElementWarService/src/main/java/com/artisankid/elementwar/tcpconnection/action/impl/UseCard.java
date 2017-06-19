@@ -90,12 +90,12 @@ public class UseCard {
                         if (user.getUserID() == receiverID) {
                             continue;
                         }
-                        Deal.DealNotice(user.getUserID(), Arrays.asList("CO2"));
+                        Deal.DealNotice(user.getUserID());
                     }
                     break;
                 }
                 case Draw:
-                    Deal.DealNotice(senderID, Arrays.asList("CO2"));
+                    Deal.DealNotice(senderID);
                     break;
             }
         }

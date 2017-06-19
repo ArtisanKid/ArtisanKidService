@@ -56,15 +56,6 @@ public final class UseCardMessageOuterClass {
 
     /**
      * <pre>
-     *是否需要响应
-     * </pre>
-     *
-     * <code>bool needResponse = 4;</code>
-     */
-    boolean getNeedResponse();
-
-    /**
-     * <pre>
      *发送者ID
      * </pre>
      *
@@ -136,7 +127,6 @@ public final class UseCardMessageOuterClass {
       messageId_ = "";
       sendTime_ = 0D;
       expiredTime_ = 0D;
-      needResponse_ = false;
       senderId_ = "";
       receiverId_ = "";
       cardId_ = "";
@@ -181,11 +171,6 @@ public final class UseCardMessageOuterClass {
             case 25: {
 
               expiredTime_ = input.readDouble();
-              break;
-            }
-            case 32: {
-
-              needResponse_ = input.readBool();
               break;
             }
             case 42: {
@@ -295,19 +280,6 @@ public final class UseCardMessageOuterClass {
      */
     public double getExpiredTime() {
       return expiredTime_;
-    }
-
-    public static final int NEEDRESPONSE_FIELD_NUMBER = 4;
-    private boolean needResponse_;
-    /**
-     * <pre>
-     *是否需要响应
-     * </pre>
-     *
-     * <code>bool needResponse = 4;</code>
-     */
-    public boolean getNeedResponse() {
-      return needResponse_;
     }
 
     public static final int SENDER_ID_FIELD_NUMBER = 5;
@@ -457,9 +429,6 @@ public final class UseCardMessageOuterClass {
       if (expiredTime_ != 0D) {
         output.writeDouble(3, expiredTime_);
       }
-      if (needResponse_ != false) {
-        output.writeBool(4, needResponse_);
-      }
       if (!getSenderIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, senderId_);
       }
@@ -486,10 +455,6 @@ public final class UseCardMessageOuterClass {
       if (expiredTime_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, expiredTime_);
-      }
-      if (needResponse_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, needResponse_);
       }
       if (!getSenderIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, senderId_);
@@ -526,8 +491,6 @@ public final class UseCardMessageOuterClass {
           java.lang.Double.doubleToLongBits(getExpiredTime())
           == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
-      result = result && (getNeedResponse()
-          == other.getNeedResponse());
       result = result && getSenderId()
           .equals(other.getSenderId());
       result = result && getReceiverId()
@@ -552,9 +515,6 @@ public final class UseCardMessageOuterClass {
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getExpiredTime()));
-      hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getNeedResponse());
       hash = (37 * hash) + SENDER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getSenderId().hashCode();
       hash = (37 * hash) + RECEIVER_ID_FIELD_NUMBER;
@@ -566,6 +526,17 @@ public final class UseCardMessageOuterClass {
       return hash;
     }
 
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.artisankid.elementwar.ewmessagemodel.UseCardMessageOuterClass.UseCardMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -689,8 +660,6 @@ public final class UseCardMessageOuterClass {
 
         expiredTime_ = 0D;
 
-        needResponse_ = false;
-
         senderId_ = "";
 
         receiverId_ = "";
@@ -722,7 +691,6 @@ public final class UseCardMessageOuterClass {
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
-        result.needResponse_ = needResponse_;
         result.senderId_ = senderId_;
         result.receiverId_ = receiverId_;
         result.cardId_ = cardId_;
@@ -776,9 +744,6 @@ public final class UseCardMessageOuterClass {
         }
         if (other.getExpiredTime() != 0D) {
           setExpiredTime(other.getExpiredTime());
-        }
-        if (other.getNeedResponse() != false) {
-          setNeedResponse(other.getNeedResponse());
         }
         if (!other.getSenderId().isEmpty()) {
           senderId_ = other.senderId_;
@@ -979,44 +944,6 @@ public final class UseCardMessageOuterClass {
       public Builder clearExpiredTime() {
         
         expiredTime_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private boolean needResponse_ ;
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public boolean getNeedResponse() {
-        return needResponse_;
-      }
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public Builder setNeedResponse(boolean value) {
-        
-        needResponse_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public Builder clearNeedResponse() {
-        
-        needResponse_ = false;
         onChanged();
         return this;
       }
@@ -1350,12 +1277,12 @@ public final class UseCardMessageOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024UseCardMessage.proto\"\234\001\n\016UseCardMessag" +
+      "\n\024UseCardMessage.proto\"\206\001\n\016UseCardMessag" +
       "e\022\022\n\nmessage_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001" +
-      "\022\024\n\014expired_time\030\003 \001(\001\022\024\n\014needResponse\030\004" +
-      " \001(\010\022\021\n\tsender_id\030\005 \001(\t\022\023\n\013receiver_id\030\024" +
-      " \001(\t\022\017\n\007card_id\030\036 \001(\tB*\n(com.artisankid." +
-      "elementwar.ewmessagemodelb\006proto3"
+      "\022\024\n\014expired_time\030\003 \001(\001\022\021\n\tsender_id\030\005 \001(" +
+      "\t\022\023\n\013receiver_id\030\024 \001(\t\022\017\n\007card_id\030\036 \001(\tB" +
+      "*\n(com.artisankid.elementwar.ewmessagemo" +
+      "delb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1374,7 +1301,7 @@ public final class UseCardMessageOuterClass {
     internal_static_UseCardMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UseCardMessage_descriptor,
-        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "SenderId", "ReceiverId", "CardId", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "SenderId", "ReceiverId", "CardId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -8,6 +8,11 @@ import com.artisankid.elementwar.common.ewmodel.Molecule;
 import java.util.Map;
 
 public class ElementDao {
+	public Element selectByIndex(Long index) {
+		String sql = "SELECT * FROM Element WHERE id = '" + index + "';";
+		return selectBySQL(sql);
+	}
+
 	/**
 	 * 根据元素ID查询元素
 	 * @param elementID
@@ -15,16 +20,19 @@ public class ElementDao {
 	 */
 	public Element selectByElementID(String elementID) {
 		String sql = "SELECT * FROM Element WHERE elementID = '" + elementID + "';";
-		
+		return selectBySQL(sql);
+	}
+
+	public Element selectBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		Map<String, Object> result = manager.selectOne(sql);
 		manager.close();
-		
+
 		if(result == null) {
 			return null;
 		}
-		
+
 		Element object;
 		if(ElementType.enumOf((Integer)result.get("type")) == ElementType.Atom) {
 			Atom atom = new Atom();
@@ -38,7 +46,7 @@ public class ElementDao {
 		} else {
 			object = new Molecule();
 		}
-		
+
 		object.setElementID(result.get("elementID").toString());
 		object.setType(ElementType.enumOf(Integer.parseInt(result.get("type").toString())));
 		object.setName((String) result.get("name"));
@@ -60,7 +68,7 @@ public class ElementDao {
 		if(result.get("detail") != null) {
 			object.setDetail(result.get("detail").toString());
 		}
-		
+
 		return object;
 	}
 	

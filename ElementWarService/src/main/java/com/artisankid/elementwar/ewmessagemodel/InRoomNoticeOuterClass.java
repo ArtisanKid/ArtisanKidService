@@ -56,15 +56,6 @@ public final class InRoomNoticeOuterClass {
 
     /**
      * <pre>
-     *是否需要响应
-     * </pre>
-     *
-     * <code>bool needResponse = 4;</code>
-     */
-    boolean getNeedResponse();
-
-    /**
-     * <pre>
      *房间ID
      * </pre>
      *
@@ -100,7 +91,6 @@ public final class InRoomNoticeOuterClass {
       messageId_ = "";
       sendTime_ = 0D;
       expiredTime_ = 0D;
-      needResponse_ = false;
       roomId_ = "";
     }
 
@@ -143,11 +133,6 @@ public final class InRoomNoticeOuterClass {
             case 25: {
 
               expiredTime_ = input.readDouble();
-              break;
-            }
-            case 32: {
-
-              needResponse_ = input.readBool();
               break;
             }
             case 162: {
@@ -247,19 +232,6 @@ public final class InRoomNoticeOuterClass {
       return expiredTime_;
     }
 
-    public static final int NEEDRESPONSE_FIELD_NUMBER = 4;
-    private boolean needResponse_;
-    /**
-     * <pre>
-     *是否需要响应
-     * </pre>
-     *
-     * <code>bool needResponse = 4;</code>
-     */
-    public boolean getNeedResponse() {
-      return needResponse_;
-    }
-
     public static final int ROOM_ID_FIELD_NUMBER = 20;
     private volatile java.lang.Object roomId_;
     /**
@@ -323,9 +295,6 @@ public final class InRoomNoticeOuterClass {
       if (expiredTime_ != 0D) {
         output.writeDouble(3, expiredTime_);
       }
-      if (needResponse_ != false) {
-        output.writeBool(4, needResponse_);
-      }
       if (!getRoomIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, roomId_);
       }
@@ -346,10 +315,6 @@ public final class InRoomNoticeOuterClass {
       if (expiredTime_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, expiredTime_);
-      }
-      if (needResponse_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, needResponse_);
       }
       if (!getRoomIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, roomId_);
@@ -380,8 +345,6 @@ public final class InRoomNoticeOuterClass {
           java.lang.Double.doubleToLongBits(getExpiredTime())
           == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
-      result = result && (getNeedResponse()
-          == other.getNeedResponse());
       result = result && getRoomId()
           .equals(other.getRoomId());
       return result;
@@ -402,9 +365,6 @@ public final class InRoomNoticeOuterClass {
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getExpiredTime()));
-      hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getNeedResponse());
       hash = (37 * hash) + ROOM_ID_FIELD_NUMBER;
       hash = (53 * hash) + getRoomId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -412,6 +372,17 @@ public final class InRoomNoticeOuterClass {
       return hash;
     }
 
+    public static com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.artisankid.elementwar.ewmessagemodel.InRoomNoticeOuterClass.InRoomNotice parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -535,8 +506,6 @@ public final class InRoomNoticeOuterClass {
 
         expiredTime_ = 0D;
 
-        needResponse_ = false;
-
         roomId_ = "";
 
         return this;
@@ -564,7 +533,6 @@ public final class InRoomNoticeOuterClass {
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
-        result.needResponse_ = needResponse_;
         result.roomId_ = roomId_;
         onBuilt();
         return result;
@@ -616,9 +584,6 @@ public final class InRoomNoticeOuterClass {
         }
         if (other.getExpiredTime() != 0D) {
           setExpiredTime(other.getExpiredTime());
-        }
-        if (other.getNeedResponse() != false) {
-          setNeedResponse(other.getNeedResponse());
         }
         if (!other.getRoomId().isEmpty()) {
           roomId_ = other.roomId_;
@@ -815,44 +780,6 @@ public final class InRoomNoticeOuterClass {
         return this;
       }
 
-      private boolean needResponse_ ;
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public boolean getNeedResponse() {
-        return needResponse_;
-      }
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public Builder setNeedResponse(boolean value) {
-        
-        needResponse_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public Builder clearNeedResponse() {
-        
-        needResponse_ = false;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object roomId_ = "";
       /**
        * <pre>
@@ -1004,11 +931,11 @@ public final class InRoomNoticeOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022InRoomNotice.proto\"r\n\014InRoomNotice\022\022\n\n" +
+      "\n\022InRoomNotice.proto\"\\\n\014InRoomNotice\022\022\n\n" +
       "message_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001\022\024\n\014e" +
-      "xpired_time\030\003 \001(\001\022\024\n\014needResponse\030\004 \001(\010\022" +
-      "\017\n\007room_id\030\024 \001(\tB*\n(com.artisankid.eleme" +
-      "ntwar.ewmessagemodelb\006proto3"
+      "xpired_time\030\003 \001(\001\022\017\n\007room_id\030\024 \001(\tB*\n(co" +
+      "m.artisankid.elementwar.ewmessagemodelb\006" +
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1027,7 +954,7 @@ public final class InRoomNoticeOuterClass {
     internal_static_InRoomNotice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_InRoomNotice_descriptor,
-        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "RoomId", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "RoomId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

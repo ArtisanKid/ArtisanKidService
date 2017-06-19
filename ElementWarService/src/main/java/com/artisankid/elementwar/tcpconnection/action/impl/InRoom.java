@@ -86,9 +86,10 @@ public class InRoom {
                     user.setState(User.State.Gaming);
 
                     if(i == 0) {
-                        Deal.DealNotice(user.getUserID(), Arrays.asList("C"));
+                        Deal.DealNotice(user.getUserID());
+                        Deal.PlayDealNotice(user.getUserID());
                     } else {
-                        Deal.DealNoticeOnly(user.getUserID(), Arrays.asList("C"));
+                        Deal.DealNotice(user.getUserID());
                     }
                 }
             }

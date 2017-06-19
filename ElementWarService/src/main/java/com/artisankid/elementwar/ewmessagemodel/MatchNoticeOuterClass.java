@@ -56,15 +56,6 @@ public final class MatchNoticeOuterClass {
 
     /**
      * <pre>
-     *是否需要响应
-     * </pre>
-     *
-     * <code>bool needResponse = 4;</code>
-     */
-    boolean getNeedResponse();
-
-    /**
-     * <pre>
      *用户ID
      * </pre>
      *
@@ -136,7 +127,6 @@ public final class MatchNoticeOuterClass {
       messageId_ = "";
       sendTime_ = 0D;
       expiredTime_ = 0D;
-      needResponse_ = false;
       userId_ = "";
       userName_ = "";
       userPortraitUrl_ = "";
@@ -181,11 +171,6 @@ public final class MatchNoticeOuterClass {
             case 25: {
 
               expiredTime_ = input.readDouble();
-              break;
-            }
-            case 32: {
-
-              needResponse_ = input.readBool();
               break;
             }
             case 162: {
@@ -295,19 +280,6 @@ public final class MatchNoticeOuterClass {
      */
     public double getExpiredTime() {
       return expiredTime_;
-    }
-
-    public static final int NEEDRESPONSE_FIELD_NUMBER = 4;
-    private boolean needResponse_;
-    /**
-     * <pre>
-     *是否需要响应
-     * </pre>
-     *
-     * <code>bool needResponse = 4;</code>
-     */
-    public boolean getNeedResponse() {
-      return needResponse_;
     }
 
     public static final int USER_ID_FIELD_NUMBER = 20;
@@ -457,9 +429,6 @@ public final class MatchNoticeOuterClass {
       if (expiredTime_ != 0D) {
         output.writeDouble(3, expiredTime_);
       }
-      if (needResponse_ != false) {
-        output.writeBool(4, needResponse_);
-      }
       if (!getUserIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, userId_);
       }
@@ -486,10 +455,6 @@ public final class MatchNoticeOuterClass {
       if (expiredTime_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, expiredTime_);
-      }
-      if (needResponse_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, needResponse_);
       }
       if (!getUserIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, userId_);
@@ -526,8 +491,6 @@ public final class MatchNoticeOuterClass {
           java.lang.Double.doubleToLongBits(getExpiredTime())
           == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
-      result = result && (getNeedResponse()
-          == other.getNeedResponse());
       result = result && getUserId()
           .equals(other.getUserId());
       result = result && getUserName()
@@ -552,9 +515,6 @@ public final class MatchNoticeOuterClass {
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getExpiredTime()));
-      hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getNeedResponse());
       hash = (37 * hash) + USER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getUserId().hashCode();
       hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
@@ -566,6 +526,17 @@ public final class MatchNoticeOuterClass {
       return hash;
     }
 
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.artisankid.elementwar.ewmessagemodel.MatchNoticeOuterClass.MatchNotice parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -689,8 +660,6 @@ public final class MatchNoticeOuterClass {
 
         expiredTime_ = 0D;
 
-        needResponse_ = false;
-
         userId_ = "";
 
         userName_ = "";
@@ -722,7 +691,6 @@ public final class MatchNoticeOuterClass {
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
-        result.needResponse_ = needResponse_;
         result.userId_ = userId_;
         result.userName_ = userName_;
         result.userPortraitUrl_ = userPortraitUrl_;
@@ -776,9 +744,6 @@ public final class MatchNoticeOuterClass {
         }
         if (other.getExpiredTime() != 0D) {
           setExpiredTime(other.getExpiredTime());
-        }
-        if (other.getNeedResponse() != false) {
-          setNeedResponse(other.getNeedResponse());
         }
         if (!other.getUserId().isEmpty()) {
           userId_ = other.userId_;
@@ -979,44 +944,6 @@ public final class MatchNoticeOuterClass {
       public Builder clearExpiredTime() {
         
         expiredTime_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private boolean needResponse_ ;
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public boolean getNeedResponse() {
-        return needResponse_;
-      }
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public Builder setNeedResponse(boolean value) {
-        
-        needResponse_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public Builder clearNeedResponse() {
-        
-        needResponse_ = false;
         onChanged();
         return this;
       }
@@ -1350,12 +1277,12 @@ public final class MatchNoticeOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021MatchNotice.proto\"\237\001\n\013MatchNotice\022\022\n\nm" +
+      "\n\021MatchNotice.proto\"\211\001\n\013MatchNotice\022\022\n\nm" +
       "essage_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001\022\024\n\014ex" +
-      "pired_time\030\003 \001(\001\022\024\n\014needResponse\030\004 \001(\010\022\017" +
-      "\n\007user_id\030\024 \001(\t\022\021\n\tuser_name\030\025 \001(\t\022\031\n\021us" +
-      "er_portrait_url\030\026 \001(\tB*\n(com.artisankid." +
-      "elementwar.ewmessagemodelb\006proto3"
+      "pired_time\030\003 \001(\001\022\017\n\007user_id\030\024 \001(\t\022\021\n\tuse" +
+      "r_name\030\025 \001(\t\022\031\n\021user_portrait_url\030\026 \001(\tB" +
+      "*\n(com.artisankid.elementwar.ewmessagemo" +
+      "delb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1374,7 +1301,7 @@ public final class MatchNoticeOuterClass {
     internal_static_MatchNotice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MatchNotice_descriptor,
-        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "UserId", "UserName", "UserPortraitUrl", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "UserId", "UserName", "UserPortraitUrl", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -56,15 +56,6 @@ public final class InviteReplyNoticeOuterClass {
 
     /**
      * <pre>
-     *是否需要响应
-     * </pre>
-     *
-     * <code>bool needResponse = 4;</code>
-     */
-    boolean getNeedResponse();
-
-    /**
-     * <pre>
      *回复者ID
      * </pre>
      *
@@ -163,7 +154,6 @@ public final class InviteReplyNoticeOuterClass {
       messageId_ = "";
       sendTime_ = 0D;
       expiredTime_ = 0D;
-      needResponse_ = false;
       senderId_ = "";
       senderName_ = "";
       senderPortraitUrl_ = "";
@@ -210,11 +200,6 @@ public final class InviteReplyNoticeOuterClass {
             case 25: {
 
               expiredTime_ = input.readDouble();
-              break;
-            }
-            case 32: {
-
-              needResponse_ = input.readBool();
               break;
             }
             case 162: {
@@ -335,19 +320,6 @@ public final class InviteReplyNoticeOuterClass {
      */
     public double getExpiredTime() {
       return expiredTime_;
-    }
-
-    public static final int NEEDRESPONSE_FIELD_NUMBER = 4;
-    private boolean needResponse_;
-    /**
-     * <pre>
-     *是否需要响应
-     * </pre>
-     *
-     * <code>bool needResponse = 4;</code>
-     */
-    public boolean getNeedResponse() {
-      return needResponse_;
     }
 
     public static final int SENDER_ID_FIELD_NUMBER = 20;
@@ -552,9 +524,6 @@ public final class InviteReplyNoticeOuterClass {
       if (expiredTime_ != 0D) {
         output.writeDouble(3, expiredTime_);
       }
-      if (needResponse_ != false) {
-        output.writeBool(4, needResponse_);
-      }
       if (!getSenderIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, senderId_);
       }
@@ -587,10 +556,6 @@ public final class InviteReplyNoticeOuterClass {
       if (expiredTime_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, expiredTime_);
-      }
-      if (needResponse_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, needResponse_);
       }
       if (!getSenderIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, senderId_);
@@ -634,8 +599,6 @@ public final class InviteReplyNoticeOuterClass {
           java.lang.Double.doubleToLongBits(getExpiredTime())
           == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
-      result = result && (getNeedResponse()
-          == other.getNeedResponse());
       result = result && getSenderId()
           .equals(other.getSenderId());
       result = result && getSenderName()
@@ -664,9 +627,6 @@ public final class InviteReplyNoticeOuterClass {
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getExpiredTime()));
-      hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getNeedResponse());
       hash = (37 * hash) + SENDER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getSenderId().hashCode();
       hash = (37 * hash) + SENDER_NAME_FIELD_NUMBER;
@@ -683,6 +643,17 @@ public final class InviteReplyNoticeOuterClass {
       return hash;
     }
 
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.artisankid.elementwar.ewmessagemodel.InviteReplyNoticeOuterClass.InviteReplyNotice parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -806,8 +777,6 @@ public final class InviteReplyNoticeOuterClass {
 
         expiredTime_ = 0D;
 
-        needResponse_ = false;
-
         senderId_ = "";
 
         senderName_ = "";
@@ -843,7 +812,6 @@ public final class InviteReplyNoticeOuterClass {
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
-        result.needResponse_ = needResponse_;
         result.senderId_ = senderId_;
         result.senderName_ = senderName_;
         result.senderPortraitUrl_ = senderPortraitUrl_;
@@ -899,9 +867,6 @@ public final class InviteReplyNoticeOuterClass {
         }
         if (other.getExpiredTime() != 0D) {
           setExpiredTime(other.getExpiredTime());
-        }
-        if (other.getNeedResponse() != false) {
-          setNeedResponse(other.getNeedResponse());
         }
         if (!other.getSenderId().isEmpty()) {
           senderId_ = other.senderId_;
@@ -1109,44 +1074,6 @@ public final class InviteReplyNoticeOuterClass {
       public Builder clearExpiredTime() {
         
         expiredTime_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private boolean needResponse_ ;
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public boolean getNeedResponse() {
-        return needResponse_;
-      }
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public Builder setNeedResponse(boolean value) {
-        
-        needResponse_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public Builder clearNeedResponse() {
-        
-        needResponse_ = false;
         onChanged();
         return this;
       }
@@ -1607,14 +1534,13 @@ public final class InviteReplyNoticeOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027InviteReplyNotice.proto\"\313\001\n\021InviteRepl" +
+      "\n\027InviteReplyNotice.proto\"\265\001\n\021InviteRepl" +
       "yNotice\022\022\n\nmessage_id\030\001 \001(\t\022\021\n\tsend_time" +
-      "\030\002 \001(\001\022\024\n\014expired_time\030\003 \001(\001\022\024\n\014needResp" +
-      "onse\030\004 \001(\010\022\021\n\tsender_id\030\024 \001(\t\022\023\n\013sender_" +
-      "name\030\025 \001(\t\022\033\n\023sender_portrait_url\030\026 \001(\t\022" +
-      "\017\n\007isAgree\030\037 \001(\010\022\r\n\005alert\030  \001(\tB*\n(com.a" +
-      "rtisankid.elementwar.ewmessagemodelb\006pro" +
-      "to3"
+      "\030\002 \001(\001\022\024\n\014expired_time\030\003 \001(\001\022\021\n\tsender_i" +
+      "d\030\024 \001(\t\022\023\n\013sender_name\030\025 \001(\t\022\033\n\023sender_p" +
+      "ortrait_url\030\026 \001(\t\022\017\n\007isAgree\030\037 \001(\010\022\r\n\005al" +
+      "ert\030  \001(\tB*\n(com.artisankid.elementwar.e" +
+      "wmessagemodelb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1633,7 +1559,7 @@ public final class InviteReplyNoticeOuterClass {
     internal_static_InviteReplyNotice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_InviteReplyNotice_descriptor,
-        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "SenderId", "SenderName", "SenderPortraitUrl", "IsAgree", "Alert", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "SenderId", "SenderName", "SenderPortraitUrl", "IsAgree", "Alert", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

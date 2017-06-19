@@ -39,7 +39,7 @@ public class CardDao {
 		}
 		return objects;
 	}
-	
+
 	/**
 	 * 根据卡片ID查询卡片
 	 * @param cardID
@@ -47,16 +47,29 @@ public class CardDao {
 	 */
 	public Card selectByCardID(String cardID) {
 		String sql = "SELECT * FROM Card WHERE cardID = '" + cardID + "';";
-		
+		return selectBySQL(sql);
+	}
+	
+	/**
+	 * 根据卡片关联的元素ID查询卡片
+	 * @param elementID
+	 * @return
+	 */
+	public Card selectByElementID(String elementID) {
+		String sql = "SELECT * FROM Card WHERE elementID = '" + elementID + "';";
+		return selectBySQL(sql);
+	}
+
+	public Card selectBySQL(String sql) {
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
-	    Map<String, Object> result = manager.selectOne(sql);
-		manager.close(); 
-		
+		Map<String, Object> result = manager.selectOne(sql);
+		manager.close();
+
 		if(result == null) {
 			return null;
 		}
-		
+
 		Card object = new Card();
 		object.setCardID(result.get("cardID").toString());
 		if(result.get("witticism") != null) {
@@ -65,15 +78,15 @@ public class CardDao {
 		if(result.get("detail") != null) {
 			object.setDetail(result.get("detail").toString());
 		}
-		
+
 		ElementDao elementDao = new ElementDao();
 		Element element = elementDao.selectByElementID(result.get("elementID").toString());
 		object.setElement(element);
-		
+
 		EffectDao effectDao = new EffectDao();
 		List<Effect> effects = effectDao.selectByCardID(object.getCardID());
 		object.setEffects(effects);
-		
+
 		return object;
 	}
 	

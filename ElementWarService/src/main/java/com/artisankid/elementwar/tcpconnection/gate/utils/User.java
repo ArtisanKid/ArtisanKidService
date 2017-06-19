@@ -1,5 +1,10 @@
 package com.artisankid.elementwar.tcpconnection.gate.utils;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  * Created by LiXiangYu on 2017/4/28.
  */
@@ -14,19 +19,17 @@ public class User {
     }
 
     private String userID;
+    private Integer strength;
 
     private State state;
 
     private String matchMessageID;
     private Long matchExpiredTime = 0L;
 
-    private Integer strength;
-
-    private GameState gameState;
-
-    private long playExpiredTime;//出牌超时时间
-
     private Integer hp = 0;
+    private GameState gameState;
+    private Long playExpiredTime;//出牌超时时间
+    private List<String> cardIDs = new ArrayList<>();
 
     public String getUserID() {
         return userID;
@@ -36,9 +39,17 @@ public class User {
         this.userID = userID;
     }
 
+    public Integer getStrength() {
+        return strength;
+    }
+
+    public void setStrength(Integer strength) {
+        this.strength = strength;
+    }
+
     public State getState() {
         if(state == State.Matching) {
-            long now = System.currentTimeMillis();
+            Long now = System.currentTimeMillis();
             if(matchExpiredTime <= now) {
                 setState(State.Free);
             }
@@ -66,12 +77,20 @@ public class User {
         this.matchExpiredTime = matchExpiredTime;
     }
 
-    public Integer getStrength() {
-        return strength;
+    public Integer getHp() {
+        return hp;
     }
 
-    public void setStrength(Integer strength) {
-        this.strength = strength;
+    public void setHp(Integer hp) {
+        this.hp = hp;
+    }
+
+    public void addHp(Integer hp) {
+        this.hp += hp;
+    }
+
+    public void minusHp(Integer hp) {
+        this.hp -= hp;
     }
 
     public void setGameState(GameState state) {
@@ -90,11 +109,31 @@ public class User {
         this.playExpiredTime = playExpiredTime;
     }
 
-    public Integer getHp() {
-        return hp;
+    public List<String> getCardIDs() {
+        return cardIDs;
     }
 
-    public void setHp(Integer hp) {
-        this.hp = hp;
+    public void setCardIDs(List<String> cardIDs) {
+        this.cardIDs = cardIDs;
+    }
+
+    public void addCardID(String cardID) {
+        this.cardIDs.add(cardID);
+    }
+
+    public void addCardIDs(List<String> cardIDs) {
+        this.cardIDs.addAll(cardIDs);
+    }
+
+    public void removeCardID(String cardID) {
+        this.cardIDs.remove(cardID);
+    }
+
+    public void removeCardIDs(List<String> cardIDs) {
+        this.cardIDs.removeAll(cardIDs);
+    }
+
+    public boolean existCardID(String cardID) {
+        return this.cardIDs.contains(cardID);
     }
 }

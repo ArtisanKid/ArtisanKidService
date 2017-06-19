@@ -1,5 +1,9 @@
 package com.artisankid.elementwar.tcpconnection.action.impl;
 
+import com.artisankid.elementwar.common.dao.CardDao;
+import com.artisankid.elementwar.common.dao.ElementDao;
+import com.artisankid.elementwar.common.ewmodel.Card;
+import com.artisankid.elementwar.common.ewmodel.Element;
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
@@ -12,10 +16,7 @@ import io.netty.util.concurrent.GenericFutureListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 /**
  * Created by LiXiangYu on 2017/4/26.
@@ -24,15 +25,18 @@ import java.util.TimerTask;
 public class Deal {
     private static Logger logger = LoggerFactory.getLogger(Deal.class);
 
-    static public void DealNotice(final String receiverID, final List<String> cardIDs) {
-        logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 开始发送...");
+    static public void PlayDealNotice(final String receiverID) {
+        logger.debug("PlayDealNotice" + " receiverID:" + receiverID + " 开始发送...");
+
+        //这里需要随机算法来获取卡牌ID
+        final List<String> cardIDs = new ArrayList<>();
+        cardIDs.add(randomCardID());
 
         DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
         Long now = System.currentTimeMillis();
         Long expiredTime = now + 10 * 1000L;
         notice.setSendTime(now / 1000.);
         notice.setExpiredTime(expiredTime / 1000.);
-
         notice.setReceiverId(receiverID);
         notice.addAllCardIds(cardIDs);
 
@@ -43,7 +47,7 @@ public class Deal {
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
-                logger.error("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送超时，给下个用户发牌");
+                logger.error("PlayDealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送超时，给下个用户发牌");
                 //发牌没有收到，换下一个用户收牌
                 DealNoticeNextUser(receiverID);
             }
@@ -56,7 +60,7 @@ public class Deal {
             public void operationComplete(Future<? super Void> future) throws Exception {
                 timer.cancel();
 
-                logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功，准备出牌...");
+                logger.debug("PlayDealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功，准备出牌...");
 
                 //发牌成功，通知出牌
                 PlaySwitch.PlaySwitchNotice(receiverID);
@@ -64,15 +68,22 @@ public class Deal {
         });
     }
 
-    static public void DealNoticeOnly(final String receiverID, final List<String> cardIDs) {
-        logger.debug("DealNoticeOnly" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 开始发送...");
+    static public void DealNotice(final String receiverID) {
+        logger.debug("DealNotice" + " receiverID:" + receiverID + " 开始发送...");
+
+        //这里需要随机算法来获取卡牌ID
+        final List<String> cardIDs = new ArrayList<>();
+        cardIDs.add(randomCardID());
+        cardIDs.add(randomCardID());
+        cardIDs.add(randomCardID());
+        cardIDs.add(randomCardID());
+        cardIDs.add(randomCardID());
 
         DealNoticeOuterClass.DealNotice.Builder notice = DealNoticeOuterClass.DealNotice.newBuilder();
         Long now = System.currentTimeMillis();
         Long expiredTime = now + 10 * 1000L;
         notice.setSendTime(now / 1000.);
         notice.setExpiredTime(expiredTime / 1000.);
-
         notice.setReceiverId(receiverID);
         notice.addAllCardIds(cardIDs);
 
@@ -84,9 +95,16 @@ public class Deal {
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                logger.debug("DealNoticeOnly" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功");
+                logger.debug("DealNotice" + " receiverID:" + receiverID + " cardIDs:" + cardIDs + " 发送成功");
             }
         });;
+    }
+
+    static private String randomCardID() {
+        Long index = System.currentTimeMillis() % 181;
+        Element element = new ElementDao().selectByIndex(index);
+        Card card = new CardDao().selectByElementID(element.getElementID());
+        return card.getCardID();
     }
 
     static public void DealNoticeNextUser(String currentPlayerID) {
@@ -99,6 +117,6 @@ public class Deal {
         }
 
         User nextUser = users.get(index);
-        DealNotice(nextUser.getUserID(), Arrays.asList("O"));
+        DealNotice(nextUser.getUserID());
     }
 }

@@ -86,11 +86,11 @@ public class UseScroll {
                     break;
                 }
                 case Jump: {
-                    Deal.DealNotice(senderID, Arrays.asList("CO2"));
+                    Deal.DealNotice(senderID);
                     break;
                 }
                 case Draw:
-                    Deal.DealNotice(senderID, Arrays.asList("CO2"));
+                    Deal.DealNotice(senderID);
                     break;
             }
         }

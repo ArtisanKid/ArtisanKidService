@@ -56,15 +56,6 @@ public final class DealNoticeOuterClass {
 
     /**
      * <pre>
-     *是否需要响应
-     * </pre>
-     *
-     * <code>bool needResponse = 4;</code>
-     */
-    boolean getNeedResponse();
-
-    /**
-     * <pre>
      *接收者ID
      * </pre>
      *
@@ -135,7 +126,6 @@ public final class DealNoticeOuterClass {
       messageId_ = "";
       sendTime_ = 0D;
       expiredTime_ = 0D;
-      needResponse_ = false;
       receiverId_ = "";
       cardIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
@@ -181,11 +171,6 @@ public final class DealNoticeOuterClass {
               expiredTime_ = input.readDouble();
               break;
             }
-            case 32: {
-
-              needResponse_ = input.readBool();
-              break;
-            }
             case 162: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -194,9 +179,9 @@ public final class DealNoticeOuterClass {
             }
             case 242: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 cardIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000020;
+                mutable_bitField0_ |= 0x00000010;
               }
               cardIds_.add(s);
               break;
@@ -209,7 +194,7 @@ public final class DealNoticeOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           cardIds_ = cardIds_.getUnmodifiableView();
         }
         makeExtensionsImmutable();
@@ -294,19 +279,6 @@ public final class DealNoticeOuterClass {
      */
     public double getExpiredTime() {
       return expiredTime_;
-    }
-
-    public static final int NEEDRESPONSE_FIELD_NUMBER = 4;
-    private boolean needResponse_;
-    /**
-     * <pre>
-     *是否需要响应
-     * </pre>
-     *
-     * <code>bool needResponse = 4;</code>
-     */
-    public boolean getNeedResponse() {
-      return needResponse_;
     }
 
     public static final int RECEIVER_ID_FIELD_NUMBER = 20;
@@ -417,9 +389,6 @@ public final class DealNoticeOuterClass {
       if (expiredTime_ != 0D) {
         output.writeDouble(3, expiredTime_);
       }
-      if (needResponse_ != false) {
-        output.writeBool(4, needResponse_);
-      }
       if (!getReceiverIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, receiverId_);
       }
@@ -443,10 +412,6 @@ public final class DealNoticeOuterClass {
       if (expiredTime_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, expiredTime_);
-      }
-      if (needResponse_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, needResponse_);
       }
       if (!getReceiverIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, receiverId_);
@@ -485,8 +450,6 @@ public final class DealNoticeOuterClass {
           java.lang.Double.doubleToLongBits(getExpiredTime())
           == java.lang.Double.doubleToLongBits(
               other.getExpiredTime()));
-      result = result && (getNeedResponse()
-          == other.getNeedResponse());
       result = result && getReceiverId()
           .equals(other.getReceiverId());
       result = result && getCardIdsList()
@@ -509,9 +472,6 @@ public final class DealNoticeOuterClass {
       hash = (37 * hash) + EXPIRED_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getExpiredTime()));
-      hash = (37 * hash) + NEEDRESPONSE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getNeedResponse());
       hash = (37 * hash) + RECEIVER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getReceiverId().hashCode();
       if (getCardIdsCount() > 0) {
@@ -523,6 +483,17 @@ public final class DealNoticeOuterClass {
       return hash;
     }
 
+    public static com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass.DealNotice parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -646,12 +617,10 @@ public final class DealNoticeOuterClass {
 
         expiredTime_ = 0D;
 
-        needResponse_ = false;
-
         receiverId_ = "";
 
         cardIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -679,11 +648,10 @@ public final class DealNoticeOuterClass {
         result.messageId_ = messageId_;
         result.sendTime_ = sendTime_;
         result.expiredTime_ = expiredTime_;
-        result.needResponse_ = needResponse_;
         result.receiverId_ = receiverId_;
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
           cardIds_ = cardIds_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.cardIds_ = cardIds_;
         result.bitField0_ = to_bitField0_;
@@ -738,9 +706,6 @@ public final class DealNoticeOuterClass {
         if (other.getExpiredTime() != 0D) {
           setExpiredTime(other.getExpiredTime());
         }
-        if (other.getNeedResponse() != false) {
-          setNeedResponse(other.getNeedResponse());
-        }
         if (!other.getReceiverId().isEmpty()) {
           receiverId_ = other.receiverId_;
           onChanged();
@@ -748,7 +713,7 @@ public final class DealNoticeOuterClass {
         if (!other.cardIds_.isEmpty()) {
           if (cardIds_.isEmpty()) {
             cardIds_ = other.cardIds_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureCardIdsIsMutable();
             cardIds_.addAll(other.cardIds_);
@@ -947,44 +912,6 @@ public final class DealNoticeOuterClass {
         return this;
       }
 
-      private boolean needResponse_ ;
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public boolean getNeedResponse() {
-        return needResponse_;
-      }
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public Builder setNeedResponse(boolean value) {
-        
-        needResponse_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *是否需要响应
-       * </pre>
-       *
-       * <code>bool needResponse = 4;</code>
-       */
-      public Builder clearNeedResponse() {
-        
-        needResponse_ = false;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object receiverId_ = "";
       /**
        * <pre>
@@ -1076,9 +1003,9 @@ public final class DealNoticeOuterClass {
 
       private com.google.protobuf.LazyStringList cardIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureCardIdsIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
           cardIds_ = new com.google.protobuf.LazyStringArrayList(cardIds_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
@@ -1181,7 +1108,7 @@ public final class DealNoticeOuterClass {
        */
       public Builder clearCardIds() {
         cardIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -1266,12 +1193,11 @@ public final class DealNoticeOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020DealNotice.proto\"\206\001\n\nDealNotice\022\022\n\nmes" +
-      "sage_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001\022\024\n\014expi" +
-      "red_time\030\003 \001(\001\022\024\n\014needResponse\030\004 \001(\010\022\023\n\013" +
-      "receiver_id\030\024 \001(\t\022\020\n\010card_ids\030\036 \003(\tB*\n(c" +
-      "om.artisankid.elementwar.ewmessagemodelb" +
-      "\006proto3"
+      "\n\020DealNotice.proto\"p\n\nDealNotice\022\022\n\nmess" +
+      "age_id\030\001 \001(\t\022\021\n\tsend_time\030\002 \001(\001\022\024\n\014expir" +
+      "ed_time\030\003 \001(\001\022\023\n\013receiver_id\030\024 \001(\t\022\020\n\010ca" +
+      "rd_ids\030\036 \003(\tB*\n(com.artisankid.elementwa" +
+      "r.ewmessagemodelb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1290,7 +1216,7 @@ public final class DealNoticeOuterClass {
     internal_static_DealNotice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DealNotice_descriptor,
-        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "NeedResponse", "ReceiverId", "CardIds", });
+        new java.lang.String[] { "MessageId", "SendTime", "ExpiredTime", "ReceiverId", "CardIds", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
