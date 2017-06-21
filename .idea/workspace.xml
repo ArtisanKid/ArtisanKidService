@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18658e4b-460f-4140-b32e-fee23389661d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Error.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/ewmessagemodel/ContainerOuterClass.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/ewmessagemodel/ContainerOuterClass.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Deal.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Deal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/InRoom.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/InRoom.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Error.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Error.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Invite.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Invite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Login.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Login.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Match.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Match.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/PlaySwitch.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/PlaySwitch.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/UseCard.java" afterPath="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/UseCard.java" />
@@ -39,24 +35,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BusinessFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/filter/BusinessFilter.java">
+      <file leaf-file-name="PlaySwitch.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/PlaySwitch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-823">
-              <caret line="38" column="27" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="27" />
+            <state relative-caret-position="364">
+              <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Error.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Error.java">
+      <file leaf-file-name="Invite.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Invite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-435">
+              <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,6 +85,7 @@
       <find>ProtobufVarint32FrameDecoder</find>
       <find>DealNoticeNextUser</find>
       <find>selectByElementID</find>
+      <find>matchNoticeFailed</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,16 +140,16 @@
         <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/client/ClientHandler.java" />
         <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Finish.java" />
         <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/ewmessagemodel/InRoomNoticeOuterClass.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Login.java" />
         <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/UseCard.java" />
         <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/UseScroll.java" />
-        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Deal.java" />
-        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/gate/utils/User.java" />
-        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Invite.java" />
-        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/InRoom.java" />
-        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Login.java" />
-        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/PlaySwitch.java" />
-        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Match.java" />
         <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Error.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/InRoom.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Match.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/gate/utils/User.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/PlaySwitch.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Deal.java" />
+        <option value="$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Invite.java" />
       </list>
     </option>
   </component>
@@ -1565,12 +1560,12 @@
       <workItem from="1495205749611" duration="5451000" />
       <workItem from="1495806136639" duration="23653000" />
       <workItem from="1496453077446" duration="19957000" />
-      <workItem from="1497790788387" duration="13646000" />
+      <workItem from="1497790788387" duration="21072000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="373752000" />
+    <option name="totallyTimeSpent" value="381178000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1636,7 +1631,7 @@
           <option name="timeStamp" value="110" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="141" />
+      <option name="time" value="150" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1645,38 +1640,18 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.0.34.Final/netty-all-4.0.34.Final-sources.jar!/io/netty/channel/CombinedChannelDuplexHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="533" column="27" lean-forward="true" selection-start-line="533" selection-start-column="27" selection-end-line="533" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.0.34.Final/netty-all-4.0.34.Final-sources.jar!/io/netty/util/concurrent/DefaultPromise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="74" column="11" lean-forward="false" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.0.34.Final/netty-all-4.0.34.Final-sources.jar!/io/netty/channel/DefaultChannelPromise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="49" column="10" lean-forward="false" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.0.34.Final/netty-all-4.0.34.Final-sources.jar!/io/netty/channel/AbstractChannelHandlerContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="702" column="37" lean-forward="false" selection-start-line="702" selection-start-column="37" selection-end-line="702" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/util/concurrent/Future.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="126" column="12" lean-forward="false" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
+          <folding>
+            <element signature="e#3583#3584#0" expanded="false" />
+            <element signature="e#3624#3625#0" expanded="false" />
+            <element signature="e#22874#22875#0" expanded="false" />
+            <element signature="e#22929#22930#0" expanded="false" />
+            <element signature="e#24340#24341#0" expanded="false" />
+            <element signature="e#24411#24412#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1691,6 +1666,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
           <caret line="372" column="42" lean-forward="false" selection-start-line="372" selection-start-column="28" selection-end-line="372" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1709,18 +1685,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/gate/handler/GateServerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="16" column="68" lean-forward="true" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.0.34.Final/netty-all-4.0.34.Final-sources.jar!/io/netty/channel/ChannelFuture.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="170" column="12" lean-forward="false" selection-start-line="170" selection-start-column="12" selection-end-line="170" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1976,45 +1945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/UseScroll.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="64" column="48" lean-forward="true" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/gate/utils/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
-          <folding>
-            <element signature="e#2499#2500#0" expanded="true" />
-            <element signature="e#2543#2544#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Invite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="253" column="164" lean-forward="false" selection-start-line="253" selection-start-column="164" selection-end-line="253" selection-end-column="164" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Deal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1216">
-          <caret line="34" column="60" lean-forward="true" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Finish.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -2023,46 +1953,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/InRoom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="66" column="107" lean-forward="false" selection-start-line="66" selection-start-column="107" selection-end-line="66" selection-end-column="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="605">
           <caret line="101" column="136" lean-forward="false" selection-start-line="101" selection-start-column="136" selection-end-line="101" selection-end-column="136" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Match.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="156" column="17" lean-forward="true" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/PlaySwitch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="62" column="16" lean-forward="true" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/UseCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1040">
-          <caret line="78" column="61" lean-forward="true" selection-start-line="78" selection-start-column="12" selection-end-line="78" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -2075,13 +1969,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Error.java">
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/UseScroll.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+        <state relative-caret-position="604">
+          <caret line="160" column="199" lean-forward="false" selection-start-line="160" selection-start-column="199" selection-end-line="160" selection-end-column="199" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/UseCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="158" column="11" lean-forward="true" selection-start-line="153" selection-start-column="36" selection-end-line="158" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Error.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="36" column="86" lean-forward="false" selection-start-line="36" selection-start-column="86" selection-end-line="36" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/gate/utils/RoomManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/util/concurrent/Future.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1002">
+          <caret line="137" column="12" lean-forward="false" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/InRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="39" column="31" lean-forward="true" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/gate/utils/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+          <folding>
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1264#1265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/util/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="554" column="0" lean-forward="false" selection-start-line="554" selection-start-column="0" selection-end-line="554" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/ActionMapUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/gate/handler/GateServerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Match.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Deal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="122" column="41" lean-forward="true" selection-start-line="122" selection-start-column="41" selection-end-line="122" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/PlaySwitch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElementWarService/src/main/java/com/artisankid/elementwar/tcpconnection/action/impl/Invite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-435">
+          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

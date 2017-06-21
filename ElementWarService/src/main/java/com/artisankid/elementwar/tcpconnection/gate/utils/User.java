@@ -48,11 +48,8 @@ public class User {
     }
 
     public State getState() {
-        if(state == State.Matching) {
-            Long now = System.currentTimeMillis();
-            if(matchExpiredTime <= now) {
-                setState(State.Free);
-            }
+        if(state == null) {
+            setState(State.Free);
         }
         return state;
     }

@@ -12,6 +12,8 @@ import com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.ActionRequestMap;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
 import com.artisankid.elementwar.tcpconnection.gate.utils.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -129,7 +131,7 @@ public class UseCard {
         }
     }
 
-    public void useCardNotice(String receiverID, String messageID, String senderID, String effectReceiverID, String cardID) {
+    public void useCardNotice(final String receiverID, final String messageID, final String senderID, final String effectReceiverID, final String cardID) {
         logger.debug("UseCardNotice " + " messageID:" + messageID + " receiverID:" + receiverID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 开始发送...");
 
         UseCardNoticeOuterClass.UseCardNotice.Builder notice = UseCardNoticeOuterClass.UseCardNotice.newBuilder();
@@ -149,6 +151,11 @@ public class UseCard {
 
         //出牌操作的效果没有超时的概念
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container);
+        ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture future) throws Exception {
+                logger.debug("UseCardNotice " + " messageID:" + messageID + " receiverID:" + receiverID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 发送成功");
+            }
+        });
     }
 }

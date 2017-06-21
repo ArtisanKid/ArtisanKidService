@@ -59,8 +59,6 @@ public class PlaySwitch {
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                timer.cancel();
-
                 logger.debug("PlaySwitchNotice" + " playerID:" + playerID + " 切换出牌成功");
 
                 User currentPlayer = UserManager.getUser(playerID);

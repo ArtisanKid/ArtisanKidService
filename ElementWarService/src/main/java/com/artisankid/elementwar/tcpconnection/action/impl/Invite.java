@@ -58,19 +58,19 @@ public class Invite {
             return;
         }
 
-        logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " 开始邀请...");
+        logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 开始邀请...");
 
         Long expiredTime = new Double(message.getExpiredTime() * 1000L).longValue();
 
         if(UserManager.getUser(receiverID) == null) {
-            logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " 用户不在线，准备发送InviteReplyNotice...");
+            logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 用户不在线，准备发送InviteReplyNotice...");
             inviteReplyNotice(senderID, messageID, receiver, InviteReply.Offline, expiredTime);
             return;
         }
 
         User.State state = UserManager.getUser(receiverID).getState();
         if(state == User.State.Free) {
-            logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Inviting，准备发送InviteNotice...");
+            logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 状态变为Inviting，准备发送InviteNotice...");
 
             UserManager.getUser(senderID).setState(User.State.Inviting);
             UserManager.getUser(receiverID).setState(User.State.Inviting);
@@ -78,7 +78,7 @@ public class Invite {
             Magician sender = dao.selectByOpenID(senderID);
             inviteNotice(receiverID, messageID, sender, expiredTime);
         } else {
-            logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " 准备发送InviteReplyNotice...");
+            logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 被邀请用户状态为Busy，准备发送InviteReplyNotice...");
             inviteReplyNotice(senderID, messageID, receiver, InviteReply.Busy, expiredTime);
         }
     }
@@ -86,7 +86,7 @@ public class Invite {
     public void inviteNotice(final String receiverID, final String messageID, final Magician sender, Long expiredTime) {
         final String senderID = sender.getOpenID();
 
-        logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 开始发送...");
+        logger.debug("InviteNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 开始发送...");
 
         InviteNoticeOuterClass.InviteNotice.Builder notice = InviteNoticeOuterClass.InviteNotice.newBuilder();
         notice.setMessageId(messageID);
@@ -110,7 +110,7 @@ public class Invite {
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
-                logger.error("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 发送超时，状态变为Free");
+                logger.error("InviteNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 发送超时，状态变为Free");
 
                 UserManager.getUser(receiverID).setState(User.State.Free);
                 UserManager.getUser(sender.getOpenID()).setState(User.State.Free);
@@ -129,7 +129,7 @@ public class Invite {
                     return;
                 }
 
-                logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 发送成功");
+                logger.debug("InviteNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 发送成功");
             }
         });
     }
@@ -169,9 +169,11 @@ public class Invite {
             RoomManager.createRoom(Arrays.asList(senderID, receiverID));
 
             inviteReplyNotice(receiverID, messageID, sender, InviteReply.Agree, expiredTime);
+            inviteReplyNotice(senderID, messageID, sender, InviteReply.Agree, expiredTime);
         } else {
             logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " 拒绝邀请，准备发送InviteReplyNotice...");
             inviteReplyNotice(receiverID, messageID, sender, InviteReply.Refuse, expiredTime);
+            inviteReplyNotice(senderID, messageID, sender, InviteReply.Refuse, expiredTime);
         }
     }
 

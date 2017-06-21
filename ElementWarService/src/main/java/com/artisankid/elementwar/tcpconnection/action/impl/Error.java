@@ -34,7 +34,7 @@ public class Error {
         notice.setMessage(message);
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
-        container.setMessageType(ContainerOuterClass.Container.MessageType.InRoomNotice);
+        container.setMessageType(ContainerOuterClass.Container.MessageType.ErrorNotice);
         container.setErrorNotice(notice);
 
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);

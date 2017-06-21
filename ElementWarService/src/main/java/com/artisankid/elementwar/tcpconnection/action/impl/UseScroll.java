@@ -12,6 +12,8 @@ import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
 import com.artisankid.elementwar.tcpconnection.gate.utils.*;
 import com.artisankid.elementwar.tcpconnection.gate.utils.Room;
 import com.artisankid.elementwar.tcpconnection.gate.utils.User;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -134,7 +136,7 @@ public class UseScroll {
         }
     }
 
-    public void useScrollNotice(String receiverID, String messageID, String senderID, String effectReceiverID, String scrollID) {
+    public void useScrollNotice(final String receiverID, final String messageID, final String senderID, final String effectReceiverID, final String scrollID) {
         logger.debug("UseScrollMessage " + " messageID:" + messageID + " receiverID:" + receiverID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 正在发送...");
 
         UseScrollNoticeOuterClass.UseScrollNotice.Builder notice = UseScrollNoticeOuterClass.UseScrollNotice.newBuilder();
@@ -153,6 +155,11 @@ public class UseScroll {
 
         //出牌操作的效果没有超时的概念
         ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container);
+        ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture future) throws Exception {
+                logger.debug("UseScrollNotice " + " messageID:" + messageID + " receiverID:" + receiverID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 发送成功");
+            }
+        });
     }
 }

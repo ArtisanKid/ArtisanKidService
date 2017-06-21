@@ -33,7 +33,7 @@ public class Match {
         final String senderID = message.getSenderId();
 
         if(UserManager.getUser(senderID).getState() != User.State.Free) {
-            String error = "InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " sender状态错误";
+            String error = "MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " sender状态错误";
             Error.ErrorNotice(senderID, messageID, 0, error);
             return;
         }
@@ -59,9 +59,10 @@ public class Match {
         if(receiverID == null) {
             logger.debug("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 状态变为Matching");
 
-            UserManager.getUser(senderID).setState(User.State.Matching);
-            UserManager.getUser(senderID).setMatchMessageID(messageID);
-            UserManager.getUser(senderID).setMatchExpiredTime(expiredTime);
+            final User user = UserManager.getUser(senderID);
+            user.setState(User.State.Matching);
+            user.setMatchMessageID(messageID);
+            user.setMatchExpiredTime(expiredTime);
 
             Timer timer = new Timer(true);
             TimerTask task = new TimerTask() {
@@ -72,7 +73,7 @@ public class Match {
                     }
 
                     logger.error("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 未找到匹配用户，状态变为Free");
-                    UserManager.getUser(senderID).setState(User.State.Free);
+                    user.setState(User.State.Free);
                 }
             };
             timer.schedule(task, expiredTime - System.currentTimeMillis());
@@ -162,20 +163,11 @@ public class Match {
     private void matchNoticeFailed(String userID) {
         Room room = RoomManager.getRoom(userID);
         if(room == null) {
-            UserManager.getUser(userID).setState(User.State.Free);
             return;
         }
 
         for(User user : room.getUsers()) {
-            if(user.getUserID() == userID) {
-                user.setState(User.State.Free);
-            } else {
-                if(user.getMatchExpiredTime() > System.currentTimeMillis()) {
-                    user.setState(User.State.Matching);
-                } else {
-                    user.setState(User.State.Free);
-                }
-            }
+            user.setState(User.State.Free);
         }
         RoomManager.removeRoom(userID);
     }

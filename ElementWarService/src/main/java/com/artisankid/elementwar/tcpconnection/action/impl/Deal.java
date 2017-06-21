@@ -121,6 +121,6 @@ public class Deal {
         }
 
         User nextUser = users.get(index);
-        DealNotice(nextUser.getUserID());
+        PlayDealNotice(nextUser.getUserID());
     }
 }
