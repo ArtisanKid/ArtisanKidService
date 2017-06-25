@@ -29,7 +29,7 @@ public class Invite {
         Offline, Busy, Agree, Refuse
     }
 
-    private Logger logger = LoggerFactory.getLogger(Invite.class);
+    static private Logger logger = LoggerFactory.getLogger(Invite.class);
 
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.INVITE_MESSAGE_FIELD_NUMBER)
     public void inviteMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
@@ -64,43 +64,47 @@ public class Invite {
 
         if(UserManager.getUser(receiverID) == null) {
             logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 用户不在线，准备发送InviteReplyNotice...");
-            inviteReplyNotice(senderID, messageID, receiver, InviteReply.Offline, expiredTime);
+            Invite.InviteReplyNotice(senderID, messageID, InviteReply.Offline, expiredTime);
             return;
         }
 
-        User.State state = UserManager.getUser(receiverID).getState();
-        if(state == User.State.Free) {
-            logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 状态变为Inviting，准备发送InviteNotice...");
+//        if(UserManager.getUser(receiverID).getConnectState() != User.ConnectState.Connected) {
+//            logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 被邀请用户状态为Offline，准备发送InviteReplyNotice...");
+//            Invite.InviteReplyNotice(senderID, messageID, InviteReply.Offline, expiredTime);
+//            return;
+//        }
 
-            UserManager.getUser(senderID).setState(User.State.Inviting);
-            UserManager.getUser(receiverID).setState(User.State.Inviting);
-
-            Magician sender = dao.selectByOpenID(senderID);
-            inviteNotice(receiverID, messageID, sender, expiredTime);
-        } else {
+        if(UserManager.getUser(receiverID).getState() != User.State.Free) {
             logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 被邀请用户状态为Busy，准备发送InviteReplyNotice...");
-            inviteReplyNotice(senderID, messageID, receiver, InviteReply.Busy, expiredTime);
+            Invite.InviteReplyNotice(senderID, messageID, InviteReply.Busy, expiredTime);
+            return;
         }
+
+        logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 状态变为Inviting，准备发送InviteNotice...");
+
+        UserManager.getUser(senderID).setState(User.State.Inviting);
+        UserManager.getUser(receiverID).setState(User.State.Inviting);
+
+        Invite.InviteNotice(receiverID, messageID, senderID, expiredTime);
     }
 
-    public void inviteNotice(final String receiverID, final String messageID, final Magician sender, Long expiredTime) {
-        final String senderID = sender.getOpenID();
-
-        logger.debug("InviteNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 开始发送...");
+    static public void InviteNotice(final String receiverID, final String messageID, final String senderID, final Long expiredTime) {
+        logger.debug("InviteNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 开始发送...");
 
         InviteNoticeOuterClass.InviteNotice.Builder notice = InviteNoticeOuterClass.InviteNotice.newBuilder();
         notice.setMessageId(messageID);
         notice.setSendTime(System.currentTimeMillis() / 1000.);
         notice.setExpiredTime(expiredTime / 1000.);
 
-        notice.setSenderId(senderID);
-        String nickname = sender.getNickname();
-        if(nickname != null) {
-            notice.setSenderName(nickname);
+        Magician sender = new MagicianDao().selectByOpenID(senderID);
+        if(sender.getOpenID() != null) {
+            notice.setSenderId(sender.getOpenID());
         }
-        String smallPortrait = sender.getNickname();
-        if(smallPortrait != null) {
-            notice.setSenderPortraitUrl(smallPortrait);
+        if(sender.getNickname() != null) {
+            notice.setSenderName(sender.getNickname());
+        }
+        if(sender.getSmallPortrait() != null) {
+            notice.setSenderPortraitUrl(sender.getSmallPortrait());
         }
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
@@ -110,26 +114,32 @@ public class Invite {
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
-                logger.error("InviteNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 发送超时，状态变为Free");
-
+                logger.error("InviteNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送超时，状态变为Free");
                 UserManager.getUser(receiverID).setState(User.State.Free);
-                UserManager.getUser(sender.getOpenID()).setState(User.State.Free);
+                UserManager.getUser(senderID).setState(User.State.Free);
             }
         };
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
-        ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
+        ChannelHandlerContext ctx = UserContextManager.getContext(receiverID);
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                timer.cancel();
-
-                if(UserManager.getUser(receiverID).getState() == User.State.Free
-                        || UserManager.getUser(senderID).getState() == User.State.Free) {
+                if(expiredTime <= System.currentTimeMillis()) {
                     return;
                 }
 
-                logger.debug("InviteNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 发送成功");
+                timer.cancel();
+
+                if(future.isCancelled()
+                        || !future.isSuccess()) {
+                    logger.error("InviteNotice" + " messageID:" + messageID + " receiverID:" + receiverID  + " 发送失败，状态为Free");
+                    UserManager.getUser(receiverID).setState(User.State.Free);
+                    UserManager.getUser(senderID).setState(User.State.Free);
+                    return;
+                }
+
+                logger.debug("InviteNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送成功");
             }
         });
     }
@@ -155,10 +165,20 @@ public class Invite {
             return;
         }
 
-        logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " 开始回复邀请...");
+        logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 开始回复邀请...");
 
         Long expiredTime = new Double(message.getExpiredTime() * 1000L).longValue();
-        Magician sender = dao.selectByOpenID(senderID);
+
+//        if(UserManager.getUser(receiverID).getConnectState() != User.ConnectState.Connected) {
+//            logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 被邀请用户状态为Offline，准备发送InviteReplyNotice...");
+//
+//            UserManager.getUser(senderID).setState(User.State.Free);
+//            UserManager.getUser(receiverID).setState(User.State.Free);
+//
+//            Invite.InviteReplyNotice(senderID, messageID, InviteReply.Offline, expiredTime);
+//            return;
+//        }
+
         if(message.getIsAgree()) {
             logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " 同意邀请，状态变为Invited，准备发送InviteReplyNotice...");
 
@@ -168,34 +188,26 @@ public class Invite {
             //创建房间
             RoomManager.createRoom(Arrays.asList(senderID, receiverID));
 
-            inviteReplyNotice(receiverID, messageID, sender, InviteReply.Agree, expiredTime);
-            inviteReplyNotice(senderID, messageID, sender, InviteReply.Agree, expiredTime);
+            Invite.InviteReplyNotice(receiverID, messageID, InviteReply.Agree, expiredTime);
+            Invite.InviteReplyNotice(senderID, messageID, InviteReply.Agree, expiredTime);
         } else {
             logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " 拒绝邀请，准备发送InviteReplyNotice...");
-            inviteReplyNotice(receiverID, messageID, sender, InviteReply.Refuse, expiredTime);
-            inviteReplyNotice(senderID, messageID, sender, InviteReply.Refuse, expiredTime);
+
+            UserManager.getUser(senderID).setState(User.State.Free);
+            UserManager.getUser(receiverID).setState(User.State.Free);
+
+            Invite.InviteReplyNotice(receiverID, messageID, InviteReply.Refuse, expiredTime);
+            Invite.InviteReplyNotice(senderID, messageID, InviteReply.Refuse, expiredTime);
         }
     }
 
-    public void inviteReplyNotice(final String receiverID, final String messageID, final Magician sender, final InviteReply reply, Long expiredTime) {
-        final String senderID = sender.getOpenID();
-
-        logger.debug("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 开始发送...");
+    static public void InviteReplyNotice(final String receiverID, final String messageID, final InviteReply reply, final Long expiredTime) {
+        logger.debug("InviteReplyNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " reply:" + reply + " 开始发送...");
 
         InviteReplyNoticeOuterClass.InviteReplyNotice.Builder notice = InviteReplyNoticeOuterClass.InviteReplyNotice.newBuilder();
         notice.setMessageId(messageID);
         notice.setSendTime(System.currentTimeMillis() / 1000L);
         notice.setExpiredTime(expiredTime / 1000L);
-
-        notice.setSenderId(senderID);
-        String nickname = sender.getNickname();
-        if(nickname != null) {
-            notice.setSenderName(nickname);
-        }
-        String smallPortrait = sender.getSmallPortrait();
-        if(smallPortrait != null) {
-            notice.setSenderPortraitUrl(smallPortrait);
-        }
 
         switch (reply) {
             case Offline:
@@ -226,61 +238,67 @@ public class Invite {
         final Timer timer = new Timer(true);
         TimerTask task = new TimerTask() {
             public void run() {
-                logger.error("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 发送超时，状态变为Free");
-                User socketReceiver = UserManager.getUser(receiverID);
-                if(socketReceiver != null) {
-                    socketReceiver.setState(User.State.Free);
-                }
-                UserManager.getUser(senderID).setState(User.State.Free);
+                logger.error("InviteReplyNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " reply:" + reply + " 发送超时，状态变为Free");
+                Invite.InviteReplyNoticeFailed(receiverID);
             }
         };
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
-        ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
+        ChannelHandlerContext ctx = UserContextManager.getContext(receiverID);
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                timer.cancel();
-
-                User socketReceiver = UserManager.getUser(receiverID);
-                if(socketReceiver != null) {
-                    if(socketReceiver.getState() == User.State.Free) {
-                        return;
-                    }
-                }
-
-                if(UserManager.getUser(senderID).getState() == User.State.Free) {
+                if(expiredTime <= System.currentTimeMillis()) {
                     return;
                 }
 
-                logger.debug("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 发送成功");
+                timer.cancel();
+
+                if(future.isCancelled()
+                        || !future.isSuccess()) {
+                    logger.error("InviteReplyNotice" + " messageID:" + messageID + " receiverID:" + receiverID  + " 发送失败，状态为Free");
+                    Invite.InviteReplyNoticeFailed(receiverID);
+                    return;
+                }
 
                 if(reply == InviteReply.Agree) {
-                    logger.debug("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 发送成功，状态变为WaitingInRoom");
-                    UserManager.getUser(receiverID).setState(User.State.WaitingInRoom);
-
                     Room room = RoomManager.getRoom(receiverID);
+                    if(room == null) {
+                        logger.debug("InviteReplyNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 已有用户发送失败");
+                        return;
+                    }
+
+                    logger.debug("InviteReplyNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " reply:" + reply + " 发送成功，状态变为WaitingInRoom");
+                    UserManager.getUser(receiverID).setState(User.State.InRooming);
+
                     for(User user : room.getUsers()) {
-                        User.State state = user.getState();
-                        if(state != User.State.WaitingInRoom) {
+                        if(user.getState() != User.State.InRooming) {
+                            logger.debug("InviteReplyNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 等待其他人状态变更");
                             return;
                         }
                     }
 
-                    logger.debug("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 准备进入房间...");
+                    logger.debug("InviteReplyNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " reply:" + reply + " 准备进入房间...");
 
                     for(User user : room.getUsers()) {
                         InRoom.InRoomNotice(user.getUserID(), room.getRoomID());
                     }
                 } else {
-                    logger.debug("InviteReplyNotice" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " reply:" + reply + " 发送成功，状态变为Free");
-
-                    if(socketReceiver != null) {
-                        socketReceiver.setState(User.State.Free);
-                    }
-                    UserManager.getUser(senderID).setState(User.State.Free);
+                    logger.debug("InviteReplyNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " reply:" + reply + " 发送成功，状态变为Free");
                 }
             }
         });
+    }
+
+    static private void InviteReplyNoticeFailed(String userID) {
+        Room room = RoomManager.getRoom(userID);
+        if(room == null) {
+            return;
+        }
+
+        for(User user : room.getUsers()) {
+            user.setState(User.State.Free);
+        }
+        RoomManager.removeRoom(userID);
     }
 }

@@ -22,11 +22,9 @@ public class InRoom {
     static public void InRoomNotice(final String receiverID, final String roomID) {
         logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 开始发送...");
 
-        UserManager.getUser(receiverID).setState(User.State.InRooming);
-
         InRoomNoticeOuterClass.InRoomNotice.Builder notice = InRoomNoticeOuterClass.InRoomNotice.newBuilder();
         Long now = System.currentTimeMillis();
-        Long expiredTime = now + 10 * 1000L;
+        final Long expiredTime = now + 10 * 1000L;
         notice.setSendTime(now / 1000.);
         notice.setExpiredTime(expiredTime / 1000.);
         notice.setRoomId(roomID);
@@ -39,39 +37,41 @@ public class InRoom {
         TimerTask task = new TimerTask() {
             public void run() {
                 //超时则说明进入房间失败了
-                Room room = RoomManager.getRoom(receiverID);
-                if(room == null) {
-                    return;
-                }
-
-                logger.error("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送超时，状态变为Free");
-
-                for(User user : room.getUsers()) {
-                    user.setState(User.State.Free);
-                }
-                RoomManager.removeRoom(receiverID);
+                logger.error("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送超时");
+                InRoomNoticeFailed(receiverID);
             }
         };
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
-        ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
+        ChannelHandlerContext ctx = UserContextManager.getContext(receiverID);
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                timer.cancel();
-
-                if(UserManager.getUser(receiverID).getState() == User.State.Free) {
+                if(expiredTime <= System.currentTimeMillis()) {
                     return;
                 }
 
-                logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送成功");
+                timer.cancel();
 
+                if(future.isCancelled()
+                        || !future.isSuccess()) {
+                    logger.error("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送失败");
+                    InRoomNoticeFailed(receiverID);
+                    return;
+                }
+
+                Room room = RoomManager.getRoom(receiverID);
+                if(room == null) {
+                    logger.debug("InRoomNotice" + " receiverID:" + receiverID + " 已有用户发送失败");
+                    return;
+                }
+
+                logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送成功，状态为InRoomed");
                 UserManager.getUser(receiverID).setState(User.State.InRoomed);
 
-                List<User> users = RoomManager.getRoom(receiverID).getUsers();
+                List<User> users = room.getUsers();
                 for(User user : users) {
-                    User.State state = user.getState();
-                    if(state != User.State.InRoomed) {
+                    if(user.getState() != User.State.InRoomed) {
                         logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 等待其他人状态变更");
                         return;
                     }
@@ -83,14 +83,26 @@ public class InRoom {
                     User user = users.get(i);
                     user.setState(User.State.Gaming);
 
+                    Deal.InitDealNotice(user.getUserID());
                     if(i == 0) {
-                        Deal.DealNotice(user.getUserID());
                         Deal.PlayDealNotice(user.getUserID());
-                    } else {
-                        Deal.DealNotice(user.getUserID());
                     }
                 }
             }
         });
+    }
+
+    private static void InRoomNoticeFailed(String userID) {
+        Room room = RoomManager.getRoom(userID);
+        if(room == null) {
+            return;
+        }
+
+        for(User user : room.getUsers()) {
+            user.setState(User.State.Free);
+            user.setMatchMessageID(null);
+            user.setMatchExpiredTime(0L);
+        }
+        RoomManager.removeRoom(userID);
     }
 }

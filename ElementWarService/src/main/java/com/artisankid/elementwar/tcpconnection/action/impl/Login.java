@@ -90,11 +90,23 @@ public class Login {
         };
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
-        final ChannelHandlerContext ctx = UserContextManager.getUserContext(loginedUserID);
+        final ChannelHandlerContext ctx = UserContextManager.getContext(loginedUserID);
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
+                if(expiredTime <= System.currentTimeMillis()) {
+                    return;
+                }
+
                 timer.cancel();
+
+                if(future.isCancelled()
+                        || !future.isSuccess()) {
+                    logger.error("LoginNotice" + " messageID:" + messageID + " loginedUserID:" + loginedUserID  + " 发送失败");
+                    UserContextManager.removeContext(loginedUserID);
+                    UserManager.removeUser(loginedUserID);
+                    return;
+                }
 
                 logger.debug("LoginNotice" + " messageID:" + messageID + " loginedUserID:" + loginedUserID + " 发送成功");
 
@@ -143,7 +155,7 @@ public class Login {
     static private void OnlyLoginNotice(final String receiverID, ContainerOuterClass.Container.Builder container) {
         logger.debug("OnlyLoginNotice" + " receiverID:" + receiverID + " 开始发送...");
 
-        final ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
+        final ChannelHandlerContext ctx = UserContextManager.getContext(receiverID);
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {

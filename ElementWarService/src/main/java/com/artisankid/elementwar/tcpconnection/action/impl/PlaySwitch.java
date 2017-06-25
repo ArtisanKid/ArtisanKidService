@@ -25,12 +25,12 @@ public class PlaySwitch {
     private static Logger logger = LoggerFactory.getLogger(PlaySwitch.class);
 
     static public void PlaySwitchNotice(final String playerID) {
-        logger.debug("PlaySwitchNotice" + " playerID:" + playerID + " 开始发送...");
-
         final Long expiredTime = System.currentTimeMillis() + 30 * 1000L;
         ContainerOuterClass.Container.Builder container = MakePlaySwitchNotice(playerID, expiredTime);
         for( User user : RoomManager.getRoom(playerID).getUsers()) {
             if (user.getUserID().equals(playerID)) {
+                logger.debug("PlaySwitchNotice" + " playerID:" + playerID + " 开始发送...");
+
                 final Timer timer = new Timer(true);
                 TimerTask task = new TimerTask() {
                     public void run() {
@@ -52,7 +52,7 @@ public class PlaySwitch {
                 };
                 timer.schedule(task, expiredTime - System.currentTimeMillis());
 
-                ChannelHandlerContext ctx = UserContextManager.getUserContext(playerID);
+                ChannelHandlerContext ctx = UserContextManager.getContext(playerID);
                 ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
                     @Override
                     public void operationComplete(ChannelFuture future) throws Exception {
@@ -83,7 +83,7 @@ public class PlaySwitch {
     }
 
     static private void OnlyPlaySwitchNotice(final String receiverID, ContainerOuterClass.Container.Builder container) {
-        ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
+        ChannelHandlerContext ctx = UserContextManager.getContext(receiverID);
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
             @Override
             public void operationComplete(Future<? super Void> future) throws Exception {

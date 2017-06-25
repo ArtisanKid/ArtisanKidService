@@ -26,7 +26,7 @@ import java.util.List;
  */
 @NettyAction
 public class UseScroll {
-    private Logger logger = LoggerFactory.getLogger(UseCard.class);
+    static private Logger logger = LoggerFactory.getLogger(UseCard.class);
 
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.USE_SCROLL_MESSAGE_FIELD_NUMBER)
     public void useScrollMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
@@ -125,9 +125,7 @@ public class UseScroll {
 
         logger.debug("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " scrollID:" + scrollID + " 准备发送UseScrollNotice");
 
-        for(User user : RoomManager.getRoom(senderID).getUsers()) {
-            useScrollNotice(user.getUserID(), messageID, senderID, receiverID, scrollID);
-        }
+        UseScroll.UseScrollNotice(messageID, senderID, receiverID, scrollID);
 
         if(UserManager.getUser(receiverID).getHp() <= 0) {
             Finish.FinishNotice(senderID);
@@ -136,10 +134,11 @@ public class UseScroll {
         }
     }
 
-    public void useScrollNotice(final String receiverID, final String messageID, final String senderID, final String effectReceiverID, final String scrollID) {
-        logger.debug("UseScrollMessage " + " messageID:" + messageID + " receiverID:" + receiverID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 正在发送...");
+    static public void UseScrollNotice(final String messageID, final String senderID, final String effectReceiverID, final String scrollID) {
+        logger.debug("UseScrollMessage " + " messageID:" + messageID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 正在发送...");
 
         UseScrollNoticeOuterClass.UseScrollNotice.Builder notice = UseScrollNoticeOuterClass.UseScrollNotice.newBuilder();
+        notice.setMessageId(messageID);
         Long now = System.currentTimeMillis();
         Long expiredTime = now + 10 * 1000L;
         notice.setSendTime(now / 1000.);
@@ -154,12 +153,22 @@ public class UseScroll {
         container.setUseScrollNotice(notice);
 
         //出牌操作的效果没有超时的概念
-        ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
+        ChannelHandlerContext ctx = UserContextManager.getContext(senderID);
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                logger.debug("UseScrollNotice " + " messageID:" + messageID + " receiverID:" + receiverID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 发送成功");
+                logger.debug("UseScrollNotice " + " messageID:" + messageID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " scrollID:" + scrollID + " 发送成功");
             }
         });
+
+        notice.setMessageId(new String());
+        for(User user : RoomManager.getRoom(senderID).getUsers()) {
+            if(user.getUserID().equals(senderID)) {
+                return;
+            }
+
+            ChannelHandlerContext otherCtx = UserContextManager.getContext(user.getUserID());
+            otherCtx.writeAndFlush(container);
+        }
     }
 }

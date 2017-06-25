@@ -25,7 +25,7 @@ import java.util.Arrays;
  */
 @NettyAction
 public class UseCard {
-    private Logger logger = LoggerFactory.getLogger(UseCard.class);
+    static private Logger logger = LoggerFactory.getLogger(UseCard.class);
 
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.USE_CARD_MESSAGE_FIELD_NUMBER)
     public void useCardMessage(ChannelHandlerContext context, ContainerOuterClass.Container container) {
@@ -111,9 +111,7 @@ public class UseCard {
 
         logger.debug("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 准备发送UseCardNotice...");
 
-        for(User user : RoomManager.getRoom(senderID).getUsers()) {
-            useCardNotice(user.getUserID(), messageID, senderID, receiverID, cardID);
-        }
+        UseCard.UseCardNotice(messageID, senderID, receiverID, cardID);
 
         if(UserManager.getUser(receiverID).getHp() <= 0) {
             Finish.FinishNotice(senderID);
@@ -122,8 +120,8 @@ public class UseCard {
         }
     }
 
-    public void useCardNotice(final String receiverID, final String messageID, final String senderID, final String effectReceiverID, final String cardID) {
-        logger.debug("UseCardNotice " + " messageID:" + messageID + " receiverID:" + receiverID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 开始发送...");
+    static public void UseCardNotice(final String messageID, final String senderID, final String effectReceiverID, final String cardID) {
+        logger.debug("UseCardNotice " + " messageID:" + messageID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 开始发送...");
 
         UseCardNoticeOuterClass.UseCardNotice.Builder notice = UseCardNoticeOuterClass.UseCardNotice.newBuilder();
         notice.setMessageId(messageID);
@@ -140,13 +138,23 @@ public class UseCard {
         container.setMessageType(ContainerOuterClass.Container.MessageType.UseCardNotice);
         container.setUseCardNotice(notice);
 
-        //出牌操作的效果没有超时的概念
-        ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
+        ChannelHandlerContext ctx = UserContextManager.getContext(senderID);
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                logger.debug("UseCardNotice " + " messageID:" + messageID + " receiverID:" + receiverID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 发送成功");
+                logger.debug("UseCardNotice " + " messageID:" + messageID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 发送成功");
             }
         });
+
+        //其他用户的通知没有消息ID
+        notice.setMessageId(new String());
+        for(User user : RoomManager.getRoom(senderID).getUsers()) {
+            if(user.getUserID().equals(senderID)) {
+                return;
+            }
+
+            ChannelHandlerContext otherCtx = UserContextManager.getContext(user.getUserID());
+            otherCtx.writeAndFlush(container);
+        }
     }
 }

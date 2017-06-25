@@ -2,9 +2,8 @@ package com.artisankid.elementwar.tcpconnection.gate.handler;
 
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.tcpconnection.action.ActionMapUtil;
-import com.artisankid.elementwar.tcpconnection.gate.utils.User;
-import com.artisankid.elementwar.tcpconnection.gate.utils.UserContextManager;
-import com.artisankid.elementwar.tcpconnection.gate.utils.UserManager;
+import com.artisankid.elementwar.tcpconnection.action.impl.Finish;
+import com.artisankid.elementwar.tcpconnection.gate.utils.*;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -43,6 +42,18 @@ public class GateServerHandler extends SimpleChannelInboundHandler {
 
         user.setConnectState(User.ConnectState.Disconnected);
         UserContextManager.removeContext(user.getUserID());
+
+        Room room = RoomManager.getRoom(user.getUserID());
+        if(room == null) {
+            return;
+        }
+        for(User otherUser : room.getUsers()) {
+            if(otherUser == user) {
+                continue;
+            }
+
+            Finish.FinishNotice(otherUser.getUserID());
+        }
     }
 
     @Override

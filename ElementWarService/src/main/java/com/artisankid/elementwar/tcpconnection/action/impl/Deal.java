@@ -8,8 +8,6 @@ import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
 import com.artisankid.elementwar.tcpconnection.gate.utils.*;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
@@ -45,13 +43,25 @@ public class Deal {
                         DealNoticeNextUser(cardReceiverID);
                     }
                 };
-                timer.schedule(task, 10 * 1000L);
+                final Long expiredTime = System.currentTimeMillis() + 10 * 1000L;
+                timer.schedule(task, expiredTime - System.currentTimeMillis());
 
-                ChannelHandlerContext ctx = UserContextManager.getUserContext(cardReceiverID);
+                ChannelHandlerContext ctx = UserContextManager.getContext(cardReceiverID);
                 ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
                     @Override
                     public void operationComplete(Future<? super Void> future) throws Exception {
+                        if(expiredTime <= System.currentTimeMillis()) {
+                            return;
+                        }
+
                         timer.cancel();
+
+                        if(future.isCancelled()
+                                || !future.isSuccess()) {
+                            logger.error("PlayDealNotice" + " receiverID:" + cardReceiverID + " cardIDs:" + cardIDs + " 发送失败");
+                            DealNoticeNextUser(cardReceiverID);
+                            return;
+                        }
 
                         logger.debug("PlayDealNotice" + " receiverID:" + cardReceiverID + " cardIDs:" + cardIDs + " 发送成功，准备出牌...");
 
@@ -60,13 +70,20 @@ public class Deal {
                     }
                 });
             } else {
-                OnlyDealNotice(user.getUserID(), container);
+                final String userID = user.getUserID();
+                ChannelHandlerContext ctx = UserContextManager.getContext(userID);
+                ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+                    @Override
+                    public void operationComplete(Future<? super Void> future) throws Exception {
+                        logger.debug("PlayDealNotice" + " receiverID:" + userID + " 发送成功");
+                    }
+                });
             }
         }
     }
 
-    static public void DealNotice(final String cardReceiverID) {
-        logger.debug("DealNotice" + " cardReceiverID:" + cardReceiverID + " 开始发送...");
+    static public void InitDealNotice(final String cardReceiverID) {
+        logger.debug("InitDealNotice" + " cardReceiverID:" + cardReceiverID + " 开始发送...");
 
         //这里需要随机算法来获取卡牌ID
         final List<String> cardIDs = new ArrayList<>();
@@ -78,10 +95,7 @@ public class Deal {
 
         UserManager.getUser(cardReceiverID).addCardIDs(cardIDs);
 
-        ContainerOuterClass.Container.Builder container = MakeDealNotice(cardReceiverID, cardIDs);
-        for(final User user : RoomManager.getRoom(cardReceiverID).getUsers()) {
-            OnlyDealNotice(user.getUserID(), container);
-        }
+        OnlyDealNotice(cardReceiverID, cardIDs);
     }
 
     /**
@@ -97,9 +111,19 @@ public class Deal {
 
         UserManager.getUser(cardReceiverID).addCardIDs(cardIDs);
 
+        OnlyDealNotice(cardReceiverID, cardIDs);
+    }
+
+    static private void OnlyDealNotice(final String cardReceiverID, final List<String> cardIDs) {
         ContainerOuterClass.Container.Builder container = MakeDealNotice(cardReceiverID, cardIDs);
         for(final User user : RoomManager.getRoom(cardReceiverID).getUsers()) {
-            OnlyDealNotice(user.getUserID(), container);
+            ChannelHandlerContext ctx = UserContextManager.getContext(cardReceiverID);
+            ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+                @Override
+                public void operationComplete(Future<? super Void> future) throws Exception {
+                    logger.debug("OnlyDealNotice" + " receiverID:" + cardReceiverID + " 发送成功");
+                }
+            });
         }
     }
 
@@ -116,16 +140,6 @@ public class Deal {
         container.setMessageType(ContainerOuterClass.Container.MessageType.DealNotice);
         container.setDealNotice(notice);
         return container;
-    }
-
-    static private void OnlyDealNotice(final String receiverID, ContainerOuterClass.Container.Builder container) {
-        ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
-        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
-            @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
-                logger.debug("OnlyDealNotice" + " receiverID:" + receiverID + " 发送成功");
-            }
-        });
     }
 
     static private String randomCardID() {

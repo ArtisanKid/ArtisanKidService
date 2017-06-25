@@ -15,7 +15,7 @@ public class User {
     }
 
     public enum State {
-        Free, Matching, Matched, Inviting, Invited, WaitingInRoom, InRooming, InRoomed, Gaming
+        Free, Matching, Matched, Inviting, Invited, InRooming, InRoomed, Gaming
     }
 
     public enum GameState {

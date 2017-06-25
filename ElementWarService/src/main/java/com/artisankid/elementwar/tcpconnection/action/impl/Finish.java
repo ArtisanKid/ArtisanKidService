@@ -31,10 +31,9 @@ public class Finish {
         container.setMessageType(ContainerOuterClass.Container.MessageType.FinishNotice);
         container.setFinishNotice(notice);
 
-        List<User> users = RoomManager.getRoom(winnerID).getUsers();
-        for(User user : users) {
+        for(User user : RoomManager.getRoom(winnerID).getUsers()) {
             //循环发送finish消息，不再关注是否已经发送到客户端
-            ChannelHandlerContext ctx = UserContextManager.getUserContext(winnerID);
+            ChannelHandlerContext ctx = UserContextManager.getContext(winnerID);
             ctx.writeAndFlush(container);
 
             user.setState(User.State.Free);

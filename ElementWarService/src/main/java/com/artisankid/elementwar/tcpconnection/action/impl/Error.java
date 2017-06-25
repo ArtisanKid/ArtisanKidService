@@ -37,7 +37,7 @@ public class Error {
         container.setMessageType(ContainerOuterClass.Container.MessageType.ErrorNotice);
         container.setErrorNotice(notice);
 
-        ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
+        ChannelHandlerContext ctx = UserContextManager.getContext(receiverID);
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {

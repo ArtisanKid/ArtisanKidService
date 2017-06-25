@@ -24,7 +24,7 @@ import java.util.TimerTask;
  */
 @NettyAction
 public class Match {
-    private Logger logger = LoggerFactory.getLogger(Match.class);
+    static private Logger logger = LoggerFactory.getLogger(Match.class);
 
     @ActionRequestMap(actionKey = ContainerOuterClass.Container.MATCH_MESSAGE_FIELD_NUMBER)
     public void matchMessage(ChannelHandlerContext ctx, ContainerOuterClass.Container container) {
@@ -90,14 +90,14 @@ public class Match {
         MagicianDao dao = new MagicianDao();
 
         logger.debug("MatchMessage" + " messageID:" + messageID + " senderID:" + senderID + " 准备发送MatchNotice...");
-        matchNotice(senderID, messageID, dao.selectByOpenID(receiverID), expiredTime);
+        Match.MatchNotice(senderID, messageID, dao.selectByOpenID(receiverID), expiredTime);
 
         String receiverMessageID = UserManager.getUser(receiverID).getMatchMessageID();
         logger.debug("MatchMessage" + " messageID:" + receiverMessageID + " senderID:" + senderID + " 准备发送MatchNotice...");
-        matchNotice(receiverID, receiverMessageID, dao.selectByOpenID(senderID), UserManager.getUser(receiverID).getMatchExpiredTime());
+        Match.MatchNotice(receiverID, receiverMessageID, dao.selectByOpenID(senderID), UserManager.getUser(receiverID).getMatchExpiredTime());
     }
 
-    public void matchNotice(final String receiverID, final String messageID, Magician user, Long expiredTime) {
+    static public void MatchNotice(final String receiverID, final String messageID, Magician user, final Long expiredTime) {
         logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 开始发送...");
 
         MatchNoticeOuterClass.MatchNotice.Builder notice = MatchNoticeOuterClass.MatchNotice.newBuilder();
@@ -123,37 +123,39 @@ public class Match {
         TimerTask task = new TimerTask() {
             public void run() {
                 logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID  + " 发送超时");
-                matchNoticeFailed(receiverID);
+                MatchNoticeFailed(receiverID);
             }
         };
         timer.schedule(task, expiredTime - System.currentTimeMillis());
 
-        ChannelHandlerContext ctx = UserContextManager.getUserContext(receiverID);
+        ChannelHandlerContext ctx = UserContextManager.getContext(receiverID);
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                if(future.isCancelled()
-                        || !future.isSuccess()) {
-                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID  + " 发送失败");
-                    matchNoticeFailed(receiverID);
+                if(expiredTime <= System.currentTimeMillis()) {
                     return;
                 }
 
                 timer.cancel();
 
-                if(UserManager.getUser(receiverID).getState() != User.State.Matched) {
-                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 有用户已经发送超时，状态为Free");
+                if(future.isCancelled()
+                        || !future.isSuccess()) {
+                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID  + " 发送失败，状态为Free");
+                    MatchNoticeFailed(receiverID);
+                    return;
+                }
+
+                Room room = RoomManager.getRoom(receiverID);
+                if(room == null) {
+                    logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 已有用户发送失败");
                     return;
                 }
 
                 logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送成功，状态变为WaitingInRoom");
+                UserManager.getUser(receiverID).setState(User.State.InRooming);
 
-                UserManager.getUser(receiverID).setState(User.State.WaitingInRoom);
-
-                final Room room = RoomManager.getRoom(receiverID);
                 for(User user : room.getUsers()) {
-                    User.State state = user.getState();
-                    if(state != User.State.WaitingInRoom) {
+                    if(user.getState() != User.State.InRooming) {
                         logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 等待其他人状态变更");
                         return;
                     }
@@ -168,7 +170,7 @@ public class Match {
         });
     }
 
-    private void matchNoticeFailed(String userID) {
+    static private void MatchNoticeFailed(String userID) {
         Room room = RoomManager.getRoom(userID);
         if(room == null) {
             return;

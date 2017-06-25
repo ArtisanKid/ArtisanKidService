@@ -28,10 +28,15 @@ public class UserContextManager {
      * @param userID
      * @return Socket上下文
      */
-    public static ChannelHandlerContext getUserContext(String userID) {
+    public static ChannelHandlerContext getContext(String userID) {
         return userContextMap.get(userID);
     }
 
+    /**
+     * 获取指定Socket上下文的用户
+     * @param ctx
+     * @return 用户
+     */
     public static User getUser(ChannelHandlerContext ctx) {
         String userID = contextUserMap.get(ctx);
         if(userID == null) {
@@ -40,6 +45,10 @@ public class UserContextManager {
         return UserManager.getUser(userID);
     }
 
+    /**
+     * 移除指定用户关系
+     * @param userID
+     */
     public static void removeContext(String userID) {
         contextUserMap.remove(userContextMap.get(userID));
         userContextMap.remove(userID);
