@@ -114,11 +114,11 @@ public class UseScroll {
                     break;
                 }
                 case Jump: {
-                    Deal.DealNotice(senderID);
+                    UserManager.getUser(receiverID).addStillDealTimes();
                     break;
                 }
                 case Draw:
-                    Deal.DealNotice(senderID);
+                    Deal.ExtraDealNotice(senderID);
                     break;
             }
         }

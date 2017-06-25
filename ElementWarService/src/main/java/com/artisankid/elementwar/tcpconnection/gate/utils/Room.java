@@ -13,8 +13,13 @@ public class Room {
     private String roomID;
     private ConcurrentHashMap<String, User> userMap = new ConcurrentHashMap<>();
 
+    private String mianEpicID;//操作记录
+    private Long epicIndex = 0L;//操作记录
+
     public void setRoomID(String roomID) {
         this.roomID = roomID;
+        String value = roomID + new Long(System.currentTimeMillis()).toString();
+        this.mianEpicID = Integer.toHexString(value.hashCode());
     }
 
     public String getRoomID() {
@@ -41,5 +46,12 @@ public class Room {
             users.add(entry.getValue());
         }
         return users;
+    }
+
+    public String getMianEpicID() {
+        return mianEpicID;
+    }
+    public Long getEpicIndex() {
+        return epicIndex++;
     }
 }

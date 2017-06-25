@@ -92,28 +92,19 @@ public class UseCard {
         for(Effect effect : card.getEffects()) {
             switch (effect.getType()) {
                 case Cure: {
-                    Integer hp = UserManager.getUser(receiverID).getHp();
-                    hp += effect.getValue();
-                    UserManager.getUser(receiverID).setHp(hp);
+                    UserManager.getUser(receiverID).addHp(effect.getValue());
                     break;
                 }
                 case Hurt: {
-                    Integer hp = UserManager.getUser(receiverID).getHp();
-                    hp -= effect.getValue();
-                    UserManager.getUser(receiverID).setHp(hp);
+                    UserManager.getUser(receiverID).minusHp(effect.getValue());
                     break;
                 }
                 case Jump: {
-                    for (User user : RoomManager.getRoom(senderID).getUsers()) {
-                        if (user.getUserID() == receiverID) {
-                            continue;
-                        }
-                        Deal.DealNotice(user.getUserID());
-                    }
+                    UserManager.getUser(receiverID).addIgnoreDealTimes();
                     break;
                 }
                 case Draw:
-                    Deal.DealNotice(senderID);
+                    Deal.ExtraDealNotice(senderID);
                     break;
             }
         }

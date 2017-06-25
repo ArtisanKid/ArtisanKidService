@@ -75,8 +75,7 @@ public class GateServer {
             public void operationComplete(ChannelFuture future)
                     throws Exception {
                 if (future.isSuccess()) {
-
-                    logger.info("[GateServer] Started Successed, registry is complete, waiting for client connect...");
+                    logger.debug("[GateServer] Started Successed, registry is complete, waiting for client connect...");
                 } else {
                     logger.error("[GateServer] Started Failed, registry is incomplete");
                 }
@@ -94,6 +93,5 @@ public class GateServer {
         bootstrap.childOption(ChannelOption.TCP_NODELAY, true);
         bootstrap.childOption(ChannelOption.SO_REUSEADDR, true); //调试用
         bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true); //心跳机制暂时使用TCP选项，之后再自己实现
-
     }
 }

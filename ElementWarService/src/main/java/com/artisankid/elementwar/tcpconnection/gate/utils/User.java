@@ -9,6 +9,11 @@ import java.util.ArrayList;
  * Created by LiXiangYu on 2017/4/28.
  */
 public class User {
+    public enum ConnectState {
+        Disconnected, //断开状态
+        Connected, //连接
+    }
+
     public enum State {
         Free, Matching, Matched, Inviting, Invited, WaitingInRoom, InRooming, InRoomed, Gaming
     }
@@ -31,6 +36,11 @@ public class User {
     private Long playExpiredTime;//出牌超时时间
     private List<String> cardIDs = new ArrayList<>();
 
+    private Integer stillDealTimes = 0;//继续抽牌次数
+    private Integer ignoreDealTimes = 0;//跳过抽牌次数
+
+    private ConnectState connectState;
+
     public String getUserID() {
         return userID;
     }
@@ -45,6 +55,10 @@ public class User {
 
     public void setStrength(Integer strength) {
         this.strength = strength;
+    }
+
+    public void setConnectState(ConnectState state) {
+        this.connectState = state;
     }
 
     public State getState() {
@@ -106,8 +120,34 @@ public class User {
         this.playExpiredTime = playExpiredTime;
     }
 
-    public List<String> getCardIDs() {
-        return cardIDs;
+    public Integer getStillDealTimes() {
+        return stillDealTimes;
+    }
+
+    public void addStillDealTimes() {
+        stillDealTimes += 1;
+    }
+
+    public void minusStillDealTimes() {
+        stillDealTimes -= 1;
+        if(stillDealTimes < 0) {
+            stillDealTimes = 0;
+        }
+    }
+
+    public Integer getIgnoreDealTimes() {
+        return ignoreDealTimes;
+    }
+
+    public void addIgnoreDealTimes() {
+        ignoreDealTimes += 1;
+    }
+
+    public void minusIgnoreDealTimes() {
+        ignoreDealTimes -= 1;
+        if(ignoreDealTimes < 0) {
+            ignoreDealTimes = 0;
+        }
     }
 
     public void addCardIDs(List<String> cardIDs) {
@@ -120,5 +160,12 @@ public class User {
 
     public boolean existCardID(String cardID) {
         return this.cardIDs.contains(cardID);
+    }
+
+    public ConnectState getConnectState() {
+        if(connectState == null) {
+            setConnectState(ConnectState.Disconnected);
+        }
+        return connectState;
     }
 }

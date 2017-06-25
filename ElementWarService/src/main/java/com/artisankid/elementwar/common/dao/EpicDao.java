@@ -74,7 +74,7 @@ public class EpicDao {
 	/**
 	 * 存储次级史诗对象，关联上级
 	 * @param epic
-	 * @param epicID
+	 * @param refEpicID 关联的上级epicID
 	 * @return
 	 */
 	public boolean insert(Epic epic, String refEpicID) {

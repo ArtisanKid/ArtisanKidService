@@ -40,7 +40,12 @@ public class MagicianDao {
      * @return
      */
     public List<BaseMagician> selectByRelation(String openID, BaseMagician.UserRelation relation, int offset, int pageSize) {
-        String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM Magician LEFT JOIN User ON Magician.userID = User.userID WHERE openID IN (SELECT openID FROM Magician_Relation WHERE openID = '" + openID + "' AND relation = '" + relation.getValue() + "' ORDER BY create_time LIMIT " + offset + "," + pageSize + ") ORDER BY create_time;";
+        String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM Magician LEFT JOIN User ON Magician.userID = User.userID WHERE openID IN (SELECT ref_openID FROM Magician_Relation WHERE openID = '" + openID + "' AND relation = '" + relation.getValue() + "' ORDER BY Magician_Relation.create_time LIMIT " + offset + "," + pageSize + ") ORDER BY Magician.create_time;";
+        return this.selectMagiciansBySQL(sql);
+    }
+
+    public List<BaseMagician> selectByRelation(String openID, BaseMagician.UserRelation relation) {
+        String sql = "SELECT openID, nickname, small_portrait, strength, honor FROM Magician LEFT JOIN User ON Magician.userID = User.userID WHERE openID IN (SELECT ref_openID FROM Magician_Relation WHERE openID = '" + openID + "' AND relation = '" + relation.getValue() + "' ORDER BY Magician_Relation.create_time) ORDER BY Magician.create_time;";
         return this.selectMagiciansBySQL(sql);
     }
 

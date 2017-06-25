@@ -2,6 +2,9 @@ package com.artisankid.elementwar.tcpconnection.gate.handler;
 
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.tcpconnection.action.ActionMapUtil;
+import com.artisankid.elementwar.tcpconnection.gate.utils.User;
+import com.artisankid.elementwar.tcpconnection.gate.utils.UserContextManager;
+import com.artisankid.elementwar.tcpconnection.gate.utils.UserManager;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -26,12 +29,20 @@ public class GateServerHandler extends SimpleChannelInboundHandler {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        logger.error("USER LOGIN-------------------------------------------------");
+        logger.debug("Connection In...");
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) {
-        logger.error("CONNECTION OUT-------------------------------------------------");
+        logger.debug("Connection Out...");
+
+        User user = UserContextManager.getUser(ctx);
+        if(user == null) {
+            return;
+        }
+
+        user.setConnectState(User.ConnectState.Disconnected);
+        UserContextManager.removeContext(user.getUserID());
     }
 
     @Override

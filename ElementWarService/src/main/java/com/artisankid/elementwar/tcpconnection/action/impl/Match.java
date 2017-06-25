@@ -105,9 +105,15 @@ public class Match {
         notice.setSendTime(System.currentTimeMillis() / 1000.);
         notice.setExpiredTime(expiredTime / 1000.);
 
-        notice.setUserId(user.getOpenID());
-        notice.setUserName(user.getNickname());
-        notice.setUserPortraitUrl(user.getSmallPortrait());
+        if(user.getOpenID() != null) {
+            notice.setUserId(user.getOpenID());
+        }
+        if(user.getNickname() != null) {
+            notice.setUserName(user.getNickname());
+        }
+        if(user.getSmallPortrait() != null) {
+            notice.setUserPortraitUrl(user.getSmallPortrait());
+        }
 
         ContainerOuterClass.Container.Builder container = ContainerOuterClass.Container.newBuilder();
         container.setMessageType(ContainerOuterClass.Container.MessageType.MatchNotice);
@@ -126,15 +132,17 @@ public class Match {
         ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                timer.cancel();
-
-                if(UserManager.getUser(receiverID).getState() == User.State.Free) {
-                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送已经超时，状态为Free");
+                if(future.isCancelled()
+                        || !future.isSuccess()) {
+                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID  + " 发送失败");
+                    matchNoticeFailed(receiverID);
                     return;
                 }
 
-                if(UserManager.getUser(receiverID).getState() == User.State.Matching) {
-                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送已经超时，状态为Matching");
+                timer.cancel();
+
+                if(UserManager.getUser(receiverID).getState() != User.State.Matched) {
+                    logger.error("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 有用户已经发送超时，状态为Free");
                     return;
                 }
 
@@ -168,6 +176,8 @@ public class Match {
 
         for(User user : room.getUsers()) {
             user.setState(User.State.Free);
+            user.setMatchMessageID(null);
+            user.setMatchExpiredTime(0L);
         }
         RoomManager.removeRoom(userID);
     }
