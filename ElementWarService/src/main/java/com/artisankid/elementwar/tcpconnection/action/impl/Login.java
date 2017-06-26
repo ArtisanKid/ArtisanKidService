@@ -62,10 +62,10 @@ public class Login {
         if(user == null) {
             //新登录用户
             user = new User();
-            UserManager.addUser(user);
         }
         user.setUserID(senderID);
         user.setStrength(strength);
+        UserManager.addUser(user);
 
         //保存用户与上下文关系
         UserContextManager.setUserContext(senderID, context);

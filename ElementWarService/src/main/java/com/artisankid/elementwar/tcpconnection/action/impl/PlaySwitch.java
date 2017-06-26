@@ -83,6 +83,7 @@ public class PlaySwitch {
     }
 
     static private void OnlyPlaySwitchNotice(final String receiverID, ContainerOuterClass.Container.Builder container) {
+        logger.debug("OnlyPlaySwitchNotice" + " receiverID:" + receiverID + " 开始发送...");
         ChannelHandlerContext ctx = UserContextManager.getContext(receiverID);
         ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
             @Override

@@ -21,7 +21,7 @@ public class DatabaseManager {
             connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ElementWar", "root", "123456");
             statement = connection.createStatement(); //创建Statement对象
 			statement.executeUpdate("SET NAMES UTF8MB4");
-            System.out.println("成功连接数据库！");
+            //System.out.println("成功连接数据库！");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -31,7 +31,7 @@ public class DatabaseManager {
     }
     
     public List<Map<String, Object>> select(String sql) {
-    	System.out.println(sql);
+    	//System.out.println(sql);
     	
     	List<Map<String, Object>> result = new ArrayList<>();
     	try {
@@ -67,14 +67,14 @@ public class DatabaseManager {
 	}
 
     public boolean update(String sql, StatementHandler handler) {
-    	System.out.println(sql);
+    	//System.out.println(sql);
 
     	boolean result = false;
     	try {
     		PreparedStatement statement = connection.prepareStatement(sql);
 			handler.supplyToStatement(statement);
 			int count = statement.executeUpdate();
-			System.out.println("更新" + count + "条数据");
+			//System.out.println("更新" + count + "条数据");
 			if(count > 0) {
 				result = true;
 			}
@@ -85,12 +85,12 @@ public class DatabaseManager {
 	}
 
 	public boolean insert(String sql) {
-		System.out.println(sql);
+		//System.out.println(sql);
 
 		boolean result = false;
 		try {
 			int count = statement.executeUpdate(sql);
-			System.out.println("插入" + count + "条数据");
+			//System.out.println("插入" + count + "条数据");
 			if(count > 0) {
 				result = true;
 			}
@@ -101,12 +101,12 @@ public class DatabaseManager {
 	}
 
     public boolean update(String sql) {
-    	System.out.println(sql);
+    	//System.out.println(sql);
 
     	boolean result = false;
     	try {
 			int count = statement.executeUpdate(sql);
-			System.out.println("更新" + count + "条数据");
+			//System.out.println("更新" + count + "条数据");
 			if(count > 0) {
 				result = true;
 			}
@@ -117,12 +117,12 @@ public class DatabaseManager {
 	}
     
     public boolean delete(String sql) {
-    	System.out.println(sql);
+    	//System.out.println(sql);
     	
     	boolean result = false;
     	try {
 			int count = statement.executeUpdate(sql);
-			System.out.println("删除" + count + "条数据");
+			//System.out.println("删除" + count + "条数据");
 			if(count > 0) {
 				result = true;
 			}
@@ -143,7 +143,7 @@ public class DatabaseManager {
             	connection = null;
             }
             
-            System.out.println("成功关闭数据库！");
+            //System.out.println("成功关闭数据库！");
         } catch (SQLException e) {
             e.printStackTrace();
         }

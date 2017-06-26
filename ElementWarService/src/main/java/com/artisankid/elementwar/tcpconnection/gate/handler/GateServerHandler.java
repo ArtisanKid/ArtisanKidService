@@ -47,6 +47,7 @@ public class GateServerHandler extends SimpleChannelInboundHandler {
         if(room == null) {
             return;
         }
+
         for(User otherUser : room.getUsers()) {
             if(otherUser == user) {
                 continue;

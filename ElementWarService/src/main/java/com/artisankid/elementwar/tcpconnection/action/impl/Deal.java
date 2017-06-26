@@ -117,7 +117,7 @@ public class Deal {
     static private void OnlyDealNotice(final String cardReceiverID, final List<String> cardIDs) {
         ContainerOuterClass.Container.Builder container = MakeDealNotice(cardReceiverID, cardIDs);
         for(final User user : RoomManager.getRoom(cardReceiverID).getUsers()) {
-            ChannelHandlerContext ctx = UserContextManager.getContext(cardReceiverID);
+            ChannelHandlerContext ctx = UserContextManager.getContext(user.getUserID());
             ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
                 @Override
                 public void operationComplete(Future<? super Void> future) throws Exception {
@@ -159,7 +159,12 @@ public class Deal {
             return;
         }
 
-        List<User> users = RoomManager.getRoom(currentPlayerID).getUsers();
+        Room room = RoomManager.getRoom(currentPlayerID);
+        if(room == null) {
+            return;
+        }
+
+        List<User> users = room.getUsers();
         Integer index = users.indexOf(currentUser);
         index += 1;
         if(index >= users.size()) {
