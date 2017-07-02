@@ -2,6 +2,7 @@ package com.artisankid.elementwar.tcpconnection.action.impl;
 
 import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass;
+import com.artisankid.elementwar.tcpconnection.gate.utils.EpicManager;
 import com.artisankid.elementwar.tcpconnection.gate.utils.RoomManager;
 import com.artisankid.elementwar.tcpconnection.gate.utils.User;
 import com.artisankid.elementwar.tcpconnection.gate.utils.UserContextManager;
@@ -32,8 +33,14 @@ public class Finish {
         container.setFinishNotice(notice);
 
         for(User user : RoomManager.getRoom(winnerID).getUsers()) {
+            if(user.getUserID().equals(winnerID)) {
+                EpicManager.WriteEpic(RoomManager.getRoom(winnerID).getRoomID(), "战士用鲜血守护荣耀，胜利是勇者最佳的褒奖！");
+            } else {
+                EpicManager.WriteEpic(RoomManager.getRoom(winnerID).getRoomID(), "在不公平的命运之中仍然至死奋战，真正的勇士虽败犹荣！");
+            }
+
             //循环发送finish消息，不再关注是否已经发送到客户端
-            ChannelHandlerContext ctx = UserContextManager.getContext(winnerID);
+            ChannelHandlerContext ctx = UserContextManager.getContext(user.getUserID());
             ctx.writeAndFlush(container);
 
             user.setState(User.State.Free);

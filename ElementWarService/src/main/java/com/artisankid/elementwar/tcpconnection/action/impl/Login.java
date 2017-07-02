@@ -110,6 +110,8 @@ public class Login {
 
                 logger.debug("LoginNotice" + " messageID:" + messageID + " loginedUserID:" + loginedUserID + " 发送成功");
 
+                EpicManager.WriteEpic(loginedUserID, null, "勇士返回了战场！");
+
                 User user = UserManager.getUser(loginedUserID);
                 user.setConnectState(User.ConnectState.Connected);
 

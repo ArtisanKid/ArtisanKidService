@@ -68,12 +68,6 @@ public class Invite {
             return;
         }
 
-//        if(UserManager.getUser(receiverID).getConnectState() != User.ConnectState.Connected) {
-//            logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 被邀请用户状态为Offline，准备发送InviteReplyNotice...");
-//            Invite.InviteReplyNotice(senderID, messageID, InviteReply.Offline, expiredTime);
-//            return;
-//        }
-
         if(UserManager.getUser(receiverID).getState() != User.State.Free) {
             logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 被邀请用户状态为Busy，准备发送InviteReplyNotice...");
             Invite.InviteReplyNotice(senderID, messageID, InviteReply.Busy, expiredTime);
@@ -81,6 +75,8 @@ public class Invite {
         }
 
         logger.debug("InviteMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 状态变为Inviting，准备发送InviteNotice...");
+
+        EpicManager.WriteEpic(senderID, null, "向" + receiverID  + "发送了战书，要消灭这个邪恶的懦夫！");
 
         UserManager.getUser(senderID).setState(User.State.Inviting);
         UserManager.getUser(receiverID).setState(User.State.Inviting);
@@ -140,6 +136,8 @@ public class Invite {
                 }
 
                 logger.debug("InviteNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 发送成功");
+
+                EpicManager.WriteEpic(receiverID, null, "向" + receiverID  + "发送的战书已经送达！");
             }
         });
     }
@@ -169,18 +167,11 @@ public class Invite {
 
         Long expiredTime = new Double(message.getExpiredTime() * 1000L).longValue();
 
-//        if(UserManager.getUser(receiverID).getConnectState() != User.ConnectState.Connected) {
-//            logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 被邀请用户状态为Offline，准备发送InviteReplyNotice...");
-//
-//            UserManager.getUser(senderID).setState(User.State.Free);
-//            UserManager.getUser(receiverID).setState(User.State.Free);
-//
-//            Invite.InviteReplyNotice(senderID, messageID, InviteReply.Offline, expiredTime);
-//            return;
-//        }
-
         if(message.getIsAgree()) {
             logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " 同意邀请，状态变为Invited，准备发送InviteReplyNotice...");
+
+            EpicManager.WriteEpic(senderID, null, "接受了" + receiverID  + "的战书，尽管放马过来吧！");
+            EpicManager.WriteEpic(receiverID, null, senderID  + "接受了战书，让他知道我们的拳头到底有多硬！");
 
             UserManager.getUser(senderID).setState(User.State.Invited);
             UserManager.getUser(receiverID).setState(User.State.Invited);
@@ -192,6 +183,9 @@ public class Invite {
             Invite.InviteReplyNotice(senderID, messageID, InviteReply.Agree, expiredTime);
         } else {
             logger.debug("InviteReplyMessage" + " messageID:" + messageID + " senderID:" + senderID + " 拒绝邀请，准备发送InviteReplyNotice...");
+
+            EpicManager.WriteEpic(senderID, null, "拒绝了" + receiverID  + "的挑战，留他一条小命！");
+            EpicManager.WriteEpic(receiverID, null, senderID  + "拒绝了挑战，吓破他的胆子！");
 
             UserManager.getUser(senderID).setState(User.State.Free);
             UserManager.getUser(receiverID).setState(User.State.Free);
@@ -269,6 +263,9 @@ public class Invite {
                     }
 
                     logger.debug("InviteReplyNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " reply:" + reply + " 发送成功，状态变为WaitingInRoom");
+
+                    EpicManager.WriteEpic(receiverID, null,  "接受战书的回复已经送达，血液已经沸腾起来了！");
+
                     UserManager.getUser(receiverID).setState(User.State.InRooming);
 
                     for(User user : room.getUsers()) {
@@ -285,6 +282,7 @@ public class Invite {
                     }
                 } else {
                     logger.debug("InviteReplyNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " reply:" + reply + " 发送成功，状态变为Free");
+                    EpicManager.WriteEpic(receiverID, null,  "拒绝战书的回复已经送达！");
                 }
             }
         });

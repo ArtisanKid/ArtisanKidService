@@ -8,6 +8,8 @@ import com.artisankid.elementwar.ewmessagemodel.ContainerOuterClass;
 import com.artisankid.elementwar.ewmessagemodel.DealNoticeOuterClass;
 import com.artisankid.elementwar.tcpconnection.annotations.NettyAction;
 import com.artisankid.elementwar.tcpconnection.gate.utils.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
@@ -47,9 +49,9 @@ public class Deal {
                 timer.schedule(task, expiredTime - System.currentTimeMillis());
 
                 ChannelHandlerContext ctx = UserContextManager.getContext(cardReceiverID);
-                ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+                ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
                     @Override
-                    public void operationComplete(Future<? super Void> future) throws Exception {
+                    public void operationComplete(ChannelFuture future) throws Exception {
                         if(expiredTime <= System.currentTimeMillis()) {
                             return;
                         }
@@ -65,6 +67,8 @@ public class Deal {
 
                         logger.debug("PlayDealNotice" + " receiverID:" + cardReceiverID + " cardIDs:" + cardIDs + " 发送成功，准备出牌...");
 
+                        EpicManager.WriteEpic(RoomManager.getRoom(cardReceiverID).getRoomID(), "获得了魔法元素" + cardIDs);
+
                         //发牌成功，通知出牌
                         PlaySwitch.PlaySwitchNotice(cardReceiverID);
                     }
@@ -76,6 +80,7 @@ public class Deal {
                     @Override
                     public void operationComplete(Future<? super Void> future) throws Exception {
                         logger.debug("PlayDealNotice" + " receiverID:" + userID + " 发送成功");
+                        EpicManager.WriteEpic(RoomManager.getRoom(cardReceiverID).getRoomID(), cardReceiverID + "获得了" + cardIDs.size() + "个魔法元素");
                     }
                 });
             }
@@ -118,12 +123,23 @@ public class Deal {
         ContainerOuterClass.Container.Builder container = MakeDealNotice(cardReceiverID, cardIDs);
         for(final User user : RoomManager.getRoom(cardReceiverID).getUsers()) {
             ChannelHandlerContext ctx = UserContextManager.getContext(user.getUserID());
-            ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
-                @Override
-                public void operationComplete(Future<? super Void> future) throws Exception {
-                    logger.debug("OnlyDealNotice" + " receiverID:" + cardReceiverID + " 发送成功");
-                }
-            });
+            if(user.getUserID().equals(cardReceiverID)) {
+                ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
+                    @Override
+                    public void operationComplete(ChannelFuture future) throws Exception {
+                        logger.debug("OnlyDealNotice" + " receiverID:" + cardReceiverID + " 发送成功");
+                        EpicManager.WriteEpic(RoomManager.getRoom(cardReceiverID).getRoomID(), "获得了魔法元素" + cardIDs);
+                    }
+                });
+            } else {
+                ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
+                    @Override
+                    public void operationComplete(ChannelFuture future) throws Exception {
+                        logger.debug("OnlyDealNotice" + " receiverID:" + cardReceiverID + " 发送成功");
+                        EpicManager.WriteEpic(RoomManager.getRoom(cardReceiverID).getRoomID(), cardReceiverID + "获得了" + cardIDs.size() + "个魔法元素");
+                    }
+                });
+            }
         }
     }
 

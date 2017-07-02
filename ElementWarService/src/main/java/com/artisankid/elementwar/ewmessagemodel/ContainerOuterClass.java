@@ -172,11 +172,20 @@ public final class ContainerOuterClass {
     com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNoticeOrBuilder getPlaySwitchNoticeOrBuilder();
 
     /**
-     * <code>.FinishNotice finish_notice = 228;</code>
+     * <code>.DeadNotice dead_notice = 228;</code>
+     */
+    com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice getDeadNotice();
+    /**
+     * <code>.DeadNotice dead_notice = 228;</code>
+     */
+    com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNoticeOrBuilder getDeadNoticeOrBuilder();
+
+    /**
+     * <code>.FinishNotice finish_notice = 229;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice getFinishNotice();
     /**
-     * <code>.FinishNotice finish_notice = 228;</code>
+     * <code>.FinishNotice finish_notice = 229;</code>
      */
     com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNoticeOrBuilder getFinishNoticeOrBuilder();
 
@@ -488,8 +497,22 @@ public final class ContainerOuterClass {
               break;
             }
             case 1826: {
-              com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder subBuilder = null;
+              com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.Builder subBuilder = null;
               if (messageCase_ == 228) {
+                subBuilder = ((com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice) message_).toBuilder();
+              }
+              message_ =
+                  input.readMessage(com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice) message_);
+                message_ = subBuilder.buildPartial();
+              }
+              messageCase_ = 228;
+              break;
+            }
+            case 1834: {
+              com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder subBuilder = null;
+              if (messageCase_ == 229) {
                 subBuilder = ((com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_).toBuilder();
               }
               message_ =
@@ -498,7 +521,7 @@ public final class ContainerOuterClass {
                 subBuilder.mergeFrom((com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_);
                 message_ = subBuilder.buildPartial();
               }
-              messageCase_ = 228;
+              messageCase_ = 229;
               break;
             }
           }
@@ -602,9 +625,13 @@ public final class ContainerOuterClass {
        */
       PlaySwitchNotice(227),
       /**
-       * <code>FinishNotice = 228;</code>
+       * <code>DeadNotice = 228;</code>
        */
-      FinishNotice(228),
+      DeadNotice(228),
+      /**
+       * <code>FinishNotice = 229;</code>
+       */
+      FinishNotice(229),
       UNRECOGNIZED(-1),
       ;
 
@@ -681,9 +708,13 @@ public final class ContainerOuterClass {
        */
       public static final int PlaySwitchNotice_VALUE = 227;
       /**
-       * <code>FinishNotice = 228;</code>
+       * <code>DeadNotice = 228;</code>
        */
-      public static final int FinishNotice_VALUE = 228;
+      public static final int DeadNotice_VALUE = 228;
+      /**
+       * <code>FinishNotice = 229;</code>
+       */
+      public static final int FinishNotice_VALUE = 229;
 
 
       public final int getNumber() {
@@ -722,7 +753,8 @@ public final class ContainerOuterClass {
           case 225: return UseCardNotice;
           case 226: return UseScrollNotice;
           case 227: return PlaySwitchNotice;
-          case 228: return FinishNotice;
+          case 228: return DeadNotice;
+          case 229: return FinishNotice;
           default: return null;
         }
       }
@@ -796,7 +828,8 @@ public final class ContainerOuterClass {
       USE_CARD_NOTICE(225),
       USE_SCROLL_NOTICE(226),
       PLAY_SWITCH_NOTICE(227),
-      FINISH_NOTICE(228),
+      DEAD_NOTICE(228),
+      FINISH_NOTICE(229),
       MESSAGE_NOT_SET(0);
       private final int value;
       private MessageCase(int value) {
@@ -829,7 +862,8 @@ public final class ContainerOuterClass {
           case 225: return USE_CARD_NOTICE;
           case 226: return USE_SCROLL_NOTICE;
           case 227: return PLAY_SWITCH_NOTICE;
-          case 228: return FINISH_NOTICE;
+          case 228: return DEAD_NOTICE;
+          case 229: return FINISH_NOTICE;
           case 0: return MESSAGE_NOT_SET;
           default: return null;
         }
@@ -1185,21 +1219,41 @@ public final class ContainerOuterClass {
       return com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice.getDefaultInstance();
     }
 
-    public static final int FINISH_NOTICE_FIELD_NUMBER = 228;
+    public static final int DEAD_NOTICE_FIELD_NUMBER = 228;
     /**
-     * <code>.FinishNotice finish_notice = 228;</code>
+     * <code>.DeadNotice dead_notice = 228;</code>
+     */
+    public com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice getDeadNotice() {
+      if (messageCase_ == 228) {
+         return (com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice) message_;
+      }
+      return com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.getDefaultInstance();
+    }
+    /**
+     * <code>.DeadNotice dead_notice = 228;</code>
+     */
+    public com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNoticeOrBuilder getDeadNoticeOrBuilder() {
+      if (messageCase_ == 228) {
+         return (com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice) message_;
+      }
+      return com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.getDefaultInstance();
+    }
+
+    public static final int FINISH_NOTICE_FIELD_NUMBER = 229;
+    /**
+     * <code>.FinishNotice finish_notice = 229;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice getFinishNotice() {
-      if (messageCase_ == 228) {
+      if (messageCase_ == 229) {
          return (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
     }
     /**
-     * <code>.FinishNotice finish_notice = 228;</code>
+     * <code>.FinishNotice finish_notice = 229;</code>
      */
     public com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNoticeOrBuilder getFinishNoticeOrBuilder() {
-      if (messageCase_ == 228) {
+      if (messageCase_ == 229) {
          return (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_;
       }
       return com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
@@ -1296,7 +1350,10 @@ public final class ContainerOuterClass {
         output.writeMessage(227, (com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.PlaySwitchNotice) message_);
       }
       if (messageCase_ == 228) {
-        output.writeMessage(228, (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_);
+        output.writeMessage(228, (com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice) message_);
+      }
+      if (messageCase_ == 229) {
+        output.writeMessage(229, (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_);
       }
     }
 
@@ -1379,7 +1436,11 @@ public final class ContainerOuterClass {
       }
       if (messageCase_ == 228) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(228, (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_);
+          .computeMessageSize(228, (com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice) message_);
+      }
+      if (messageCase_ == 229) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(229, (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_);
       }
       memoizedSize = size;
       return size;
@@ -1471,6 +1532,10 @@ public final class ContainerOuterClass {
               .equals(other.getPlaySwitchNotice());
           break;
         case 228:
+          result = result && getDeadNotice()
+              .equals(other.getDeadNotice());
+          break;
+        case 229:
           result = result && getFinishNotice()
               .equals(other.getFinishNotice());
           break;
@@ -1559,6 +1624,10 @@ public final class ContainerOuterClass {
           hash = (53 * hash) + getPlaySwitchNotice().hashCode();
           break;
         case 228:
+          hash = (37 * hash) + DEAD_NOTICE_FIELD_NUMBER;
+          hash = (53 * hash) + getDeadNotice().hashCode();
+          break;
+        case 229:
           hash = (37 * hash) + FINISH_NOTICE_FIELD_NUMBER;
           hash = (53 * hash) + getFinishNotice().hashCode();
           break;
@@ -1844,6 +1913,13 @@ public final class ContainerOuterClass {
           }
         }
         if (messageCase_ == 228) {
+          if (deadNoticeBuilder_ == null) {
+            result.message_ = message_;
+          } else {
+            result.message_ = deadNoticeBuilder_.build();
+          }
+        }
+        if (messageCase_ == 229) {
           if (finishNoticeBuilder_ == null) {
             result.message_ = message_;
           } else {
@@ -1963,6 +2039,10 @@ public final class ContainerOuterClass {
           }
           case PLAY_SWITCH_NOTICE: {
             mergePlaySwitchNotice(other.getPlaySwitchNotice());
+            break;
+          }
+          case DEAD_NOTICE: {
+            mergeDeadNotice(other.getDeadNotice());
             break;
           }
           case FINISH_NOTICE: {
@@ -4225,25 +4305,155 @@ public final class ContainerOuterClass {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
+          com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice, com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.Builder, com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNoticeOrBuilder> deadNoticeBuilder_;
+      /**
+       * <code>.DeadNotice dead_notice = 228;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice getDeadNotice() {
+        if (deadNoticeBuilder_ == null) {
+          if (messageCase_ == 228) {
+            return (com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice) message_;
+          }
+          return com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.getDefaultInstance();
+        } else {
+          if (messageCase_ == 228) {
+            return deadNoticeBuilder_.getMessage();
+          }
+          return com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.DeadNotice dead_notice = 228;</code>
+       */
+      public Builder setDeadNotice(com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice value) {
+        if (deadNoticeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          message_ = value;
+          onChanged();
+        } else {
+          deadNoticeBuilder_.setMessage(value);
+        }
+        messageCase_ = 228;
+        return this;
+      }
+      /**
+       * <code>.DeadNotice dead_notice = 228;</code>
+       */
+      public Builder setDeadNotice(
+          com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.Builder builderForValue) {
+        if (deadNoticeBuilder_ == null) {
+          message_ = builderForValue.build();
+          onChanged();
+        } else {
+          deadNoticeBuilder_.setMessage(builderForValue.build());
+        }
+        messageCase_ = 228;
+        return this;
+      }
+      /**
+       * <code>.DeadNotice dead_notice = 228;</code>
+       */
+      public Builder mergeDeadNotice(com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice value) {
+        if (deadNoticeBuilder_ == null) {
+          if (messageCase_ == 228 &&
+              message_ != com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.getDefaultInstance()) {
+            message_ = com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice) message_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            message_ = value;
+          }
+          onChanged();
+        } else {
+          if (messageCase_ == 228) {
+            deadNoticeBuilder_.mergeFrom(value);
+          }
+          deadNoticeBuilder_.setMessage(value);
+        }
+        messageCase_ = 228;
+        return this;
+      }
+      /**
+       * <code>.DeadNotice dead_notice = 228;</code>
+       */
+      public Builder clearDeadNotice() {
+        if (deadNoticeBuilder_ == null) {
+          if (messageCase_ == 228) {
+            messageCase_ = 0;
+            message_ = null;
+            onChanged();
+          }
+        } else {
+          if (messageCase_ == 228) {
+            messageCase_ = 0;
+            message_ = null;
+          }
+          deadNoticeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.DeadNotice dead_notice = 228;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.Builder getDeadNoticeBuilder() {
+        return getDeadNoticeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.DeadNotice dead_notice = 228;</code>
+       */
+      public com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNoticeOrBuilder getDeadNoticeOrBuilder() {
+        if ((messageCase_ == 228) && (deadNoticeBuilder_ != null)) {
+          return deadNoticeBuilder_.getMessageOrBuilder();
+        } else {
+          if (messageCase_ == 228) {
+            return (com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice) message_;
+          }
+          return com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.DeadNotice dead_notice = 228;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice, com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.Builder, com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNoticeOrBuilder> 
+          getDeadNoticeFieldBuilder() {
+        if (deadNoticeBuilder_ == null) {
+          if (!(messageCase_ == 228)) {
+            message_ = com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.getDefaultInstance();
+          }
+          deadNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice, com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice.Builder, com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNoticeOrBuilder>(
+                  (com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.DeadNotice) message_,
+                  getParentForChildren(),
+                  isClean());
+          message_ = null;
+        }
+        messageCase_ = 228;
+        onChanged();;
+        return deadNoticeBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice, com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder, com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNoticeOrBuilder> finishNoticeBuilder_;
       /**
-       * <code>.FinishNotice finish_notice = 228;</code>
+       * <code>.FinishNotice finish_notice = 229;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice getFinishNotice() {
         if (finishNoticeBuilder_ == null) {
-          if (messageCase_ == 228) {
+          if (messageCase_ == 229) {
             return (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
         } else {
-          if (messageCase_ == 228) {
+          if (messageCase_ == 229) {
             return finishNoticeBuilder_.getMessage();
           }
           return com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.FinishNotice finish_notice = 228;</code>
+       * <code>.FinishNotice finish_notice = 229;</code>
        */
       public Builder setFinishNotice(com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice value) {
         if (finishNoticeBuilder_ == null) {
@@ -4255,11 +4465,11 @@ public final class ContainerOuterClass {
         } else {
           finishNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 228;
+        messageCase_ = 229;
         return this;
       }
       /**
-       * <code>.FinishNotice finish_notice = 228;</code>
+       * <code>.FinishNotice finish_notice = 229;</code>
        */
       public Builder setFinishNotice(
           com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder builderForValue) {
@@ -4269,15 +4479,15 @@ public final class ContainerOuterClass {
         } else {
           finishNoticeBuilder_.setMessage(builderForValue.build());
         }
-        messageCase_ = 228;
+        messageCase_ = 229;
         return this;
       }
       /**
-       * <code>.FinishNotice finish_notice = 228;</code>
+       * <code>.FinishNotice finish_notice = 229;</code>
        */
       public Builder mergeFinishNotice(com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice value) {
         if (finishNoticeBuilder_ == null) {
-          if (messageCase_ == 228 &&
+          if (messageCase_ == 229 &&
               message_ != com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance()) {
             message_ = com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.newBuilder((com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_)
                 .mergeFrom(value).buildPartial();
@@ -4286,26 +4496,26 @@ public final class ContainerOuterClass {
           }
           onChanged();
         } else {
-          if (messageCase_ == 228) {
+          if (messageCase_ == 229) {
             finishNoticeBuilder_.mergeFrom(value);
           }
           finishNoticeBuilder_.setMessage(value);
         }
-        messageCase_ = 228;
+        messageCase_ = 229;
         return this;
       }
       /**
-       * <code>.FinishNotice finish_notice = 228;</code>
+       * <code>.FinishNotice finish_notice = 229;</code>
        */
       public Builder clearFinishNotice() {
         if (finishNoticeBuilder_ == null) {
-          if (messageCase_ == 228) {
+          if (messageCase_ == 229) {
             messageCase_ = 0;
             message_ = null;
             onChanged();
           }
         } else {
-          if (messageCase_ == 228) {
+          if (messageCase_ == 229) {
             messageCase_ = 0;
             message_ = null;
           }
@@ -4314,32 +4524,32 @@ public final class ContainerOuterClass {
         return this;
       }
       /**
-       * <code>.FinishNotice finish_notice = 228;</code>
+       * <code>.FinishNotice finish_notice = 229;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder getFinishNoticeBuilder() {
         return getFinishNoticeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.FinishNotice finish_notice = 228;</code>
+       * <code>.FinishNotice finish_notice = 229;</code>
        */
       public com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNoticeOrBuilder getFinishNoticeOrBuilder() {
-        if ((messageCase_ == 228) && (finishNoticeBuilder_ != null)) {
+        if ((messageCase_ == 229) && (finishNoticeBuilder_ != null)) {
           return finishNoticeBuilder_.getMessageOrBuilder();
         } else {
-          if (messageCase_ == 228) {
+          if (messageCase_ == 229) {
             return (com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice) message_;
           }
           return com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
         }
       }
       /**
-       * <code>.FinishNotice finish_notice = 228;</code>
+       * <code>.FinishNotice finish_notice = 229;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice, com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.Builder, com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNoticeOrBuilder> 
           getFinishNoticeFieldBuilder() {
         if (finishNoticeBuilder_ == null) {
-          if (!(messageCase_ == 228)) {
+          if (!(messageCase_ == 229)) {
             message_ = com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.FinishNotice.getDefaultInstance();
           }
           finishNoticeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4349,7 +4559,7 @@ public final class ContainerOuterClass {
                   isClean());
           message_ = null;
         }
-        messageCase_ = 228;
+        messageCase_ = 229;
         onChanged();;
         return finishNoticeBuilder_;
       }
@@ -4489,40 +4699,41 @@ public final class ContainerOuterClass {
       "e.proto\032\027InviteReplyNotice.proto\032\022InRoom" +
       "Notice.proto\032\020DealNotice.proto\032\023UseCardN" +
       "otice.proto\032\025UseScrollNotice.proto\032\026Play" +
-      "SwitchNotice.proto\032\022FinishNotice.proto\"\320",
-      "\t\n\tContainer\022&\n\rlogin_message\030n \001(\0132\r.Lo" +
-      "ginMessageH\000\022&\n\rmatch_message\030x \001(\0132\r.Ma" +
-      "tchMessageH\000\022(\n\016invite_message\030y \001(\0132\016.I" +
-      "nviteMessageH\000\0223\n\024invite_reply_message\030z" +
-      " \001(\0132\023.InviteReplyMessageH\000\022+\n\020use_card_" +
-      "message\030{ \001(\0132\017.UseCardMessageH\000\022/\n\022use_" +
-      "scroll_message\030| \001(\0132\021.UseScrollMessageH" +
-      "\000\022%\n\014error_notice\030\310\001 \001(\0132\014.ErrorNoticeH\000" +
-      "\022%\n\014login_notice\030\322\001 \001(\0132\014.LoginNoticeH\000\022" +
-      "\'\n\rlogout_notice\030\323\001 \001(\0132\r.LogoutNoticeH\000",
-      "\022%\n\014match_notice\030\334\001 \001(\0132\014.MatchNoticeH\000\022" +
-      "\'\n\rinvite_notice\030\335\001 \001(\0132\r.InviteNoticeH\000" +
-      "\0222\n\023invite_reply_notice\030\336\001 \001(\0132\022.InviteR" +
-      "eplyNoticeH\000\022(\n\016in_room_notice\030\337\001 \001(\0132\r." +
-      "InRoomNoticeH\000\022#\n\013deal_notice\030\340\001 \001(\0132\013.D" +
-      "ealNoticeH\000\022*\n\017use_card_notice\030\341\001 \001(\0132\016." +
-      "UseCardNoticeH\000\022.\n\021use_scroll_notice\030\342\001 " +
-      "\001(\0132\020.UseScrollNoticeH\000\0220\n\022play_switch_n" +
-      "otice\030\343\001 \001(\0132\021.PlaySwitchNoticeH\000\022\'\n\rfin" +
-      "ish_notice\030\344\001 \001(\0132\r.FinishNoticeH\000\022+\n\013me",
-      "ssageType\030\002 \001(\0162\026.Container.MessageType\"" +
-      "\374\002\n\013MessageType\022\010\n\004None\020\000\022\020\n\014LoginMessag" +
-      "e\020n\022\020\n\014MatchMessage\020x\022\021\n\rInviteMessage\020y" +
-      "\022\026\n\022InviteReplyMessage\020z\022\022\n\016UseCardMessa" +
-      "ge\020{\022\024\n\020UseScrollMessage\020|\022\020\n\013ErrorNotic" +
-      "e\020\310\001\022\020\n\013LoginNotice\020\322\001\022\021\n\014LogoutNotice\020\323" +
-      "\001\022\020\n\013MatchNotice\020\334\001\022\021\n\014InviteNotice\020\335\001\022\026" +
-      "\n\021InviteReplyNotice\020\336\001\022\021\n\014InRoomNotice\020\337" +
-      "\001\022\017\n\nDealNotice\020\340\001\022\022\n\rUseCardNotice\020\341\001\022\024" +
-      "\n\017UseScrollNotice\020\342\001\022\025\n\020PlaySwitchNotice",
-      "\020\343\001\022\021\n\014FinishNotice\020\344\001B\t\n\007messageB*\n(com" +
-      ".artisankid.elementwar.ewmessagemodelb\006p" +
-      "roto3"
+      "SwitchNotice.proto\032\020DeadNotice.proto\032\022Fi",
+      "nishNotice.proto\"\206\n\n\tContainer\022&\n\rlogin_" +
+      "message\030n \001(\0132\r.LoginMessageH\000\022&\n\rmatch_" +
+      "message\030x \001(\0132\r.MatchMessageH\000\022(\n\016invite" +
+      "_message\030y \001(\0132\016.InviteMessageH\000\0223\n\024invi" +
+      "te_reply_message\030z \001(\0132\023.InviteReplyMess" +
+      "ageH\000\022+\n\020use_card_message\030{ \001(\0132\017.UseCar" +
+      "dMessageH\000\022/\n\022use_scroll_message\030| \001(\0132\021" +
+      ".UseScrollMessageH\000\022%\n\014error_notice\030\310\001 \001" +
+      "(\0132\014.ErrorNoticeH\000\022%\n\014login_notice\030\322\001 \001(" +
+      "\0132\014.LoginNoticeH\000\022\'\n\rlogout_notice\030\323\001 \001(",
+      "\0132\r.LogoutNoticeH\000\022%\n\014match_notice\030\334\001 \001(" +
+      "\0132\014.MatchNoticeH\000\022\'\n\rinvite_notice\030\335\001 \001(" +
+      "\0132\r.InviteNoticeH\000\0222\n\023invite_reply_notic" +
+      "e\030\336\001 \001(\0132\022.InviteReplyNoticeH\000\022(\n\016in_roo" +
+      "m_notice\030\337\001 \001(\0132\r.InRoomNoticeH\000\022#\n\013deal" +
+      "_notice\030\340\001 \001(\0132\013.DealNoticeH\000\022*\n\017use_car" +
+      "d_notice\030\341\001 \001(\0132\016.UseCardNoticeH\000\022.\n\021use" +
+      "_scroll_notice\030\342\001 \001(\0132\020.UseScrollNoticeH" +
+      "\000\0220\n\022play_switch_notice\030\343\001 \001(\0132\021.PlaySwi" +
+      "tchNoticeH\000\022#\n\013dead_notice\030\344\001 \001(\0132\013.Dead",
+      "NoticeH\000\022\'\n\rfinish_notice\030\345\001 \001(\0132\r.Finis" +
+      "hNoticeH\000\022+\n\013messageType\030\002 \001(\0162\026.Contain" +
+      "er.MessageType\"\215\003\n\013MessageType\022\010\n\004None\020\000" +
+      "\022\020\n\014LoginMessage\020n\022\020\n\014MatchMessage\020x\022\021\n\r" +
+      "InviteMessage\020y\022\026\n\022InviteReplyMessage\020z\022" +
+      "\022\n\016UseCardMessage\020{\022\024\n\020UseScrollMessage\020" +
+      "|\022\020\n\013ErrorNotice\020\310\001\022\020\n\013LoginNotice\020\322\001\022\021\n" +
+      "\014LogoutNotice\020\323\001\022\020\n\013MatchNotice\020\334\001\022\021\n\014In" +
+      "viteNotice\020\335\001\022\026\n\021InviteReplyNotice\020\336\001\022\021\n" +
+      "\014InRoomNotice\020\337\001\022\017\n\nDealNotice\020\340\001\022\022\n\rUse",
+      "CardNotice\020\341\001\022\024\n\017UseScrollNotice\020\342\001\022\025\n\020P" +
+      "laySwitchNotice\020\343\001\022\017\n\nDeadNotice\020\344\001\022\021\n\014F" +
+      "inishNotice\020\345\001B\t\n\007messageB*\n(com.artisan" +
+      "kid.elementwar.ewmessagemodelb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4552,6 +4763,7 @@ public final class ContainerOuterClass {
           com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.getDescriptor(),
+          com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.getDescriptor(),
           com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.getDescriptor(),
         }, assigner);
     internal_static_Container_descriptor =
@@ -4559,7 +4771,7 @@ public final class ContainerOuterClass {
     internal_static_Container_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Container_descriptor,
-        new java.lang.String[] { "LoginMessage", "MatchMessage", "InviteMessage", "InviteReplyMessage", "UseCardMessage", "UseScrollMessage", "ErrorNotice", "LoginNotice", "LogoutNotice", "MatchNotice", "InviteNotice", "InviteReplyNotice", "InRoomNotice", "DealNotice", "UseCardNotice", "UseScrollNotice", "PlaySwitchNotice", "FinishNotice", "MessageType", "Message", });
+        new java.lang.String[] { "LoginMessage", "MatchMessage", "InviteMessage", "InviteReplyMessage", "UseCardMessage", "UseScrollMessage", "ErrorNotice", "LoginNotice", "LogoutNotice", "MatchNotice", "InviteNotice", "InviteReplyNotice", "InRoomNotice", "DealNotice", "UseCardNotice", "UseScrollNotice", "PlaySwitchNotice", "DeadNotice", "FinishNotice", "MessageType", "Message", });
     com.artisankid.elementwar.ewmessagemodel.LoginMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.MatchMessageOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.InviteMessageOuterClass.getDescriptor();
@@ -4577,6 +4789,7 @@ public final class ContainerOuterClass {
     com.artisankid.elementwar.ewmessagemodel.UseCardNoticeOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.UseScrollNoticeOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.PlaySwitchNoticeOuterClass.getDescriptor();
+    com.artisankid.elementwar.ewmessagemodel.DeadNoticeOuterClass.getDescriptor();
     com.artisankid.elementwar.ewmessagemodel.FinishNoticeOuterClass.getDescriptor();
   }
 

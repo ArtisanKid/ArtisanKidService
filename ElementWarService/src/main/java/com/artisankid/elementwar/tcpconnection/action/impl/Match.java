@@ -97,7 +97,7 @@ public class Match {
         Match.MatchNotice(receiverID, receiverMessageID, dao.selectByOpenID(senderID), UserManager.getUser(receiverID).getMatchExpiredTime());
     }
 
-    static public void MatchNotice(final String receiverID, final String messageID, Magician user, final Long expiredTime) {
+    static public void MatchNotice(final String receiverID, final String messageID, final Magician user, final Long expiredTime) {
         logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 开始发送...");
 
         MatchNoticeOuterClass.MatchNotice.Builder notice = MatchNoticeOuterClass.MatchNotice.newBuilder();
@@ -162,6 +162,8 @@ public class Match {
                 }
 
                 logger.debug("MatchNotice" + " messageID:" + messageID + " receiverID:" + receiverID + " 准备进入房间...");
+
+                EpicManager.WriteEpic(receiverID, null, "与" + user.getNickname() + "的遭遇战！");
 
                 for(User user : room.getUsers()) {
                     InRoom.InRoomNotice(user.getUserID(), room.getRoomID());

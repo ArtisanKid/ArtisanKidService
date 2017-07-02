@@ -27,7 +27,7 @@ public class PlaySwitch {
     static public void PlaySwitchNotice(final String playerID) {
         final Long expiredTime = System.currentTimeMillis() + 30 * 1000L;
         ContainerOuterClass.Container.Builder container = MakePlaySwitchNotice(playerID, expiredTime);
-        for( User user : RoomManager.getRoom(playerID).getUsers()) {
+        for( final User user : RoomManager.getRoom(playerID).getUsers()) {
             if (user.getUserID().equals(playerID)) {
                 logger.debug("PlaySwitchNotice" + " playerID:" + playerID + " 开始发送...");
 
@@ -58,13 +58,22 @@ public class PlaySwitch {
                     public void operationComplete(ChannelFuture future) throws Exception {
                         logger.debug("PlaySwitchNotice" + " playerID:" + playerID + " 切换出牌成功");
 
+                        EpicManager.WriteEpic(RoomManager.getRoom(playerID).getRoomID(), "准备出手！");
+
                         User currentPlayer = UserManager.getUser(playerID);
                         currentPlayer.setGameState(User.GameState.Playing);
                         currentPlayer.setPlayExpiredTime(expiredTime);
                     }
                 });
             } else {
-                OnlyPlaySwitchNotice(user.getUserID(), container);
+                ChannelHandlerContext ctx = UserContextManager.getContext(user.getUserID());
+                ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
+                    @Override
+                    public void operationComplete(Future<? super Void> future) throws Exception {
+                        logger.debug("OnlyPlaySwitchNotice" + " receiverID:" + user.getUserID() + " 发送成功");
+                        EpicManager.WriteEpic(RoomManager.getRoom(playerID).getRoomID(),  playerID + "准备出手了！");
+                    }
+                });
             }
         }
     }
@@ -80,16 +89,5 @@ public class PlaySwitch {
         container.setPlaySwitchNotice(notice);
 
         return container;
-    }
-
-    static private void OnlyPlaySwitchNotice(final String receiverID, ContainerOuterClass.Container.Builder container) {
-        logger.debug("OnlyPlaySwitchNotice" + " receiverID:" + receiverID + " 开始发送...");
-        ChannelHandlerContext ctx = UserContextManager.getContext(receiverID);
-        ctx.writeAndFlush(container).addListener(new GenericFutureListener<Future<? super Void>>() {
-            @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
-                logger.debug("OnlyPlaySwitchNotice" + " receiverID:" + receiverID + " 发送成功");
-            }
-        });
     }
 }

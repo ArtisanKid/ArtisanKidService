@@ -40,7 +40,8 @@ public class UseCard {
             return;
         }
 
-        if(UserManager.getUser(senderID).getGameState() != User.GameState.Playing) {
+        User sender = UserManager.getUser(senderID);
+        if(sender.getGameState() != User.GameState.Playing) {
             String error = "UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " senderID和当前出牌用户不一致";
             Error.ErrorNotice(senderID, messageID, 0, error);
             return;
@@ -54,8 +55,8 @@ public class UseCard {
         }
 
         MagicianDao magicianDao = new MagicianDao();
-        Magician receiver = magicianDao.selectByOpenID(receiverID);
-        if(receiver == null) {
+        Magician magician = magicianDao.selectByOpenID(receiverID);
+        if(magician == null) {
             String error = "UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID无效";
             Error.ErrorNotice(senderID, messageID, 0, error);
             return;
@@ -76,7 +77,7 @@ public class UseCard {
             return;
         }
 
-        if(!UserManager.getUser(senderID).existCardID(cardID)) {
+        if(sender.existCardID(cardID) == 0) {
             String error = "UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " 用户不具有cardID";
             Error.ErrorNotice(senderID, messageID, 0, error);
             return;
@@ -85,38 +86,63 @@ public class UseCard {
         logger.debug("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 开始处理出牌...");
 
         //使用掉此卡牌
-        UserManager.getUser(senderID).removeCardID(cardID);
+        sender.removeCardID(cardID);
 
+        User receiver = UserManager.getUser(receiverID);
+
+        String effectInfo = "元素效果：";
         //根据卡牌效果处理血量
         //卡牌区分对别人使用还是自己使用
         for(Effect effect : card.getEffects()) {
             switch (effect.getType()) {
                 case Cure: {
-                    UserManager.getUser(receiverID).addHp(effect.getValue());
+                    receiver.addHp(effect.getValue());
+                    effectInfo += "\n" + receiverID + "恢复" + effect.getValue() + "点生命";
                     break;
                 }
                 case Hurt: {
-                    UserManager.getUser(receiverID).minusHp(effect.getValue());
+                    receiver.minusHp(effect.getValue());
+                    effectInfo += "\n" + receiverID + "受到" + effect.getValue() + "点伤害\n";
                     break;
                 }
                 case Jump: {
-                    UserManager.getUser(receiverID).addIgnoreDealTimes();
+                    receiver.addIgnoreDealTimes(effect.getValue());
+                    effectInfo += "\n" + receiverID + "失去" + effect.getValue() + "次攻击机会\n";
                     break;
                 }
                 case Draw:
-                    Deal.ExtraDealNotice(senderID);
+                    for(Integer i = 0; i < effect.getValue(); i++) {
+                        Deal.ExtraDealNotice(senderID);
+                    }
+                    effectInfo += "\n" + receiverID + "意外获得" + effect.getValue() + "个的魔法元素\n";
                     break;
             }
         }
 
         logger.debug("UseCardMessage " + " messageID:" + messageID + " senderID:" + senderID + " receiverID:" + receiverID + " cardID:" + cardID + " 准备发送UseCardNotice...");
 
+        EpicManager.WriteEpic(RoomManager.getRoom(senderID).getRoomID(), "使用" + card.getElement().getCname() + "元素，" + effectInfo);
+
         UseCard.UseCardNotice(messageID, senderID, receiverID, cardID);
 
-        if(UserManager.getUser(receiverID).getHp() <= 0) {
+        if(receiver.getHp() <= 0) {
+            Dead.DeadNotice(receiverID);
+        }
+
+        boolean everyoneDead = true;
+        for(User user : RoomManager.getRoom(senderID).getUsers()) {
+            String userID = user.getUserID();
+            if(userID.equals(senderID)) {
+                continue;
+            } else {
+                if(user.getHp() > 0) {
+                    everyoneDead = false;
+                }
+            }
+        }
+
+        if(everyoneDead) {
             Finish.FinishNotice(senderID);
-        } else if(UserManager.getUser(senderID).getHp() <= 0) {
-            Finish.FinishNotice(receiverID);
         }
     }
 
@@ -138,23 +164,21 @@ public class UseCard {
         container.setMessageType(ContainerOuterClass.Container.MessageType.UseCardNotice);
         container.setUseCardNotice(notice);
 
-        ChannelHandlerContext ctx = UserContextManager.getContext(senderID);
-        ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
-            @Override
-            public void operationComplete(ChannelFuture future) throws Exception {
-                logger.debug("UseCardNotice " + " messageID:" + messageID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 发送成功");
-            }
-        });
-
-        //其他用户的通知没有消息ID
-        notice.setMessageId(new String());
         for(User user : RoomManager.getRoom(senderID).getUsers()) {
             if(user.getUserID().equals(senderID)) {
-                return;
+                ChannelHandlerContext ctx = UserContextManager.getContext(senderID);
+                ctx.writeAndFlush(container).addListener(new ChannelFutureListener() {
+                    @Override
+                    public void operationComplete(ChannelFuture future) throws Exception {
+                        logger.debug("UseCardNotice " + " messageID:" + messageID + " senderID:" + senderID + " effectReceiverID:" + effectReceiverID + " cardID:" + cardID + " 发送成功");
+                    }
+                });
+            } else {
+                //其他用户的通知没有消息ID
+                notice.setMessageId(new String());
+                ChannelHandlerContext otherCtx = UserContextManager.getContext(user.getUserID());
+                otherCtx.writeAndFlush(container);
             }
-
-            ChannelHandlerContext otherCtx = UserContextManager.getContext(user.getUserID());
-            otherCtx.writeAndFlush(container);
         }
     }
 }

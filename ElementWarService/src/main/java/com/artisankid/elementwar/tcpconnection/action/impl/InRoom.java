@@ -22,6 +22,8 @@ public class InRoom {
     static public void InRoomNotice(final String receiverID, final String roomID) {
         logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 开始发送...");
 
+        EpicManager.WriteEpic(receiverID, null, "这是一场战争，需要勇气与智慧来取得胜利。勇士！进入古老的战场，等待英雄凯旋！");
+
         InRoomNoticeOuterClass.InRoomNotice.Builder notice = InRoomNoticeOuterClass.InRoomNotice.newBuilder();
         Long now = System.currentTimeMillis();
         final Long expiredTime = now + 10 * 1000L;
@@ -67,6 +69,10 @@ public class InRoom {
                 }
 
                 logger.debug("InRoomNotice" + " receiverID:" + receiverID + " roomID:" + roomID + " 发送成功，状态为InRoomed");
+
+                EpicManager.WriteEpic(receiverID, roomID, "终将会是一场残酷的战争！");
+                EpicManager.WriteEpic(roomID, "对面，就是敌人！战争的号角已经吹响，邪恶的一方终究会受到神的制裁！");
+
                 UserManager.getUser(receiverID).setState(User.State.InRoomed);
 
                 List<User> users = room.getUsers();

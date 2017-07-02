@@ -139,8 +139,8 @@ public class User {
         return ignoreDealTimes;
     }
 
-    public void addIgnoreDealTimes() {
-        ignoreDealTimes += 1;
+    public void addIgnoreDealTimes(Integer times) {
+        ignoreDealTimes += times;
     }
 
     public void minusIgnoreDealTimes() {
@@ -158,8 +158,14 @@ public class User {
         this.cardIDs.remove(cardID);
     }
 
-    public boolean existCardID(String cardID) {
-        return this.cardIDs.contains(cardID);
+    public Integer existCardID(String cardID) {
+        Integer count = 0;
+        for(String _cardID : cardIDs) {
+            if(_cardID.equals(cardID)) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public ConnectState getConnectState() {

@@ -62,7 +62,7 @@ public class EpicDao {
 	 */
 	public boolean insert(String openID, Epic epic) {
 		String epicSQL = "INSERT INTO Epic (epicID, history) VALUES ('" + epic.getEpicID() + "', '" + epic.getHistory() + "');";
-		String relationSQL = "INSERT INTO User_Epic (openID, epicID) VALUES ('" + openID + "', '" + epic.getEpicID() + "');";
+		String relationSQL = "INSERT INTO Magician_Epic (openID, epicID) VALUES ('" + openID + "', '" + epic.getEpicID() + "');";
 		DatabaseManager manager = new DatabaseManager();
 		manager.connection();
 		boolean epicResult = manager.insert(epicSQL);
